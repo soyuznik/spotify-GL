@@ -1,13 +1,16 @@
 
 
 
+
+
 // including glad used for shaders etc to configure them
 #include <glad/glad.h>
 // iostream idk for strings maybe or "cout"
 #include <iostream>
 // glfw for context which openGL need to draw in like a canvas
 #include <GLFW/glfw3.h>
-
+//type conversion
+#include <string>
 //source code of vertex shader yeah kinda simple
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -29,7 +32,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 
 //input procces prototype
 void processinput(GLFWwindow* window);
-
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 
 int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
@@ -60,18 +63,21 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     // set the visibility window hint to false for subsequent window creation
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 
+    
+
 
     /*  HERE IT SHOULD BE IN ORDER !!! 1. make window
                                         2. make the window current context
                                         3. load GLAD !*/
     // create a windowed mode window and its OpenGL context
     GLFWwindow* window = glfwCreateWindow(windowSizeW, windowSizeH, "Hello World", NULL, NULL);
-    if (!window)
+    if(!window)
     {
         glfwTerminate();
         return -1;
     }
-
+    // when window is clicked what it shoudl do
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
     // make the window's context current
     glfwMakeContextCurrent(window);
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -209,4 +215,33 @@ void processinput(GLFWwindow* window) {
     // more right --->
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         glfwSetWindowPos(window, current_x + 10, current_y);
+}
+/*GLOBAL VARIABLES FOR MOUSE_BUTTON_CALLBACK*/
+double _1xpos, _1ypos;// pos on 1st click
+double _2xpos, _2ypos;// pos on 2nd click
+double xoffset, yoffset;// how much should the window move on X and Y AXIS
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+
+    
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {                    
+        glfwGetCursorPos(window, &_1xpos, &_1ypos); // setting 1st click pos 
+        
+    }
+
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {  
+        glfwGetCursorPos(window, &_2xpos, &_2ypos); // setting 2nd click pos
+
+
+        // pool window move event
+        xoffset = _2xpos - _1xpos; // offset (XY)
+        yoffset = _2ypos - _1ypos;
+        int currentx, currenty;
+        glfwGetWindowPos(window, &currentx, &currenty);//window pos before updating
+        glfwSetWindowPos(window, currentx + xoffset, currenty + yoffset);// setting new window position
+    }
+    
+    
+    
+
+        
 }
