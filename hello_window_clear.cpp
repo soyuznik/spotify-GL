@@ -3,6 +3,9 @@
 
 
 
+
+
+
 // including glad used for shaders etc to configure them
 #include <glad/glad.h>
 // iostream idk for strings maybe or "cout"
@@ -11,6 +14,8 @@
 #include <GLFW/glfw3.h>
 //type conversion
 #include <string>
+//mouse button callback type
+#define INSTANT_MOUSE_CALLBACK false
 //source code of vertex shader yeah kinda simple
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
@@ -177,8 +182,6 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
         // render
         processinput(window);
 
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need
         //to bind it every time, but we'll do so to keep things a bit more organized
@@ -189,7 +192,6 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
         // poll for and process events
         glfwPollEvents();
     }
-
     glfwTerminate();
     return 0;
 }
@@ -205,43 +207,59 @@ void processinput(GLFWwindow* window) {
     // independent keys
     // move up ^
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x, current_y - 10);
+        glfwSetWindowPos(window, current_x, current_y - 5);
     // move down v
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x, current_y + 10);
+        glfwSetWindowPos(window, current_x, current_y + 5);
     // <--- move left
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x - 10, current_y);
+        glfwSetWindowPos(window, current_x - 5, current_y);
     // more right --->
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x + 10, current_y);
+        glfwSetWindowPos(window, current_x + 5, current_y);
 }
 /*GLOBAL VARIABLES FOR MOUSE_BUTTON_CALLBACK*/
 double _1xpos, _1ypos;// pos on 1st click
 double _2xpos, _2ypos;// pos on 2nd click
 double xoffset, yoffset;// how much should the window move on X and Y AXIS
+
+
+
+
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+    static bool is_decorated = false;
+    if (INSTANT_MOUSE_CALLBACK) { // different mouse callback -> can be edited using the global macro
+        if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+            glfwGetCursorPos(window, &_1xpos, &_1ypos); // setting 1st click pos 
 
-    
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {                    
-        glfwGetCursorPos(window, &_1xpos, &_1ypos); // setting 1st click pos 
-        
+        }
+
+        if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
+            glfwGetCursorPos(window, &_2xpos, &_2ypos); // setting 2nd click pos
+
+
+            // pool window move event
+            xoffset = _2xpos - _1xpos; // offset (XY)
+            yoffset = _2ypos - _1ypos;
+            int currentx, currenty;
+            glfwGetWindowPos(window, &currentx, &currenty);//window pos before updating
+            glfwSetWindowPos(window, currentx + xoffset, currenty + yoffset);// setting new window position
+        }
     }
+    else {
+        if (is_decorated == false && button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+            glfwHideWindow(window);// hiding and showing to prevent weird visual bug
+            glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_TRUE); // setting the decorated atribute so it shows the title bar
+            glfwShowWindow(window);
+            is_decorated = true;
+        }
+        else if (is_decorated == true && button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+            glfwHideWindow(window);
+            glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_FALSE);// setting the decorated atribute so it doesnt show the title bar
+            glfwShowWindow(window);
+            is_decorated = false;
+        }
 
-    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {  
-        glfwGetCursorPos(window, &_2xpos, &_2ypos); // setting 2nd click pos
-
-
-        // pool window move event
-        xoffset = _2xpos - _1xpos; // offset (XY)
-        yoffset = _2ypos - _1ypos;
-        int currentx, currenty;
-        glfwGetWindowPos(window, &currentx, &currenty);//window pos before updating
-        glfwSetWindowPos(window, currentx + xoffset, currenty + yoffset);// setting new window position
     }
-    
-    
-    
-
-        
 }
+        
