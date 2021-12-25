@@ -1,4 +1,6 @@
 # TRANSPARENT-TRIANGLE
 transparent backround triangle
 
-fix class branch
+UPDATES:
+--FIXED CLASS BRANCH
+--ADDED SHADER & CONFIG_GL CLASS
