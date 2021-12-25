@@ -1,6 +1,0 @@
-# TRANSPARENT-TRIANGLE
-transparent backround triangle
-
-UPDATES:
---FIXED CLASS BRANCH
---ADDED SHADER & CONFIG_GL CLASS

@@ -1,4 +1,6 @@
 ﻿  CONFIG_GL.cpp
-D:\Visual Studio\Projects\OPENGL_PROJECT\CONFIG_GL.cpp(95,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\CONFIG_GL.cpp(95,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\CONFIG_GL.cpp(129,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\CONFIG_GL.cpp(129,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  MAIN.cpp
+  Generating Code...
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

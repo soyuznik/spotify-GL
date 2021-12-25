@@ -4,25 +4,9 @@
 #include "CONFIG_GL.h"
 #include "SHADER.h"
 
-
-
-
-
-
-
 //input procces prototype
 void processinput(GLFWwindow* window);
-
-
-
-int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
-{
-    CONFIG_GL config;
-    GLFWwindow* window = config.DEFINE_WINDOW();
-
-
-    Shader shader("VERTEXSHADER.glsl", "FRAGMENTSHADER.glsl");
-    
+unsigned int gen_VAO() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
@@ -30,7 +14,6 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
          0.5f, -0.5f, 0.0f, // right 
          0.0f,  0.5f, 0.0f  // top   
     };
-    
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
@@ -51,14 +34,26 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0);
 
-    
+    return VAO;
+}
 
+
+int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
+{
+    CONFIG_GL config;
+    GLFWwindow* window = config.DEFINE_WINDOW(TRANSPARENT_WINDOW);
+
+
+    Shader shader("VERTEXSHADER.glsl", "FRAGMENTSHADER.glsl");
+    
+    unsigned int VAO = gen_VAO();
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
         // render
         processinput(window);
+        
 
         shader.Activate();
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need
