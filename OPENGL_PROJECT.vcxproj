@@ -150,16 +150,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="MAINWIN.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="includes\glad.c" />
-    <ClCompile Include="MAINWIN.cpp" />
     <ClCompile Include="MAIN.cpp" />
+    <ClCompile Include="SHADER.cpp" />
+    <ClCompile Include="CONFIG_GL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="VERTEXSHADER.txt" />
-    <Text Include="FRAGMENTSHADER.txt" />
+    <None Include="FRAGMENTSHADER.glsl" />
+    <None Include="VERTEXSHADER.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CONFIG_GL.h" />
+    <ClInclude Include="SHADER.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

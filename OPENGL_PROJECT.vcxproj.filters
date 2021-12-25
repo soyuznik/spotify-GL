@@ -15,23 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MAINWIN.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="MAINWIN.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MAIN.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="includes\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SHADER.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CONFIG_GL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="VERTEXSHADER.txt" />
-    <Text Include="FRAGMENTSHADER.txt" />
+    <None Include="FRAGMENTSHADER.glsl">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="VERTEXSHADER.glsl">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SHADER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CONFIG_GL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
