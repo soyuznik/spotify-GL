@@ -1,3 +1,3 @@
--0.5  -0.5   0.0f // left    //start triangle 
-0.5  -0.5   0.0f // right 
-0.0   0.5   0.0f  // top     // end triangle
+-0.5  -0.5   0.0f //start triangle 
+0.5  -0.5   0.0f  
+0.0   0.5   0.0f  // end triangle
