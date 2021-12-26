@@ -17,17 +17,18 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 
     Shader shader("VERTEXSHADER.glsl", "FRAGMENTSHADER.glsl");
     
-    GENERATE_VAO gen("VERTICES.buf");
+    GENERATE_VAO gen("vertices/square.buf");
     unsigned int VAO = gen.return_VAO();
+   
 
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(window))
     {
         // render
-        processinput(window);
         
-
+        processinput(window);
         shader.Activate();
+        gen.set_scale(shader.return_ID(), 2.0f);// fix
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need
         //to bind it every time, but we'll do so to keep things a bit more organized
         glDrawArrays(GL_TRIANGLES, 0, 6);

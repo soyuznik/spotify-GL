@@ -9,5 +9,6 @@ public:
 	std::vector<float> load_vertices();
 	GENERATE_VAO(const char* PATH);
 	unsigned int return_VAO();
+	void set_scale(unsigned int program , float scale);
 };
 

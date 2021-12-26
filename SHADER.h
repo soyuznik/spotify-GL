@@ -22,6 +22,8 @@ public:
 	void Activate();
 	// Deletes the Shader Program
 	void Delete();
+
+	GLuint return_ID() { return ID; }
 private:
 	// Checks if the different Shaders have compiled properly
 	void compileErrors(unsigned int shader, const char* type);

@@ -13,7 +13,7 @@ std::vector<float> GENERATE_VAO::load_vertices() {
         auto n = line.find("//");
         if (n != std::string::npos)
         {
-            line.erase(n, 1);
+            line.erase(n, 120);
         }
         try {
             vectVertices.push_back(stof(x));
@@ -32,6 +32,11 @@ std::vector<float> GENERATE_VAO::load_vertices() {
 GENERATE_VAO::GENERATE_VAO(const char* argPATH) {
     PATH = argPATH;
 }
+void GENERATE_VAO::set_scale(unsigned int program , float scale) {
+    glm::mat4 mat4scale(scale);
+    unsigned int scale_location = glGetUniformLocation(program, "scale");
+    glUniformMatrix4fv(scale_location, 1, GL_FALSE, glm::value_ptr(mat4scale));
+}
 unsigned int GENERATE_VAO::return_VAO() {
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -45,7 +50,8 @@ unsigned int GENERATE_VAO::return_VAO() {
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices.data(), GL_STATIC_DRAW);
+   
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);

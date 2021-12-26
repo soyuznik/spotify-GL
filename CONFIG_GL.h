@@ -3,6 +3,10 @@
 // including glad used for shaders etc to configure them
 #include <glad/glad.h>
 // iostream idk for strings maybe or "cout"
+//glm for mat4... etc
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+// cout , I/O
 #include <iostream>
 // glfw for context which openGL need to draw in like a canvas
 #include <GLFW/glfw3.h>
