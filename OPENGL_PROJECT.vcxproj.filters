@@ -27,6 +27,9 @@
     <ClCompile Include="CONFIG_GL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GENERATE_VAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="FRAGMENTSHADER.glsl">
@@ -35,12 +38,16 @@
     <None Include="VERTEXSHADER.glsl">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="VERTICES.buf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SHADER.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CONFIG_GL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GENERATE_VAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

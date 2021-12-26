@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GENERATE_VAO.cpp" />
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="MAIN.cpp" />
     <ClCompile Include="SHADER.cpp" />
@@ -158,9 +159,11 @@
   <ItemGroup>
     <None Include="FRAGMENTSHADER.glsl" />
     <None Include="VERTEXSHADER.glsl" />
+    <None Include="VERTICES.buf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CONFIG_GL.h" />
+    <ClInclude Include="GENERATE_VAO.h" />
     <ClInclude Include="SHADER.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

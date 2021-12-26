@@ -6,6 +6,10 @@
 #include <iostream>
 // glfw for context which openGL need to draw in like a canvas
 #include <GLFW/glfw3.h>
+#include <fstream>
+#include <sstream>
+#include <vector>
+
 
 #define TRANSPARENT_INSTANT 0
 #define TRANSPARENT_WINDOW 1
