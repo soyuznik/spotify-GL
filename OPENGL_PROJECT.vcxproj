@@ -160,6 +160,7 @@
     <None Include="FRAGMENTSHADER.glsl" />
     <None Include="VERTEXSHADER.glsl" />
     <None Include="vertices\square.buf" />
+    <None Include="vertices\triangle.buf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CONFIG_GL.h" />

@@ -1,4 +1,41 @@
 #include"SHADER.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+bool Shader::NORMALIZE_VALUES() {
+	normalize = true;
+	std::cout << " SHADER.cpp::Shader::NORMALIZE_VALUES >> \"normalize\" is ";
+	if (normalize) { std::cout << "true";}
+	if (!normalize) { std::cout << "false"; }
+
+	return normalize;
+}
+void Shader::scale(float scale) {
+	this->setFloat("scale", scale); // scale
+}
+void Shader::color(float R, float G, float B, float A) {
+	if (normalize) {
+		R = R / 255;
+		G = G / 255;
+		B = B / 255;
+		A = A / 255;
+	}
+	glm::vec4 RGBA = glm::vec4(R, G, B, A);
+	this->setVec4("RGBA", RGBA);
+};
+void Shader::move(GLFWwindow* window , float x , float y) {
+	if (normalize) {
+		int width, height;
+		glfwGetWindowSize(window, &width, &height);
+		x = x / (float)width;
+		y = y / (float)height;
+	}
+	// calculate the model matrix for each object and pass it to shader before drawing
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::translate(model, glm::vec3(x, y, 1.0f));
+	this->setMat4("model", model);
+}
 
 // Reads a text file and outputs a string with everything in the text file
 std::string get_file_contents(const char* filename)
@@ -99,4 +136,66 @@ void Shader::compileErrors(unsigned int shader, const char* type)
 			std::cout << "SHADER_LINKING_ERROR for:" << type << "\n" << infoLog << std::endl;
 		}
 	}
+}
+void Shader::use() const
+{
+	glUseProgram(ID);
+}
+// utility uniform functions
+// ------------------------------------------------------------------------
+void Shader::setBool(const std::string& name, bool value) const
+{
+	glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
+}
+// ------------------------------------------------------------------------
+void Shader::setInt(const std::string& name, int value) const
+{
+	glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
+}
+// ------------------------------------------------------------------------
+void Shader::setFloat(const std::string& name, float value) const
+{
+	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+}
+// ------------------------------------------------------------------------
+void Shader::setVec2(const std::string& name, const glm::vec2& value) const
+{
+	glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::setVec2(const std::string& name, float x, float y) const
+{
+	glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
+}
+// ------------------------------------------------------------------------
+void Shader::setVec3(const std::string& name, const glm::vec3& value) const
+{
+	glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::setVec3(const std::string& name, float x, float y, float z) const
+{
+	glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+}
+// ------------------------------------------------------------------------
+void Shader::setVec4(const std::string& name, const glm::vec4& value) const
+{
+	glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
+}
+void Shader::setVec4(const std::string& name, float x, float y, float z, float w) const
+{
+	glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
+}
+// ------------------------------------------------------------------------
+void Shader::setMat2(const std::string& name, const glm::mat2& mat) const
+{
+	glUniformMatrix2fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+// ------------------------------------------------------------------------
+void Shader::setMat3(const std::string& name, const glm::mat3& mat) const
+{
+	glUniformMatrix3fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+}
+// ------------------------------------------------------------------------
+void Shader::setMat4(const std::string& name, const glm::mat4& mat) const
+{
+	glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }

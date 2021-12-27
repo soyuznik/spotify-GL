@@ -44,6 +44,9 @@
     <None Include="vertices\square.buf">
       <Filter>Vertices Files</Filter>
     </None>
+    <None Include="vertices\triangle.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SHADER.h">

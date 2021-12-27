@@ -63,7 +63,7 @@ GLFWwindow* CONFIG_GL::DEFINE_WINDOW(int transparency) {
                                     2. make the window current context
                                     3. load GLAD !*/
                                     // create a windowed mode window and its OpenGL context
-    GLFWwindow* window = glfwCreateWindow(windowSizeW, windowSizeH, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(windowSizeW, windowSizeH, "Hello World", NULL, NULL);
     if (!window){
         glfwTerminate();
         std::cout << "FAILED TO LOAD WINDOW";

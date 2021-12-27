@@ -23,6 +23,7 @@
 class CONFIG_GL
 {
 public:
+	GLFWwindow* window;
 	GLFWmonitor** monitors;
 	const GLFWvidmode* videoMode;
 	// here some stuff i dont understand xd but i think it sets the aspect ratio and monitor stuff
