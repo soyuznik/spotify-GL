@@ -33,6 +33,7 @@ public:
 	CONFIG_GL(int transparency);
 	void CONFIG_MONITOR();
     GLFWwindow* DEFINE_WINDOW(int transparency);
+	
 
 };
 

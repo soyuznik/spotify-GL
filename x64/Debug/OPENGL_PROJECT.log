@@ -1,0 +1,3 @@
+﻿  MAIN.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(36,25): warning C4305: 'argument': truncation from 'double' to 'float'
+  OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

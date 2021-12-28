@@ -16,8 +16,8 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
      
     GLFWwindow* window = CONFIG_GL(TRANSPARENT_WINDOW).window; // W = 640, H = 480;
     Shader shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
-    VertexArrayObject VAO = VertexArrayObject("vertices/triangle.buf");
-    TEXTURE texture = TEXTURE("textures/container2.jpg");
+    VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
+    TEXTURE texture = TEXTURE("textures/container.jpg");
     
     
     bool normalize = shader.NORMALIZE_VALUES();
@@ -34,7 +34,7 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
         
         shader.use();
         shader.scale(0.7);
-        shader.move(window, 0, 0);
+        shader.move(window, 140, 0);
         texture.use();
         
         VAO.use();
