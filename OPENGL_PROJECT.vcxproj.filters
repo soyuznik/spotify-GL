@@ -9,12 +9,14 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Vertices Files">
       <UniqueIdentifier>{7fc91b80-9885-4e85-8ffa-30bde93c0f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture Files">
+      <UniqueIdentifier>{c2c26360-2f55-474b-b390-a34eb7ae3661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader Files">
+      <UniqueIdentifier>{dfea935c-556c-4f02-b123-0e6163ae4737}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,22 +32,31 @@
     <ClCompile Include="CONFIG_GL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GENERATE_VAO.cpp">
+    <ClCompile Include="VAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TEXTURE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FRAGMENTSHADER.glsl">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="VERTEXSHADER.glsl">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="vertices\square.buf">
       <Filter>Vertices Files</Filter>
     </None>
     <None Include="vertices\triangle.buf">
       <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="shaders\color_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\color_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +66,31 @@
     <ClInclude Include="CONFIG_GL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GENERATE_VAO.h">
+    <ClInclude Include="VAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TEXTURE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\container.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\bricks2.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\brickwall.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\container2.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\marble.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\metal.png">
+      <Filter>Texture Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

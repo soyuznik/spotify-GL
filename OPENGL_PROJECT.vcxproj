@@ -150,22 +150,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GENERATE_VAO.cpp" />
+    <ClCompile Include="VAO.cpp" />
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="MAIN.cpp" />
     <ClCompile Include="SHADER.cpp" />
     <ClCompile Include="CONFIG_GL.cpp" />
+    <ClCompile Include="TEXTURE.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FRAGMENTSHADER.glsl" />
-    <None Include="VERTEXSHADER.glsl" />
+    <None Include="shaders\color_frag.glsl" />
+    <None Include="shaders\color_vertex.glsl" />
+    <None Include="shaders\texture_frag.glsl" />
+    <None Include="shaders\texture_vertex.glsl" />
     <None Include="vertices\square.buf" />
     <None Include="vertices\triangle.buf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CONFIG_GL.h" />
-    <ClInclude Include="GENERATE_VAO.h" />
+    <ClInclude Include="VAO.h" />
     <ClInclude Include="SHADER.h" />
+    <ClInclude Include="TEXTURE.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\bricks2.jpg" />
+    <Image Include="textures\brickwall.jpg" />
+    <Image Include="textures\container.jpg" />
+    <Image Include="textures\container2.jpg" />
+    <Image Include="textures\marble.jpg" />
+    <Image Include="textures\metal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

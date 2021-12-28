@@ -30,7 +30,7 @@ public:
 	int count, windowWidth, windowHeight, monitorX, monitorY;
 	// window size
 	int windowSizeW = 640, windowSizeH = 480;
-	CONFIG_GL();
+	CONFIG_GL(int transparency);
 	void CONFIG_MONITOR();
     GLFWwindow* DEFINE_WINDOW(int transparency);
 

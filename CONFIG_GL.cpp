@@ -5,13 +5,13 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 
 
-CONFIG_GL::CONFIG_GL() {
+CONFIG_GL::CONFIG_GL(int transparency) {
     // init glfw so we can use its things XD
     if (!glfwInit()) {
         std::cout << "FAILED TO LOAD GLFW\n";
         return;
     }
-
+    this->DEFINE_WINDOW(transparency);
     
 }
 void CONFIG_GL::CONFIG_MONITOR() {

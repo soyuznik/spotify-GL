@@ -3,8 +3,8 @@
 
 #include "CONFIG_GL.h"
 #include "SHADER.h"
-#include "GENERATE_VAO.h"
-
+#include "VAO.h"
+#include "TEXTURE.h"
 
 //input procces prototype
 void processinput(GLFWwindow* window);
@@ -14,13 +14,17 @@ void processinput(GLFWwindow* window);
 int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 {
      
-    GLFWwindow* window = CONFIG_GL().DEFINE_WINDOW(TRANSPARENT_WINDOW); // W = 640, H = 480;
-    Shader shader("VERTEXSHADER.glsl", "FRAGMENTSHADER.glsl");
-    unsigned int VAO = GENERATE_VAO("vertices/triangle.buf").return_VAO();
-   
-    bool normalize = shader.NORMALIZE_VALUES();
+    GLFWwindow* window = CONFIG_GL(TRANSPARENT_WINDOW).window; // W = 640, H = 480;
+    Shader shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+    VertexArrayObject VAO = VertexArrayObject("vertices/triangle.buf");
+    TEXTURE texture = TEXTURE("textures/container2.jpg");
     
+    
+    bool normalize = shader.NORMALIZE_VALUES();
+
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     // Loop until the user closes the window
+    int random = 0;
     while (!glfwWindowShouldClose(window))
     {
         // render
@@ -30,12 +34,11 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
         
         shader.use();
         shader.scale(0.7);
-        shader.color(6, 150, 120 , 255);
-        shader.move(window , 0, 0);
-        //RGB color (6, 150, 120)
-
-        glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need
-        //to bind it every time, but we'll do so to keep things a bit more organized
+        shader.move(window, 0, 0);
+        texture.use();
+        
+        VAO.use();
+        
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // swap front and back buffers
         glfwSwapBuffers(window);
