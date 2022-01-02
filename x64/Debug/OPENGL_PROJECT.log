@@ -1,3 +1,8 @@
 ﻿  MAIN.cpp
-D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(36,25): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(57,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(64,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(140,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(141,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(142,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(143,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe
