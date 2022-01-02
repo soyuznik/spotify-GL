@@ -123,10 +123,14 @@ void processinput(GLFWwindow* window) {
     int current_x, current_y;
     glfwGetWindowPos(window, &current_x, &current_y);
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-
-        glm::vec3 A = glm::vec3(-0.5, -0.5, 0.0);
+        // vectors from triangle.buf file
+        glm::vec3 A = glm::vec3(-0.5, -0.5, 0.0);// here we make
         glm::vec3 B = glm::vec3(0.5, -0.5, 0.0);//
         glm::vec3 C = glm::vec3(0.0, 0.5, 0.0);//
+
+        
+
+
         // <function>
 
 
@@ -137,18 +141,12 @@ void processinput(GLFWwindow* window) {
         glfwGetWindowPos(window, &winx, &winy);
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
-        float ndc_x = xpos / width * 2 - 1;
+        ypos = static_cast<double>(height) - ypos;// here we inverse the y axis  from down positive to up positive axis...
+        float ndc_x = xpos / width * 2 - 1;// normalizing coordinates
         float ndc_y = ypos / height * 2 - 1;
-        float ndc_winx = winx / width * 2 - 1;
-        float ndc_winy = winy / height * 2 - 1;
-        glm::vec3 point = glm::vec3(ndc_x ,ndc_y, 1.0f);
-        cout << "\n ---report \n";
-        cout << "width,height->" + to_string(width) +":" + to_string(height) << endl;
-        cout << "winx,winy->" + to_string(winx) + ":" + to_string(winy) << endl;
-        cout << "xpos,ypos->" + to_string(xpos) + ":" + to_string(ypos) << endl;
-        cout << "ndc x&y->" + to_string(ndc_x) + ":" + to_string(ndc_y) << endl;
 
-      
+        glm::vec3 point = glm::vec3(ndc_x ,ndc_y, 1.0f);
+
         std::cout << "is in triangle?! -- > " + std::to_string(isInTriangle(A,B,C,point)) << std::endl << std::endl;
         /*if (isInTriangle(w1, w2)) {
             std::cout << "TRUE\n";

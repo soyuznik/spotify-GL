@@ -1,8 +1,9 @@
 ﻿  MAIN.cpp
 D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(57,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(64,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(140,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(141,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(142,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(143,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(145,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(146,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+glfw3.lib(input.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(input.obj)' or at ''; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe
