@@ -1,28 +1,8 @@
-﻿  VAO.cpp
-  MAIN.cpp
-  SHADER.cpp
-  WINDOW.cpp
+﻿  WINDOW.cpp
 D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(108,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
 D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(114,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(202,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(203,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(257,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(257,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-  TEXTURE.cpp
-  Generating Code...
-glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(init.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(init.obj)' or at ''; linking object as if no debug info
-glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_thread.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\glfw.pdb'; linking object as if no debug info
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(207,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(208,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(262,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(262,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

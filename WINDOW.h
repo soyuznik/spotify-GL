@@ -12,22 +12,17 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-
+#include "SHADER.h"
 
 #define TRANSPARENT_INSTANT 0
 #define TRANSPARENT_WINDOW 1
 #define TRANSPARENT_WINDOW_STATIC 3
 #define TRANSPARENT_NO 2
-float distance(float x1, float y1, float x2, float y2);
-float calc_area(float a, float b, float c);
-int position(float area, float A, float B, float C);
-void calc(float x1, float y1, float x2, float y2
-	, float x3, float y3, float x, float y, int* flag, float* area);
-bool isInTriangle(glm::vec3 A, glm::vec3 B, glm::vec3 C, glm::vec3 point);
+
 
 class WINDOW{
 public:
-
+	
 	GLFWwindow* window;
 	GLFWmonitor** monitors;
 	const GLFWvidmode* videoMode;
@@ -38,7 +33,7 @@ public:
 	WINDOW(int transparency);
 	void CONFIG_MONITOR();
 	GLFWwindow* DEFINE_WINDOW(int transparency);
-	void processinput(std::vector<glm::vec3> data);
+	void processinput(std::vector<glm::vec3> data , Shader shader);
 
 
 };

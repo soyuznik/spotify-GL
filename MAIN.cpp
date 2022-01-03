@@ -29,14 +29,14 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     {
         // render
 
-        windowobj.processinput(VAO.vertices_vec4);
+        
 
 
         shader.use();
-        shader.scale(1.0);
-        shader.move(windowobj.window, 0, 0);
-        texture.use();
+        shader.transform(windowobj.window, 200, 100 , 0.2);
+        windowobj.processinput(VAO.vertices_vec4 , shader);
 
+        texture.use();
         VAO.use();
 
         glDrawArrays(GL_TRIANGLES, 0, 6);

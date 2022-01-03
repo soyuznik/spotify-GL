@@ -15,6 +15,9 @@ std::string get_file_contents(const char* filename);
 class Shader
 {
 public:
+    glm::mat4 model_;
+    float scaling;
+   
 	// Reference ID of the Shader Program
 	GLuint ID;
     bool normalize = false;
@@ -31,7 +34,7 @@ public:
 
     void scale(float scale);
     void color(float R, float G, float B, float A);
-    void move(GLFWwindow* window , float x, float y);
+    void transform(GLFWwindow* window , float x, float y, float scale);
     
 
 

@@ -13,6 +13,7 @@ bool Shader::NORMALIZE_VALUES() {
 	return normalize;
 }
 void Shader::scale(float scale) {
+	scaling = scale;
 	this->setFloat("scale", scale); // scale
 }
 void Shader::color(float R, float G, float B, float A) {
@@ -25,16 +26,19 @@ void Shader::color(float R, float G, float B, float A) {
 	glm::vec4 RGBA = glm::vec4(R, G, B, A);
 	this->setVec4("RGBA", RGBA);
 };
-void Shader::move(GLFWwindow* window , float x , float y) {
+void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
 	if (normalize) {
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
 		x = x / (float)width;
 		y = y / (float)height;
 	}
+	scaling = scale;
+	this->setFloat("scale", scale); // scale
 	// calculate the model matrix for each object and pass it to shader before drawing
 	glm::mat4 model = glm::mat4(1.0f);
 	model = glm::translate(model, glm::vec3(x, y, 1.0f));
+	model_ = model;
 	this->setMat4("model", model);
 }
 

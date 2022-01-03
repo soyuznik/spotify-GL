@@ -160,7 +160,7 @@ void calc(float x1, float y1, float x2, float y2
 
     *flag = position(*area, A, B, C);
 }
-bool isInTriangle(glm::vec3 A, glm::vec3 B, glm::vec3 C, glm::vec3 point) {
+bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point) {
     int   flag = 0;
     float area = 0;
 
@@ -169,7 +169,7 @@ bool isInTriangle(glm::vec3 A, glm::vec3 B, glm::vec3 C, glm::vec3 point) {
     if (flag) return true;
     else  return false;
 }
-void WINDOW::processinput(std::vector<glm::vec3> data) {
+void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
     int current_x, current_y;
@@ -177,10 +177,15 @@ void WINDOW::processinput(std::vector<glm::vec3> data) {
 
 
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        
+        glm::mat4 model = shader.model_;
+        model = glm::scale(model, glm::vec3(shader.scaling, shader.scaling, shader.scaling));
+        
         // vectors from triangle.buf file
-        glm::vec3 A = data[0];
-        glm::vec3 B = data[1];
-        glm::vec3 C = data[2];
+        glm::vec4 A = model * glm::vec4(data[0] , 1.0f);
+        glm::vec4 B = model * glm::vec4(data[1] , 1.0f);
+        glm::vec4 C = model * glm::vec4(data[2] , 1.0f);
+        
 
 
 
@@ -202,7 +207,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data) {
         float ndc_x = xpos / width * 2 - 1;// normalizing coordinates x , y
         float ndc_y = ypos / height * 2 - 1;
 
-        glm::vec3 point = glm::vec3(ndc_x, ndc_y, 1.0f);// creating point on screen with normalized coords
+        glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
 
         std::cout << "is in triangle?! -- > " + std::to_string(isInTriangle(A, B, C, point)) << std::endl << std::endl; // isInTriangle function
 
