@@ -21,6 +21,8 @@ std::vector<float> VertexArrayObject::load_vertices() {
             vectVertices.push_back(stof(z));
             vectVertices.push_back(stof(tx));
             vectVertices.push_back(stof(ty));
+
+            vertices_vec4.push_back(glm::vec3(stof(x), stof(y), stof(z)));
         }
         catch (...) {
             std::cout << "ERROR::MAIN::load_vertices , failed to convert string to float on line  " << line_number;

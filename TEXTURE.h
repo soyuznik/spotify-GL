@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "CONFIG_GL.h"
+#include "WINDOW.h"
 
 class TEXTURE
 {

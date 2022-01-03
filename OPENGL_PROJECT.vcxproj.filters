@@ -29,7 +29,7 @@
     <ClCompile Include="SHADER.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CONFIG_GL.cpp">
+    <ClCompile Include="WINDOW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="VAO.cpp">
@@ -63,7 +63,7 @@
     <ClInclude Include="SHADER.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CONFIG_GL.h">
+    <ClInclude Include="WINDOW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VAO.h">

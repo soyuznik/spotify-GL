@@ -154,7 +154,7 @@
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="MAIN.cpp" />
     <ClCompile Include="SHADER.cpp" />
-    <ClCompile Include="CONFIG_GL.cpp" />
+    <ClCompile Include="WINDOW.cpp" />
     <ClCompile Include="TEXTURE.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +166,7 @@
     <None Include="vertices\triangle.buf" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CONFIG_GL.h" />
+    <ClInclude Include="WINDOW.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="SHADER.h" />
     <ClInclude Include="TEXTURE.h" />
