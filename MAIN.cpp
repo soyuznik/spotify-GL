@@ -29,12 +29,9 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     {
         // render
 
-        
-
-
         shader.use();
         shader.transform(windowobj.window, 200, 100 , 0.2);
-        windowobj.processinput(VAO.vertices_vec4 , shader);
+        windowobj.processinput(VAO.vec4_vector , shader);
 
         texture.use();
         VAO.use();

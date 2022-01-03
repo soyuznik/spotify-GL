@@ -1,35 +1,50 @@
 #include "VAO.h"
 
 
-std::vector<float> VertexArrayObject::load_vertices() {
-    std::vector<float> vectVertices;
-    std::string line; int line_number = -1;
-    std::ifstream loadv(PATH.c_str());
-    while (getline(loadv, line)) {
-        line_number++;
-        std::string x, y, z , tx , ty;
-        std::stringstream str(line);
-        str >> x; str >> y; str >> z; str >> tx; str >> ty;
-        auto n = line.find("//");
-        if (n != std::string::npos)
-        {
-            line.erase(n, 120);
-        }
-        try {
-            vectVertices.push_back(stof(x));
-            vectVertices.push_back(stof(y));
-            vectVertices.push_back(stof(z));
-            vectVertices.push_back(stof(tx));
-            vectVertices.push_back(stof(ty));
+void VertexArrayObject::load_vertices() {
 
-            vertices_vec4.push_back(glm::vec3(stof(x), stof(y), stof(z)));
+    std::ifstream file(PATH);
+    std::string line;
+    while (getline(file, line)) {
+        
+        if (line.substr(0, 2) == "v ") {
+            std::stringstream stream(line.substr(2));
+            std::string x, y, z, tx, ty;
+            stream >> x; stream >> y; stream >> z;
+            stream >> tx; stream >> ty;
+
+            v_vector.push_back(stof(x));
+            v_vector.push_back(stof(y));
+            v_vector.push_back(stof(z));
+            v_vector.push_back(stof(tx));
+            v_vector.push_back(stof(ty));
+
+            vec4_vector.push_back(glm::vec3(stof(x), stof(y), stof(z)));
+
         }
-        catch (...) {
-            std::cout << "ERROR::MAIN::load_vertices , failed to convert string to float on line  " << line_number;
-            throw std::invalid_argument("failed to convert string to float");
+        else if (line.substr(0, 1) == "#") {
+            continue;
         }
+        else if (line.substr(0, 2) == "s ") {
+            std::stringstream stream(line.substr(2));
+            std::string normalized, posx, posy, posz, scale;
+            
+            stream >> normalized; stream >> posx; stream >> posy;
+            stream >> posz; stream >> scale;
+            if (normalized == "true") {
+                normalize = true;
+            }
+            else {normalize = false;}
+            s_vector.push_back(stof(posx));
+            s_vector.push_back(stof(posy));
+            s_vector.push_back(stof(posz));
+            s_vector.push_back(stof(scale));
+           
+        }
+        
+
     }
-    return vectVertices;
+    
 
 
 }
@@ -37,7 +52,7 @@ VertexArrayObject::VertexArrayObject(const char* argPATH){
     PATH = argPATH;
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
-    std::vector<float> vertices = this->load_vertices();
+    this->load_vertices();
 
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
@@ -47,7 +62,7 @@ VertexArrayObject::VertexArrayObject(const char* argPATH){
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, v_vector.size() * sizeof(float), v_vector.data(), GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
