@@ -1,0 +1,8 @@
+﻿  WINDOW.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(110,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(116,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(218,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(219,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(283,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(283,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

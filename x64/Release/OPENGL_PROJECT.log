@@ -1,0 +1,5 @@
+﻿  MAIN.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(35,66): warning C4305: 'argument': truncation from 'double' to 'float'
+  TEXT.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\TEXT.cpp(6,63): error C2512: 'Shader': no appropriate default constructor available
+D:\Visual Studio\Projects\OPENGL_PROJECT\SHADER.h(15,7): message : see declaration of 'Shader'
