@@ -28,7 +28,7 @@ public:
     Shader* defshader;
     unsigned int VAO, VBO;
     void load_text(WINDOW, std::string font_name);
-    void RenderText(std::string text, float x, float y, float scale, glm::vec3 color);
+    void drawText(std::string text, float x, float y, float scale, glm::vec3 color);
     Text(WINDOW window ,std::string path);
 
 

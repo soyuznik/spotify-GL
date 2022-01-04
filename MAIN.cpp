@@ -8,6 +8,8 @@
 #include "TEXT.h"
 using namespace std;
 
+#define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
+
 
 
 
@@ -17,7 +19,7 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 
     WINDOW windowobj(TRANSPARENT_WINDOW_STATIC , 1000 , 640); // W = 640, H = 480;
     Shader texture_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
-    VertexArrayObject VAO = VertexArrayObject("vertices/triangle.buf");
+    VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
     TEXTURE texture = TEXTURE("textures/container.jpg");
     Text antonio_bold = Text(windowobj, "fonts/Antonio-Bold.ttf");
 
@@ -29,16 +31,22 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     while (!glfwWindowShouldClose(windowobj.window))
     {
         // render
-
+        //rendering triangle 
         texture_shader.use();
         texture_shader.transform(windowobj.window, 200, 100 , 0.2);
-        windowobj.processinput(VAO.vec4_vector , texture_shader);
-       
-        //antonio_bold.RenderText("yes", 0, 10, 2, glm::vec3(1.0f, 0.1f, 0.1f));
         texture.use();
         VAO.use();
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        DRAW(6);
+
+        //drawing  text
+        antonio_bold.drawText("********", 0, 10, 2, glm::vec3(0.0f, 0.0f, 1.0f));
+       
+        
+        
+
+       //process input (also button input)
+        windowobj.processinput(VAO.vec4_vector , texture_shader);
         // swap front and back buffers
         glfwSwapBuffers(windowobj.window);
 

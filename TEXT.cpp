@@ -120,7 +120,7 @@ void Text::load_text(WINDOW window , std::string font_name) {
 }
 // render line of text
 // -------------------
-void Text::RenderText(std::string text, float x, float y, float scale, glm::vec3 color)
+void Text::drawText(std::string text, float x, float y, float scale, glm::vec3 color)
 {
     // activate corresponding render state	
     glUseProgram(shaderID);
@@ -156,8 +156,9 @@ void Text::RenderText(std::string text, float x, float y, float scale, glm::vec3
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices); // be sure to use glBufferSubData and not glBufferData
 
         glBindBuffer(GL_ARRAY_BUFFER, 0);
-        // render quad
+
         glDrawArrays(GL_TRIANGLES, 0, 6);
+       
         // now advance cursors for next glyph (note that advance is number of 1/64 pixels)
         x += (ch.Advance >> 6) * scale; // bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
     }

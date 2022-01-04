@@ -22,7 +22,10 @@
 
 class WINDOW{
 public:
-	
+	int index0 = 0;
+	int index1 = 1; 
+	int index2 = 2;
+	int triangles_checked = 3;
 	GLFWwindow* window;
 	GLFWmonitor** monitors;
 	const GLFWvidmode* videoMode;
