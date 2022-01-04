@@ -7,12 +7,14 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 
 
-WINDOW::WINDOW(int transparency) {
+WINDOW::WINDOW(int transparency, int width, int height) {
     // init glfw so we can use its things XD
     if (!glfwInit()) {
         std::cout << "FAILED TO LOAD GLFW\n";
         return;
     }
+    windowSizeW = width;
+    windowSizeH = height;
     this->DEFINE_WINDOW(transparency);
 
 }

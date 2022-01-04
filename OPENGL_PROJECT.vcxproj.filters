@@ -38,6 +38,9 @@
     <ClCompile Include="TEXTURE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TEXT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -58,6 +61,12 @@
     <None Include="shaders\texture_vertex.glsl">
       <Filter>Header Files\Shader Files</Filter>
     </None>
+    <None Include="shaders\text_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\text_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SHADER.h">
@@ -70,6 +79,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TEXTURE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TEXT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

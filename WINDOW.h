@@ -30,7 +30,7 @@ public:
 	int count, windowWidth, windowHeight, monitorX, monitorY;
 	// window size
 	int windowSizeW = 640, windowSizeH = 480;
-	WINDOW(int transparency);
+	WINDOW(int transparency , int width , int height);
 	void CONFIG_MONITOR();
 	GLFWwindow* DEFINE_WINDOW(int transparency);
 	void processinput(std::vector<glm::vec3> data , Shader shader);

@@ -126,7 +126,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -146,10 +146,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>D:\Visual Studio\Projects\OPENGL_PROJECT\dlls</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;freetype.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="TEXT.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="MAIN.cpp" />
@@ -162,10 +163,13 @@
     <None Include="shaders\color_vertex.glsl" />
     <None Include="shaders\texture_frag.glsl" />
     <None Include="shaders\texture_vertex.glsl" />
+    <None Include="shaders\text_frag.glsl" />
+    <None Include="shaders\text_vertex.glsl" />
     <None Include="vertices\square.buf" />
     <None Include="vertices\triangle.buf" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TEXT.h" />
     <ClInclude Include="WINDOW.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="SHADER.h" />
