@@ -29,7 +29,7 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     //creating a vertex array object with data from "vertices/square.buf"
     VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
     // loading a texture & font 
-    TEXTURE texture = TEXTURE("textures/container.jpg");
+    TEXTURE texture = TEXTURE("textures/container2.jpg");
     Text antonio_bold = Text(windowobj, "fonts/Antonio-Bold.ttf");
 
 
@@ -38,7 +38,7 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
 
 
     // *** to turn wireframe mode on.
-    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
     //creating a vector with objects that need to do something when clicked
     std::vector<std::vector<glm::vec3>> VAOs_that_need_input_slots;
@@ -83,7 +83,7 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     }
     //destroy glfw object
     glfwTerminate();
-    return EXIT_SUCCES;
+    return 0;
 }
 
 

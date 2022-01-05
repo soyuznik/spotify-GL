@@ -1,5 +1,8 @@
 #include "WINDOW.h"
 
+//for slots
+#include <shellapi.h>
+
 //used for the type of the window input *deprecated*
 int INSTANT_MOUSE_CALLBACK;
 
@@ -233,9 +236,16 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
             glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
 
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
+           
             if(isInTriangle(A, B, C, point)) {
-                std::cout << "In triangle --> " + std::to_string(i) << std::endl;
-            }
+
+                //button slots
+                switch (i) {
+                case 0: case 1: shader.color(0.5f, 0.2f, 0.1f, 1.0f); shader.setBool("changeColor",true); break;
+                case 2: case 3: std::cout << "23 clicked\n";break;
+                }
+                break;
+            }// if(isInTriangle(A, B, C, point)) 
 
         }
     }

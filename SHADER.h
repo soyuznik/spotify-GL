@@ -37,7 +37,7 @@ public:
     bool NORMALIZE_VALUES();
     // VERTEXSHADER uniform dependant
 
-   
+    
     void color(float R, float G, float B, float A);
     void transform(GLFWwindow* window , float x, float y, float scale);
     
