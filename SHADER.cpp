@@ -13,7 +13,9 @@ bool Shader::NORMALIZE_VALUES() {
 	return normalize;
 }
 void Shader::scale(float scale) {
-	scaling = scale;
+	/* deprecated!!!!!!!
+	
+	*/
 	this->setFloat("scale", scale); // scale
 }
 void Shader::color(float R, float G, float B, float A) {
@@ -27,19 +29,27 @@ void Shader::color(float R, float G, float B, float A) {
 	this->setVec4("RGBA", RGBA);
 };
 void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
+
 	if (normalize) {
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
 		x = x / (float)width;
 		y = y / (float)height;
 	}
-	scaling = scale;
-	this->setFloat("scale", scale); // scale
+	
+	
 	// calculate the model matrix for each object and pass it to shader before drawing
 	glm::mat4 model = glm::mat4(1.0f);
 	model = glm::translate(model, glm::vec3(x, y, 1.0f));
-	model_ = model;
+	model = glm::scale(model, glm::vec3(scale, scale, scale));
 	this->setMat4("model", model);
+	model_.push_back(model);
+	
+	
+
+
+
+	
 }
 
 // Reads a text file and outputs a string with everything in the text file

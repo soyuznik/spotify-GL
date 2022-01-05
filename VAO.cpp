@@ -1,6 +1,14 @@
 #include "VAO.h"
 
-
+std::vector<glm::vec3> VertexArrayObject::return_data(std::vector<std::vector<glm::vec3>> VAOs_vector) {
+    std::vector<glm::vec3> data;
+    for (unsigned int j = 0; j < (int)VAOs_vector.size() - 1; j++) {
+        data.reserve(VAOs_vector[j].size() + VAOs_vector[j + 1].size()); // preallocate memory
+        data.insert(data.end(), VAOs_vector[j].begin(), VAOs_vector[j].end());
+        data.insert(data.end(), VAOs_vector[j + 1].begin(), VAOs_vector[j + 1].end());
+    }
+    return data;
+}
 void VertexArrayObject::load_vertices() {
 
     std::ifstream file(PATH);

@@ -7,6 +7,7 @@
 #include<sstream>
 #include<iostream>
 #include<cerrno>
+#include <vector>
 #include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
 
@@ -15,8 +16,12 @@ std::string get_file_contents(const char* filename);
 class Shader
 {
 public:
-    glm::mat4 model_;
-    float scaling;
+    //for proccesinput
+    int transformCalled = 0;
+   
+    std::vector<glm::mat4> model_;
+    
+    
    
 	// Reference ID of the Shader Program
 	GLuint ID;

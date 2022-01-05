@@ -179,28 +179,6 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
 
 
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-
-
-        Shader arg2 = shader;
-        std::vector<glm::vec3> arg1 = data;
-        
-        glm::mat4 model = shader.model_;
-        model = glm::scale(model, glm::vec3(shader.scaling, shader.scaling, shader.scaling));
-        
-        // vectors from triangle.buf file
-        /*glm::vec4 A = model * glm::vec4(data[index0 + (triangles_checked - 3)], 1.0f);
-        glm::vec4 B = model * glm::vec4(data[index1 + (triangles_checked -3)] , 1.0f);
-        glm::vec4 C = model * glm::vec4(data[index2 + (triangles_checked -3)] , 1.0f);*/
-        glm::vec4 A = model * glm::vec4(data[index0], 1.0f);
-        glm::vec4 B = model * glm::vec4(data[index1], 1.0f);
-        glm::vec4 C = model * glm::vec4(data[index2], 1.0f);
-
-
-        
-
-
-
-
         // <function>
 
 
@@ -212,27 +190,31 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
         ypos = static_cast<double>(height) - ypos;// here we inverse the y axis  from down positive to up positive axis...
-        //cause glfw reads screen coords differently than opengl;
-
-
         float ndc_x = xpos / width * 2 - 1;// normalizing coordinates x , y
         float ndc_y = ypos / height * 2 - 1;
 
         glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
-
-        std::cout << "is in triangle?! -- > " + std::to_string(isInTriangle(A, B, C, point)) << std::endl << std::endl; // isInTriangle function
-
+       
+        //checking if square or triangle input procces
+       
         
-        //if ((int)data.size() > triangles_checked) {
-            //1st time index0 = 0; index1 = 1; index2 = 2;
-          //  triangles_checked = triangles_checked + 3;
-          //  processinput(arg1, arg2);
+    
+        //cause glfw reads screen coords differently than opengl;
+        for (unsigned int i = 0; i < ((int)data.size() / 3); i++) {
+           
             
+            std::vector<glm::mat4> model = shader.model_;
+           
 
-       // }
-        //else triangles_checked = 3;
+            
+            glm::vec4 A = model[std::round(i / 2)] * glm::vec4(data[0 + (i * 3)], 1.0f);
+            glm::vec4 B = model[std::round(i / 2)] * glm::vec4(data[1 + (i * 3)], 1.0f);
+            glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
+            if(isInTriangle(A, B, C, point)) {
+                std::cout << "In triangle --> " + std::to_string(i) << std::endl;
+            }
 
-
+        }
     }
 
 

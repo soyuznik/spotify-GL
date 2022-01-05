@@ -11,8 +11,8 @@ uniform mat4 model;
 out vec2 TextureCoords;
 void main(){
    
-   vec4 scaling = vec4(scale , scale , scale , 1.0);
-   gl_Position = model * (scaling * vec4(aPos.x, aPos.y, aPos.z, 1.0));
+   
+   gl_Position = model * vec4(aPos.x, aPos.y, aPos.z, 1.0);
    TextureCoords = aTextureCoords;
 
 
