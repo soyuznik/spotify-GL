@@ -23,13 +23,13 @@ struct Character {
 
 class Text {
 public:
-    unsigned int shaderID;
-    std::map<GLchar, Character> Characters;
-    Shader* defshader;
-    unsigned int VAO, VBO;
-    void load_text(WINDOW, std::string font_name);
-    void drawText(std::string text, float x, float y, float scale, glm::vec3 color);
-    Text(WINDOW window ,std::string path);
+    unsigned int shaderID; // text shader
+    std::map<GLchar, Character> Characters; // map with all 128 carachters
+    Shader* defshader; // text shader
+    unsigned int VAO, VBO; // VAO for the text , VBO with square vertices , we use textures on squares to create text
+    void load_text(WINDOW, std::string font_name); // loads text from a .tff file 
+    void drawText(std::string text, float x, float y, float scale, glm::vec3 color); // draws the text , no DRAW(N) neccesray
+    Text(WINDOW window ,std::string path); // constructor which calls load_text
 
 
 };

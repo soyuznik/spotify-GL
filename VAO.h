@@ -12,8 +12,7 @@ public:
 	bool normalize;
 	std::string PATH;
 	unsigned int ID;
-	std::vector<float> screenPos;
-	
+
 	void load_vertices();
 	VertexArrayObject(const char* argPATH);
 	void use();

@@ -1,12 +1,14 @@
 #include "WINDOW.h"
 
-
+//used for the type of the window input *deprecated*
 int INSTANT_MOUSE_CALLBACK;
+
+//prototype that is defined later in the file
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 
 
-
+//WINDOW constructor , <transparency> is a macro (see WINDOW.h)
 WINDOW::WINDOW(int transparency, int width, int height) {
     // init glfw so we can use its things XD
     if (!glfwInit()) {
@@ -18,6 +20,7 @@ WINDOW::WINDOW(int transparency, int width, int height) {
     this->DEFINE_WINDOW(transparency);
 
 }
+// used to config monitor for aspect ratio
 void WINDOW::CONFIG_MONITOR() {
     // I am assuming that main monitor is in the 0 position
     monitors = glfwGetMonitors(&count);
@@ -29,31 +32,32 @@ void WINDOW::CONFIG_MONITOR() {
 
     glfwGetMonitorPos(monitors[0], &monitorX, &monitorY);
 }
+// will create a glfw window with the specified type (transparency)
 GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
     this->CONFIG_MONITOR();
-    bool hide_titlebar;
+    bool hide_titlebar; // used for the type of the window specification
     switch (transparency) {
     case TRANSPARENT_WINDOW:
-        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
-        hide_titlebar = true;
-        INSTANT_MOUSE_CALLBACK = 1;
+        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE); // makes window transparent
+        hide_titlebar = true; // hides titlebar when starting
+        INSTANT_MOUSE_CALLBACK = 1; // sets input type response
         break;
     case TRANSPARENT_INSTANT:
-        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
+        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE); // makes window transparent
         hide_titlebar = true;
         INSTANT_MOUSE_CALLBACK = 0;
         break;
     case OPAQUE:
-        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_FALSE);
-        hide_titlebar = false;
+        glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_FALSE); // makes window opaque
+        hide_titlebar = false; // will show title bar
         INSTANT_MOUSE_CALLBACK = 2;
         break;
-    case TRANSPARENT_WINDOW_STATIC:
+    case TRANSPARENT_WINDOW_STATIC: // will make window transparent with  a titlebar
         glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
         hide_titlebar = false;
         INSTANT_MOUSE_CALLBACK = 3;
         break;
-    default:
+    default: //  in case of an invalid type will print valid types and throw a exception
         std::cout << "ERROR: CONFIG_GL::DEFINE_WINDOW::transparency\n"
             << "#define TRANSPARENT_INSTANT 0\n"
             << "#define TRANSPARENT_WINDOW 1\n"
@@ -94,7 +98,7 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
     // show the window
     glfwShowWindow(window);
 
-
+    // here we hide the titlebar based on the previous type
     if (hide_titlebar) {
         glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_FALSE);
     }
@@ -103,12 +107,22 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
     }
 
 
-    return window;
+    return window; // returning GLFWwindow * window
 }
+/*
+<distance> <calc_area> <position> < calc > <IsInTriangle>
+ -- are used for input proccesing
+
+ -- use IsInTriangle to check for where is a point
+
+
+*/
+// calculate distance beetween (x1,y1) ----- (x2,y2)
 float distance(float x1, float y1, float x2, float y2)
 {
     return(sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2)));
 }
+// calculates the surface of a triangle with points a b c
 float calc_area(float a, float b, float c)
 {
     float S;
@@ -117,6 +131,7 @@ float calc_area(float a, float b, float c)
 
     return(sqrt(S * (S - a) * (S - b) * (S - c)));
 }
+// modulus
 int position(float area, float A, float B, float C)
 {
     float res = area - (A + B + C);
@@ -135,6 +150,7 @@ int position(float area, float A, float B, float C)
         return(0);
     }
 }
+//calculates if a point (x,y) is in the triangle A(x1,y1) B(x2,y2) , C(x3,y3)
 void calc(float x1, float y1, float x2, float y2
     , float x3, float y3, float x, float y, int* flag, float* area) {
     /*
@@ -162,6 +178,7 @@ void calc(float x1, float y1, float x2, float y2
 
     *flag = position(*area, A, B, C);
 }
+// C++ implementation of C function calc()
 bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point) {
     int   flag = 0;
     float area = 0;
@@ -171,16 +188,19 @@ bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point) {
     if (flag) return true;
     else  return false;
 }
+
+//the method that procceses all user input
 void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
         glfwSetWindowShouldClose(window, true);
-    int current_x, current_y;
+
+
+    int current_x, current_y; // saing current window position
     glfwGetWindowPos(window, &current_x, &current_y);
 
 
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
         // <function>
-
 
         int width, height;
         glfwGetWindowSize(window, &width, &height);
@@ -196,20 +216,23 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
         glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
        
         //checking if square or triangle input procces
-       
-        
-    
-        //cause glfw reads screen coords differently than opengl;
+
         for (unsigned int i = 0; i < ((int)data.size() / 3); i++) {
            
-            
+            // getting the vector with matrices from the shader
             std::vector<glm::mat4> model = shader.model_;
            
 
-            
+            // this gets corresponding vertices from data[]  and multiplying with a matrix
+
+            // we do <[std::round(i / 2)]> because we need to get the model for the square if it was for triangle , we would do just <[i]>
+
+            // so we get the current square position on screen , which has 2 triangles , so it will loop over all triangle in squares and checking for input
             glm::vec4 A = model[std::round(i / 2)] * glm::vec4(data[0 + (i * 3)], 1.0f);
             glm::vec4 B = model[std::round(i / 2)] * glm::vec4(data[1 + (i * 3)], 1.0f);
             glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
+
+            // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
             if(isInTriangle(A, B, C, point)) {
                 std::cout << "In triangle --> " + std::to_string(i) << std::endl;
             }

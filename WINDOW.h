@@ -9,8 +9,8 @@
 #include <iostream>
 // glfw for context which openGL need to draw in like a canvas
 #include <GLFW/glfw3.h>
-#include <fstream>
-#include <sstream>
+#include <fstream> // I/O
+#include <sstream> // stringstream for text splitting
 #include <vector>
 #include "SHADER.h"
 

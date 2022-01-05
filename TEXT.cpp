@@ -1,10 +1,11 @@
 #pragma once
 #include "TEXT.h"
+//ft2 build is used to create .tff bitmaps for OPENGL
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
 
-
+// Text constructor
 Text::Text(WINDOW window ,std::string path){
     load_text(window, path);
    
@@ -70,16 +71,17 @@ void Text::load_text(WINDOW window , std::string font_name) {
             unsigned int texture;
             glGenTextures(1, &texture);
             glBindTexture(GL_TEXTURE_2D, texture);
+
             glTexImage2D(
-                GL_TEXTURE_2D,
-                0,
-                GL_RED,
-                face->glyph->bitmap.width,
-                face->glyph->bitmap.rows,
-                0,
-                GL_RED,
-                GL_UNSIGNED_BYTE,
-                face->glyph->bitmap.buffer
+                GL_TEXTURE_2D, //GLenum target,
+                0, // GLint level, meaning GL_TEXTURE0 ...
+                GL_RED, //GLint internalformat,   (GL_RGBA)
+                face->glyph->bitmap.width, //GLsizei width,
+                face->glyph->bitmap.rows, // GLsizei height,
+                0,//GLint border,
+                GL_RED, // GLenum format, in which should be stored
+                GL_UNSIGNED_BYTE, //GLenum type,
+                face->glyph->bitmap.buffer //const void * data);
             );
             // set texture options
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);

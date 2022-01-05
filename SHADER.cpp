@@ -1,10 +1,13 @@
 #include"SHADER.h"
 #include "WINDOW.h"
+
+// GLM is a opengl related mathematic library
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
 bool Shader::NORMALIZE_VALUES() {
+	// this will  set normalized true when other method use it;
 	normalize = true;
 	std::cout << " SHADER.cpp::Shader::NORMALIZE_VALUES >> \"normalize\" is ";
 	if (normalize) { std::cout << "true";}
@@ -12,13 +15,10 @@ bool Shader::NORMALIZE_VALUES() {
 
 	return normalize;
 }
-void Shader::scale(float scale) {
-	/* deprecated!!!!!!!
-	
-	*/
-	this->setFloat("scale", scale); // scale
-}
+
+// will set shaders color
 void Shader::color(float R, float G, float B, float A) {
+	// here it normalizes the RGBA values from 0-255 to 0-1 (OPENGL understandable)
 	if (normalize) {
 		R = R / 255;
 		G = G / 255;
@@ -26,10 +26,12 @@ void Shader::color(float R, float G, float B, float A) {
 		A = A / 255;
 	}
 	glm::vec4 RGBA = glm::vec4(R, G, B, A);
+	//setting frag shader uniform
 	this->setVec4("RGBA", RGBA);
 };
+//will change the vertex shader uniform "model" that is multiplied with vertices coordinates
 void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
-
+	// normalizing values from pixels on screen to 0-1 values
 	if (normalize) {
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
@@ -40,9 +42,14 @@ void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
 	
 	// calculate the model matrix for each object and pass it to shader before drawing
 	glm::mat4 model = glm::mat4(1.0f);
+	//glm::translate moves the object at x,y
 	model = glm::translate(model, glm::vec3(x, y, 1.0f));
+	//glm::scale scales the object with scale on xyz axises
 	model = glm::scale(model, glm::vec3(scale, scale, scale));
+
+	//uniform settting
 	this->setMat4("model", model);
+	//saving a copy for the model that will be used when proccesing input
 	model_.push_back(model);
 	
 	

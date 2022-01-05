@@ -1,5 +1,5 @@
 #include "VAO.h"
-
+// concatenates all VAOs in the arg vector
 std::vector<glm::vec3> VertexArrayObject::return_data(std::vector<std::vector<glm::vec3>> VAOs_vector) {
     std::vector<glm::vec3> data;
     for (unsigned int j = 0; j < (int)VAOs_vector.size() - 1; j++) {
@@ -9,6 +9,7 @@ std::vector<glm::vec3> VertexArrayObject::return_data(std::vector<std::vector<gl
     }
     return data;
 }
+// loads vertices from the path sprecified , each ending in a different vector based on flag (v , s , #)
 void VertexArrayObject::load_vertices() {
 
     std::ifstream file(PATH);
