@@ -1,12 +1,4 @@
-﻿  WINDOW.cpp
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(126,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(133,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(216,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(217,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(223,36): warning C4018: '<': signed/unsigned mismatch
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(234,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(235,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(236,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(298,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(298,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+﻿  MAIN.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(65,66): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Visual Studio\Projects\OPENGL_PROJECT\MAIN.cpp(74,66): warning C4305: 'argument': truncation from 'double' to 'float'
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

@@ -22,7 +22,7 @@
 
 class WINDOW{
 public:
-	
+	bool darken_color = false;
 	int triangles_checked = 3;
 	GLFWwindow* window;
 	GLFWmonitor** monitors;

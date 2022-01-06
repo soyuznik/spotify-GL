@@ -49,9 +49,19 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     // Loop until the user closes the window
     while (!glfwWindowShouldClose(windowobj.window))
     {
-        
+
+        texture_shader.use();
+        if (windowobj.darken_color) {
+            /*
+            NOTE: for some reason changing uniform works only from mainloop and only if its directly like this
+            because the uniform should be updated every frame!
+            should note for future button slots implementation
+            
+            */
+            texture_shader.setVec4("RGBA", 0, 0, 0, 1.0); // black
+            texture_shader.setBool("changeColor", true);
+        }
         //rendering object1
-        texture_shader.use(); // pick shader
         texture_shader.transform(windowobj.window, 200, 100 , 0.2); // 200 -xpos , 100 -ypos , 0.2 -scale;
         texture.use(); // pick texture
         VAO.use(); // pick vao

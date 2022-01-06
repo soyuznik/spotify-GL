@@ -10,7 +10,11 @@ uniform bool changeColor;
 
 void main()
 {
-   
-       FragColor = RGBA;
+       if(changeColor){
+       FragColor = mix(texture(texture1 , TextureCoords) , RGBA , 0.3f);
+       }
+       else{
+       FragColor = texture(texture1 , TextureCoords);
+       }
    
 }
