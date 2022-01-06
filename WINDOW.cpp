@@ -242,7 +242,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
                 //button slots
                 switch (i) {
                 case 0: case 1: darken_color = true; break;
-                case 2: case 3: darken_color = true;;break;
+                case 2: case 3: darken_color = true; break;
                 }
                 break;
             }// if(isInTriangle(A, B, C, point)) 
