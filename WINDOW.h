@@ -22,7 +22,8 @@
 
 class WINDOW{
 public:
-	bool darken_color = false;
+	std::vector<bool> slot;
+	void reserve_slots(int slots);
 	int triangles_checked = 3;
 	GLFWwindow* window;
 	GLFWmonitor** monitors;

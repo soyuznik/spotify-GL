@@ -191,7 +191,11 @@ bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point) {
     if (flag) return true;
     else  return false;
 }
-
+void WINDOW::reserve_slots(int number) {
+    for (unsigned int i = 0; i <= number; i++) {
+        slot.push_back(false);
+    }
+}
 //the method that procceses all user input
 void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
@@ -240,9 +244,10 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
             if(isInTriangle(A, B, C, point)) {
 
                 //button slots
+                
                 switch (i) {
-                case 0: case 1: darken_color = true; break;
-                case 2: case 3: darken_color = true; break;
+                case 0: case 1: slot[0] = true; break;
+                case 2: case 3: slot[1] = true; break;
                 }
                 break;
             }// if(isInTriangle(A, B, C, point)) 
