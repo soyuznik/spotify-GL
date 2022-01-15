@@ -35,8 +35,11 @@ void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
 	if (normalize) {
 		int width, height;
 		glfwGetWindowSize(window, &width, &height);
-		x = x / (float)width;
-		y = y / (float)height;
+		x = x / width * 2 - 1;
+		y = y / height * 2 - 1;
+		/*
+		float ndc_x = xpos / width * 2 - 1;// normalizing coordinates x , y
+        float ndc_y = ypos / height * 2 - 1;*/
 	}
 	
 	

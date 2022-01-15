@@ -7,7 +7,8 @@
 #include "VAO.h"
 //TEXTURE header that we use to add textures to primitives.
 #include "TEXTURE.h"
-
+//TEXT header that  we use to render text
+#include "TEXT.h"
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 class Button
@@ -23,6 +24,7 @@ public:
 	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, int* frames, int* slot);
 	void create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
 		double posx, double posy, double scale, int* frames, int* slot);
+	void setText(Text* font, std::string text, float scale, float R, float G, float B);
 	//creating a vertex array object with data from "vertices/square.buf"
 	VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
 	// loading a texture & font 

@@ -1,6 +1,8 @@
 #include "Button.h"
 
-
+void Button::setText(Text* font, std::string text , float scale , float R , float G , float B) {
+    font->drawText(text, posx - 40, posy, scale, glm::vec3(R,G,B));
+}
 Button::Button(Shader* _shader, WINDOW* _windowobj , double _posx, double _posy, double _scale, int* _frames, int* _slot) {
     shader = _shader;
     windowobj = _windowobj;
@@ -29,7 +31,7 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
     }
 
     //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
+    texture_shader->transform(windowobj->window, posx, posy, scale); 
     texture->use(); // pick texture
     VAO->use(); // pick vao
     DRAW(6); // draw 6 vertices

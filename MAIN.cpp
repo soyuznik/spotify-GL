@@ -11,37 +11,20 @@
 //TEXT header that  we use to render text
 #include "TEXT.h"
 
+
+
+// higher level class
 #include "Button.h"
+#include "Panel.h"
+
+
+
+
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-void create_button(Shader* texture_shader , WINDOW* windowobj , VertexArrayObject* VAO , TEXTURE* texture ,
-    double posx , double posy , double scale , int* frames , int* slot) {
-   
-    texture_shader->use();
-    if (*frames > 10) { texture_shader->setBool("changeColor", false); windowobj->slot[*slot] = false; *frames = 0;}
-    else if (windowobj->slot[*slot]) {
-        /*
-        NOTE: for some reason changing uniform works only from mainloop and only if its directly like this
-        because the uniform should be updated every frame!
-        should note for future button slots implementation
-
-        */
-        texture_shader->setBool("changeColor", true);
-        *frames = *frames + 1;
-
-    }
-
-    //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
-    texture->use(); // pick texture
-    VAO->use(); // pick vao
-    DRAW(6); // draw 6 vertices
-    texture_shader->setBool("changeColor", false);
-
-}
 
 
 // the main function , code is executed here
@@ -62,10 +45,10 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     int slot0 = 0;
     int slot1 = 1;
     windowobj.reserve_slots(2);
-    Button button = Button(&texture_shader, &windowobj,200, 100, 0.2, &frames, &slot0);
-    Button button1 = Button(&texture_shader, &windowobj, -100, 100, 0.2, &frames1, &slot1);
-
-
+    Button button = Button(&texture_shader, &windowobj, 410, 380, 0.2, &frames, &slot0);
+    Button button1 = Button(&texture_shader, &windowobj, 560, 380, 0.2, &frames1, &slot1);
+    Panel panel = Panel(&texture_shader, &windowobj, "textures/marble.jpg" , 700, 380, 0.2);
+   
     Text antonio_bold = Text(windowobj, "fonts/Antonio-Bold.ttf");
 
 
@@ -91,10 +74,15 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
         
         button.render();
         button1.render();
+        panel.render();
 
-        //drawing  text       //text    x    y  scale       color RGB in opengl values.
-        antonio_bold.drawText("Button1", 410, 380, 0.4, glm::vec3(0.0f, 0.0f, 0.0f));
-        antonio_bold.drawText("Button2", 560, 380, 0.4, glm::vec3(0.0f, 0.0f, 0.0f));
+
+
+        button.setText(&antonio_bold, "Button1" , 0.4f, 0.0f, 0.0f, 0.0f);
+        button1.setText(&antonio_bold, "Button2", 0.4f, 0.0f, 0.0f, 0.0f);
+        panel.setText(&antonio_bold, "Panel", 0.4f, 0.0f, 0.0f, 0.0f);
+
+        
 
        //process input (also button input)
         windowobj.processinput(data , texture_shader);

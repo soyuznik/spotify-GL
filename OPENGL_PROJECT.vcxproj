@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="TEXT.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="includes\glad.c" />
@@ -171,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="TEXT.h" />
     <ClInclude Include="WINDOW.h" />
     <ClInclude Include="VAO.h" />
