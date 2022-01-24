@@ -1,6 +1,7 @@
 #include "VAO.h"
 // concatenates all VAOs in the arg vector
 std::vector<glm::vec3> VertexArrayObject::return_data(std::vector<std::vector<glm::vec3>> VAOs_vector) {
+    if (VAOs_vector.size() == 1) {return VAOs_vector[0];}
     std::vector<glm::vec3> data;
     for (unsigned int j = 0; j < (int)VAOs_vector.size() - 1; j++) {
         data.reserve(VAOs_vector[j].size() + VAOs_vector[j + 1].size()); // preallocate memory

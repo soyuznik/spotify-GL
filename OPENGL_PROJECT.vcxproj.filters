@@ -47,6 +47,12 @@
     <ClCompile Include="Panel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ListObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClickEventCanceller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -73,6 +79,9 @@
     <None Include="shaders\text_vertex.glsl">
       <Filter>Header Files\Shader Files</Filter>
     </None>
+    <None Include="vertices\square_wider.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SHADER.h">
@@ -94,6 +103,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Panel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClickEventCanceller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,9 +25,10 @@ public:
 	Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
+	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
-	VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
-	void setText(Text* font, std::string text, float scale, float R, float G, float B);
+	VertexArrayObject VAO = VertexArrayObject("vertices/square_wider.buf");
+	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	
 	
 	void render();

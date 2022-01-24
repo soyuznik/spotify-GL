@@ -197,7 +197,7 @@ void WINDOW::reserve_slots(int number) {
     }
 }
 //the method that procceses all user input
-void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
+void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> block_data, Shader shader) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
         glfwSetWindowShouldClose(window, true);
 
@@ -228,6 +228,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
            
             // getting the vector with matrices from the shader
             std::vector<glm::mat4> model = shader.model_;
+            std::vector<glm::mat4> blmodel = shader.model__;
            
 
             // this gets corresponding vertices from data[]  and multiplying with a matrix
@@ -239,9 +240,17 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
             glm::vec4 B = model[std::round(i / 2)] * glm::vec4(data[1 + (i * 3)], 1.0f);
             glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
 
+            glm::vec4 blA = blmodel[0] * glm::vec4(block_data[0], 1.0f);
+            glm::vec4 blB = blmodel[0] * glm::vec4(block_data[1], 1.0f);
+            glm::vec4 blC = blmodel[0] * glm::vec4(block_data[2], 1.0f);
+
+            glm::vec4 blA1 = blmodel[0] * glm::vec4(block_data[3], 1.0f);
+            glm::vec4 blB1 = blmodel[0] * glm::vec4(block_data[4], 1.0f);
+            glm::vec4 blC1 = blmodel[0] * glm::vec4(block_data[5], 1.0f);
+
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
            
-            if(isInTriangle(A, B, C, point)) {
+            if(isInTriangle(A, B, C, point) and !isInTriangle(blA , blB , blC , point) and !isInTriangle(blA1, blB1, blC1, point)) {
 
                 //button slots
                 
@@ -253,6 +262,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , Shader shader) {
             }// if(isInTriangle(A, B, C, point)) 
 
         }
+       
     }
 
 

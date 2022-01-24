@@ -16,7 +16,7 @@
 // higher level class
 #include "Button.h"
 #include "Panel.h"
-
+#include "ClickEventCanceller.h"
 
 
 
@@ -26,28 +26,41 @@ using namespace std;
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
 
+//here we define a list object variable *** needs to be changed once the list class is implemented
+double y_list_offset = 0;
+double y_list_offset1 = 0;
+double y_list_offset2 = 0;
+double list_sensitiv = 6;
+
+
+
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{ //only yoffset changes\\ - when down ; + when up
+    std::cout << "scrolled  "+ to_string(yoffset) << std::endl;
+    y_list_offset = yoffset;
+    y_list_offset1 = yoffset;
+    y_list_offset2 = yoffset;
+}
 
 // the main function , code is executed here
-int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
+int main()
 {
     // creating a transparent static window with width 1000 and height 640
     WINDOW windowobj(TRANSPARENT_WINDOW_STATIC , 1000 , 640); 
     //creating a shader program that uses texture shaders
     Shader texture_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+    Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
 
 
 
-    //Time management
-    int frames = 0;
-    int frames1 = 0;
 
-    //2 slots
-    int slot0 = 0;
-    int slot1 = 1;
+   
     windowobj.reserve_slots(2);
-    Button button = Button(&texture_shader, &windowobj, 410, 380, 0.2, &frames, &slot0);
-    Button button1 = Button(&texture_shader, &windowobj, 560, 380, 0.2, &frames1, &slot1);
-    Panel panel = Panel(&texture_shader, &windowobj, "textures/marble.jpg" , 700, 380, 0.2);
+    Button button = Button(&texture_shader, &windowobj, 560, 330, 0.2, 0, "vertices/square_wider.buf");
+    Button button1 = Button(&texture_shader, &windowobj, 560, 380, 0.2, 1 , "vertices/square_wider.buf");
+    
+    ClickEventCanceller canceller = ClickEventCanceller(&texture_shader, &windowobj, "textures/container.jpg" , 560, 380, 0.21);
    
     Text antonio_bold = Text(windowobj, "fonts/Antonio-Bold.ttf");
 
@@ -61,31 +74,46 @@ int main(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int nShowCmd)
     
     //creating a vector with objects that need to do something when clicked
     std::vector<std::vector<glm::vec3>> VAOs_that_need_input_slots;
-    VAOs_that_need_input_slots.push_back(button.VAO.vec4_vector);
-    VAOs_that_need_input_slots.push_back(button1.VAO.vec4_vector);
+    VAOs_that_need_input_slots.push_back(button.VAO->vec4_vector);
+    VAOs_that_need_input_slots.push_back(button1.VAO->vec4_vector);
     //<VAO.return_data> is used to merge VAO's vectors into 1 (data)
-    std::vector<glm::vec3> data = button.VAO.return_data(VAOs_that_need_input_slots);
+    std::vector<glm::vec3> data = button.VAO->return_data(VAOs_that_need_input_slots);
+    //outlayer
+    std::vector<std::vector<glm::vec3>> VAOs_that_need_to_block_clicks;
+    VAOs_that_need_to_block_clicks.push_back(canceller.VAO.vec4_vector);
+    std::vector<glm::vec3> data_for_blocking = button.VAO->return_data(VAOs_that_need_to_block_clicks);
     // Loop until the user closes the window
 
-    
+    glfwSetScrollCallback(windowobj.window, scroll_callback);
 
     while (!glfwWindowShouldClose(windowobj.window))
     {
+        glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+        texture_shader.model_.clear();
+        //texture_shader.model__.clear();
+
+
+
+        button.change_position(button.posx, button.posy + (y_list_offset * list_sensitiv)); y_list_offset = 0;
+        button1.change_position(button1.posx, button1.posy + (y_list_offset1 * list_sensitiv)); y_list_offset1 = 0;
         
+        
+       
+
+       
         button.render();
         button1.render();
-        panel.render();
 
-
-
-        button.setText(&antonio_bold, "Button1" , 0.4f, 0.0f, 0.0f, 0.0f);
-        button1.setText(&antonio_bold, "Button2", 0.4f, 0.0f, 0.0f, 0.0f);
-        panel.setText(&antonio_bold, "Panel", 0.4f, 0.0f, 0.0f, 0.0f);
+        button.setText(&antonio_bold, "Button1", 0.4f);
+        button1.setText(&antonio_bold, "Button2", 0.4f);
+        canceller.render();// panel last cause outlayer
+        
+        //panel.setText(&antonio_bold, "Panel", 0.4f);
 
         
 
        //process input (also button input)
-        windowobj.processinput(data , texture_shader);
+        windowobj.processinput(data , data_for_blocking ,texture_shader);
         // swap front and back buffers
         glfwSwapBuffers(windowobj.window);
 

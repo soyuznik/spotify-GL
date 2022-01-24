@@ -35,7 +35,7 @@ public:
 	WINDOW(int transparency , int width , int height);
 	void CONFIG_MONITOR();
 	GLFWwindow* DEFINE_WINDOW(int transparency);
-	void processinput(std::vector<glm::vec3> data , Shader shader);
+	void processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader);
 
 
 };

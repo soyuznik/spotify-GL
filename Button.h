@@ -14,19 +14,22 @@
 class Button
 {
 public:
+	int frames__ = 0;
 	Shader* shader;
 	WINDOW* windowobj;
+	VertexArrayObject* VAO;
 	double posx;
 	double posy; 
-	double scale;
+	double scale = 0;
 	int* frames;
-	int* slot;
-	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, int* frames, int* slot);
+	int slot;
+	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, int slot, std::string PATH = "vertices/square.buf");
 	void create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
-		double posx, double posy, double scale, int* frames, int* slot);
-	void setText(Text* font, std::string text, float scale, float R, float G, float B);
+		double posx, double posy, double scale, int* slot);
+	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
+	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
-	VertexArrayObject VAO = VertexArrayObject("vertices/square.buf");
+	
 	// loading a texture & font 
 	TEXTURE texture = TEXTURE("textures/button.jpg");
 	void render();

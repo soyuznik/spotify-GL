@@ -1,20 +1,24 @@
 #include "Button.h"
-
-void Button::setText(Text* font, std::string text , float scale , float R , float G , float B) {
+void Button::change_position(double x, double y) {
+    posx = x;
+    posy = y;
+}
+void Button::setText(Text* font, std::string text , float scale , float R, float G, float B) {
     font->drawText(text, posx - 40, posy, scale, glm::vec3(R,G,B));
 }
-Button::Button(Shader* _shader, WINDOW* _windowobj , double _posx, double _posy, double _scale, int* _frames, int* _slot) {
+Button::Button(Shader* _shader, WINDOW* _windowobj , double _posx, double _posy, double _scale, int _slot , std::string PATH) {
+    VAO = new VertexArrayObject(PATH.c_str());
     shader = _shader;
     windowobj = _windowobj;
     posx = _posx;
     posy = _posy;
     scale = _scale;
-    frames = _frames;
+    frames = &frames__;
     slot = _slot;
 }
 
 void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
-    double posx, double posy, double scale, int* frames, int* slot) {
+    double posx, double posy, double scale, int* slot) {
 
     texture_shader->use();
     if (*frames > 10) { texture_shader->setBool("changeColor", false); windowobj->slot[*slot] = false; *frames = 0; }
@@ -31,7 +35,7 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
     }
 
     //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale); 
+    texture_shader->transform(windowobj->window, posx, posy, scale , "notblock");
     texture->use(); // pick texture
     VAO->use(); // pick vao
     DRAW(6); // draw 6 vertices
@@ -39,5 +43,5 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 
 }
 void Button::render() {
-    create_button(shader, windowobj, &VAO, &texture , posx, posy, scale, frames, slot);
+    create_button(shader, windowobj, VAO, &texture , posx, posy, scale, &slot);
 }

@@ -20,6 +20,7 @@ public:
     int transformCalled = 0;
    
     std::vector<glm::mat4> model_;
+    std::vector<glm::mat4> model__;
     
     
    
@@ -39,7 +40,7 @@ public:
 
     
     void color(float R, float G, float B, float A);
-    void transform(GLFWwindow* window , float x, float y, float scale);
+    void transform(GLFWwindow* window , float x, float y, float scale ,std::string arg);
     
 
 

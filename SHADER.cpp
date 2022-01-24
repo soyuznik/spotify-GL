@@ -30,7 +30,7 @@ void Shader::color(float R, float G, float B, float A) {
 	this->setVec4("RGBA", RGBA);
 };
 //will change the vertex shader uniform "model" that is multiplied with vertices coordinates
-void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
+void Shader::transform(GLFWwindow* window , float x , float y , float scale , std::string arg) {
 	// normalizing values from pixels on screen to 0-1 values
 	if (normalize) {
 		int width, height;
@@ -53,7 +53,13 @@ void Shader::transform(GLFWwindow* window , float x , float y , float scale) {
 	//uniform settting
 	this->setMat4("model", model);
 	//saving a copy for the model that will be used when proccesing input
-	model_.push_back(model);
+	if (arg == "notblock") {
+		model_.push_back(model);
+	}
+	if (arg == "block") {
+			model__.push_back(model);
+		
+	}
 	
 	
 

@@ -1,5 +1,8 @@
 #include "Panel.h"
-
+void Panel::change_position(double x, double y) {
+    posx = x;
+    posy = y;
+}
 Panel::Panel(Shader* _shader, WINDOW* _windowobj, const char* path, double _posx, double _posy, double _scale) {
     shader = _shader;
     windowobj = _windowobj;
@@ -16,7 +19,7 @@ void Panel::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayO
     
     texture_shader->use();
     //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
+    texture_shader->transform(windowobj->window, posx, posy, scale , "none"); // 200 -xpos , 100 -ypos , 0.2 -scale;
     glBindTexture(GL_TEXTURE_2D, ID);// pick texture
     VAO->use(); // pick vao
     DRAW(6); // draw 6 vertices
