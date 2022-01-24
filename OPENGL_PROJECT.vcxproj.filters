@@ -26,31 +26,31 @@
     <ClCompile Include="includes\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SHADER.cpp">
+    <ClCompile Include="includes\highlevel\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WINDOW.cpp">
+    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VAO.cpp">
+    <ClCompile Include="includes\highlevel\ListObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEXTURE.cpp">
+    <ClCompile Include="includes\highlevel\Panel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEXT.cpp">
+    <ClCompile Include="includes\lowlevel\SHADER.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="includes\lowlevel\TEXT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Panel.cpp">
+    <ClCompile Include="includes\lowlevel\TEXTURE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ListObject.cpp">
+    <ClCompile Include="includes\lowlevel\VAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ClickEventCanceller.cpp">
+    <ClCompile Include="includes\lowlevel\WINDOW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -84,35 +84,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SHADER.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WINDOW.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VAO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TEXTURE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TEXT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Panel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ListObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ClickEventCanceller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="textures\container.jpg">
       <Filter>Texture Files</Filter>
     </Image>
@@ -131,5 +102,34 @@
     <Image Include="textures\metal.png">
       <Filter>Texture Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\highlevel\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\ClickEventCanceller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\ListObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\Panel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\SHADER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\TEXT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\TEXTURE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\VAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\WINDOW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,22 +1,22 @@
   
 
 //WINDOW header that  we use to  create window / add utility
-#include "WINDOW.h"
+#include "lowlevel/WINDOW.h"
 //SHADER header that we use to draw on the screen and  start a shader program
-#include "SHADER.h"
+#include "lowlevel/SHADER.h"
 //VAO header that we use to store data that is sent to GPU and other utility
-#include "VAO.h"
+#include "lowlevel/VAO.h"
 //TEXTURE header that we use to add textures to primitives.
-#include "TEXTURE.h"
+#include "lowlevel/TEXTURE.h"
 //TEXT header that  we use to render text
-#include "TEXT.h"
+#include "lowlevel/TEXT.h"
 
 
 
 // higher level class
-#include "Button.h"
-#include "Panel.h"
-#include "ClickEventCanceller.h"
+#include "highlevel/Button.h"
+#include "highlevel/Panel.h"
+#include "highlevel/ClickEventCanceller.h"
 
 
 
