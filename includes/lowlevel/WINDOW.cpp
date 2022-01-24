@@ -10,7 +10,13 @@ int INSTANT_MOUSE_CALLBACK;
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 
-
+void WINDOW::update_list_scroll(double offset) {
+    for (int i = 0; i < yaxis_offset->size(); i++) {
+        std::vector<int> yaxis_offset_temp;
+        yaxis_offset_temp = *yaxis_offset;
+        yaxis_offset_temp[i] = offset;
+    }
+}
 //WINDOW constructor , <transparency> is a macro (see WINDOW.h)
 WINDOW::WINDOW(int transparency, int width, int height) {
     // init glfw so we can use its things XD
@@ -196,6 +202,17 @@ void WINDOW::reserve_slots(int number) {
         slot.push_back(false);
     }
 }
+
+void WINDOW::manage_slots(int triangle_number) {
+    int obj_ID = std::round(triangle_number / 2);
+    slot[obj_ID] = true;
+    try {
+        SLOTS(obj_ID);
+    }
+    catch (...) {
+        throw("No SLOTS body defined");
+        }
+}
 //the method that procceses all user input
 void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> block_data, Shader shader) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
@@ -255,19 +272,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
             }
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
             if (isInTriangle(A, B, C, point) and !inside_blocked_zone) {
-
-                //button slots
-
-                switch (i) {
-                case 0: case 1: slot[0] = true; break;
-                case 2: case 3: slot[1] = true; break;
-                case 4: case 5: slot[2] = true; break;
-                case 6: case 7: slot[3] = true; break;
-                case 8: case 9: slot[4] = true; break;
-
-                }
-                break; //unsigned int i loop
-
+                manage_slots(i);
             }// if(isInTriangle(A, B, C, point)) 
         }
        
