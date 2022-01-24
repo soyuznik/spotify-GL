@@ -224,12 +224,12 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
        
         //checking if square or triangle input procces
 
-        for (unsigned int i = 0; i < ((int)data.size() / 3); i++) {
-           
+        for (unsigned int i = 0; i < ((int)data.size() / 5.33); i++) { /*** for some reason  / n(5.33) need to be changed to get the number coorectly based on slots */
+
             // getting the vector with matrices from the shader
             std::vector<glm::mat4> model = shader.model_;
             std::vector<glm::mat4> blmodel = shader.model__;
-           
+
 
             // this gets corresponding vertices from data[]  and multiplying with a matrix
 
@@ -240,27 +240,35 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
             glm::vec4 B = model[std::round(i / 2)] * glm::vec4(data[1 + (i * 3)], 1.0f);
             glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
 
-            glm::vec4 blA = blmodel[0] * glm::vec4(block_data[0], 1.0f);
-            glm::vec4 blB = blmodel[0] * glm::vec4(block_data[1], 1.0f);
-            glm::vec4 blC = blmodel[0] * glm::vec4(block_data[2], 1.0f);
+            bool inside_blocked_zone = false;
+            for (unsigned int indx = 0; indx < block_data.size() / 3; indx++) {
 
-            glm::vec4 blA1 = blmodel[0] * glm::vec4(block_data[3], 1.0f);
-            glm::vec4 blB1 = blmodel[0] * glm::vec4(block_data[4], 1.0f);
-            glm::vec4 blC1 = blmodel[0] * glm::vec4(block_data[5], 1.0f);
+            glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
+            glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
+            glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
+             
+            if (isInTriangle(blA, blB, blC, point)) {
+                inside_blocked_zone = true;
+                break;// indx loop
+            }// indx
 
+            }
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
-           
-            if(isInTriangle(A, B, C, point) and !isInTriangle(blA , blB , blC , point) and !isInTriangle(blA1, blB1, blC1, point)) {
+            if (isInTriangle(A, B, C, point) and !inside_blocked_zone) {
 
                 //button slots
-                
+
                 switch (i) {
                 case 0: case 1: slot[0] = true; break;
                 case 2: case 3: slot[1] = true; break;
-                }
-                break;
-            }// if(isInTriangle(A, B, C, point)) 
+                case 4: case 5: slot[2] = true; break;
+                case 6: case 7: slot[3] = true; break;
+                case 8: case 9: slot[4] = true; break;
 
+                }
+                break; //unsigned int i loop
+
+            }// if(isInTriangle(A, B, C, point)) 
         }
        
     }

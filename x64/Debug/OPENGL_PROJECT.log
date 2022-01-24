@@ -1,2 +1,15 @@
-﻿  MAIN.cpp
+﻿  WINDOW.cpp
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(126,16): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(133,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(195,32): warning C4018: '<=': signed/unsigned mismatch
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(220,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(221,21): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(239,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(240,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(241,43): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(246,47): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(247,47): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(248,47): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(321,67): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\WINDOW.cpp(321,47): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   OPENGL_PROJECT.vcxproj -> D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Debug\OPENGL_PROJECT.exe

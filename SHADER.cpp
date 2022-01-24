@@ -57,14 +57,9 @@ void Shader::transform(GLFWwindow* window , float x , float y , float scale , st
 		model_.push_back(model);
 	}
 	if (arg == "block") {
-			model__.push_back(model);
+	    model__.push_back(model);
 		
 	}
-	
-	
-
-
-
 	
 }
 
