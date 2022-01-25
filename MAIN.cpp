@@ -25,13 +25,7 @@ using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-{ //only yoffset changes\\ - when down ; + when up
-    
-    WINDOW* windowobj_ = static_cast<WINDOW*>(glfwGetWindowUserPointer(window));
-    windowobj_->update_list_scroll(yoffset);
-    
-}
+
 //SLOTS
 void WINDOW::SLOTS(int slot_nr){
     switch (slot_nr) {
@@ -46,6 +40,7 @@ void WINDOW::SLOTS(int slot_nr){
 // the main function , code is executed here
 int main()
 {
+
     // creating a transparent static window with width 1000 and height 640
     WINDOW windowobj(TRANSPARENT_WINDOW_STATIC , 1000 , 640); 
     //creating a shader program that uses texture shaders
@@ -53,8 +48,9 @@ int main()
     Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
 
 
-    glfwSetWindowUserPointer(windowobj.window, &windowobj);
+    
     ListObject list = ListObject(&texture_shader, &windowobj, 832, 650, 0.2);
+    glfwSetWindowUserPointer(windowobj.window, &list);
     windowobj.reserve_slots(5);
     list.add_item("Button1");
     list.add_item("Button2");
@@ -62,16 +58,11 @@ int main()
     list.add_item("Button4");
     list.add_item("Button5");
 
-    
-    
-
 
     //<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
     bool normalize = texture_shader.NORMALIZE_VALUES();
 
 
-    // *** to turn wireframe mode on.
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     
   
    
@@ -80,15 +71,16 @@ int main()
     std::vector<glm::vec3> data_for_blocking = list.return_blocking_data();
     // Loop until the user closes the window
 
-    glfwSetScrollCallback(windowobj.window, scroll_callback);
+    
 
     while (!glfwWindowShouldClose(windowobj.window))
     {
         glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
         texture_shader.model_.clear();
         texture_shader.model__.clear();
-        list.manage_scroll();
+        
         list.render();
+        list.manage_scroll();
 
        //process input (also button input)
         windowobj.processinput(data , data_for_blocking , texture_shader);

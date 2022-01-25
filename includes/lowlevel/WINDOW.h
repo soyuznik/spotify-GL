@@ -42,6 +42,7 @@ public:
 	void processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader);
 	void manage_slots(int triangle_number);
 	void update_list_scroll(double offset);
+	
 
 
 };

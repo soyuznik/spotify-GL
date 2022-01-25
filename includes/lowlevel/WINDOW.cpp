@@ -1,5 +1,5 @@
 #include "WINDOW.h"
-
+#include "highlevel/ListObject.h"
 //for slots
 #include <shellapi.h>
 
@@ -40,6 +40,13 @@ void WINDOW::CONFIG_MONITOR() {
     windowHeight = static_cast<int>(videoMode->height / 16 * 9);
 
     glfwGetMonitorPos(monitors[0], &monitorX, &monitorY);
+}
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{ //only yoffset changes\\ - when down ; + when up
+
+    ListObject* listobj = static_cast<ListObject*>(glfwGetWindowUserPointer(window));
+    listobj->update_scroll_info(yoffset);
+
 }
 // will create a glfw window with the specified type (transparency)
 GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
@@ -115,7 +122,8 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
         glfwSetWindowAttrib(window, GLFW_DECORATED, GLFW_TRUE);
     }
 
-
+    glfwSetScrollCallback(window, scroll_callback);
+    
     return window; // returning GLFWwindow * window
 }
 /*

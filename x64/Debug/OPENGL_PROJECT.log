@@ -1,5 +1,5 @@
 ﻿  ListObject.cpp
-D:\Visual Studio\Projects\OPENGL_PROJECT\includes\highlevel\ListObject.cpp(13,21): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
+D:\Visual Studio\Projects\OPENGL_PROJECT\includes\highlevel\ListObject.cpp(6,21): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
           with
           [
               _Ty=int

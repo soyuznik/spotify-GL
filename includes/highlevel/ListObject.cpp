@@ -1,24 +1,18 @@
 #include "ListObject.h"
 
 
-
-
-
-
-
-
-
 void ListObject::update_scroll_info(double offset) {
-	for (int j = 0; j < buttons.size(); j++) {
+	for (int j = 0; j < yaxis_offset.size(); j++) {
 		yaxis_offset[j] = offset;
 	}
 }
 void ListObject::manage_scroll() {
 	for (int io = 0; io < buttons.size(); io++) {
-		Button dereferenced_button = *buttons[io];
-		dereferenced_button.change_position(dereferenced_button.posx, dereferenced_button.posy +
-			(yaxis_offset[io] * list_sensitivity)); yaxis_offset[io] = 0;
+		Button* dereferenced_button = buttons[io];
+		dereferenced_button->change_position(dereferenced_button->posx, (dereferenced_button->posy +
+			(list_sensitivity * yaxis_offset[io]))); yaxis_offset[io] = 0;
 	}
+
 	
 
 }
@@ -29,7 +23,7 @@ ListObject::ListObject(Shader* texture_shader_ , WINDOW* window_ , double xpos_,
 	ypos = ypos_;
 	scale = scale_;
 	
-	window_->yaxis_offset = &yaxis_offset;
+	
 	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");
 	ClickEventCanceller* canceller = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos, scale + 0.01);
 	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 670, scale + 0.01);
@@ -59,7 +53,7 @@ std::vector<glm::vec3> ListObject::return_blocking_data() {
 }
 void ListObject::add_item(std::string ItemText) {
 	static int items = 0; items++;
-	Button* button = new Button(texture_shader, window, 832, 280 + (items * 50), 0.2, items-1, "vertices/square_wider.buf");
+	Button* button = new Button(texture_shader, window, 832, (280 + (items * 50)), 0.2, items-1, "vertices/square_wider.buf");
 	ButtonTexts.push_back(ItemText);
 	buttons.push_back(button);
 	yaxis_offset.push_back(0);
