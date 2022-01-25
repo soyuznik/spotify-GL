@@ -1,0 +1,64 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "glm_shared::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glm_shared-Debug-47614020fb98c5dd7cbf.json",
+					"name" : "glm_shared",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "glm_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-glm_static-Debug-c64bc993456a3ccc4253.json",
+					"name" : "glm_static",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm/out/build/x64-Debug",
+		"source" : "C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}

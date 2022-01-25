@@ -1,0 +1,4 @@
+C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm/out/build/x64-Debug/CMakeFiles/glm_static.dir
+C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm/out/build/x64-Debug/CMakeFiles/glm_shared.dir
+C:/Users/user/OneDrive/Documente/GitHub/TRANSPARENT-TRIANGLE/includes/glm/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
