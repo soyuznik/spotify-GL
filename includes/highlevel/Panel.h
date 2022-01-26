@@ -27,7 +27,7 @@ public:
 		double posx, double posy, double scale);
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
-	VertexArrayObject VAO = VertexArrayObject("vertices/square_wider.buf");
+	VertexArrayObject VAO = VertexArrayObject("vertices/square_extra_wide.buf");
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	
 	

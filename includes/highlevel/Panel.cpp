@@ -9,8 +9,8 @@ Panel::Panel(Shader* _shader, WINDOW* _windowobj, const char* path, double _posx
     posx = _posx;
     posy = _posy;
     scale = _scale;
-    TEXTURE temp = TEXTURE(std::string(path));
-    ID = temp.ID;
+    TEXTURE* temp = new TEXTURE(std::string(path));
+    ID = temp->ID;
    
 }
 

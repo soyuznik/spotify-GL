@@ -24,7 +24,6 @@ ListObject::ListObject(Shader* texture_shader_ , WINDOW* window_ , double xpos_,
 	scale = scale_;
 	glfwSetWindowUserPointer(window->window, this);
 	
-	
 	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");
 	ClickEventCanceller* canceller = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos, scale + 0.01);
 	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 670, scale + 0.01);

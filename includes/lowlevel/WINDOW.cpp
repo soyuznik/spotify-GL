@@ -1,70 +1,14 @@
 #include "WINDOW.h"
 #include "highlevel/ListObject.h"
 //for slots
-
+#include <shellapi.h>
 
 //used for the type of the window input *deprecated*
 int INSTANT_MOUSE_CALLBACK;
 
 //prototype that is defined later in the file
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-// TextField
-void WINDOW::manage_keys(GLFWwindow* window) {
-    std::map<std::string, int> k{
-        //letters
-        { "A", GLFW_KEY_A},
-        { "B" , GLFW_KEY_B },
-        { "C" , GLFW_KEY_C },
-        { "D" , GLFW_KEY_D },
-        { "E" , GLFW_KEY_E },
-        { "F" , GLFW_KEY_F },
-        { "G" , GLFW_KEY_G },
-        { "H" , GLFW_KEY_H },
-        { "I" , GLFW_KEY_I },
-        { "J" , GLFW_KEY_J },
-        { "K" , GLFW_KEY_K },
-        { "L" , GLFW_KEY_L },
-        { "M" , GLFW_KEY_M },
-        { "N" , GLFW_KEY_N },
-        { "O" , GLFW_KEY_O },
-        { "P" , GLFW_KEY_P },
-        { "Q" , GLFW_KEY_Q },
-        { "R" , GLFW_KEY_R },
-        { "S" , GLFW_KEY_S },
-        { "T" , GLFW_KEY_T },
-        { "U" , GLFW_KEY_U },
-        { "V" , GLFW_KEY_V },
-        { "W" , GLFW_KEY_W },
-        { "X" , GLFW_KEY_X },
-        { "Y" , GLFW_KEY_Y },
-        { "Z" , GLFW_KEY_Z },
-            //numbers
-        { "0" , GLFW_KEY_0 },
-        { "1" , GLFW_KEY_1 },
-        { "2" , GLFW_KEY_2 },
-        { "3" , GLFW_KEY_3 },
-        { "4" , GLFW_KEY_4 },
-        { "5" , GLFW_KEY_5 },
-        { "6" , GLFW_KEY_6 },
-        { "7" , GLFW_KEY_7 },
-        { "8" , GLFW_KEY_8 },
-        { "9" , GLFW_KEY_9 },
-        //other
-        { "," , GLFW_KEY_COMMA },
-        { " " , GLFW_KEY_SPACE },
-        { "/" , GLFW_KEY_SLASH },
-        { "." , GLFW_KEY_PERIOD },
-    }; // keymap
-    // iterate using C++17 facilities
-    for (const auto& n : k) {
-        auto letter = n.first;
-        auto value = n.second;
-        if (glfwGetKey(window, value) == GLFW_PRESS){
-            keylogger.append(letter);
-        }
-       
-    }
-}
+
 
 void WINDOW::update_list_scroll(double offset) {
     for (int i = 0; i < yaxis_offset->size(); i++) {
@@ -266,6 +210,7 @@ void WINDOW::reserve_slots(int number) {
         slot.push_back(false);
     }
 }
+
 void WINDOW::manage_slots(int triangle_number) {
     int obj_ID = std::round(triangle_number / 2);
     slot[obj_ID] = true;
@@ -277,11 +222,7 @@ void WINDOW::manage_slots(int triangle_number) {
         }
 }
 //the method that procceses all user input
-void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> block_data, Shader shader) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
-        glfwSetWindowShouldClose(window, true);
-
-
+void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader) {
     int current_x, current_y; // saing current window position
     glfwGetWindowPos(window, &current_x, &current_y);
 
@@ -301,7 +242,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
         float ndc_y = ypos / height * 2 - 1;
 
         glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
-       
+
         //checking if square or triangle input procces
 
         for (unsigned int i = 0; i < ((int)data.size() / 5.33); i++) { /*** for some reason  / n(5.33) need to be changed to get the number coorectly based on slots */
@@ -323,14 +264,14 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
             bool inside_blocked_zone = false;
             for (unsigned int indx = 0; indx < block_data.size() / 3; indx++) {
 
-            glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
-            glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
-            glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
-             
-            if (isInTriangle(blA, blB, blC, point)) {
-                inside_blocked_zone = true;
-                break;// indx loop
-            }// indx
+                glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
+                glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
+                glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
+
+                if (isInTriangle(blA, blB, blC, point)) {
+                    inside_blocked_zone = true;
+                    break;// indx loop
+                }// indx
 
             }
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
@@ -338,31 +279,35 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
                 manage_slots(i);
             }// if(isInTriangle(A, B, C, point)) 
         }
-       
+
     }
 
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
+        glfwSetWindowShouldClose(window, true);
 
 
-    manage_keys(window);
+    // !!!*deprecated*!!! // enable key with comment
+    bool use_wasd_window_movement = false;
     // independent keys
-    // move up ^
-    //glfwGetCursorPos(window, &xpos, &ypos);
-    if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-        double xpos, ypos;
-        glfwGetCursorPos(window, &xpos, &ypos);
-        std::cout << std::to_string(xpos) + "," + std::to_string(ypos) << std::endl;
+    if (use_wasd_window_movement) {
+        if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
+            double xpos, ypos;
+            glfwGetCursorPos(window, &xpos, &ypos);
+            std::cout << std::to_string(xpos) + "," + std::to_string(ypos) << std::endl;
+            // move up ^
+        }
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+            glfwSetWindowPos(window, current_x, current_y - 5);
+        // move down v
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+            glfwSetWindowPos(window, current_x, current_y + 5);
+        // <--- move left
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+            glfwSetWindowPos(window, current_x - 5, current_y);
+        // more right --->
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+            glfwSetWindowPos(window, current_x + 5, current_y);
     }
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x, current_y - 5);
-    // move down v
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x, current_y + 5);
-    // <--- move left
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x - 5, current_y);
-    // more right --->
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        glfwSetWindowPos(window, current_x + 5, current_y);
 }
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
 

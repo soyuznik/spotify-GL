@@ -9,8 +9,14 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Shader Files">
-      <UniqueIdentifier>{e68bb7f8-b40f-48a0-a6de-b134a953d309}</UniqueIdentifier>
+    <Filter Include="Vertices Files">
+      <UniqueIdentifier>{7fc91b80-9885-4e85-8ffa-30bde93c0f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture Files">
+      <UniqueIdentifier>{c2c26360-2f55-474b-b390-a34eb7ae3661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shader Files">
+      <UniqueIdentifier>{dfea935c-556c-4f02-b123-0e6163ae4737}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +55,58 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="vertices\square.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="vertices\triangle.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="shaders\color_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\color_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\text_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\text_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="vertices\square_wider.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="vertices\square_extra_wide.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\container.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\bricks2.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\brickwall.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\container2.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\marble.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
+    <Image Include="textures\metal.png">
+      <Filter>Texture Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -76,31 +134,5 @@
     <ClInclude Include="includes\lowlevel\WINDOW.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shaders\color_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\color_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\darken_color_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\darken_color_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
