@@ -1,4 +1,4 @@
-# TRANSPARENT-TRIANGLE
+# gui-library (original name TRANSPARENT-TRIANGLE)
 a transparent backround triangle project that is slowly becoming a Graphical User Interface Engine
 { in this project im trying to make a GUI library that is based just on GLFW and OpenGL ... and other minor utility like GLM...)
 (can be used in an already existent GLFW window)
