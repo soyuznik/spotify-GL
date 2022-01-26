@@ -2,7 +2,7 @@
 #include "highlevel/ListObject.h"
 //for slots
 #include <shellapi.h>
-
+#include "UTILITY.h"
 //used for the type of the window input *deprecated*
 int INSTANT_MOUSE_CALLBACK;
 
@@ -126,85 +126,7 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
     
     return window; // returning GLFWwindow * window
 }
-/*
-<distance> <calc_area> <position> < calc > <IsInTriangle>
- -- are used for input proccesing
 
- -- use IsInTriangle to check for where is a point
-
-
-*/
-// calculate distance beetween (x1,y1) ----- (x2,y2)
-float distance(float x1, float y1, float x2, float y2)
-{
-    return(sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2)));
-}
-// calculates the surface of a triangle with points a b c
-float calc_area(float a, float b, float c)
-{
-    float S;
-
-    S = (a + b + c) / 2.0;
-
-    return(sqrt(S * (S - a) * (S - b) * (S - c)));
-}
-// modulus
-int position(float area, float A, float B, float C)
-{
-    float res = area - (A + B + C);
-
-    if (res < 0)
-    {
-        res *= -1;
-    }
-
-    if (res == 0 || res < 0.001)
-    {
-        return(1);
-    }
-    else
-    {
-        return(0);
-    }
-}
-//calculates if a point (x,y) is in the triangle A(x1,y1) B(x2,y2) , C(x3,y3)
-void calc(float x1, float y1, float x2, float y2
-    , float x3, float y3, float x, float y, int* flag, float* area) {
-    /*
-    * https://www.youtube.com/watch?v=ntjM9YZP0qk
-    *
-    * the link for the whole IsInTriangle() function explanation
-
-
-
-    */
-    float A, B, C, a, b, c, d, e, f;
-
-    a = distance(x1, y1, x2, y2);
-    b = distance(x2, y2, x3, y3);
-    c = distance(x3, y3, x1, y1);
-    *area = calc_area(a, b, c);
-
-    d = distance(x1, y1, x, y);
-    e = distance(x2, y2, x, y);
-    f = distance(x3, y3, x, y);
-
-    A = calc_area(d, a, e);
-    B = calc_area(e, b, f);
-    C = calc_area(f, c, d);
-
-    *flag = position(*area, A, B, C);
-}
-// C++ implementation of C function calc()
-bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point) {
-    int   flag = 0;
-    float area = 0;
-
-    calc(A.x, A.y, B.x, B.y, C.x, C.y, point.x, point.y, &flag, &area);
-
-    if (flag) return true;
-    else  return false;
-}
 void WINDOW::reserve_slots(int number) {
     for (unsigned int i = 0; i <= number; i++) {
         slot.push_back(false);
@@ -222,7 +144,7 @@ void WINDOW::manage_slots(int triangle_number) {
         }
 }
 //the method that procceses all user input
-void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader) {
+void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> block_data, Shader shader) {
     int current_x, current_y; // saing current window position
     glfwGetWindowPos(window, &current_x, &current_y);
 
@@ -242,7 +164,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> bl
         float ndc_y = ypos / height * 2 - 1;
 
         glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
-
+       
         //checking if square or triangle input procces
 
         for (unsigned int i = 0; i < ((int)data.size() / 5.33); i++) { /*** for some reason  / n(5.33) need to be changed to get the number coorectly based on slots */
@@ -264,14 +186,14 @@ void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> bl
             bool inside_blocked_zone = false;
             for (unsigned int indx = 0; indx < block_data.size() / 3; indx++) {
 
-                glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
-                glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
-                glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
-
-                if (isInTriangle(blA, blB, blC, point)) {
-                    inside_blocked_zone = true;
-                    break;// indx loop
-                }// indx
+            glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
+            glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
+            glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
+             
+            if (isInTriangle(blA, blB, blC, point)) {
+                inside_blocked_zone = true;
+                break;// indx loop
+            }// indx
 
             }
             // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
@@ -279,7 +201,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> bl
                 manage_slots(i);
             }// if(isInTriangle(A, B, C, point)) 
         }
-
+       
     }
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
@@ -289,26 +211,25 @@ void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> bl
     // !!!*deprecated*!!! // enable key with comment
     bool use_wasd_window_movement = false;
     // independent keys
-    if (use_wasd_window_movement) {
-        if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-            double xpos, ypos;
-            glfwGetCursorPos(window, &xpos, &ypos);
-            std::cout << std::to_string(xpos) + "," + std::to_string(ypos) << std::endl;
-            // move up ^
-        }
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            glfwSetWindowPos(window, current_x, current_y - 5);
-        // move down v
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            glfwSetWindowPos(window, current_x, current_y + 5);
-        // <--- move left
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            glfwSetWindowPos(window, current_x - 5, current_y);
-        // more right --->
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            glfwSetWindowPos(window, current_x + 5, current_y);
+    if(use_wasd_window_movement){
+    if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        std::cout << std::to_string(xpos) + "," + std::to_string(ypos) << std::endl;
+        // move up ^
     }
-}
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        glfwSetWindowPos(window, current_x, current_y - 5);
+    // move down v
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        glfwSetWindowPos(window, current_x, current_y + 5);
+    // <--- move left
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        glfwSetWindowPos(window, current_x - 5, current_y);
+    // more right --->
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        glfwSetWindowPos(window, current_x + 5, current_y);
+}}
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
 
     static bool is_decorated = false;

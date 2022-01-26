@@ -53,6 +53,9 @@
     <ClCompile Include="includes\lowlevel\WINDOW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\TextField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -132,6 +135,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\lowlevel\WINDOW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\TextField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\UTILITY.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -155,6 +155,7 @@
     <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
     <ClCompile Include="includes\highlevel\ListObject.cpp" />
     <ClCompile Include="includes\highlevel\Panel.cpp" />
+    <ClCompile Include="includes\highlevel\TextField.cpp" />
     <ClCompile Include="includes\lowlevel\SHADER.cpp" />
     <ClCompile Include="includes\lowlevel\TEXT.cpp" />
     <ClCompile Include="includes\lowlevel\TEXTURE.cpp" />
@@ -187,9 +188,11 @@
     <ClInclude Include="includes\highlevel\ClickEventCanceller.h" />
     <ClInclude Include="includes\highlevel\ListObject.h" />
     <ClInclude Include="includes\highlevel\Panel.h" />
+    <ClInclude Include="includes\highlevel\TextField.h" />
     <ClInclude Include="includes\lowlevel\SHADER.h" />
     <ClInclude Include="includes\lowlevel\TEXT.h" />
     <ClInclude Include="includes\lowlevel\TEXTURE.h" />
+    <ClInclude Include="includes\lowlevel\UTILITY.h" />
     <ClInclude Include="includes\lowlevel\VAO.h" />
     <ClInclude Include="includes\lowlevel\WINDOW.h" />
   </ItemGroup>
