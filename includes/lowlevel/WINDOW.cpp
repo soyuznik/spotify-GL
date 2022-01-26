@@ -1,14 +1,70 @@
 #include "WINDOW.h"
 #include "highlevel/ListObject.h"
 //for slots
-#include <shellapi.h>
+
 
 //used for the type of the window input *deprecated*
 int INSTANT_MOUSE_CALLBACK;
 
 //prototype that is defined later in the file
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
-
+// TextField
+void WINDOW::manage_keys(GLFWwindow* window) {
+    std::map<std::string, int> k{
+        //letters
+        { "A", GLFW_KEY_A},
+        { "B" , GLFW_KEY_B },
+        { "C" , GLFW_KEY_C },
+        { "D" , GLFW_KEY_D },
+        { "E" , GLFW_KEY_E },
+        { "F" , GLFW_KEY_F },
+        { "G" , GLFW_KEY_G },
+        { "H" , GLFW_KEY_H },
+        { "I" , GLFW_KEY_I },
+        { "J" , GLFW_KEY_J },
+        { "K" , GLFW_KEY_K },
+        { "L" , GLFW_KEY_L },
+        { "M" , GLFW_KEY_M },
+        { "N" , GLFW_KEY_N },
+        { "O" , GLFW_KEY_O },
+        { "P" , GLFW_KEY_P },
+        { "Q" , GLFW_KEY_Q },
+        { "R" , GLFW_KEY_R },
+        { "S" , GLFW_KEY_S },
+        { "T" , GLFW_KEY_T },
+        { "U" , GLFW_KEY_U },
+        { "V" , GLFW_KEY_V },
+        { "W" , GLFW_KEY_W },
+        { "X" , GLFW_KEY_X },
+        { "Y" , GLFW_KEY_Y },
+        { "Z" , GLFW_KEY_Z },
+            //numbers
+        { "0" , GLFW_KEY_0 },
+        { "1" , GLFW_KEY_1 },
+        { "2" , GLFW_KEY_2 },
+        { "3" , GLFW_KEY_3 },
+        { "4" , GLFW_KEY_4 },
+        { "5" , GLFW_KEY_5 },
+        { "6" , GLFW_KEY_6 },
+        { "7" , GLFW_KEY_7 },
+        { "8" , GLFW_KEY_8 },
+        { "9" , GLFW_KEY_9 },
+        //other
+        { "," , GLFW_KEY_COMMA },
+        { " " , GLFW_KEY_SPACE },
+        { "/" , GLFW_KEY_SLASH },
+        { "." , GLFW_KEY_PERIOD },
+    }; // keymap
+    // iterate using C++17 facilities
+    for (const auto& n : k) {
+        auto letter = n.first;
+        auto value = n.second;
+        if (glfwGetKey(window, value) == GLFW_PRESS){
+            keylogger.append(letter);
+        }
+       
+    }
+}
 
 void WINDOW::update_list_scroll(double offset) {
     for (int i = 0; i < yaxis_offset->size(); i++) {
@@ -210,7 +266,6 @@ void WINDOW::reserve_slots(int number) {
         slot.push_back(false);
     }
 }
-
 void WINDOW::manage_slots(int triangle_number) {
     int obj_ID = std::round(triangle_number / 2);
     slot[obj_ID] = true;
@@ -288,7 +343,7 @@ void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> b
 
 
 
-
+    manage_keys(window);
     // independent keys
     // move up ^
     //glfwGetCursorPos(window, &xpos, &ypos);

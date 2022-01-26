@@ -1,4 +1,4 @@
-  
+
 
 //WINDOW header that  we use to  create window / add utility
 #include "lowlevel/WINDOW.h"
@@ -11,7 +11,7 @@
 //TEXT header that  we use to render text
 #include "lowlevel/TEXT.h"
 
-//23112321
+
 
 // higher level class
 #include "highlevel/Button.h"
@@ -27,73 +27,73 @@ using namespace std;
 
 
 //SLOTS
-void WINDOW::SLOTS(int slot_nr){
-    switch (slot_nr) {
-    case 0: cout << "slot0\n"; break;
-    case 1: cout << "slot1\n"; break;
-    case 2: cout << "slot2\n"; break;
-    case 3: cout << "slot3\n"; break;
-    case 4: cout << "slot4\n"; break;
+void WINDOW::SLOTS(int slot_nr) {
+	switch (slot_nr) {
+	case 0: cout << "slot0\n"; break;
+	case 1: cout << "slot1\n"; break;
+	case 2: cout << "slot2\n"; break;
+	case 3: cout << "slot3\n"; break;
+	case 4: cout << "slot4\n"; break;
 
-    } 
+	}
 }
 // the main function , code is executed here
 int main()
 {
 
-    // creating a transparent static window with width 1000 and height 640
-    WINDOW windowobj(TRANSPARENT_WINDOW_STATIC , 1000 , 640); 
-    //creating a shader program that uses texture shaders
-    Shader texture_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
-    Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
+	// creating a transparent static window with width 1000 and height 640
+	WINDOW windowobj(TRANSPARENT_WINDOW_STATIC, 1000, 640);
+	//creating a shader program that uses texture shaders
+	Shader texture_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+	Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
+	
+
+	ListObject list = ListObject(&texture_shader, &windowobj, 832, 650, 0.2);
+	windowobj.reserve_slots(5);
+	list.add_item("Button1");
+	list.add_item("Button2");
+	list.add_item("Button3");
+	list.add_item("Button4");
+	list.add_item("Button5");
 
 
-    
-    ListObject list = ListObject(&texture_shader, &windowobj, 832, 650, 0.2);
-    glfwSetWindowUserPointer(windowobj.window, &list);
-    windowobj.reserve_slots(5);
-    list.add_item("Button1");
-    list.add_item("Button2");
-    list.add_item("Button3");
-    list.add_item("Button4");
-    list.add_item("Button5");
+	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
+	bool normalize = texture_shader.NORMALIZE_VALUES();
+
+	Text antonio_bold = Text(windowobj, "fonts/Antonio-Bold.ttf");
 
 
-    //<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
-    bool normalize = texture_shader.NORMALIZE_VALUES();
+
+	//<VAO.return_data> is used to merge VAO's vectors into 1 (data)
+	std::vector<glm::vec3> data = list.return_clickable_data();
+	std::vector<glm::vec3> data_for_blocking = list.return_blocking_data();
+	// Loop until the user closes the window
 
 
-    
-  
-   
-    //<VAO.return_data> is used to merge VAO's vectors into 1 (data)
-    std::vector<glm::vec3> data = list.return_clickable_data();
-    std::vector<glm::vec3> data_for_blocking = list.return_blocking_data();
-    // Loop until the user closes the window
 
-    
+	while (!glfwWindowShouldClose(windowobj.window))
+	{
+		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+		texture_shader.model_.clear();
+		texture_shader.model__.clear();
 
-    while (!glfwWindowShouldClose(windowobj.window))
-    {
-        glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
-        texture_shader.model_.clear();
-        texture_shader.model__.clear();
-        
-        list.render();
-        list.manage_scroll();
+		list.render();
+		list.manage_scroll();
 
-       //process input (also button input)
-        windowobj.processinput(data , data_for_blocking , texture_shader);
-        // swap front and back buffers
-        glfwSwapBuffers(windowobj.window);
+		//antonio_bold.drawText(windowobj.keylogger, 100, 100, 0.2, glm::vec3(0.0f, 0.0f, 0.0f));
+		//windowobj.keylogger.clear();
+		//process input (also button input)
+		windowobj.processinput(data, data_for_blocking, texture_shader);
+		// swap front and back buffers
+		glfwSwapBuffers(windowobj.window);
 
-        // poll for and process events
-        glfwPollEvents();
-        
-    }
-    //destroy glfw object
-    glfwTerminate();
-    return 0;
+		// poll for and process events
+		glfwPollEvents();
+
+	}
+	//destroy glfw object
+	glfwTerminate();
+	return 0;
 }
 
 

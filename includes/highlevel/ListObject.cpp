@@ -22,6 +22,7 @@ ListObject::ListObject(Shader* texture_shader_ , WINDOW* window_ , double xpos_,
 	xpos = xpos_;
 	ypos = ypos_;
 	scale = scale_;
+	glfwSetWindowUserPointer(window->window, this);
 	
 	
 	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");

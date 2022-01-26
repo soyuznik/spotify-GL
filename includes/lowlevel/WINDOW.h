@@ -24,6 +24,7 @@
 
 class WINDOW{
 public:
+	std::string keylogger;
 	std::vector<int>* yaxis_offset;
 	void SLOTS(int slot_nr);
 	std::vector<bool> slot;
@@ -42,6 +43,7 @@ public:
 	void processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader);
 	void manage_slots(int triangle_number);
 	void update_list_scroll(double offset);
+	void manage_keys(GLFWwindow* window);
 	
 
 

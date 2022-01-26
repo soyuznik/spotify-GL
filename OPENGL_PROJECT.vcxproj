@@ -163,25 +163,6 @@
     <ClCompile Include="MAIN.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\color_frag.glsl" />
-    <None Include="shaders\color_vertex.glsl" />
-    <None Include="shaders\texture_frag.glsl" />
-    <None Include="shaders\texture_vertex.glsl" />
-    <None Include="shaders\text_frag.glsl" />
-    <None Include="shaders\text_vertex.glsl" />
-    <None Include="vertices\square.buf" />
-    <None Include="vertices\square_wider.buf" />
-    <None Include="vertices\triangle.buf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\bricks2.jpg" />
-    <Image Include="textures\brickwall.jpg" />
-    <Image Include="textures\container.jpg" />
-    <Image Include="textures\container2.jpg" />
-    <Image Include="textures\marble.jpg" />
-    <Image Include="textures\metal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h" />
     <ClInclude Include="includes\highlevel\ClickEventCanceller.h" />
     <ClInclude Include="includes\highlevel\ListObject.h" />
@@ -191,6 +172,16 @@
     <ClInclude Include="includes\lowlevel\TEXTURE.h" />
     <ClInclude Include="includes\lowlevel\VAO.h" />
     <ClInclude Include="includes\lowlevel\WINDOW.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\color_frag.glsl" />
+    <None Include="shaders\color_vertex.glsl" />
+    <None Include="shaders\darken_color_frag.glsl" />
+    <None Include="shaders\darken_color_vertex.glsl" />
+    <None Include="shaders\texture_frag.glsl" />
+    <None Include="shaders\texture_vertex.glsl" />
+    <None Include="shaders\text_frag.glsl" />
+    <None Include="shaders\text_vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
