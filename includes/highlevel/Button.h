@@ -18,6 +18,7 @@ public:
 	Shader* shader;
 	WINDOW* windowobj;
 	VertexArrayObject* VAO;
+	
 	double posx;
 	double posy; 
 	double scale = 0;
@@ -32,6 +33,10 @@ public:
 	
 	// loading a texture & font 
 	TEXTURE texture = TEXTURE("textures/button.jpg");
+	
 	void render();
+	void accept_input(glm::vec4 point , int slot);
+private:
+	glm::mat4 modl = glm::mat4(1.0f);
 };
 

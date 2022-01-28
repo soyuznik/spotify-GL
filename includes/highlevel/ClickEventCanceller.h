@@ -22,16 +22,16 @@ public:
 	double posx;
 	double posy;
 	double scale;
-
 	ClickEventCanceller(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
 	void create_canceller(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
 	VertexArrayObject VAO = VertexArrayObject("vertices/square_higher_wider.buf");
-	
-
+	bool should_block(glm::vec4 point);
 
 	void render();
+private:
+	glm::mat4 model;
 };
 

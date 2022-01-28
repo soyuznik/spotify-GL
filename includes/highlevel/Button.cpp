@@ -1,4 +1,9 @@
 #include "Button.h"
+#include "lowlevel/UTILITY.h"
+
+
+
+
 void Button::change_position(double x, double y) {
     posx = x;
     posy = y;
@@ -15,6 +20,7 @@ Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, 
     scale = _scale;
     frames = &frames__;
     slot = _slot;
+    
 }
 
 void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
@@ -35,7 +41,8 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
     }
 
     //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale, "notblock");
+    this->modl = texture_shader->transform(windowobj->window, posx, posy, scale);
+    
     texture->use(); // pick texture
     VAO->use(); // pick vao
     DRAW(6); // draw 6 vertices
@@ -44,4 +51,19 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 }
 void Button::render() {
     create_button(shader, windowobj, VAO, &texture, posx, posy, scale, &slot);
+}
+
+void Button::accept_input(glm::vec4 point, int slot) {
+
+    std::vector<glm::vec3> raw = VAO->vec4_vector;
+    glm::vec4 A = this->modl * glm::vec4(raw[0], 1.0f);
+    glm::vec4 B = this->modl * glm::vec4(raw[1], 1.0f);
+    glm::vec4 C = this->modl * glm::vec4(raw[2], 1.0f);
+    glm::vec4 A1 = this->modl * glm::vec4(raw[3], 1.0f);
+    glm::vec4 B1 = this->modl * glm::vec4(raw[4], 1.0f);
+    glm::vec4 C1 = this->modl * glm::vec4(raw[5], 1.0f);
+
+    if (isInTriangle(A, B, C, point) or isInTriangle(A1, B1, C1, point)) {
+        windowobj->manage_slots(slot);
+    }
 }
