@@ -11,18 +11,7 @@
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
-/*
 
-need to change slot mechanism
-
--->> each input active object (button , textfield) should have their own function checking for input
-cause they have their full vao right? and the shader->transfrom should return the model so it can be saved in the class...
-then slots can be defined for each button easily no more VAO mergining needed ....
-
-
-
-
-*/
 
 //SLOTS
 void WINDOW::SLOTS(int slot_nr){
@@ -71,19 +60,15 @@ int main()
     while (!glfwWindowShouldClose(windowobj.window))
     {
         glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
-       // texture_shader.model_.clear();
-       // texture_shader.model__.clear();
-       
+      
         list.render();
         list.manage_scroll();
 
 
         text.logkey();
         text.render();
-
-       //process input (also button input)
-        //windowobj.processinput(data , data_for_blocking , texture_shader 
-        // swap front and back buffers
+        text.check_input();
+        //glfwSwapInterval(0);
         glfwSwapBuffers(windowobj.window);
 
         // poll for and process events

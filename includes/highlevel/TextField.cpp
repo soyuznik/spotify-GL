@@ -17,6 +17,7 @@ std::string TextField::text() {
     return text__;
 }
 void TextField::logkey() {
+    if (!was_initiated) return;
     std::map<std::string, int> k{
             { "a", GLFW_KEY_A},//letters
             { "b" , GLFW_KEY_B },
@@ -58,7 +59,8 @@ void TextField::logkey() {
             { " " , GLFW_KEY_SPACE },
             { "/" , GLFW_KEY_SLASH },
             { "." , GLFW_KEY_PERIOD },
-            { "delete" , GLFW_KEY_BACKSPACE} // delete last character
+            { "delete" , GLFW_KEY_BACKSPACE}, // delete last character
+           
     }; // keymap
     // iterate using C++17 facilities
     if (logframes == 5) {
@@ -77,10 +79,41 @@ void TextField::logkey() {
         }
     }
     else logframes++;
+   
+    time++;
+    if (time == 50) {
+        time = 0;
+        showing = true;
+    }
+    if (time > 30) {
+        if (showing) {
+            showing = false;
+        }
+    }
 }
+void TextField::check_input() {
+    glm::vec4 point = return_ndc_cursor(window->window);
+    if (glfwGetMouseButton(window->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        bool was_clicked = panel->accept_input(point);
+        if (was_clicked) was_initiated = true;
+        else was_initiated = false;
+    }
+}
+
 void TextField::render() {
+    shader->use();
+    if (showing && was_initiated) {
+        if (dots == "...") dots = "";
+        dots.append(".");
+    }
+    if (was_initiated) {
+        shader->setBool("changeColor", true);
+    }
     panel->render();
-    if (*tlog == "") return;
-    antonio_bold->drawText(*tlog, posx - 95, posy, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+    shader->setBool("changeColor", false);
+    std::string showing_text = *tlog;
+    showing_text.append(dots);
+    antonio_bold->drawText(showing_text, posx - 95, posy, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+   
     
 }
