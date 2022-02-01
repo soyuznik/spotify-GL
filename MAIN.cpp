@@ -71,17 +71,18 @@ int main()
     while (!glfwWindowShouldClose(windowobj.window))
     {
         glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
-        texture_shader.model_.clear();
-        texture_shader.model__.clear();
-        
+       // texture_shader.model_.clear();
+       // texture_shader.model__.clear();
+       
         list.render();
         list.manage_scroll();
+
 
         text.logkey();
         text.render();
 
        //process input (also button input)
-        windowobj.processinput(data , data_for_blocking , texture_shader);
+        //windowobj.processinput(data , data_for_blocking , texture_shader 
         // swap front and back buffers
         glfwSwapBuffers(windowobj.window);
 

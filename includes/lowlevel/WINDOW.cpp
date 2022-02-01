@@ -134,10 +134,10 @@ void WINDOW::reserve_slots(int number) {
 }
 
 void WINDOW::manage_slots(int triangle_number) {
-    int obj_ID = std::round(triangle_number / 2);
-    slot[obj_ID] = true;
+    
+    slot[triangle_number] = true;
     try {
-        SLOTS(obj_ID);
+        SLOTS(triangle_number);
     }
     catch (...) {
         throw("No SLOTS body defined");
@@ -147,63 +147,6 @@ void WINDOW::manage_slots(int triangle_number) {
 void WINDOW::processinput(std::vector<glm::vec3> data , std::vector<glm::vec3> block_data, Shader shader) {
     int current_x, current_y; // saing current window position
     glfwGetWindowPos(window, &current_x, &current_y);
-
-
-    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-        // <function>
-
-        int width, height;
-        glfwGetWindowSize(window, &width, &height);
-        //window pos
-        int winx, winy;
-        glfwGetWindowPos(window, &winx, &winy);
-        double xpos, ypos;
-        glfwGetCursorPos(window, &xpos, &ypos);
-        ypos = static_cast<double>(height) - ypos;// here we inverse the y axis  from down positive to up positive axis...
-        float ndc_x = xpos / width * 2 - 1;// normalizing coordinates x , y
-        float ndc_y = ypos / height * 2 - 1;
-
-        glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
-       
-        //checking if square or triangle input procces
-
-        for (unsigned int i = 0; i < ((int)data.size() / 5.33); i++) { /*** for some reason  / n(5.33) need to be changed to get the number coorectly based on slots */
-
-            // getting the vector with matrices from the shader
-            std::vector<glm::mat4> model = shader.model_;
-            std::vector<glm::mat4> blmodel = shader.model__;
-
-
-            // this gets corresponding vertices from data[]  and multiplying with a matrix
-
-            // we do <[std::round(i / 2)]> because we need to get the model for the square if it was for triangle , we would do just <[i]>
-
-            // so we get the current square position on screen , which has 2 triangles , so it will loop over all triangle in squares and checking for input
-            glm::vec4 A = model[std::round(i / 2)] * glm::vec4(data[0 + (i * 3)], 1.0f);
-            glm::vec4 B = model[std::round(i / 2)] * glm::vec4(data[1 + (i * 3)], 1.0f);
-            glm::vec4 C = model[std::round(i / 2)] * glm::vec4(data[2 + (i * 3)], 1.0f);
-
-            bool inside_blocked_zone = false;
-            for (unsigned int indx = 0; indx < block_data.size() / 3; indx++) {
-
-            glm::vec4 blA = blmodel[std::round(indx / 2)] * glm::vec4(block_data[0 + (indx * 3)], 1.0f);
-            glm::vec4 blB = blmodel[std::round(indx / 2)] * glm::vec4(block_data[1 + (indx * 3)], 1.0f);
-            glm::vec4 blC = blmodel[std::round(indx / 2)] * glm::vec4(block_data[2 + (indx * 3)], 1.0f);
-             
-            if (isInTriangle(blA, blB, blC, point)) {
-                inside_blocked_zone = true;
-                break;// indx loop
-            }// indx
-
-            }
-            // checks where the cursor clicked and gives the triangle number , which corrensponds to <i>
-            if (isInTriangle(A, B, C, point) and !inside_blocked_zone) {
-                manage_slots(i);
-            }// if(isInTriangle(A, B, C, point)) 
-        }
-       
-    }
-
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) // quit with ESC
         glfwSetWindowShouldClose(window, true);
 

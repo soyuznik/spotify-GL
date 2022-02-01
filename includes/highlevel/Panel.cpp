@@ -19,7 +19,7 @@ void Panel::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayO
     
     texture_shader->use();
     //rendering object1
-    texture_shader->transform(windowobj->window, posx, posy, scale , "none"); // 200 -xpos , 100 -ypos , 0.2 -scale;
+    texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
     glBindTexture(GL_TEXTURE_2D, ID);// pick texture
     VAO->use(); // pick vao
     DRAW(6); // draw 6 vertices

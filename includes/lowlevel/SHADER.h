@@ -18,12 +18,7 @@ class Shader
 public:
     //for proccesinput
     int transformCalled = 0;
-   
-    std::vector<glm::mat4> model_;
-    std::vector<glm::mat4> model__;
-    
-    
-   
+
 	// Reference ID of the Shader Program
 	GLuint ID;
     bool normalize = false;
@@ -40,7 +35,7 @@ public:
 
     
     void color(float R, float G, float B, float A);
-    void transform(GLFWwindow* window , float x, float y, float scale ,std::string arg);
+    glm::mat4 transform(GLFWwindow* window , float x, float y, float scale);
     
 
 
