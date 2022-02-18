@@ -53,6 +53,20 @@ glm::mat4 Shader::transform(GLFWwindow* window, float x, float y, float scale) {
 	//saving a copy for the model that will be used when proccesing input
 	return model;
 }
+glm::mat4 Shader::notnormal_transform(GLFWwindow* window, float x, float y, float scale) {
+	
+	// calculate the model matrix for each object and pass it to shader before drawing
+	glm::mat4 model = glm::mat4(1.0f);
+	//glm::translate moves the object at x,y
+	model = glm::translate(model, glm::vec3(x, y, 1.0f));
+	//glm::scale scales the object with scale on xyz axises
+	model = glm::scale(model, glm::vec3(scale, scale, scale));
+
+	//uniform settting
+	this->setMat4("model", model);
+	//saving a copy for the model that will be used when proccesing input
+	return model;
+}
 
 // Reads a text file and outputs a string with everything in the text file
 std::string get_file_contents(const char* filename)

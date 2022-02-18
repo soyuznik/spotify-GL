@@ -32,7 +32,7 @@ public:
 	//influences below methods
 	bool NORMALIZE_VALUES();
 	// VERTEXSHADER uniform dependant
-
+	glm::mat4 notnormal_transform(GLFWwindow* window, float x, float y, float scale);
 	void color(float R, float G, float B, float A);
 	glm::mat4 transform(GLFWwindow* window, float x, float y, float scale);
 

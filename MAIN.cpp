@@ -5,6 +5,7 @@
 #include "highlevel/ListObject.h"
 #include "highlevel/TextField.h"
 #include "lowlevel/UTILITY.h"
+#include "highlevel/Slider.h"
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -44,7 +45,7 @@ int main()
 	Button pause = Button(&texture_shader, &windowobj, 410 * t, 90, 0.1f, 5);
 	Button skforwar = Button(&texture_shader, &windowobj, 465 * t, 90, 0.1f, 7);
 	Button rloop = Button(&texture_shader, &windowobj, 520 * t, 90, 0.1f, 8);
-	
+	Slider slider = Slider(&texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
 	list.add_item("Button0");
 	list.add_item("Button1");
 	list.add_item("Button2");
@@ -74,12 +75,17 @@ int main()
 		skforwar.render();
 		rloop.render();
 		rrandom.render();
+		slider.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			pause.accept_input(return_ndc_cursor(windowobj.window), 5);
 			skback.accept_input(return_ndc_cursor(windowobj.window), 6);
 			skforwar.accept_input(return_ndc_cursor(windowobj.window), 7);
 			rloop.accept_input(return_ndc_cursor(windowobj.window), 8);
 			rrandom.accept_input(return_ndc_cursor(windowobj.window), 9);
+			slider.accept_input(return_ndc_cursor(windowobj.window));
+			std::cout << slider.return_pos() << std::endl;
+	
+		
 		}
 		glfwSwapBuffers(windowobj.window);
 		

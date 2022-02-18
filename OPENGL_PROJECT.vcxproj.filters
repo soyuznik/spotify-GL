@@ -56,6 +56,9 @@
     <ClCompile Include="includes\highlevel\TextField.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\Slider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -89,6 +92,9 @@
       <Filter>Vertices Files</Filter>
     </None>
     <None Include="vertices\square_higher_wider.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="vertices\square_super_wide.buf">
       <Filter>Vertices Files</Filter>
     </None>
   </ItemGroup>
@@ -144,6 +150,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\lowlevel\UTILITY.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\Slider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

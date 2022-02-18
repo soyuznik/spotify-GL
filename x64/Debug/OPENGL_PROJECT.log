@@ -950,7 +950,7 @@
        Overriding target "ComputeMetaGenInputs" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MetaGen.targets" with target "ComputeMetaGenInputs" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetNativeManifest" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
-Build started 18.02.2022 20:40:52.
+Build started 18.02.2022 21:59:56.
 Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
@@ -977,7 +977,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          VSTEL_SolutionSessionID={67270D0A-00BE-4F0D-A9D8-A5DA754F8910}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=237177507
+         VSTEL_CurrentSolutionBuildID=241921071
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={656eb0b2-6a8c-44c4-aee0-97c9d625d680}
@@ -1248,6 +1248,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'ClickEventCanceller.cpp' != 'ClickEventCanceller.cpp' and 'x64\Debug\' == 'x64\Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'ListObject.cpp' != 'ListObject.cpp' and 'x64\Debug\' == 'x64\Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'Panel.cpp' != 'Panel.cpp' and 'x64\Debug\' == 'x64\Debug\').
+       Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'Slider.cpp' != 'Slider.cpp' and 'x64\Debug\' == 'x64\Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'TextField.cpp' != 'TextField.cpp' and 'x64\Debug\' == 'x64\Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'SHADER.cpp' != 'SHADER.cpp' and 'x64\Debug\' == 'x64\Debug\').
        Task "VCMessage" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(Filename)%(Extension)' != '@(ClCompile->'%(Filename)%(Extension)')' and '%(ObjectFileName)' == '@(ClCompile->Metadata(ObjectFileName)->Distinct())') was evaluated as ('' != 'true' and 'TEXT.cpp' != 'TEXT.cpp' and 'x64\Debug\' == 'x64\Debug\').
@@ -1283,8 +1284,8 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' != 'true') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '' and 'false' != 'true').
        Using "CL" task from assembly "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "CL"
-         Using cached input dependency table built from:
-         	C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog\CL.read.1.tlog
+         Read Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\CL.read.1.tlog
          Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\GLAD.C:
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ
          All outputs are up-to-date.
@@ -1292,11 +1293,12 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Task "CL"
          Using cached input dependency table built from:
          	C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog\CL.read.1.tlog
-         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\BUTTON.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\CLICKEVENTCANCELLER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\LISTOBJECT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\PANEL.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\SHADER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXTURE.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\VAO.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\WINDOW.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\MAIN.CPP:
+         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\BUTTON.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\CLICKEVENTCANCELLER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\LISTOBJECT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\PANEL.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\SHADER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXTURE.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\VAO.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\WINDOW.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\MAIN.CPP:
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ
@@ -1304,7 +1306,36 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ
-         All outputs are up-to-date.
+         includes\highlevel\Slider.cpp will be compiled because C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp was modified at 18.02.2022 21:59:55.
+         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP:
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ
+         Write Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\CL.write.1.tlog
+         Environment Variables passed to tool:
+           VS_UNICODE_OUTPUT=1480
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Slider.cpp
+         Tracking command:
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP /b MSBuildConsole_CancelEvent581386fcd10c4837a449b96b43f44177  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe"  /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Slider.cpp
+         Slider.cpp
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(11,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(18,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(86,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(87,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(40,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(40,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(58,19): warning C4305: '=': truncation from 'double' to 'T'
+                 with
+                 [
+                     T=float
+                 ]
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(70,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(70,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
        Done executing task "CL".
      1>Done building target "ClCompile" in project "OPENGL_PROJECT.vcxproj".
        Target "RunSelectedFileNativeCodeAnalysis" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(SelectedFiles)'!='') was evaluated as ('false'=='true' and ''!='').
@@ -1419,30 +1450,99 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>Target "Link" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_Link" depends on it):
        Using "Link" task from assembly "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "Link"
-         Using cached output dependency table built from:
-         	C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog\link.write.1.tlog
-         Using cached input dependency table built from:
-         	C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog\link.read.1.tlog
-         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ:
+         Write Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\link.write.1.tlog
+         Read Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\link.read.1.tlog
+         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ:
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.EXE
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.ILK
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.PDB
-         All outputs are up-to-date.
+         Inputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ:
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OPENGL32.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\LIB\GLFW3.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\LIB\FREETYPE.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\KERNEL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\USER32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\GDI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\WINSPOOL.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\COMDLG32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ADVAPI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\SHELL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OLE32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OLEAUT32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\UUID.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ODBC32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ODBCCP32.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ
+         	C:\WINDOWS\SYSTEM32\TZRES.DLL
+         	C:\WINDOWS\GLOBALIZATION\SORTING\SORTDEFAULT.NLS
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCRTD.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\OLDNAMES.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCPRTD.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCRT.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\VCRUNTIMED.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UCRT\X64\UCRTD.LIB
+         Source compilation required: input C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ is newer than output C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.EXE.
+         Environment Variables passed to tool:
+           VS_UNICODE_OUTPUT=2992
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe" /INCREMENTAL /ILK:"x64\Debug\OPENGL_PROJECT.ilk" /NOLOGO opengl32.lib glfw3.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib" /MACHINE:X64 x64\Debug\glad.obj
+         x64\Debug\Button.obj
+         x64\Debug\ClickEventCanceller.obj
+         x64\Debug\ListObject.obj
+         x64\Debug\Panel.obj
+         x64\Debug\Slider.obj
+         x64\Debug\TextField.obj
+         x64\Debug\SHADER.obj
+         x64\Debug\TEXT.obj
+         x64\Debug\TEXTURE.obj
+         x64\Debug\VAO.obj
+         x64\Debug\WINDOW.obj
+         x64\Debug\MAIN.obj
+         Tracking command:
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r "C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ" /b MSBuildConsole_CancelEventb874294969a14e5484533479cbef5c97  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe" /INCREMENTAL /ILK:"x64\Debug\OPENGL_PROJECT.ilk" /NOLOGO opengl32.lib glfw3.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib" /MACHINE:X64 x64\Debug\glad.obj
+         x64\Debug\Button.obj
+         x64\Debug\ClickEventCanceller.obj
+         x64\Debug\ListObject.obj
+         x64\Debug\Panel.obj
+         x64\Debug\Slider.obj
+         x64\Debug\TextField.obj
+         x64\Debug\SHADER.obj
+         x64\Debug\TEXT.obj
+         x64\Debug\TEXTURE.obj
+         x64\Debug\VAO.obj
+         x64\Debug\WINDOW.obj
+         x64\Debug\MAIN.obj
        Done executing task "Link".
        Task "Message"
          OPENGL_PROJECT.vcxproj -> C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe
        Done executing task "Message".
        Task "VCMessage" skipped, due to false condition; (('$(EmbedManifestBy)' != 'LINK' or '$(LegacyManifestEmbedding)' != 'true' or '$(LinkSkippedExecution)' == 'true') and
-                    %(Link.GenerateDebugInformation) == 'DebugFastLink' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'True' == 'true') and
+                    %(Link.GenerateDebugInformation) == 'DebugFastLink' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'False' == 'true') and
                     true == 'DebugFastLink' and  != '').
        Task "VCMessage" skipped, due to false condition; (('$(EmbedManifestBy)' != 'LINK' or '$(LegacyManifestEmbedding)' != 'true' or '$(LinkSkippedExecution)' == 'true') and
-                    %(Link.GenerateDebugInformation) == 'true' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'True' == 'true') and
+                    %(Link.GenerateDebugInformation) == 'true' and %(Link.ProgramDataBaseFileName) != '') was evaluated as (('LINK' != 'LINK' or '' != 'true' or 'False' == 'true') and
                     true == 'true' and  != '').
      1>Done building target "Link" in project "OPENGL_PROJECT.vcxproj".
        Target "MetaGenInputsOutputs" skipped, due to false condition; ('$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('false' == 'True').
        Target "ComputeMetaGenInputs" skipped, due to false condition; ('$(CLRSupport)'!='' and '$(CLRSupport)'!='false' and '$(CLRSupport)'!='NetCore') was evaluated as ('false'!='' and 'false'!='false' and 'false'!='NetCore').
        Target "MetaGen" skipped, due to false condition; ('@(MetaGen)' != '') was evaluated as ('' != '').
-       Target "ComputeLinkImportLibraryOutputsForClean" skipped, due to false condition; ('$(LinkSkippedExecution)' != 'true') was evaluated as ('True' != 'true').
+     1>Target "ComputeLinkImportLibraryOutputsForClean" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_Link" depends on it):
+       Task "WriteLinesToFile"
+       Done executing task "WriteLinesToFile".
+     1>Done building target "ComputeLinkImportLibraryOutputsForClean" in project "OPENGL_PROJECT.vcxproj".
      1>Target "AfterLink" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_Link" depends on it):
      1>Done building target "AfterLink" in project "OPENGL_PROJECT.vcxproj".
      1>Target "_Link" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_BuildLinkAction" depends on it):
@@ -1453,7 +1553,13 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>Target "_Manifest" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_BuildLinkAction" depends on it):
        Task "CallTarget" skipped, due to false condition; ('$(LegacyManifestEmbedding)' == 'true') was evaluated as ('' == 'true').
      1>Done building target "_Manifest" in project "OPENGL_PROJECT.vcxproj".
-       Target "RegisterOutput" skipped, due to false condition; ('$(LinkSkippedExecution)' != 'true' and (('$(Platform)' == 'x64' and ('$(PROCESSOR_ARCHITECTURE)' == 'AMD64' or '$(PROCESSOR_ARCHITEW6432)' == 'AMD64')) or '$(Platform)' == 'Win32')) was evaluated as ('True' != 'true' and (('x64' == 'x64' and ('x86' == 'AMD64' or 'AMD64' == 'AMD64')) or 'x64' == 'Win32')).
+     1>Target "RegisterOutput" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_BuildLinkAction" depends on it):
+       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'!='true').
+       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='DynamicLibrary' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='DynamicLibrary' and 'false'=='true' and 'false'=='true').
+       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'!='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'!='true').
+       Task "Exec" skipped, due to false condition; ('$(ConfigurationType)'=='Application' and '%(Link.RegisterOutput)'=='true' and '%(Link.PerUserRedirection)'=='true') was evaluated as ('Application'=='Application' and 'false'=='true' and 'false'=='true').
+       Task "VCMessage" skipped, due to false condition; ('$(_RegisterOutputExitCode)' != '' and '$(_RegisterOutputExitCode)' != '0') was evaluated as ('' != '' and '' != '0').
+     1>Done building target "RegisterOutput" in project "OPENGL_PROJECT.vcxproj".
        Target "PrepareForBuild" skipped. Previously built successfully.
        Target "ResolveReferences" skipped. Previously built successfully.
      1>Target "ResolvedXDCMake" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_XdcMake" depends on it):
@@ -1641,7 +1747,26 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>Done Building Project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (Build target(s)).
 
 Build succeeded.
-    0 Warning(s)
+
+       "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (Build target) (1) ->
+       (ClCompile target) -> 
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(11,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(18,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(86,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(87,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(38,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(40,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(40,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(58,19): warning C4305: '=': truncation from 'double' to 'T'
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(70,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(70,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+
+    15 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:01.94
