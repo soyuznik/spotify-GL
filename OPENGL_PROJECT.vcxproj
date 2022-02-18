@@ -172,6 +172,7 @@
     <None Include="shaders\text_vertex.glsl" />
     <None Include="vertices\square.buf" />
     <None Include="vertices\square_extra_wide.buf" />
+    <None Include="vertices\square_higher_wider.buf" />
     <None Include="vertices\square_wider.buf" />
     <None Include="vertices\triangle.buf" />
   </ItemGroup>

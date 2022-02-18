@@ -12,21 +12,18 @@ void ListObject::manage_scroll() {
 		dereferenced_button->change_position(dereferenced_button->posx, (dereferenced_button->posy +
 			(list_sensitivity * yaxis_offset[io]))); yaxis_offset[io] = 0;
 	}
-
-	
-
 }
-ListObject::ListObject(Shader* texture_shader_ , WINDOW* window_ , double xpos_, double ypos_ , double scale_) {
+ListObject::ListObject(Shader* texture_shader_, WINDOW* window_, double xpos_, double ypos_, double scale_) {
 	texture_shader = texture_shader_;
 	window = window_;
 	xpos = xpos_;
 	ypos = ypos_;
 	scale = scale_;
 	glfwSetWindowUserPointer(window->window, this);
-	
+
 	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");
 	ClickEventCanceller* canceller = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos, scale + 0.01);
-	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 670, scale + 0.01);
+	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 623, scale + 0.01);
 	cancellers.push_back(canceller);
 	cancellers.push_back(canceller1);
 }
@@ -46,14 +43,14 @@ std::vector<glm::vec3> ListObject::return_blocking_data() {
 	for (unsigned int i = 0; i < cancellers.size(); i++) {
 		ClickEventCanceller cancel = *cancellers[i];
 		VAOs_that_need_to_block_clicks.push_back(cancel.VAO.vec4_vector);
-
 	}
 	std::vector<glm::vec3> data_for_blocking = buttons[0]->VAO->return_data(VAOs_that_need_to_block_clicks);
 	return data_for_blocking;
 }
 void ListObject::add_item(std::string ItemText) {
+	window->reserve_slots(1);
 	static int items = 0; items++;
-	Button* button = new Button(texture_shader, window, 832, (280 + (items * 50)), 0.2, items-1, "vertices/square_wider.buf");
+	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2, items - 1, "vertices/square_wider.buf");
 	ButtonTexts.push_back(ItemText);
 	buttons.push_back(button);
 	yaxis_offset.push_back(0);
@@ -74,6 +71,6 @@ void ListObject::render() {
 		tempbt.setText(antonio_bold, ButtonTexts[ix], 0.4f);
 		if (glfwGetMouseButton(window->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !is_point_inside_blocker) {
 			tempbt.accept_input(point, ix);
-		}	
+		}
 	}
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include "WINDOW.h"
 
-
 class VertexArrayObject
 {
 public:
@@ -16,6 +15,4 @@ public:
 	void load_vertices();
 	VertexArrayObject(const char* argPATH);
 	void use();
-	
 };
-

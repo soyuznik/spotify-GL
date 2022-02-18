@@ -11,8 +11,6 @@
 //TEXT header that  we use to render text
 #include "lowlevel/TEXT.h"
 
-
-
 // higher level class
 #include "highlevel/Button.h"
 #include "highlevel/Panel.h"
@@ -39,4 +37,3 @@ public:
 	void manage_scroll();
 	void update_scroll_info(double offset);
 };
-

@@ -18,9 +18,9 @@ public:
 	Shader* shader;
 	WINDOW* windowobj;
 	VertexArrayObject* VAO;
-	
+
 	double posx;
-	double posy; 
+	double posy;
 	double scale = 0;
 	int* frames;
 	int slot;
@@ -30,13 +30,12 @@ public:
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
-	
-	// loading a texture & font 
+
+	// loading a texture & font
 	TEXTURE texture = TEXTURE("textures/button.jpg");
-	
+
 	void render();
-	void accept_input(glm::vec4 point , int slot);
+	void accept_input(glm::vec4 point, int slot);
 private:
 	glm::mat4 modl = glm::mat4(1.0f);
 };
-

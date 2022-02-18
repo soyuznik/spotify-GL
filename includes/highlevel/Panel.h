@@ -21,8 +21,7 @@ public:
 	double posx;
 	double posy;
 	double scale;
-	
-	
+
 	Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
@@ -36,4 +35,3 @@ public:
 private:
 	glm::mat4 model;
 };
-

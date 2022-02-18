@@ -7,6 +7,8 @@ public:
 	Shader* shader;
 	WINDOW* window;
 	std::string dots = "";
+	std::string save_key = "";
+	int repeats = 0;
 	bool was_initiated = false;
 	int time = 0;
 	bool showing = false;
@@ -22,5 +24,4 @@ public:
 	void check_input();
 	std::string text();
 	std::string* tlog = new std::string("");
-
 };

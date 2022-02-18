@@ -10,7 +10,7 @@ bool Shader::NORMALIZE_VALUES() {
 	// this will  set normalized true when other method use it;
 	normalize = true;
 	std::cout << " SHADER.cpp::Shader::NORMALIZE_VALUES >> \"normalize\" is ";
-	if (normalize) { std::cout << "true";}
+	if (normalize) { std::cout << "true"; }
 	if (!normalize) { std::cout << "false"; }
 
 	return normalize;
@@ -30,7 +30,7 @@ void Shader::color(float R, float G, float B, float A) {
 	this->setVec4("RGBA", RGBA);
 };
 //will change the vertex shader uniform "model" that is multiplied with vertices coordinates
-glm::mat4 Shader::transform(GLFWwindow* window , float x , float y , float scale) {
+glm::mat4 Shader::transform(GLFWwindow* window, float x, float y, float scale) {
 	// normalizing values from pixels on screen to 0-1 values
 	if (normalize) {
 		int width, height;
@@ -39,7 +39,7 @@ glm::mat4 Shader::transform(GLFWwindow* window , float x , float y , float scale
 		y = y / height * 2 - 1;
 		/*
 		float ndc_x = xpos / width * 2 - 1;// normalizing coordinates x , y
-        float ndc_y = ypos / height * 2 - 1;*/
+		float ndc_y = ypos / height * 2 - 1;*/
 	}
 	// calculate the model matrix for each object and pass it to shader before drawing
 	glm::mat4 model = glm::mat4(1.0f);
@@ -52,7 +52,6 @@ glm::mat4 Shader::transform(GLFWwindow* window , float x , float y , float scale
 	this->setMat4("model", model);
 	//saving a copy for the model that will be used when proccesing input
 	return model;
-	
 }
 
 // Reads a text file and outputs a string with everything in the text file
@@ -114,7 +113,6 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
 	// Delete the now useless Vertex and Fragment Shader objects
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
-
 }
 
 // Activates the Shader Program
@@ -163,8 +161,7 @@ void Shader::use() const
 // ------------------------------------------------------------------------
 void Shader::setBool(const std::string& name, bool value) const
 {
-	 glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
-	 
+	glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
 }
 // ------------------------------------------------------------------------
 void Shader::setInt(const std::string& name, int value) const
