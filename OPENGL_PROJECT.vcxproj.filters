@@ -106,6 +106,9 @@
     <None Include="vertices\square_extra_high.buf">
       <Filter>Vertices Files</Filter>
     </None>
+    <None Include="vertices\square_little_higher_menu.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\container.jpg">

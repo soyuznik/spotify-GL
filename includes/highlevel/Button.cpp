@@ -24,6 +24,7 @@ Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, 
 
 void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
 	double posx, double posy, double scale, int* slot) {
+	windowobj->reserve_slots(1);
 	texture_shader->use();
 	if (*frames > 10) { texture_shader->setBool("changeColor", false); windowobj->slot[*slot] = false; *frames = 0; }
 	else if (windowobj->slot[*slot]) {

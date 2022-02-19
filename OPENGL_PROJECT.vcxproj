@@ -177,6 +177,7 @@
     <None Include="vertices\square_extra_high.buf" />
     <None Include="vertices\square_extra_wide.buf" />
     <None Include="vertices\square_higher_wider.buf" />
+    <None Include="vertices\square_little_higher_menu.buf" />
     <None Include="vertices\square_super_wide.buf" />
     <None Include="vertices\square_wider.buf" />
     <None Include="vertices\triangle.buf" />

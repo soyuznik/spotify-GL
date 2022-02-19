@@ -950,7 +950,7 @@
        Overriding target "ComputeMetaGenInputs" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MetaGen.targets" with target "ComputeMetaGenInputs" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetNativeManifest" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
-Build started 19.02.2022 14:04:11.
+Build started 19.02.2022 14:43:04.
 Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
@@ -977,7 +977,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          VSTEL_SolutionSessionID={724161CD-8BEF-496D-A1DF-90D7CBAF060D}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=299776095
+         VSTEL_CurrentSolutionBuildID=302109082
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={656eb0b2-6a8c-44c4-aee0-97c9d625d680}

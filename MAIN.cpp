@@ -26,6 +26,7 @@ void WINDOW::SLOTS(int slot_nr) {
 	case 7: cout << "skforwar\n"; break;
 	case 8: cout << "rloop\n"; break;
 	case 9: cout << "rrandom\n"; break;
+	case 10: cout << "download\n"; break;
 	}
 }
 
@@ -39,8 +40,8 @@ int main()
 	//Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
 	TextField text(texture_shader, &windowobj, 400, 600);
-	Panel media_bar(texture_shader, &windowobj, "textures/black.png", 300, 0, 0.8f);
-	Panel upper_bar(texture_shader, &windowobj, "textures/black.png", 300, 600, 0.8f);
+	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
+	Panel upper_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 600, 0.8f);
 	ListObject list = ListObject(texture_shader, &windowobj, 663, 650, 0.2);
 	double t = 1.2;
 
@@ -51,14 +52,15 @@ int main()
 	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.1f, 5);
 	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.1f, 7);
 	Button rloop = Button(texture_shader, &windowobj, 520 * t, 90, 0.1f, 8);
-
+	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f, 10);
+	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
 	rrandom.set_texture("textures/random.jpg");
 	skback.set_texture("textures/skback.jpg");
 	pause.set_texture("textures/pause.jpg");
 	skforwar.set_texture("textures/skforwar.jpg");
 	rloop.set_texture("textures/loop.jpg");
-
+	download.set_texture("textures/download.png");
 
 
 
@@ -94,17 +96,19 @@ int main()
 		skforwar.render();
 		rloop.render();
 		rrandom.render();
+		download.render();
 		texture_shader->setBool("transparentMode", false);
 
 
 		slider.render();
-
+		menu.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			pause.accept_input(return_ndc_cursor(windowobj.window), 5);
 			skback.accept_input(return_ndc_cursor(windowobj.window), 6);
 			skforwar.accept_input(return_ndc_cursor(windowobj.window), 7);
 			rloop.accept_input(return_ndc_cursor(windowobj.window), 8);
 			rrandom.accept_input(return_ndc_cursor(windowobj.window), 9);
+			download.accept_input(return_ndc_cursor(windowobj.window), 10);
 			slider.accept_input(return_ndc_cursor(windowobj.window));
 			
 	
