@@ -22,12 +22,13 @@ public:
 	double posy;
 	double scale;
 
-	Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
+	Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx,
+		double posy, double scale , std::string PATH = "vertices/square_extra_wide.buf");
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
-	VertexArrayObject VAO = VertexArrayObject("vertices/square_extra_wide.buf");
+	VertexArrayObject* VAO;
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	bool accept_input(glm::vec4 point);
 	void render();

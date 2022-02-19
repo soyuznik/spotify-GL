@@ -97,6 +97,15 @@
     <None Include="vertices\square_super_wide.buf">
       <Filter>Vertices Files</Filter>
     </None>
+    <None Include="shaders\discard_white_frag.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="shaders\discard_white_vertex.glsl">
+      <Filter>Header Files\Shader Files</Filter>
+    </None>
+    <None Include="vertices\square_extra_high.buf">
+      <Filter>Vertices Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\container.jpg">

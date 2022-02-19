@@ -4,7 +4,9 @@ void Panel::change_position(double x, double y) {
 	posx = x;
 	posy = y;
 }
-Panel::Panel(Shader* _shader, WINDOW* _windowobj, const char* path, double _posx, double _posy, double _scale) {
+Panel::Panel(Shader* _shader, WINDOW* _windowobj, const char* path, double _posx,
+	double _posy, double _scale , std::string PATH) {
+	VAO = new VertexArrayObject(PATH.c_str());
 	shader = _shader;
 	windowobj = _windowobj;
 	posx = _posx;
@@ -24,7 +26,7 @@ void Panel::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayO
 	DRAW(6); // draw 6 vertices
 }
 bool Panel::accept_input(glm::vec4 point) {
-	std::vector<glm::vec3> raw = VAO.vec4_vector;
+	std::vector<glm::vec3> raw = VAO->vec4_vector;
 	glm::vec4 A = this->model * glm::vec4(raw[0], 1.0f);
 	glm::vec4 B = this->model * glm::vec4(raw[1], 1.0f);
 	glm::vec4 C = this->model * glm::vec4(raw[2], 1.0f);
@@ -39,7 +41,7 @@ bool Panel::accept_input(glm::vec4 point) {
 }
 
 void Panel::render() {
-	create_panel(shader, windowobj, &VAO, posx, posy, scale);
+	create_panel(shader, windowobj, VAO, posx, posy, scale);
 }
 void Panel::setText(Text* font, std::string text, float scale, float R, float G, float B) {
 	font->drawText(text, posx - 40, posy, scale, glm::vec3(R, G, B));

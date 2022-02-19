@@ -8,6 +8,9 @@ void Button::change_position(double x, double y) {
 void Button::setText(Text* font, std::string text, float scale, float R, float G, float B) {
 	font->drawText(text, posx - 40, posy, scale, glm::vec3(R, G, B));
 }
+void Button::set_texture(std::string PATH) {
+	texture = new TEXTURE(PATH);
+}
 Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, double _scale, int _slot, std::string PATH) {
 	VAO = new VertexArrayObject(PATH.c_str());
 	shader = _shader;
@@ -43,7 +46,7 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 	texture_shader->setBool("changeColor", false);
 }
 void Button::render() {
-	create_button(shader, windowobj, VAO, &texture, posx, posy, scale, &slot);
+	create_button(shader, windowobj, VAO, texture, posx, posy, scale, &slot);
 }
 
 void Button::accept_input(glm::vec4 point, int slot) {

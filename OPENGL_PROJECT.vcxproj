@@ -167,11 +167,14 @@
   <ItemGroup>
     <None Include="shaders\color_frag.glsl" />
     <None Include="shaders\color_vertex.glsl" />
+    <None Include="shaders\discard_white_frag.glsl" />
+    <None Include="shaders\discard_white_vertex.glsl" />
     <None Include="shaders\texture_frag.glsl" />
     <None Include="shaders\texture_vertex.glsl" />
     <None Include="shaders\text_frag.glsl" />
     <None Include="shaders\text_vertex.glsl" />
     <None Include="vertices\square.buf" />
+    <None Include="vertices\square_extra_high.buf" />
     <None Include="vertices\square_extra_wide.buf" />
     <None Include="vertices\square_higher_wider.buf" />
     <None Include="vertices\square_super_wide.buf" />

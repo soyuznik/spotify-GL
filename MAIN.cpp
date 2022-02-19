@@ -6,6 +6,8 @@
 #include "highlevel/TextField.h"
 #include "lowlevel/UTILITY.h"
 #include "highlevel/Slider.h"
+
+
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -33,19 +35,35 @@ int main()
 	// creating a transparent static window with width 1000 and height 640
 	WINDOW windowobj(TRANSPARENT_WINDOW_STATIC, 1000, 640);
 	//creating a shader program that uses texture shaders
-	Shader texture_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
-	Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
-	TextField text(&texture_shader, &windowobj, 400, 600);
-	Panel media_bar(&texture_shader, &windowobj, "textures/black.png", 300, 0, 0.8f);
-	Panel upper_bar(&texture_shader, &windowobj, "textures/black.png", 300, 600, 0.8f);
-	ListObject list = ListObject(&texture_shader, &windowobj, 663, 650, 0.2);
+	Shader* texture_shader = new Shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+	//Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
+	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+	TextField text(texture_shader, &windowobj, 400, 600);
+	Panel media_bar(texture_shader, &windowobj, "textures/black.png", 300, 0, 0.8f);
+	Panel upper_bar(texture_shader, &windowobj, "textures/black.png", 300, 600, 0.8f);
+	ListObject list = ListObject(texture_shader, &windowobj, 663, 650, 0.2);
 	double t = 1.2;
-	Button rrandom = Button(&texture_shader, &windowobj, 300 * t, 90, 0.1f, 9);
-	Button skback = Button(&texture_shader, &windowobj, 355 * t, 90, 0.1f, 6);
-	Button pause = Button(&texture_shader, &windowobj, 410 * t, 90, 0.1f, 5);
-	Button skforwar = Button(&texture_shader, &windowobj, 465 * t, 90, 0.1f, 7);
-	Button rloop = Button(&texture_shader, &windowobj, 520 * t, 90, 0.1f, 8);
-	Slider slider = Slider(&texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
+
+	Panel list_backround = Panel(texture_shader, &windowobj,
+		"textures/gray.png", 600, 400, 0.8f , "vertices/square_extra_high.buf");
+	Button rrandom = Button(texture_shader, &windowobj, 300 * t, 90, 0.1f, 9);
+	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.1f, 6);
+	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.1f, 5);
+	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.1f, 7);
+	Button rloop = Button(texture_shader, &windowobj, 520 * t, 90, 0.1f, 8);
+
+	//texture seetting
+	rrandom.set_texture("textures/random.jpg");
+	skback.set_texture("textures/skback.jpg");
+	pause.set_texture("textures/pause.jpg");
+	skforwar.set_texture("textures/skforwar.jpg");
+	rloop.set_texture("textures/loop.jpg");
+
+
+
+
+	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
+
 	list.add_item("Button0");
 	list.add_item("Button1");
 	list.add_item("Button2");
@@ -53,14 +71,14 @@ int main()
 	list.add_item("Button4");
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
-	bool normalize = texture_shader.NORMALIZE_VALUES();
+	bool normalize = texture_shader->NORMALIZE_VALUES();
 
 	
 
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
-
+		list_backround.render();
 		list.render();
 		list.manage_scroll();
 		upper_bar.render();
@@ -69,13 +87,18 @@ int main()
 		text.render();
 		text.check_input();
 		//glfwSwapInterval(0);
-
+		texture_shader->use();
+		texture_shader->setBool("transparentMode", true);
 		pause.render();
 		skback.render();
 		skforwar.render();
 		rloop.render();
 		rrandom.render();
+		texture_shader->setBool("transparentMode", false);
+
+
 		slider.render();
+
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			pause.accept_input(return_ndc_cursor(windowobj.window), 5);
 			skback.accept_input(return_ndc_cursor(windowobj.window), 6);
@@ -83,7 +106,7 @@ int main()
 			rloop.accept_input(return_ndc_cursor(windowobj.window), 8);
 			rrandom.accept_input(return_ndc_cursor(windowobj.window), 9);
 			slider.accept_input(return_ndc_cursor(windowobj.window));
-			std::cout << slider.return_pos() << std::endl;
+			
 	
 		
 		}
