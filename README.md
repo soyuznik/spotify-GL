@@ -13,3 +13,7 @@ Small Docummentation:
 - VAO/TEXTURE/TEXT do what they should do lol
 - Panel.h/.cpp is just a rectangle that can have a custom texture (is supposed to be a uneditable textfield)
 
+
+# Goal of the project
+![alt text](https://github.com/Vasika-uso/gui-library/blob/main/what_im_trying_to_achieve.jpg)
+
