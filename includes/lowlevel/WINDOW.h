@@ -22,9 +22,7 @@
 class WINDOW {
 public:
 	std::vector<int>* yaxis_offset;
-	void SLOTS(int slot_nr);
-	std::vector<bool> slot;
-	void reserve_slots(int slots);
+	
 	int triangles_checked = 3;
 	GLFWwindow* window;
 	GLFWmonitor** monitors;
@@ -37,6 +35,6 @@ public:
 	void CONFIG_MONITOR();
 	GLFWwindow* DEFINE_WINDOW(int transparency);
 	void processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader);
-	void manage_slots(int triangle_number);
+	
 	void update_list_scroll(double offset);
 };

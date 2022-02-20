@@ -1,4 +1,10 @@
 #include <filesystem>
+#include <shellapi.h>
+
+
+inline void ex_textfile(std::string path) {
+	ShellExecuteA(GetDesktopWindow(), "open", path.c_str(), NULL, NULL, SW_SHOW);
+}
 inline std::vector<std::string> listdir(std::string path) {
 	std::vector<std::string> items;
 	for (auto& p : std::filesystem::directory_iterator(path)) {

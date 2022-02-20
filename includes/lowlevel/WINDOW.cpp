@@ -122,21 +122,8 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
 	return window; // returning GLFWwindow * window
 }
 
-void WINDOW::reserve_slots(int number) {
-	for (unsigned int i = 0; i <= number; i++) {
-		slot.push_back(false);
-	}
-}
 
-void WINDOW::manage_slots(int triangle_number) {
-	slot[triangle_number] = true;
-	try {
-		SLOTS(triangle_number);
-	}
-	catch (...) {
-		throw("No SLOTS body defined");
-	}
-}
+
 //the method that procceses all user input
 void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader) {
 	int current_x, current_y; // saing current window position

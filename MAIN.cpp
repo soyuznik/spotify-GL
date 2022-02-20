@@ -14,21 +14,7 @@ using namespace std;
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
 //SLOTS
-void WINDOW::SLOTS(int slot_nr) {
-	switch (slot_nr) {
-	case 0: cout << "slot0\n"; break;
-	case 1: cout << "slot1\n"; break;
-	case 2: cout << "slot2\n"; break;
-	case 3: cout << "slot3\n"; break;
-	case 4: cout << "slot4\n"; break;
-	case 5: cout << "pause\n"; break;
-	case 6: cout << "skback\n"; break;
-	case 7: cout << "skforwar\n"; break;
-	case 8: cout << "rloop\n"; break;
-	case 9: cout << "rrandom\n"; break;
-	case 10: cout << "download\n"; break;
-	}
-}
+
 
 // the main function , code is executed here
 int main()
@@ -67,7 +53,8 @@ int main()
 	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
 	std::vector dir = listdir("data");
 	for (int i = 0; i < dir.size(); i++) {
-		list.add_item(dir[i]);
+		Button* butt = list.add_item(dir[i]);
+		butt->obj_ident =  dir[i];
 	}
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
@@ -79,7 +66,11 @@ int main()
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
 		list_backround.render();
-		list.render();
+		Button* buttonnr = list.render_and_manage_input();
+		if (buttonnr != NULL) {
+			std::string path = string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\" + buttonnr->obj_ident);
+			ex_textfile(path);
+		}
 		list.manage_scroll();
 		upper_bar.render();
 		media_bar.render();
@@ -101,10 +92,6 @@ int main()
 		slider.render();
 		menu.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			for (int i = 0; i < list.buttons.size(); i++) {
-				list.buttons[i]->is_clicked();
-				
-			}
 			pause.is_clicked();
 			skback.is_clicked();
 			skforwar.is_clicked();

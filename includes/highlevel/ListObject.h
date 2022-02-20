@@ -31,8 +31,8 @@ public:
 	double scale;
 	Text* antonio_bold;
 	ListObject(Shader* texture_shader, WINDOW* window, double xpos, double ypos, double scale);
-	void add_item(std::string ItemText);
-	void render();
+	Button* add_item(std::string ItemText);
+	Button* render_and_manage_input();
 	std::vector<glm::vec3> return_clickable_data();
 	std::vector<glm::vec3> return_blocking_data();
 	void manage_scroll();

@@ -26,7 +26,7 @@ public:
 	double posy;
 	double scale = 0;
 	int* frames;
-	
+	std::string obj_ident = "not defined";
 	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, std::string PATH = "vertices/square.buf");
 	void create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
 		double posx, double posy, double scale);
