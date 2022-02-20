@@ -1,10 +1,9 @@
 # Prerequisites
 *.d
 #ignore build folders
-x64/Debug/
-x64/Release/
-x86/Debug/
-x86/Release/
+x64
+x86
+
 # Compiled Object files
 *.slo
 *.lo
