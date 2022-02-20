@@ -1,3 +1,12 @@
+#include <filesystem>
+inline std::vector<std::string> listdir(std::string path) {
+	std::vector<std::string> items;
+	for (auto& p : std::filesystem::directory_iterator(path)) {
+		std::string item = p.path().string();
+		items.push_back(item.erase(0,path.size()+1));
+	}
+	return items;
+}
 /*
 <distance> <calc_area> <position> < calc > <IsInTriangle>
  -- are used for input proccesing

@@ -65,12 +65,10 @@ int main()
 
 
 	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
-
-	list.add_item("Button0");
-	list.add_item("Button1");
-	list.add_item("Button2");
-	list.add_item("Button3");
-	list.add_item("Button4");
+	std::vector dir = listdir("data");
+	for (int i = 0; i < dir.size(); i++) {
+		list.add_item(dir[i]);
+	}
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
