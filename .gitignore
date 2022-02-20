@@ -1,6 +1,8 @@
 # Prerequisites
 *.d
-
+#ignore build folders
+x64/
+x86/
 # Compiled Object files
 *.slo
 *.lo
@@ -55,8 +57,7 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/**
-x86/**
+
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
@@ -71,9 +72,7 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
-#ignore build folders
-x64/
-x86/
+
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 

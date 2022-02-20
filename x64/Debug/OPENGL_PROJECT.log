@@ -950,7 +950,7 @@
        Overriding target "ComputeMetaGenInputs" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MetaGen.targets" with target "ComputeMetaGenInputs" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetNativeManifest" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
-Build started 20.02.2022 14:15:37.
+Build started 20.02.2022 14:28:47.
 Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
@@ -977,7 +977,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          VSTEL_SolutionSessionID={5CC4F7FF-EBBC-46BE-8A8F-B3C6C529B5D6}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=386862072
+         VSTEL_CurrentSolutionBuildID=387652848
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={656eb0b2-6a8c-44c4-aee0-97c9d625d680}
@@ -1107,7 +1107,6 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Task "VCMessage" skipped, due to false condition; ('$(IgnoreWarnIntDirSharingDetected)' != 'true' and '$(IntDirSharingDetected)' == 'true') was evaluated as ('' != 'true' and '' == 'true').
        Task "VCMessage" skipped, due to false condition; ('$(DesignTimeBuild)'!='true' and '$(IgnoreWarnIntDirInTempDetected)' != 'true' and ('$(IntDirFullPath.StartsWith($(Tmp), true, null))' == 'true' or '$(IntDirFullPath.StartsWith($(Temp), true, null))' == 'true' or '$(OutDirFullPath.StartsWith($(Tmp), true, null))' == 'true' or '$(OutDirFullPath.StartsWith($(Temp), true, null))' == 'true')) was evaluated as (''!='true' and '' != 'true' and ('False' == 'true' or 'False' == 'true' or 'False' == 'true' or 'False' == 'true')).
        Task "MakeDir"
-         Creating directory "x64\Debug\OPENGL_PROJECT.tlog\".
        Done executing task "MakeDir".
      1>Done building target "PrepareForBuild" in project "OPENGL_PROJECT.vcxproj".
        Target "_PrepareForReferenceResolution" skipped. Previously built successfully.
@@ -1278,26 +1277,22 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Target "SelectAnalysisManifest" skipped, due to false condition; ('$(RunMsvcAnalysis)'=='true' and '$(SelectedFiles)'!='') was evaluated as ('false'=='true' and ''!='').
        Target "ManagedIncrementalBuildPreProcessDependencyGraph" skipped, due to false condition; ('@(ClCompile)' != '' and '$(EnableManagedIncrementalBuild)' == 'True') was evaluated as ('includes\glad.c;includes\highlevel\Button.cpp;includes\highlevel\ClickEventCanceller.cpp;...' != '' and 'false' == 'True').
      1>Target "ClCompile" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_ClCompile" depends on it):
-       Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
-       Task "Delete"
-       Done executing task "Delete".
+       Task "Delete" skipped, due to false condition; ('%(ClCompile.DebugInformationFormat)' != '' and '%(ClCompile.DebugInformationFormat)' != 'None' and '%(ClCompile.DebugInformationFormat)' != 'OldStyle' and '%(ClCompile.ProgramDataBaseFileName)' != '' and !Exists(%(ClCompile.ProgramDataBaseFileName))) was evaluated as ('EditAndContinue' != '' and 'EditAndContinue' != 'None' and 'EditAndContinue' != 'OldStyle' and 'x64\Debug\vc142.pdb' != '' and !Exists(x64\Debug\vc142.pdb)).
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == 'Modules') was evaluated as ('' != 'true' and '' == 'Modules').
        Task "MultiToolTask" skipped, due to false condition; ('%(ClCompile.ExcludedFromBuild)' != 'true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' == 'true') was evaluated as ('' != 'true' and '' == '' and 'false' == 'true').
        Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' != 'true') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '' and 'false' != 'true').
        Task "CL" skipped, due to false condition; ('%(ClCompile.PrecompiledHeader)' == 'Create' and '%(ClCompile.ExcludedFromBuild)'!='true' and '%(ClCompile.CompilerIteration)' == '' and '$(MultiProcCL)' != 'true') was evaluated as ('NotUsing' == 'Create' and ''!='true' and '' == '' and 'false' != 'true').
        Using "CL" task from assembly "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "CL"
-         Forcing recompile of all source files due to missing PDB "x64\Debug\vc142.pdb".
-         Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=1772
-         D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TC /FC /errorReport:prompt includes\glad.c
-         Tracking command:
-         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\GLAD.C /b MSBuildConsole_CancelEventac74ae5c0c9a4c08950158d8504f7214  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe"  /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TC /FC /errorReport:prompt includes\glad.c
-         glad.c
-       Done executing task "CL".
-       Task "CL"
          Read Tracking Logs:
          	x64\Debug\OPENGL_PROJECT.tlog\CL.read.1.tlog
+         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\GLAD.C:
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ
+         All outputs are up-to-date.
+       Done executing task "CL".
+       Task "CL"
+         Using cached input dependency table built from:
+         	C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog\CL.read.1.tlog
          Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\BUTTON.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\CLICKEVENTCANCELLER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\LISTOBJECT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\PANEL.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\SHADER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXTURE.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\VAO.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\WINDOW.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\MAIN.CPP:
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ
@@ -1311,64 +1306,16 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ
          	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ
-         MAIN.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\Button.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\ClickEventCanceller.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\ListObject.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\Panel.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\Slider.cpp will be compiled because it was not found in the tracking log.
-         includes\highlevel\TextField.cpp will be compiled because it was not found in the tracking log.
-         includes\lowlevel\SHADER.cpp will be compiled because it was not found in the tracking log.
-         includes\lowlevel\TEXT.cpp will be compiled because it was not found in the tracking log.
-         includes\lowlevel\TEXTURE.cpp will be compiled because it was not found in the tracking log.
-         includes\lowlevel\VAO.cpp will be compiled because it was not found in the tracking log.
-         includes\lowlevel\WINDOW.cpp will be compiled because it was not found in the tracking log.
-         No output for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\BUTTON.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\CLICKEVENTCANCELLER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\LISTOBJECT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\PANEL.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\SHADER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXTURE.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\VAO.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\WINDOW.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\MAIN.CPP was found in the tracking log; source compilation required.
+         includes\highlevel\Slider.cpp will be compiled because C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp was modified at 20.02.2022 14:27:48.
+         includes\highlevel\TextField.cpp will be compiled because C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\TextField.cpp was modified at 20.02.2022 14:27:48.
+         No output for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP was found in the tracking log; source compilation required.
          Write Tracking Logs:
          	x64\Debug\OPENGL_PROJECT.tlog\CL.write.1.tlog
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=1416
-         D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Button.cpp includes\highlevel\ClickEventCanceller.cpp includes\highlevel\ListObject.cpp includes\highlevel\Panel.cpp includes\highlevel\Slider.cpp includes\highlevel\TextField.cpp includes\lowlevel\SHADER.cpp includes\lowlevel\TEXT.cpp includes\lowlevel\TEXTURE.cpp includes\lowlevel\VAO.cpp includes\lowlevel\WINDOW.cpp MAIN.cpp
+           VS_UNICODE_OUTPUT=1852
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Slider.cpp includes\highlevel\TextField.cpp
          Tracking command:
-         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r "C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\BUTTON.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\CLICKEVENTCANCELLER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\LISTOBJECT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\PANEL.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\SHADER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXT.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\TEXTURE.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\VAO.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\LOWLEVEL\WINDOW.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\MAIN.CPP" /b MSBuildConsole_CancelEvent3e22ed3e6118480696198386697b016e  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe"  /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Button.cpp includes\highlevel\ClickEventCanceller.cpp includes\highlevel\ListObject.cpp includes\highlevel\Panel.cpp includes\highlevel\Slider.cpp includes\highlevel\TextField.cpp includes\lowlevel\SHADER.cpp includes\lowlevel\TEXT.cpp includes\lowlevel\TEXTURE.cpp includes\lowlevel\VAO.cpp includes\lowlevel\WINDOW.cpp MAIN.cpp
-         Button.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(9,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(9,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         ClickEventCanceller.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         ListObject.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ListObject.cpp(6,21): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
-                 with
-                 [
-                     _Ty=int
-                 ]
-         Panel.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(47,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(47,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r "C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\SLIDER.CPP|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\INCLUDES\HIGHLEVEL\TEXTFIELD.CPP" /b MSBuildConsole_CancelEvent18e87efd56524df7b4c711b41eec9c99  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\CL.exe"  /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fo"x64\Debug\\" /Fd"x64\Debug\vc142.pdb" /external:env:EXTERNAL_INCLUDE /external:W3 /Gd /TP /FC /errorReport:prompt includes\highlevel\Slider.cpp includes\highlevel\TextField.cpp
          Slider.cpp
      1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
      1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
@@ -1396,28 +1343,6 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
      1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\TextField.cpp(118,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
      1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\TextField.cpp(118,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         SHADER.cpp
-         TEXT.cpp
-         TEXTURE.cpp
-         VAO.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\VAO.cpp(6,29): warning C4018: '<': signed/unsigned mismatch
-         WINDOW.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(16,26): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
-                 with
-                 [
-                     _Ty=int
-                 ]
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(176,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(176,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-         MAIN.cpp
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
          Generating Code...
        Done executing task "CL".
      1>Done building target "ClCompile" in project "OPENGL_PROJECT.vcxproj".
@@ -1533,8 +1458,57 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>Target "Link" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "_Link" depends on it):
        Using "Link" task from assembly "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "Link"
+         Write Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\link.write.1.tlog
+         Read Tracking Logs:
+         	x64\Debug\OPENGL_PROJECT.tlog\link.read.1.tlog
+         Outputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ:
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.ILK
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.EXE
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.PDB
+         Inputs for C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ:
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OPENGL32.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\LIB\GLFW3.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\LIB\FREETYPE.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\KERNEL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\USER32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\GDI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\WINSPOOL.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\COMDLG32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ADVAPI32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\SHELL32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OLE32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\OLEAUT32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\UUID.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ODBC32.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UM\X64\ODBCCP32.LIB
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ
+         	C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ
+         	C:\WINDOWS\GLOBALIZATION\SORTING\SORTDEFAULT.NLS
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCRTD.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\OLDNAMES.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCPRTD.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\MSVCRT.LIB
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\LIB\X64\VCRUNTIMED.LIB
+         	C:\PROGRAM FILES (X86)\WINDOWS KITS\10\LIB\10.0.19041.0\UCRT\X64\UCRTD.LIB
+         	C:\WINDOWS\SYSTEM32\TZRES.DLL
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X64\1033\LINKUI.DLL
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X64\CVTRES.EXE
+         	D:\VISUAL STUDIO\MICROSOFT VISUAL STUDIO\2019\COMMUNITY\VC\TOOLS\MSVC\14.29.30037\BIN\HOSTX86\X64\MSPDBSRV.EXE
+         Source compilation required: input C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ is newer than output C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\OPENGL_PROJECT.EXE.
          Environment Variables passed to tool:
-           VS_UNICODE_OUTPUT=2016
+           VS_UNICODE_OUTPUT=2560
          D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe" /INCREMENTAL /ILK:"x64\Debug\OPENGL_PROJECT.ilk" /NOLOGO opengl32.lib glfw3.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib" /MACHINE:X64 x64\Debug\glad.obj
          x64\Debug\Button.obj
          x64\Debug\ClickEventCanceller.obj
@@ -1549,7 +1523,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          x64\Debug\WINDOW.obj
          x64\Debug\MAIN.obj
          Tracking command:
-         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r "C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ" /b MSBuildConsole_CancelEvent44a882d108764c16b45d9824009035a9  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe" /INCREMENTAL /ILK:"x64\Debug\OPENGL_PROJECT.ilk" /NOLOGO opengl32.lib glfw3.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib" /MACHINE:X64 x64\Debug\glad.obj
+         D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Tracker.exe /a /d "C:\Program Files (x86)\MSBuild\15.0\FileTracker\FileTracker32.dll" /i C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.tlog /r "C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\BUTTON.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\CLICKEVENTCANCELLER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\GLAD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\LISTOBJECT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\MAIN.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\PANEL.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SHADER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\SLIDER.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXT.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTFIELD.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\TEXTURE.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\VAO.OBJ|C:\USERS\USER\DOCUMENTS\GITHUB\TRANSPARENT-TRIANGLE\X64\DEBUG\WINDOW.OBJ" /b MSBuildConsole_CancelEvent63e23b78360d48d587a24170479f62d8  /c "D:\Visual Studio\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\bin\HostX86\x64\link.exe"  /ERRORREPORT:PROMPT /OUT:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe" /INCREMENTAL /ILK:"x64\Debug\OPENGL_PROJECT.ilk" /NOLOGO opengl32.lib glfw3.lib freetype.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib" /MACHINE:X64 x64\Debug\glad.obj
          x64\Debug\Button.obj
          x64\Debug\ClickEventCanceller.obj
          x64\Debug\ListObject.obj
@@ -1562,6 +1536,7 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
          x64\Debug\VAO.obj
          x64\Debug\WINDOW.obj
          x64\Debug\MAIN.obj
+         LINK : C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe not found or not built by the last incremental link; performing full link
             Creating library C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.lib and object C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exp
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
      1>glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
@@ -1578,17 +1553,17 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
      1>glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
      1>glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
-     1>glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
-     1>freetype.lib(autofit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(autofit.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+     1>glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
+     1>freetype.lib(autofit.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(autofit.obj)' or at ''; linking object as if no debug info
      1>freetype.lib(ftbase.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbase.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(ftbitmap.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbitmap.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(ftinit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftinit.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(ftsystem.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftsystem.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-     1>freetype.lib(bdf.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(bdf.obj)' or at ''; linking object as if no debug info
+     1>freetype.lib(bdf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(bdf.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(cff.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(cff.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-     1>freetype.lib(type1cid.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(type1cid.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+     1>freetype.lib(type1cid.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(type1cid.obj)' or at ''; linking object as if no debug info
      1>freetype.lib(ftgzip.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftgzip.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-     1>freetype.lib(ftlzw.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftlzw.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+     1>freetype.lib(ftlzw.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(ftlzw.obj)' or at ''; linking object as if no debug info
      1>freetype.lib(pcf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pcf.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(pfr.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pfr.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
      1>freetype.lib(psaux.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(psaux.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
@@ -1802,12 +1777,12 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
        Task "FindUnderPath"
          Comparison path is "x64\Debug\".
        Done executing task "FindUnderPath".
+       Using "Delete" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
        Task "Delete"
        Done executing task "Delete".
        Task "RemoveDuplicates"
        Done executing task "RemoveDuplicates".
-       Task "WriteLinesToFile"
-       Done executing task "WriteLinesToFile".
+       Task "WriteLinesToFile" skipped, due to false condition; ('@(_CleanUnfilteredPriorFileWrites)'!='@(_CleanUniqueRemainingFileWritesAfterIncrementalClean)') was evaluated as ('C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe'!='C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\OPENGL_PROJECT.exe').
      1>Done building target "IncrementalClean" in project "OPENGL_PROJECT.vcxproj".
      1>Target "FinalizeBuildStatus" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "Build" depends on it):
        Task "Delete"
@@ -1831,36 +1806,6 @@ Build succeeded.
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(9,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(9,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Button.cpp(41,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,73): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ClickEventCanceller.cpp(21,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\ListObject.cpp(6,21): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(23,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(47,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Panel.cpp(47,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\Slider.cpp(34,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -1878,18 +1823,6 @@ Build succeeded.
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\TextField.cpp(118,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
          C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\highlevel\TextField.cpp(118,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\VAO.cpp(6,29): warning C4018: '<': signed/unsigned mismatch
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(16,26): warning C4244: '=': conversion from 'double' to '_Ty', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(176,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\WINDOW.cpp(176,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(26,13): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(33,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(101,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\includes\lowlevel\UTILITY.h(102,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 
 
        "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (Build target) (1) ->
@@ -1909,17 +1842,17 @@ Build succeeded.
          glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
          glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
          glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
-         glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\glfw.pdb'; linking object as if no debug info
-         freetype.lib(autofit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(autofit.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+         glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(osmesa_context.obj)' or at ''; linking object as if no debug info
+         freetype.lib(autofit.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(autofit.obj)' or at ''; linking object as if no debug info
          freetype.lib(ftbase.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbase.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(ftbitmap.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftbitmap.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(ftinit.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftinit.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(ftsystem.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftsystem.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-         freetype.lib(bdf.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(bdf.obj)' or at ''; linking object as if no debug info
+         freetype.lib(bdf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(bdf.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(cff.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(cff.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-         freetype.lib(type1cid.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(type1cid.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+         freetype.lib(type1cid.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(type1cid.obj)' or at ''; linking object as if no debug info
          freetype.lib(ftgzip.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftgzip.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
-         freetype.lib(ftlzw.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftlzw.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
+         freetype.lib(ftlzw.obj) : warning LNK4099: PDB '' was not found with 'freetype.lib(ftlzw.obj)' or at ''; linking object as if no debug info
          freetype.lib(pcf.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pcf.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(pfr.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(pfr.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(psaux.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(psaux.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
@@ -1934,7 +1867,7 @@ Build succeeded.
          freetype.lib(winfnt.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(winfnt.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
          freetype.lib(ftdebug.obj) : warning LNK4099: PDB 'freetype.pdb' was not found with 'freetype.lib(ftdebug.obj)' or at 'C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\x64\Debug\freetype.pdb'; linking object as if no debug info
 
-    102 Warning(s)
+    60 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:20.11
+Time Elapsed 00:00:04.06
