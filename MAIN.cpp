@@ -47,12 +47,12 @@ int main()
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"textures/gray.png", 600, 400, 0.8f , "vertices/square_extra_high.buf");
-	Button rrandom = Button(texture_shader, &windowobj, 300 * t, 90, 0.1f, 9);
-	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.1f, 6);
-	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.1f, 5);
-	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.1f, 7);
-	Button rloop = Button(texture_shader, &windowobj, 520 * t, 90, 0.1f, 8);
-	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f, 10);
+	Button rrandom = Button(texture_shader, &windowobj, 300 * t, 90, 0.1f);
+	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.1f);
+	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.1f);
+	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.1f);
+	Button rloop = Button(texture_shader, &windowobj, 520 * t, 90, 0.1f);
+	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
 	rrandom.set_texture("textures/random.jpg");
@@ -101,12 +101,16 @@ int main()
 		slider.render();
 		menu.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			pause.accept_input(return_ndc_cursor(windowobj.window), 5);
-			skback.accept_input(return_ndc_cursor(windowobj.window), 6);
-			skforwar.accept_input(return_ndc_cursor(windowobj.window), 7);
-			rloop.accept_input(return_ndc_cursor(windowobj.window), 8);
-			rrandom.accept_input(return_ndc_cursor(windowobj.window), 9);
-			download.accept_input(return_ndc_cursor(windowobj.window), 10);
+			for (int i = 0; i < list.buttons.size(); i++) {
+				list.buttons[i]->is_clicked();
+				
+			}
+			pause.is_clicked();
+			skback.is_clicked();
+			skforwar.is_clicked();
+			rloop.is_clicked();
+			rrandom.is_clicked();
+			download.is_clicked();
 			slider.accept_input(return_ndc_cursor(windowobj.window));
 			
 	

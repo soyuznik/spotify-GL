@@ -14,6 +14,8 @@
 class Button
 {
 public:
+	
+	
 	int frames__ = 0;
 	Shader* shader;
 	WINDOW* windowobj;
@@ -24,19 +26,21 @@ public:
 	double posy;
 	double scale = 0;
 	int* frames;
-	int slot;
-	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, int slot, std::string PATH = "vertices/square.buf");
+	
+	Button(Shader* shader, WINDOW* windowobj, double posx, double posy, double scale, std::string PATH = "vertices/square.buf");
 	void create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
-		double posx, double posy, double scale, int* slot);
+		double posx, double posy, double scale);
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	void change_position(double x, double y);
 	void set_texture(std::string PATH);
 	//creating a vertex array object with data from "vertices/square.buf"
 
 	
-
+	bool is_clicked();
 	void render();
-	void accept_input(glm::vec4 point, int slot);
+	void accept_input(glm::vec4 point);
 private:
+	bool clicked = false;
+	bool change_color = false;
 	glm::mat4 modl = glm::mat4(1.0f);
 };

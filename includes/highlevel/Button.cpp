@@ -11,7 +11,7 @@ void Button::setText(Text* font, std::string text, float scale, float R, float G
 void Button::set_texture(std::string PATH) {
 	texture = new TEXTURE(PATH);
 }
-Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, double _scale, int _slot, std::string PATH) {
+Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, double _scale, std::string PATH) {
 	VAO = new VertexArrayObject(PATH.c_str());
 	shader = _shader;
 	windowobj = _windowobj;
@@ -19,15 +19,15 @@ Button::Button(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, 
 	posy = _posy;
 	scale = _scale;
 	frames = &frames__;
-	slot = _slot;
+	
 }
 
 void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
-	double posx, double posy, double scale, int* slot) {
+	double posx, double posy, double scale) {
 	windowobj->reserve_slots(1);
 	texture_shader->use();
-	if (*frames > 10) { texture_shader->setBool("changeColor", false); windowobj->slot[*slot] = false; *frames = 0; }
-	else if (windowobj->slot[*slot]) {
+	if (*frames > 10) { texture_shader->setBool("changeColor", false); this->change_color = false; *frames = 0; }
+	else if (this->change_color) {
 		/*
 		NOTE: for some reason changing uniform works only from mainloop and only if its directly like this
 		because the uniform should be updated every frame!
@@ -47,10 +47,18 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 	texture_shader->setBool("changeColor", false);
 }
 void Button::render() {
-	create_button(shader, windowobj, VAO, texture, posx, posy, scale, &slot);
+	create_button(shader, windowobj, VAO, texture, posx, posy, scale);
 }
-
-void Button::accept_input(glm::vec4 point, int slot) {
+bool Button::is_clicked() {
+	accept_input(return_ndc_cursor(windowobj->window));
+	if (this->clicked) {
+		this->clicked = false;
+		this->change_color = true;
+		return true;
+	}
+	else return false;
+}
+void Button::accept_input(glm::vec4 point) {
 	std::vector<glm::vec3> raw = VAO->vec4_vector;
 	glm::vec4 A = this->modl * glm::vec4(raw[0], 1.0f);
 	glm::vec4 B = this->modl * glm::vec4(raw[1], 1.0f);
@@ -60,6 +68,7 @@ void Button::accept_input(glm::vec4 point, int slot) {
 	glm::vec4 C1 = this->modl * glm::vec4(raw[5], 1.0f);
 
 	if (isInTriangle(A, B, C, point) or isInTriangle(A1, B1, C1, point)) {
-		windowobj->manage_slots(slot);
+		this->clicked = true;
+		
 	}
 }

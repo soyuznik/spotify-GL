@@ -48,9 +48,9 @@ std::vector<glm::vec3> ListObject::return_blocking_data() {
 	return data_for_blocking;
 }
 void ListObject::add_item(std::string ItemText) {
-	window->reserve_slots(1);
+	
 	static int items = 0; items++;
-	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2, items - 1, "vertices/square_wider.buf");
+	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2,"vertices/square_wider.buf");
 	ButtonTexts.push_back(ItemText);
 	buttons.push_back(button);
 	yaxis_offset.push_back(0);
@@ -59,18 +59,20 @@ void ListObject::render() {
 	bool is_point_inside_blocker = false;
 	glm::vec4 point = return_ndc_cursor(window->window);
 	for (int ix = 0; ix < cancellers.size(); ix++) {
-		ClickEventCanceller tempcl = *cancellers[ix];
-		tempcl.render();
-		if (tempcl.should_block(point)) {
+		ClickEventCanceller* tempcl = cancellers[ix];
+		tempcl->render();
+		if (tempcl->should_block(point)) {
 			is_point_inside_blocker = true;
 		}
 	}
 	for (int ix = 0; ix < buttons.size(); ix++) {
-		Button tempbt = *buttons[ix];
-		tempbt.render();
-		tempbt.setText(antonio_bold, ButtonTexts[ix], 0.4f);
+		Button* tempbt = buttons[ix];
+		
+		tempbt->render();
+		tempbt->setText(antonio_bold, ButtonTexts[ix], 0.4f);
 		if (glfwGetMouseButton(window->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !is_point_inside_blocker) {
-			tempbt.accept_input(point, ix);
+			tempbt->accept_input(point);
 		}
+
 	}
 }

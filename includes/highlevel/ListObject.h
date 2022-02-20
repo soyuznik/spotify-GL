@@ -19,6 +19,7 @@ class ListObject
 {
 public:
 	std::vector<Button*> buttons;
+	std::vector<Button*> updatebuttons;
 	std::vector<ClickEventCanceller*> cancellers;
 	std::vector<std::string> ButtonTexts;
 	std::vector<int> yaxis_offset;
