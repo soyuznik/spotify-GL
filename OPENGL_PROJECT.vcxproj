@@ -191,6 +191,7 @@
     <Image Include="textures\container2.jpg" />
     <Image Include="textures\marble.jpg" />
     <Image Include="textures\metal.png" />
+    <Image Include="textures\pause.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h" />

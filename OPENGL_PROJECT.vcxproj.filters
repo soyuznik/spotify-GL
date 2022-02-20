@@ -129,6 +129,9 @@
     <Image Include="textures\metal.png">
       <Filter>Texture Files</Filter>
     </Image>
+    <Image Include="textures\pause.jpg">
+      <Filter>Texture Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h">

@@ -33,11 +33,11 @@ int main()
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"textures/gray.png", 600, 400, 0.8f , "vertices/square_extra_high.buf");
-	Button rrandom = Button(texture_shader, &windowobj, 300 * t, 90, 0.1f);
-	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.1f);
-	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.1f);
-	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.1f);
-	Button rloop = Button(texture_shader, &windowobj, 520 * t, 90, 0.1f);
+	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 90, 0.05f);
+	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.09f);
+	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.18f);
+	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.09f);
+	Button rloop = Button(texture_shader, &windowobj, 515 * t, 90, 0.05f);
 	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
@@ -46,7 +46,7 @@ int main()
 	pause.set_texture("textures/pause.jpg");
 	skforwar.set_texture("textures/skforwar.jpg");
 	rloop.set_texture("textures/loop.jpg");
-	download.set_texture("textures/download.png");
+	download.set_texture("textures/download.jpg");
 
 
 
