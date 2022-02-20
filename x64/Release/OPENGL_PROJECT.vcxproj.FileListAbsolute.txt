@@ -1,2 +1,0 @@
-D:\Visual Studio\Projects\OPENGL_PROJECT\x64\Release\OPENGL_PROJECT.exe
-C:\Users\user\OneDrive\Documente\GitHub\TRANSPARENT-TRIANGLE\x64\Release\OPENGL_PROJECT.exe
