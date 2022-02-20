@@ -950,7 +950,7 @@
        Overriding target "ComputeMetaGenInputs" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MetaGen.targets" with target "ComputeMetaGenInputs" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetNativeManifest" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetNativeManifest" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets".
        Overriding target "GetTargetPathWithTargetPlatformMoniker" in project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" with target "GetTargetPathWithTargetPlatformMoniker" from project "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets".
-Build started 20.02.2022 14:02:45.
+Build started 20.02.2022 14:12:20.
 Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" on node 2 (Build target(s)).
      1>Building with tools version "Current".
        Target "EnableIntermediateOutputPathMismatchWarning" skipped, due to false condition; ('$(RestoreProjectStyle)' == 'PackageReference') was evaluated as ('' == 'PackageReference').
@@ -974,10 +974,10 @@ Logging verbosity is set to: Detailed.     1>Project "C:\Users\user\Documents\Gi
      1>Target "SetTelemetryEnvironmentVariables" in file "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.DesignTime.targets" from project "C:\Users\user\Documents\GitHub\TRANSPARENT-TRIANGLE\OPENGL_PROJECT.vcxproj" (target "Build" depends on it):
        Using "SetEnv" task from assembly "D:\Visual Studio\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Build.CppTasks.Common.dll".
        Task "SetEnv"
-         VSTEL_SolutionSessionID={0E41211C-2BB9-49BD-BBE6-06475BDD9716}
+         VSTEL_SolutionSessionID={5CC4F7FF-EBBC-46BE-8A8F-B3C6C529B5D6}
        Done executing task "SetEnv".
        Task "SetEnv"
-         VSTEL_CurrentSolutionBuildID=386089764
+         VSTEL_CurrentSolutionBuildID=386663505
        Done executing task "SetEnv".
        Task "SetEnv"
          VSTEL_ProjectID={656eb0b2-6a8c-44c4-aee0-97c9d625d680}
@@ -1646,4 +1646,4 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.42
+Time Elapsed 00:00:00.41
