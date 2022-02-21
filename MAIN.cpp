@@ -6,8 +6,8 @@
 #include "highlevel/TextField.h"
 #include "lowlevel/UTILITY.h"
 #include "highlevel/Slider.h"
-
-
+#include "mmsystem.h"
+#pragma comment(lib, "winmm.lib")
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -33,11 +33,11 @@ int main()
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"textures/gray.png", 600, 400, 0.8f , "vertices/square_extra_high.buf");
-	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 90, 0.05f);
-	Button skback = Button(texture_shader, &windowobj, 355 * t, 90, 0.09f);
-	Button pause = Button(texture_shader, &windowobj, 410 * t, 90, 0.18f);
-	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 90, 0.09f);
-	Button rloop = Button(texture_shader, &windowobj, 515 * t, 90, 0.05f);
+	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 80, 0.05f);
+	Button skback = Button(texture_shader, &windowobj, 355 * t, 80, 0.09f);
+	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
+	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 80, 0.09f);
+	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.05f);
 	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
@@ -50,7 +50,7 @@ int main()
 
 
 
-	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 50, 0.1f);
+	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("data");
 	for (int i = 0; i < dir.size(); i++) {
 		Button* butt = list.add_item(dir[i]);
@@ -68,8 +68,10 @@ int main()
 		list_backround.render();
 		Button* buttonnr = list.render_and_manage_input();
 		if (buttonnr != NULL) {
-			std::string path = string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\" + buttonnr->obj_ident);
-			ex_textfile(path);
+			string path = "data/" + buttonnr->obj_ident;
+			std::wstring stemp = std::wstring(path.begin(), path.end());
+			LPCWSTR sw = stemp.c_str();
+			PlaySound(sw, NULL, SND_ASYNC); // support just .wav files
 		}
 		list.manage_scroll();
 		upper_bar.render();
@@ -92,7 +94,7 @@ int main()
 		slider.render();
 		menu.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			pause.is_clicked();
+			if(pause.is_clicked()) PlaySound(NULL, NULL, SND_ASYNC);
 			skback.is_clicked();
 			skforwar.is_clicked();
 			rloop.is_clicked();
