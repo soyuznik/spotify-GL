@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource">
+      <UniqueIdentifier>{4C2E79DB-B8B9-E69F-C1CA-69942DD542A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\monotone">
+      <UniqueIdentifier>{7733C2CA-6358-114B-8CA3-F6DA78271069}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\noise">
+      <UniqueIdentifier>{86840D82-F2F0-C87C-BBE4-60DA2710EBE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\openmpt">
+      <UniqueIdentifier>{6B34858A-D76B-CD21-E075-31454C2CF41A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\sfxr">
+      <UniqueIdentifier>{8B9D6FF4-772C-F9BD-204B-0DB90CB90964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\speech">
+      <UniqueIdentifier>{008C77CF-EC85-A021-D5F2-3632C18B068E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\tedsid">
+      <UniqueIdentifier>{055705D1-F150-2E23-DABD-C433C656948F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\vic">
+      <UniqueIdentifier>{0AEBF335-764C-D143-FFB9-17F66B1A0803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\vizsn">
+      <UniqueIdentifier>{A2469B82-0EB3-567D-D7A6-EEDA43D278E5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\audiosource\wav">
+      <UniqueIdentifier>{56EEF335-C24F-D143-4BBD-17F6B71D0803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\filter">
+      <UniqueIdentifier>{CFFCD1E2-BBB4-1330-24BC-EC8B1093AE20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{72AE5CD2-5E7B-B7DD-8794-A58573C0EC6B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\backend">
+      <UniqueIdentifier>{9192D7F5-FD47-50EB-863C-4AC2F2F046EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\backend\winmm">
+      <UniqueIdentifier>{55EFB8EA-C105-B780-0A7D-42A276D28708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\backend\null">
+      <UniqueIdentifier>{48F55D1E-34EE-7C70-5D20-62F549785C7C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\audiosource\monotone\soloud_monotone.cpp">
+      <Filter>src\audiosource\monotone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\noise\soloud_noise.cpp">
+      <Filter>src\audiosource\noise</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\openmpt\soloud_openmpt.cpp">
+      <Filter>src\audiosource\openmpt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\openmpt\soloud_openmpt_dll.c">
+      <Filter>src\audiosource\openmpt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\sfxr\soloud_sfxr.cpp">
+      <Filter>src\audiosource\sfxr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\speech\darray.cpp">
+      <Filter>src\audiosource\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\speech\klatt.cpp">
+      <Filter>src\audiosource\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\speech\resonator.cpp">
+      <Filter>src\audiosource\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\speech\soloud_speech.cpp">
+      <Filter>src\audiosource\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\speech\tts.cpp">
+      <Filter>src\audiosource\speech</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\tedsid\sid.cpp">
+      <Filter>src\audiosource\tedsid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\tedsid\soloud_tedsid.cpp">
+      <Filter>src\audiosource\tedsid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\tedsid\ted.cpp">
+      <Filter>src\audiosource\tedsid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\vic\soloud_vic.cpp">
+      <Filter>src\audiosource\vic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\vizsn\soloud_vizsn.cpp">
+      <Filter>src\audiosource\vizsn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\wav\dr_impl.cpp">
+      <Filter>src\audiosource\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\wav\soloud_wav.cpp">
+      <Filter>src\audiosource\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\wav\soloud_wavstream.cpp">
+      <Filter>src\audiosource\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\audiosource\wav\stb_vorbis.c">
+      <Filter>src\audiosource\wav</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_bassboostfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_biquadresonantfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_dcremovalfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_echofilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_fftfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_flangerfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_freeverbfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_lofifilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_robotizefilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\soloud_waveshaperfilter.cpp">
+      <Filter>src\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_audiosource.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_bus.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_3d.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_basicops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_faderops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_filterops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_getters.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_setters.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_voicegroup.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_core_voiceops.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_fader.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_fft.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_fft_lut.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_file.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_filter.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_misc.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_queue.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\core\soloud_thread.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\backend\winmm\soloud_winmm.cpp">
+      <Filter>src\backend\winmm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\backend\null\soloud_null.cpp">
+      <Filter>src\backend\null</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

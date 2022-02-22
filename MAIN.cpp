@@ -6,8 +6,12 @@
 #include "highlevel/TextField.h"
 #include "lowlevel/UTILITY.h"
 #include "highlevel/Slider.h"
-#include "mmsystem.h"
-#pragma comment(lib, "winmm.lib")
+#include "SoLoud/soloud.h"
+#include "SoLoud/soloud_wav.h"
+#include "SoLoud/soloud_speech.h"
+#include "SoLoud/soloud_openmpt.h"
+#include "SoLoud/soloud_thread.h"
+#include <thread>
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -15,7 +19,32 @@ using namespace std;
 
 //SLOTS
 
+void play_sound(std::string path) {
+	// Declare some variables
+	SoLoud::Soloud soloud; // Engine core
+	SoLoud::Wav wav;       // One sample source
 
+
+	// Initialize SoLoud (automatic back-end selection)
+	// also, enable visualization for FFT calc
+	soloud.init();
+	soloud.setVisualizationEnable(1);
+
+
+	// Load background sample
+	wav.load(path.c_str());       // Load a wave file
+	wav.setLooping(1);                          // Tell SoLoud to loop the sound
+	int handle1 = soloud.play(wav);   
+	//soloud.seek(handle1, 10);
+		// Play it
+	// Configure sound source
+	// Wait for voice to finish
+	while (true)
+	{
+		// Still going, sleep for a bit
+		SoLoud::Thread::sleep(100);
+	}
+}
 // the main function , code is executed here
 int main()
 {
@@ -67,11 +96,15 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
 		list_backround.render();
 		Button* buttonnr = list.render_and_manage_input();
+		static int i = 1;
 		if (buttonnr != NULL) {
-			string path = "data/" + buttonnr->obj_ident;
-			std::wstring stemp = std::wstring(path.begin(), path.end());
-			LPCWSTR sw = stemp.c_str();
-			PlaySound(sw, NULL, SND_ASYNC); // support just .wav files
+			if (i == 1) {
+				string path = "data/" + buttonnr->obj_ident;
+				std::thread thr = std::thread(play_sound, path);
+				thr.detach();
+				i++;
+			}
+
 		}
 		list.manage_scroll();
 		upper_bar.render();
@@ -94,7 +127,7 @@ int main()
 		slider.render();
 		menu.render();
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			if(pause.is_clicked()) PlaySound(NULL, NULL, SND_ASYNC);
+			pause.is_clicked();
 			skback.is_clicked();
 			skforwar.is_clicked();
 			rloop.is_clicked();
