@@ -17,7 +17,7 @@ using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-//SLOTS
+//SLOTSs
 
 void play_sound(std::string path) {
 	// Declare some variables
