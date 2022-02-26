@@ -23,9 +23,14 @@ Slider::Slider(Shader* _shader, WINDOW* _windowobj, const char* path, double _po
 	TEXTURE* temp = new TEXTURE(std::string(path));
 	ID = temp->ID;
 }
-double Slider::return_pos() {
-	double pos = (((dposx + 1) - 0.5) / 0.962) * 100;
+double Slider::return_pos(double song_lenght) {
+	double pos = (this->setdotpos + 0.5) * song_lenght;
 	return pos;
+}
+void Slider::set_pos(double seconds , double song_lenght) {
+	this->setdotpos = (seconds / song_lenght) - 0.5;
+	this->setdotpos = is_in_slider(this->setdotpos);
+	
 }
 void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 	double posx, double posy, double scale) {
@@ -36,11 +41,12 @@ void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArray
 	VAO->use(); // pick vao
 	DRAW(6); // draw 6 vertices
 	this->model = texture_shader->transform(windowobj->window, posx, posy, scale + 0.05f); 
-	//dot drawing
-	texture_shader->notnormal_transform(windowobj->window, dposx, dposy, 0.03f);
+	//dot drawing 
+	texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
 	DOT.use();
 	DRAW(6);
 }
+
 bool Slider::accept_input(glm::vec4 point) {
 	std::vector<glm::vec3> raw = VAO.vec4_vector;
 	glm::vec4 A = this->model * glm::vec4(raw[0], 1.0f);
@@ -51,13 +57,11 @@ bool Slider::accept_input(glm::vec4 point) {
 	glm::vec4 C1 = this->model * glm::vec4(raw[5], 1.0f);
 
 	if (isInTriangle(A, B, C, point) or isInTriangle(A1, B1, C1, point)) {
-		if (point.x < -0.5) {
-			point.x = -0.5;
+		double value = is_in_slider(point.x);
+		if (dposx != value) {
+			this->setdotpos = value;
+			
 		}
-		if (point.x > 0.462) {
-			point.x = 0.462;
-		}
-		dposx = point.x;
 		return true;
 	}
 	return false;

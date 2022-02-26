@@ -1,7 +1,15 @@
 #include <filesystem>
 #include <shellapi.h>
 
-
+inline double is_in_slider(double value) {
+	if (value < -0.5) {
+		value = -0.5;
+	}
+	if (value > 0.462) {
+		value = 0.462;
+	}
+	return value;
+}
 inline void ex_textfile(std::string path) {
 	ShellExecuteA(GetDesktopWindow(), "open", path.c_str(), NULL, NULL, SW_SHOW);
 }

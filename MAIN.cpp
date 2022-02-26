@@ -18,32 +18,41 @@ using namespace std;
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
 //SLOTSs
-
-void play_sound(std::string path) {
+bool mmplaysound = false;
+int times_button_clicked = 0;
+int sound_handle = -1;
+double current_time = 0;
+double true_current_time = 0;
+bool seek_change = false;
+string previous;
+void play_sound(std::string path , SoLoud::Soloud* soloud , SoLoud::Wav* wav , bool loop) {
 	// Declare some variables
-	SoLoud::Soloud soloud; // Engine core
-	SoLoud::Wav wav;       // One sample source
-
-
-	// Initialize SoLoud (automatic back-end selection)
-	// also, enable visualization for FFT calc
-	soloud.init();
-	soloud.setVisualizationEnable(1);
-
-
 	// Load background sample
-	wav.load(path.c_str());       // Load a wave file
-	wav.setLooping(1);                          // Tell SoLoud to loop the sound
-	int handle1 = soloud.play(wav);   
+	if (previous == path) { goto play; }
+	else previous = path;
+	wav->load(path.c_str());       // Load a wave file
+	wav->setLooping(loop);        // Tell SoLoud to loop the sound
+
+    sound_handle = soloud->play(*wav);   
 	//soloud.seek(handle1, 10);
 		// Play it
 	// Configure sound source
 	// Wait for voice to finish
-	while (true)
+play:
+	while (mmplaysound)
 	{
+		//true_current_time = soloud->getStreamPosition(sound_handle);
+		if (seek_change) {
+			soloud->seek(sound_handle, current_time);
+			seek_change = false;
+		}
+		else current_time = soloud->getStreamPosition(sound_handle);
 		// Still going, sleep for a bit
-		SoLoud::Thread::sleep(100);
+		SoLoud::Thread::sleep(10);
 	}
+	soloud->deinit();
+	//delete soloud;
+	//delete wav;
 }
 // the main function , code is executed here
 int main()
@@ -89,6 +98,8 @@ int main()
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
 
+	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
+	SoLoud::Wav* wav = new SoLoud::Wav();       // One sample source
 	
 
 	while (!glfwWindowShouldClose(windowobj.window))
@@ -96,13 +107,15 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
 		list_backround.render();
 		Button* buttonnr = list.render_and_manage_input();
-		static int i = 1;
 		if (buttonnr != NULL) {
-			if (i == 1) {
+			mmplaysound = false; times_button_clicked = 1;
+			if (times_button_clicked == 1 && !mmplaysound) {
+				mmplaysound = true;
 				string path = "data/" + buttonnr->obj_ident;
-				std::thread thr = std::thread(play_sound, path);
+				soloud->init();
+				std::thread thr = std::thread(play_sound, path , soloud , wav , true);
 				thr.detach();
-				i++;
+				times_button_clicked++;
 			}
 
 		}
@@ -118,26 +131,44 @@ int main()
 		pause.render();
 		skback.render();
 		skforwar.render();
+		texture_shader->setBool("is_toggled", true);
 		rloop.render();
+		texture_shader->setBool("is_toggled", false);
 		rrandom.render();
 		download.render();
 		texture_shader->setBool("transparentMode", false);
-
-
 		slider.render();
 		menu.render();
+		
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			pause.is_clicked();
-			skback.is_clicked();
-			skforwar.is_clicked();
+			if (pause.is_clicked()) mmplaysound = false; times_button_clicked = 1;
+			if (skback.is_clicked()) {
+				seek_change = true;
+				current_time = current_time - 5;
+				if (current_time < 0) {
+					current_time = 0;
+				}
+			}
+			if (skforwar.is_clicked()) {
+				seek_change = true;
+				current_time = current_time + 5;
+				if (current_time > wav->getLength()) {
+					current_time = 0;
+				}
+			}
 			rloop.is_clicked();
 			rrandom.is_clicked();
 			download.is_clicked();
-			slider.accept_input(return_ndc_cursor(windowobj.window));
+			if (slider.accept_input(return_ndc_cursor(windowobj.window))) {
+				seek_change = true;
+				current_time = slider.return_pos(wav->getLength());
+			}
+
 			
 	
 		
 		}
+		slider.set_pos(current_time, wav->getLength());
 		glfwSwapBuffers(windowobj.window);
 		
 		// poll for and process events

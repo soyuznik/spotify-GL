@@ -22,14 +22,16 @@ public:
 	double posy;
 	double scale;
 
-
+	
+	bool setpos_called = false;
 	double dposx;
 	double dposy;
 	double dscale;
 
 
 
-	double return_pos();
+	double return_pos(double song_lenght);
+	void set_pos(double seconds, double song_lenght);
 	Slider(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
@@ -42,5 +44,6 @@ public:
 	void render();
 
 private:
+	double setdotpos = 1;
 	glm::mat4 model;
 };
