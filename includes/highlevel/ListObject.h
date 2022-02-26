@@ -15,25 +15,35 @@
 #include "highlevel/Button.h"
 #include "highlevel/Panel.h"
 #include "highlevel/ClickEventCanceller.h"
+
+//ListObject class
+
 class ListObject
 {
 public:
-	std::vector<Button*> buttons;
-	std::vector<Button*> updatebuttons;
-	std::vector<ClickEventCanceller*> cancellers;
-	std::vector<std::string> ButtonTexts;
+	std::vector<Button*> buttons; //vector with list buttons
+	std::vector<ClickEventCanceller*> cancellers; // vector with its cancellers
+	std::vector<std::string> ButtonTexts; // vector with the list buttons text
+
+	// need to change this , because all buttons move the same
+	// currently it changed the value of each button , based on the vector coords
+	// but all values are the same
 	std::vector<int> yaxis_offset;
-	int list_sensitivity = 10;
-	Shader* texture_shader;
-	WINDOW* window;
+
+	int list_sensitivity = 10; // sensitivity which list operates to
+	Shader* texture_shader; // rendering shader
+	WINDOW* window; // window on which is rendered
 	double xpos;
 	double ypos;
-	double scale;
-	Text* antonio_bold;
+	double scale; // spacial positions
+	Text* antonio_bold; // the text wich buttons are rendered
 	ListObject(Shader* texture_shader, WINDOW* window, double xpos, double ypos, double scale);
 	Button* add_item(std::string ItemText);
 	Button* render_and_manage_input();
+
+	//**DEPRECATED
 	std::vector<glm::vec3> return_clickable_data();
+	//**DEPRECATED
 	std::vector<glm::vec3> return_blocking_data();
 	void manage_scroll();
 	void update_scroll_info(double offset);

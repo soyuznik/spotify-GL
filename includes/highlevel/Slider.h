@@ -12,35 +12,51 @@
 #include "lowlevel/TEXT.h"
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
+
+/*
+Slider class
+intended to provide a higher level of abstraction
+and a dynamic value selector that syncs with audio
+
+----> Inherits Panel (not quite)
+*/
 class Slider
 {
 public:
-	Shader* shader;
-	WINDOW* windowobj;
-	unsigned int ID;
+	Shader* shader; // shader that renders slider
+	WINDOW* windowobj; // window on which renders
+	unsigned int ID; // texture ID
+	// screen coords
 	double posx;
 	double posy;
 	double scale;
 
-	
+	// value that changes SLIDER DOT
 	bool setpos_called = false;
+
+	// Dot screen coords
 	double dposx;
 	double dposy;
 	double dscale;
 
-
-
+	// returns audio sample length
 	double return_pos(double song_lenght);
-	void set_pos(double seconds, double song_lenght);
-	Slider(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
+	void set_pos(double seconds, double song_lenght); // sets dot position based on audio sample lenght
+	Slider(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale); // slider constructor
+	// creates panel using class variables defined in constructor
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
+	// changed the panel position on screen
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
 	VertexArrayObject VAO = VertexArrayObject("vertices/square_super_wide.buf");
+	// creates a rectangle shaped - dot
 	VertexArrayObject DOT = VertexArrayObject("vertices/square.buf");
+	// not usable ----------------------------------------
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
+	// accepts input from user
 	bool accept_input(glm::vec4 point);
+	// create_panel invoker
 	void render();
 
 private:

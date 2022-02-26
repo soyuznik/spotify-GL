@@ -12,9 +12,6 @@ using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-
-
-
 // the main function , code is executed here
 int main()
 {
@@ -27,8 +24,6 @@ int main()
 	//LoadAudio
 	LoadAudio audio = LoadAudio();
 
-
-
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
 	TextField text(texture_shader, &windowobj, 400, 600);
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
@@ -37,7 +32,7 @@ int main()
 	double t = 1.2;
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
-		"textures/gray.png", 600, 400, 0.8f , "vertices/square_extra_high.buf");
+		"textures/gray.png", 600, 400, 0.8f, "vertices/square_extra_high.buf");
 	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 80, 0.05f);
 	Button skback = Button(texture_shader, &windowobj, 355 * t, 80, 0.09f);
 	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
@@ -53,20 +48,15 @@ int main()
 	rloop.set_texture("textures/loop.png");
 	download.set_texture("textures/download.png");
 
-
-
 	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("data");
 	for (int i = 0; i < dir.size(); i++) {
 		Button* butt = list.add_item(dir[i]);
-		butt->obj_ident =  dir[i];
+		butt->obj_ident = dir[i];
 	}
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
-
-	
-	
 
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
@@ -97,7 +87,7 @@ int main()
 		texture_shader->setBool("transparentMode", false);
 		slider.render();
 		menu.render();
-		
+
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (pause.is_clicked()) {
 				audio.pause();
@@ -114,14 +104,10 @@ int main()
 			if (slider.accept_input(return_ndc_cursor(windowobj.window))) {
 				audio.sync_Slider(&slider);
 			}
-
-			
-	
-		
 		}
 		slider.set_pos(audio.time(), audio.song_time());
 		glfwSwapBuffers(windowobj.window);
-		
+
 		// poll for and process events
 		glfwPollEvents();
 	}

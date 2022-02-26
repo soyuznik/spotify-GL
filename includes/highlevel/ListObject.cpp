@@ -1,11 +1,15 @@
+// main header
 #include "ListObject.h"
+//utility
 #include "lowlevel/UTILITY.h"
 
+//manages the scroll of each button in a vector
 void ListObject::update_scroll_info(double offset) {
 	for (int j = 0; j < yaxis_offset.size(); j++) {
 		yaxis_offset[j] = offset;
 	}
 }
+// changed button position based on yaxis_offset vector
 void ListObject::manage_scroll() {
 	for (int io = 0; io < buttons.size(); io++) {
 		Button* dereferenced_button = buttons[io];
@@ -13,20 +17,30 @@ void ListObject::manage_scroll() {
 			(list_sensitivity * yaxis_offset[io]))); yaxis_offset[io] = 0;
 	}
 }
+//ListObject Constructor
+/*
+Takes 5 arguments all neccesary...
+Shader* texture_shader_, --> shader with witch the list is rendered
+WINDOW* window_, --> window on which the list is rendered
+double xpos_, double ypos_, double scale_ ---> positions and scale on window
+*/
 ListObject::ListObject(Shader* texture_shader_, WINDOW* window_, double xpos_, double ypos_, double scale_) {
 	texture_shader = texture_shader_;
 	window = window_;
 	xpos = xpos_;
 	ypos = ypos_;
 	scale = scale_;
+	// special pointer so the list works , can be accesed through GLFWwindow*
 	glfwSetWindowUserPointer(window->window, this);
 
 	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");
+	/// created cancellers based on coords
 	ClickEventCanceller* canceller = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos, scale + 0.01);
 	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 623, scale + 0.01);
 	cancellers.push_back(canceller);
 	cancellers.push_back(canceller1);
 }
+// returns all Buttons VAO vertices *DEPRECATED*
 std::vector<glm::vec3> ListObject::return_clickable_data() {
 	//creating a vector with objects that need to do something when clicked
 	std::vector<std::vector<glm::vec3>> VAOs_that_need_input_slots;
@@ -37,6 +51,7 @@ std::vector<glm::vec3> ListObject::return_clickable_data() {
 	std::vector<glm::vec3> data = buttons[0]->VAO->return_data(VAOs_that_need_input_slots);
 	return data;
 }
+// returns all Cancellers VAO vertices *DEPRECATED*
 std::vector<glm::vec3> ListObject::return_blocking_data() {
 	//outlayer
 	std::vector<std::vector<glm::vec3>> VAOs_that_need_to_block_clicks;
@@ -47,20 +62,26 @@ std::vector<glm::vec3> ListObject::return_blocking_data() {
 	std::vector<glm::vec3> data_for_blocking = buttons[0]->VAO->return_data(VAOs_that_need_to_block_clicks);
 	return data_for_blocking;
 }
+
+// Adds a item with custom txt on the list , return pointer to the button
 Button* ListObject::add_item(std::string ItemText) {
-	
 	static int items = 0; items++;
-	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2,"vertices/square_wider.buf");
+	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2, "vertices/square_wider.buf");
 	ButtonTexts.push_back(ItemText);
 	buttons.push_back(button);
 	yaxis_offset.push_back(0);
 
 	return button;
 }
+
+// renders the List on screen
+// returns null if there is no Button or is inside a canceller
 Button* ListObject::render_and_manage_input() {
-	bool is_point_inside_blocker = false;
-	Button* return_value = NULL;
-	glm::vec4 point = return_ndc_cursor(window->window);
+	bool is_point_inside_blocker = false; //creates a bool for blocking
+	Button* return_value = NULL; // the current return value
+	glm::vec4 point = return_ndc_cursor(window->window); // cursor position
+
+	//checks if the point is inside any canceller
 	for (int ix = 0; ix < cancellers.size(); ix++) {
 		ClickEventCanceller* tempcl = cancellers[ix];
 		tempcl->render();
@@ -68,6 +89,7 @@ Button* ListObject::render_and_manage_input() {
 			is_point_inside_blocker = true;
 		}
 	}
+	//checks if point is inside any button
 	for (int ix = 0; ix < buttons.size(); ix++) {
 		Button* tempbt = buttons[ix];
 		tempbt->render();
@@ -77,7 +99,6 @@ Button* ListObject::render_and_manage_input() {
 				return_value = tempbt;
 			}
 		}
-
 	}
-	return return_value;
+	return return_value; // returns null if there is no Button or is inside a canceller
 }

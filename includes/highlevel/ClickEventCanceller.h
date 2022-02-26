@@ -12,24 +12,32 @@
 #include "lowlevel/TEXT.h"
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
+/*
 
+ClickEventCanceller class .
+intended to block click events so ListObject items dont get triggered
+when they are not seen on screen directly
+*/
 class ClickEventCanceller
 {
 public:
-	Shader* shader;
-	WINDOW* windowobj;
+	Shader* shader; // shader which renders it
+	WINDOW* windowobj; // which window
 	unsigned int ID;
+	//screen pos and scale
 	double posx;
 	double posy;
 	double scale;
+	//constructor
 	ClickEventCanceller(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale);
 	void create_canceller(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
 	VertexArrayObject VAO = VertexArrayObject("vertices/square_higher_wider.buf");
-	bool should_block(glm::vec4 point);
 
+	//checks if the point should be blocked
+	bool should_block(glm::vec4 point);
 	void render();
 private:
 	glm::mat4 model;

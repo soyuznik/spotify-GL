@@ -122,8 +122,6 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
 	return window; // returning GLFWwindow * window
 }
 
-
-
 //the method that procceses all user input
 void WINDOW::processinput(std::vector<glm::vec3> data, std::vector<glm::vec3> block_data, Shader shader) {
 	int current_x, current_y; // saing current window position

@@ -54,7 +54,6 @@ glm::mat4 Shader::transform(GLFWwindow* window, float x, float y, float scale) {
 	return model;
 }
 glm::mat4 Shader::notnormal_transform(GLFWwindow* window, float x, float y, float scale) {
-	
 	// calculate the model matrix for each object and pass it to shader before drawing
 	glm::mat4 model = glm::mat4(1.0f);
 	//glm::translate moves the object at x,y

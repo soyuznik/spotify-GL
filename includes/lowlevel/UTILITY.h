@@ -17,7 +17,7 @@ inline std::vector<std::string> listdir(std::string path) {
 	std::vector<std::string> items;
 	for (auto& p : std::filesystem::directory_iterator(path)) {
 		std::string item = p.path().string();
-		items.push_back(item.erase(0,path.size()+1));
+		items.push_back(item.erase(0, path.size() + 1));
 	}
 	return items;
 }

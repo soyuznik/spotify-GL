@@ -1,6 +1,15 @@
+// main header
 #include "TextField.h"
+//utility
 #include "lowlevel/UTILITY.h"
+//textfield constructor
+/* takes 4 args
+Shader* shader_, ---> shader to render
+WINDOW* window_, ---> window on which to render
+double posx_, --> posx and y
+double posy_
 
+*/
 TextField::TextField(Shader* shader_, WINDOW* window_, double posx_, double posy_) {
 	shader = shader_;
 	window = window_;
@@ -12,10 +21,14 @@ TextField::TextField(Shader* shader_, WINDOW* window_, double posx_, double posy
 	panel = panel__;
 	antonio_bold = antonio_bold__;
 }
+
+// returts the text taht is currently displayed on TEXTFIELD
 std::string TextField::text() {
 	std::string text__ = *tlog;
 	return text__;
 }
+
+// LOGS keys pressed by user
 void TextField::logkey() {
 	if (!was_initiated) return;
 	std::map<std::string, int> k{
@@ -62,12 +75,11 @@ void TextField::logkey() {
 			{ "delete" , GLFW_KEY_BACKSPACE}, // delete last character
 	}; // keymap
 	// iterate using C++17 facilities
-	
+
 	for (const auto& n : k) {
 		auto letter = n.first;
 		auto value = n.second;
 		if (glfwGetKey(window->window, value) == GLFW_PRESS) {
-			
 			if (letter == save_key and repeats < 10) { repeats++; return; }
 			else if (repeats == 10) save_key = ""; repeats = 0;
 			if (letter == "delete") {
@@ -92,8 +104,8 @@ void TextField::logkey() {
 			showing = true;
 		}
 	}
-	
 }
+// checks if user initiated the TEXTFIELD --- *turns gray*
 void TextField::check_input() {
 	glm::vec4 point = return_ndc_cursor(window->window);
 	if (glfwGetMouseButton(window->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
@@ -102,7 +114,7 @@ void TextField::check_input() {
 		else was_initiated = false;
 	}
 }
-
+// rendering the textfield
 void TextField::render() {
 	shader->use();
 	std::string showing_text = *tlog;
@@ -115,5 +127,5 @@ void TextField::render() {
 	panel->render();
 	shader->setBool("changeColor", false);
 
-	antonio_bold->drawText(showing_text, posx - 95, posy, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+	antonio_bold->drawText(showing_text, posx - 95, posy, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
 }
