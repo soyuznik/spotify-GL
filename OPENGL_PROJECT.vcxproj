@@ -152,23 +152,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="includes\glad.c" />
-    <ClCompile Include="includes\highlevel\Button.cpp" />
-    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
-    <ClCompile Include="includes\highlevel\ListObject.cpp" />
-    <ClCompile Include="includes\highlevel\Panel.cpp" />
-    <ClCompile Include="includes\highlevel\Slider.cpp" />
-    <ClCompile Include="includes\highlevel\TextField.cpp" />
-    <ClCompile Include="includes\lowlevel\SHADER.cpp" />
-    <ClCompile Include="includes\lowlevel\TEXT.cpp" />
-    <ClCompile Include="includes\lowlevel\TEXTURE.cpp" />
-    <ClCompile Include="includes\lowlevel\VAO.cpp" />
-    <ClCompile Include="includes\lowlevel\WINDOW.cpp" />
-    <ClCompile Include="MAIN.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="shaders\color_frag.glsl" />
     <None Include="shaders\color_vertex.glsl" />
+    <None Include="shaders\darken_color_frag.glsl" />
+    <None Include="shaders\darken_color_vertex.glsl" />
     <None Include="shaders\discard_white_frag.glsl" />
     <None Include="shaders\discard_white_vertex.glsl" />
     <None Include="shaders\texture_frag.glsl" />
@@ -194,9 +181,25 @@
     <Image Include="textures\pause.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="includes\highlevel\Button.cpp" />
+    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
+    <ClCompile Include="includes\highlevel\ListObject.cpp" />
+    <ClCompile Include="includes\highlevel\LoadAudio.cpp" />
+    <ClCompile Include="includes\highlevel\Panel.cpp" />
+    <ClCompile Include="includes\highlevel\Slider.cpp" />
+    <ClCompile Include="includes\highlevel\TextField.cpp" />
+    <ClCompile Include="includes\lowlevel\SHADER.cpp" />
+    <ClCompile Include="includes\lowlevel\TEXT.cpp" />
+    <ClCompile Include="includes\lowlevel\TEXTURE.cpp" />
+    <ClCompile Include="includes\lowlevel\VAO.cpp" />
+    <ClCompile Include="includes\lowlevel\WINDOW.cpp" />
+    <ClCompile Include="MAIN.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h" />
     <ClInclude Include="includes\highlevel\ClickEventCanceller.h" />
     <ClInclude Include="includes\highlevel\ListObject.h" />
+    <ClInclude Include="includes\highlevel\LoadAudio.h" />
     <ClInclude Include="includes\highlevel\Panel.h" />
     <ClInclude Include="includes\highlevel\Slider.h" />
     <ClInclude Include="includes\highlevel\TextField.h" />

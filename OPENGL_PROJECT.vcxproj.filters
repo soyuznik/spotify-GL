@@ -1,64 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Vertices Files">
       <UniqueIdentifier>{7fc91b80-9885-4e85-8ffa-30bde93c0f1c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Texture Files">
       <UniqueIdentifier>{c2c26360-2f55-474b-b390-a34eb7ae3661}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Shader Files">
-      <UniqueIdentifier>{dfea935c-556c-4f02-b123-0e6163ae4737}</UniqueIdentifier>
+    <Filter Include="Button">
+      <UniqueIdentifier>{6b3ece57-d92d-42d7-bd62-03db443f4a2e}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="MAIN.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\ListObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\Panel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\SHADER.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\TEXT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\TEXTURE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\VAO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\WINDOW.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\TextField.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\Slider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Filter Include="Slider">
+      <UniqueIdentifier>{91dedd3a-cd71-4ae9-8f63-a0373ac86c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ListObject">
+      <UniqueIdentifier>{0cd93c4c-98d4-452b-8cd4-5394f2a06dd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ClickEventCanceller">
+      <UniqueIdentifier>{7436f37c-2192-4dcd-bb44-ed6c17a7ed19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LoadAudio">
+      <UniqueIdentifier>{c7b04e1f-0f42-48dd-93bb-cc93c4bf98ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Panel">
+      <UniqueIdentifier>{d2d46218-2c08-47d3-9825-7bcb51037267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TextField">
+      <UniqueIdentifier>{e43a2e01-1737-418b-9683-2b71403c6be6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{c565420b-04a8-4a6b-87bf-419c7a953945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{57f33686-5d69-4601-bfb5-08bec4f43a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Text">
+      <UniqueIdentifier>{6a72ca27-b2d3-4dcc-ba94-96b1c4fdc228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VAO">
+      <UniqueIdentifier>{57da0018-2bf8-4a39-b731-c2fe013d7f0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{4dab1b0a-0223-4da4-bb41-8201a1d4a066}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files">
+      <UniqueIdentifier>{52489a05-96e8-499d-ad5c-a20b86c2a288}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -66,24 +53,6 @@
     </None>
     <None Include="vertices\triangle.buf">
       <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="shaders\color_frag.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\color_vertex.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_frag.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_vertex.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_frag.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_vertex.glsl">
-      <Filter>Header Files\Shader Files</Filter>
     </None>
     <None Include="vertices\square_wider.buf">
       <Filter>Vertices Files</Filter>
@@ -97,17 +66,41 @@
     <None Include="vertices\square_super_wide.buf">
       <Filter>Vertices Files</Filter>
     </None>
-    <None Include="shaders\discard_white_frag.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
-    <None Include="shaders\discard_white_vertex.glsl">
-      <Filter>Header Files\Shader Files</Filter>
-    </None>
     <None Include="vertices\square_extra_high.buf">
       <Filter>Vertices Files</Filter>
     </None>
     <None Include="vertices\square_little_higher_menu.buf">
       <Filter>Vertices Files</Filter>
+    </None>
+    <None Include="shaders\color_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\color_vertex.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\darken_color_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\darken_color_vertex.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\discard_white_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\discard_white_vertex.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\text_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\text_vertex.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\texture_vertex.glsl">
+      <Filter>Shader Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -134,41 +127,81 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MAIN.cpp" />
+    <ClCompile Include="includes\highlevel\Button.cpp">
+      <Filter>Button</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\ListObject.cpp">
+      <Filter>ListObject</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp">
+      <Filter>ClickEventCanceller</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\LoadAudio.cpp">
+      <Filter>LoadAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\lowlevel\WINDOW.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\lowlevel\VAO.cpp">
+      <Filter>VAO</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\lowlevel\TEXT.cpp">
+      <Filter>Text</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\lowlevel\TEXTURE.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\lowlevel\SHADER.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\TextField.cpp">
+      <Filter>TextField</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\Panel.cpp">
+      <Filter>Panel</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\Slider.cpp">
+      <Filter>Slider</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\lowlevel\UTILITY.h" />
     <ClInclude Include="includes\highlevel\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\highlevel\ClickEventCanceller.h">
-      <Filter>Header Files</Filter>
+      <Filter>Button</Filter>
     </ClInclude>
     <ClInclude Include="includes\highlevel\ListObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>ListObject</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\Panel.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="includes\highlevel\ClickEventCanceller.h">
+      <Filter>ClickEventCanceller</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\SHADER.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\lowlevel\TEXT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\lowlevel\TEXTURE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="includes\lowlevel\VAO.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="includes\highlevel\LoadAudio.h">
+      <Filter>LoadAudio</Filter>
     </ClInclude>
     <ClInclude Include="includes\lowlevel\WINDOW.h">
-      <Filter>Header Files</Filter>
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\VAO.h">
+      <Filter>VAO</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\TEXT.h">
+      <Filter>Text</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\TEXTURE.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\lowlevel\SHADER.h">
+      <Filter>Shader</Filter>
     </ClInclude>
     <ClInclude Include="includes\highlevel\TextField.h">
-      <Filter>Header Files</Filter>
+      <Filter>TextField</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\UTILITY.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="includes\highlevel\Panel.h">
+      <Filter>Panel</Filter>
     </ClInclude>
     <ClInclude Include="includes\highlevel\Slider.h">
-      <Filter>Header Files</Filter>
+      <Filter>Slider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
