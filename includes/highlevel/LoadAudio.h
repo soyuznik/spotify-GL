@@ -22,6 +22,7 @@ class LoadAudio {
 	int sound_handle = -1;
 	double current_time = 0;
 	double true_current_time = 0;
+	int button___ins = 0;
 	bool seek_change = false;
 	string previous;
 

@@ -24,7 +24,7 @@ void main()
        color = texture(texture1 , TextureCoords);
        }
        if(transparentMode){
-              if(default_color.r > 0.75 && default_color.g > 0.75 && default_color.b > 0.5){
+              if(default_color.a < 0.3){
                  discard;
                  }
        }

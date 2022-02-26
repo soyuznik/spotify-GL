@@ -46,12 +46,12 @@ int main()
 	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
-	rrandom.set_texture("textures/random.jpg");
-	skback.set_texture("textures/skback.jpg");
-	pause.set_texture("textures/pause.jpg");
-	skforwar.set_texture("textures/skforwar.jpg");
-	rloop.set_texture("textures/loop.jpg");
-	download.set_texture("textures/download.jpg");
+	rrandom.set_texture("textures/random.png");
+	skback.set_texture("textures/skback.png");
+	pause.set_texture("textures/pause.png");
+	skforwar.set_texture("textures/skforwar.png");
+	rloop.set_texture("textures/loop.png");
+	download.set_texture("textures/download.png");
 
 
 

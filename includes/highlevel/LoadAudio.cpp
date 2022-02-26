@@ -61,12 +61,13 @@ void LoadAudio::skip(double time) {
 	}
 }
 void LoadAudio::pause() {
-	mmplaysound = false; times_button_clicked = 1;
+	if (button___ins == 0) { soloud->setPauseAll(true); button___ins = 1; }
+	else if (button___ins == 1) { soloud->setPauseAll(false);  button___ins = 0; }
 }
 
 void LoadAudio::Play(string path) {
-	mmplaysound = false; times_button_clicked = 1;
-	if (times_button_clicked == 1 && !mmplaysound) {
+	mmplaysound = false;
+	if (!mmplaysound) {
 		mmplaysound = true;
 		
 		soloud->init();
