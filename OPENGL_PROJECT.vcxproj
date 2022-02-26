@@ -181,6 +181,7 @@
     <Image Include="textures\pause.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="includes\glad.c" />
     <ClCompile Include="includes\highlevel\Button.cpp" />
     <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
     <ClCompile Include="includes\highlevel\ListObject.cpp" />

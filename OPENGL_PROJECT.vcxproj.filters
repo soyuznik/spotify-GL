@@ -164,6 +164,7 @@
     <ClCompile Include="includes\highlevel\Slider.cpp">
       <Filter>Slider</Filter>
     </ClCompile>
+    <ClCompile Include="includes\glad.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\lowlevel\UTILITY.h" />
