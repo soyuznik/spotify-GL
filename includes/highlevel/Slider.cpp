@@ -2,7 +2,6 @@
 #include "Slider.h"
 // utility
 #include "lowlevel/UTILITY.h"
-
 //for isnan()
 #include <math.h>
 

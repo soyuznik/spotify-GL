@@ -13,6 +13,13 @@
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
+
+
+
+//recognition///////////////////////////////////
+#include "LoadAudio.h"
+class LoadAudio;
+//////////////////////////////////////////////////
 /*
 Slider class
 intended to provide a higher level of abstraction
@@ -22,6 +29,8 @@ and a dynamic value selector that syncs with audio
 */
 class Slider
 {
+protected:
+	double setdotpos = 1;
 public:
 	//for time management near slider
 	double crtsongtime = 0.0;
@@ -38,6 +47,7 @@ public:
 
 	// value that changes SLIDER DOT
 	bool setpos_called = false;
+	
 
 	// Dot screen coords
 	double dposx;
@@ -50,9 +60,11 @@ public:
 	double return_pos(double song_lenght);
 	void set_pos(double seconds, double song_lenght); // sets dot position based on audio sample lenght
 	Slider(Shader* shader, WINDOW* windowobj, const char* path, double posx, double posy, double scale); // slider constructor
+	
 	// creates panel using class variables defined in constructor
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);
+	
 	// changed the panel position on screen
 	void change_position(double x, double y);
 	//creating a vertex array object with data from "vertices/square.buf"
@@ -67,6 +79,6 @@ public:
 	void render();
 
 private:
-	double setdotpos = 1;
+	
 	glm::mat4 model;
 };

@@ -6,6 +6,7 @@
 #include "highlevel/TextField.h"
 #include "lowlevel/UTILITY.h"
 #include "highlevel/Slider.h"
+#include "highlevel/VolSlider.h"
 #include "highlevel/LoadAudio.h"
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
@@ -38,7 +39,8 @@ int main()
 	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
 	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 80, 0.09f);
 	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.059f);
-	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
+	Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
+	Panel vol_img = Panel(texture_shader, &windowobj, "textures/vol.png", 810, 40, 0.05f , "vertices/square.buf");
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
 	rrandom.set_texture("textures/random.png");
@@ -54,10 +56,11 @@ int main()
 		Button* butt = list.add_item(dir[i]);
 		butt->obj_ident = dir[i];
 	}
-
+	VolSlider volslider = VolSlider(texture_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
+	
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
-
+	
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
@@ -86,7 +89,9 @@ int main()
 		download.render();
 		texture_shader->setBool("transparentMode", false);
 		slider.render();
+		volslider.render();
 		menu.render();
+		vol_img.render();
 
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (pause.is_clicked()) {
@@ -103,6 +108,9 @@ int main()
 			download.is_clicked();
 			if (slider.accept_input(return_ndc_cursor(windowobj.window))) {
 				audio.sync_Slider(&slider);
+			}
+			if (volslider.accept_input(return_ndc_cursor(windowobj.window))) {
+				volslider.set_volume(&audio);
 			}
 		}
 		slider.set_pos(audio.time(), audio.song_time());

@@ -1,5 +1,11 @@
 // main header
 #include "LoadAudio.h"
+
+// setVolume method (double volume) argument
+void LoadAudio::setVolume(double vol) {
+	soloud->setVolume(sound_handle, vol);
+}
+
 // empty constructor
 LoadAudio::LoadAudio() {}
 
@@ -17,6 +23,7 @@ void LoadAudio::___play_sound(std::string path, SoLoud::Soloud* soloud, SoLoud::
 play:
 	while (mmplaysound)
 	{
+		
 		//true_current_time = soloud->getStreamPosition(sound_handle);
 		if (seek_change) {
 			soloud->seek(sound_handle, current_time);

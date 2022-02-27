@@ -10,9 +10,6 @@
     <Filter Include="Button">
       <UniqueIdentifier>{6b3ece57-d92d-42d7-bd62-03db443f4a2e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Slider">
-      <UniqueIdentifier>{91dedd3a-cd71-4ae9-8f63-a0373ac86c6d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ListObject">
       <UniqueIdentifier>{0cd93c4c-98d4-452b-8cd4-5394f2a06dd2}</UniqueIdentifier>
     </Filter>
@@ -45,6 +42,12 @@
     </Filter>
     <Filter Include="Shader Files">
       <UniqueIdentifier>{52489a05-96e8-499d-ad5c-a20b86c2a288}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sliders">
+      <UniqueIdentifier>{91dedd3a-cd71-4ae9-8f63-a0373ac86c6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sliders\VolSlider">
+      <UniqueIdentifier>{58b9a1a4-99a9-4596-bfee-488c0abc1b6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +104,9 @@
     </None>
     <None Include="shaders\texture_vertex.glsl">
       <Filter>Shader Files</Filter>
+    </None>
+    <None Include="vertices\square_extra_wide_lower.buf">
+      <Filter>Vertices Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +168,12 @@
       <Filter>Panel</Filter>
     </ClCompile>
     <ClCompile Include="includes\highlevel\Slider.cpp">
-      <Filter>Slider</Filter>
+      <Filter>Sliders</Filter>
     </ClCompile>
     <ClCompile Include="includes\glad.c" />
+    <ClCompile Include="includes\highlevel\VolSlider.cpp">
+      <Filter>Sliders\VolSlider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\lowlevel\UTILITY.h" />
@@ -202,7 +211,10 @@
       <Filter>Panel</Filter>
     </ClInclude>
     <ClInclude Include="includes\highlevel\Slider.h">
-      <Filter>Slider</Filter>
+      <Filter>Sliders</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\VolSlider.h">
+      <Filter>Sliders\VolSlider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

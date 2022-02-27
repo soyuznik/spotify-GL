@@ -21,8 +21,11 @@ https://github.com/jarikomppa/soloud
 #include <thread>
 #include <iostream>
 
-// For Slider class recognition....
-#include "Slider.h"
+// For Slider class recognition....////////////////////////
+#include "highlevel/Slider.h"
+class Slider;
+//////////////////////////////////////////////////////////////
+
 
 using namespace std;
 
@@ -31,6 +34,8 @@ using namespace std;
 * used for loading audio and syncing it with a slider
 */
 class LoadAudio {
+	//double crtvolume = 0.0;
+
 	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
 	SoLoud::Wav* wav = new SoLoud::Wav();       // One sample source
 
@@ -42,6 +47,7 @@ class LoadAudio {
 	string previous; // so it doesnt load the same audio sample twice
 
 public:
+	void setVolume(double vol);
 	LoadAudio(); // constructor , no args
 	void Play(string path); // main playing method
 	void ___play_sound(string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop); // plays sound with class variables
