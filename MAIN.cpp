@@ -37,13 +37,13 @@ int main()
 	Button skback = Button(texture_shader, &windowobj, 355 * t, 80, 0.09f);
 	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
 	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 80, 0.09f);
-	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.05f);
+	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.059f);
 	Button download = Button(texture_shader, &windowobj, 250, 610, 0.1f);
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 	//texture seetting
 	rrandom.set_texture("textures/random.png");
 	skback.set_texture("textures/skback.png");
-	pause.set_texture("textures/pause.png");
+	pause.set_texture("textures/play.png");
 	skforwar.set_texture("textures/skforwar.png");
 	rloop.set_texture("textures/loop.png");
 	download.set_texture("textures/download.png");

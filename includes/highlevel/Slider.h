@@ -23,8 +23,13 @@ and a dynamic value selector that syncs with audio
 class Slider
 {
 public:
+	//for time management near slider
+	double crtsongtime = 0.0;
+	double fullsongtime = 0.0;
 	Shader* shader; // shader that renders slider
 	WINDOW* windowobj; // window on which renders
+	//font
+	Text* txcounter;
 	unsigned int ID; // texture ID
 	// screen coords
 	double posx;
@@ -38,6 +43,8 @@ public:
 	double dposx;
 	double dposy;
 	double dscale;
+	// dot texture
+	TEXTURE dotTexture = TEXTURE("textures/dot.png");
 
 	// returns audio sample length
 	double return_pos(double song_lenght);

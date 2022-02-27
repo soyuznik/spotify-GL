@@ -2,6 +2,14 @@
 #include "Slider.h"
 // utility
 #include "lowlevel/UTILITY.h"
+
+//for isnan()
+#include <math.h>
+
+
+
+
+
 // changes position on screen
 void Slider::change_position(double x, double y) {
 	posx = x;
@@ -22,8 +30,11 @@ Slider::Slider(Shader* _shader, WINDOW* _windowobj, const char* path, double _po
 	posx = _posx;
 	posy = _posy;
 	scale = _scale;
+	txcounter = new Text(*windowobj, "fonts/Antonio-Light.ttf");
 
-	dposy = _posy;
+
+
+	dposy = _posy + 1;
 	dposx = _posx - 237;
 	int width, height;
 	// NDC conversion
@@ -42,7 +53,13 @@ double Slider::return_pos(double song_lenght) {
 }
 // sets dot postion at <seconds> position , and <song_lenght> sample lengh
 void Slider::set_pos(double seconds, double song_lenght) {
+	crtsongtime = seconds;
+	fullsongtime = song_lenght;
 	this->setdotpos = (seconds / song_lenght) - 0.5;
+	if (isnan(this->setdotpos)) {
+		this->setdotpos = -1; // if is nan this->setdotpos 
+		//will be reduced to -0.5 by is_in_slider , any value < -0.5 is good...
+	}
 	this->setdotpos = is_in_slider(this->setdotpos);
 }
 // creates a SLIDER using class variables
@@ -57,8 +74,14 @@ void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArray
 	texture_shader->transform(windowobj->window, posx, posy, scale);
 	//dot drawing
 	texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
+	dotTexture.use();
 	DOT.use();
 	DRAW(6);
+	glm::vec3 white_clr = glm::vec3(1.0f, 1.0f, 1.0f);
+	std::string sngtime = std::to_string(fullsongtime / 60);
+	std::string curtime = std::to_string(crtsongtime / 60);// minute transformation
+	txcounter->drawText(curtime.erase(curtime.length() - 4 , curtime.length()), posx - 267, posy - 2, 0.25f, white_clr);
+	txcounter->drawText(sngtime.erase(sngtime.length() - 4, sngtime.length()), posx + 250, posy - 2, 0.25f, white_clr);
 }
 // accepts  user input
 bool Slider::accept_input(glm::vec4 point) {
@@ -85,5 +108,5 @@ void Slider::render() {
 }
 // not usable --------------------------------------------------------------------------
 void Slider::setText(Text* font, std::string text, float scale, float R, float G, float B) {
-	font->drawText(text, posx - 40, posy, scale, glm::vec3(R, G, B));
+	font->drawText(text, posx, posy, scale, glm::vec3(R, G, B));
 }

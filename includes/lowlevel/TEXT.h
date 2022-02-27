@@ -19,6 +19,8 @@ struct Character {
 	unsigned int Advance;   // Horizontal offset to advance to next glyph
 };
 
+
+///Text(WINDOW window, std::string path);
 class Text {
 public:
 	unsigned int shaderID; // text shader
