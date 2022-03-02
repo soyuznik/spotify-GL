@@ -42,6 +42,9 @@ int main()
 	Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
 	Panel vol_img = Panel(texture_shader, &windowobj, "textures/vol.png", 810, 40, 0.05f , "vertices/square.buf");
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
+
+
+
 	//texture seetting
 	rrandom.set_texture("textures/random.png");
 	skback.set_texture("textures/skback.png");
@@ -61,6 +64,8 @@ int main()
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
 	
+
+	bool play_texture = false;
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
@@ -69,6 +74,8 @@ int main()
 		if (buttonnr != NULL) {
 			string path = "data/" + buttonnr->obj_ident;
 			audio.Play(path);
+			pause.set_texture("textures/pause.png");
+			play_texture = false;
 		}
 		list.manage_scroll();
 		upper_bar.render();
@@ -96,6 +103,14 @@ int main()
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (pause.is_clicked()) {
 				audio.pause();
+				if (play_texture) {
+					play_texture = false;
+					pause.set_texture("textures/pause.png");
+				}
+				else if (!play_texture) {
+					play_texture = true;
+					pause.set_texture("textures/play.png");
+				}
 			}
 			if (skback.is_clicked()) {
 				audio.back(5);
