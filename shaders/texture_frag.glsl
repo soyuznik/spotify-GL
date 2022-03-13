@@ -10,6 +10,9 @@ uniform sampler2D texture1;
 uniform bool changeColor;
 uniform bool transparentMode;
 uniform bool is_toggled;
+
+
+
 void main()
 {      vec4 black = vec4(0, 0, 0, 1.0);
        vec4 color;
@@ -24,7 +27,7 @@ void main()
        color = texture(texture1 , TextureCoords);
        }
        if(transparentMode){
-              if(default_color.a < 0.3){
+              if(default_color.a < 0.1){
                  discard;
                  }
        }

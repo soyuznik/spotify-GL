@@ -14,12 +14,12 @@
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
 /*
-Panel class
-intended for creating a rectangle shaped figure fast.
- and to offer a layer of abstraction
+Panel class 
+intended for creating a rectangle shaped figure fast    
+and to offer a layer of abstraction
  /////////////////////////////////////
- Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx,
-		double posy, double scale, std::string PATH = "vertices/square_extra_wide.buf");
+ @param Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx,
+ @param		double posy, double scale, std::string PATH = "vertices/square_extra_wide.buf");
 */
 class Panel
 {

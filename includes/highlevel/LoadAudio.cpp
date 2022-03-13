@@ -73,8 +73,8 @@ void LoadAudio::pause() {
 }
 // __play_sound thread invoker
 void LoadAudio::Play(string path) {
-	mmplaysound = true; // start thread with playing
 	soloud->init();
+	mmplaysound = true; // start thread with playing
 	thread thr = thread(&LoadAudio::___play_sound, this, path, soloud, wav, true);
 	thr.detach(); // detach
 }

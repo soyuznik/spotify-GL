@@ -1,4 +1,4 @@
-// higher level class
+﻿// higher level class
 #include "highlevel/Button.h"
 #include "highlevel/Panel.h"
 #include "highlevel/ClickEventCanceller.h"
@@ -101,6 +101,7 @@ int main()
 		//glfwSwapInterval(0);
 		texture_shader->use();
 		texture_shader->setBool("transparentMode", true);
+
 		pause.render();
 		skback.render();
 		skforwar.render();
