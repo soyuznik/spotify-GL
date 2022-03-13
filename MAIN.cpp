@@ -8,6 +8,8 @@
 #include "highlevel/Slider.h"
 #include "highlevel/VolSlider.h"
 #include "highlevel/LoadAudio.h"
+
+
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -26,10 +28,10 @@ int main()
 	LoadAudio audio = LoadAudio();
 
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
-	TextField text(texture_shader, &windowobj, 400, 600);
+	//TextField text(texture_shader, &windowobj, 400, 600);
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 600, 0.8f);
-	ListObject list = ListObject(texture_shader, &windowobj, 663, 650, 0.2);
+	ListObject list = ListObject(texture_shader, &windowobj, 610, 650, 0.2);
 	double t = 1.2;
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
@@ -39,19 +41,32 @@ int main()
 	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
 	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 80, 0.09f);
 	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.059f);
-	Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
+	//Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
 	Panel vol_img = Panel(texture_shader, &windowobj, "textures/vol.png", 810, 40, 0.05f , "vertices/square.buf");
-	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", 0, 350, 0.5f, "vertices/square_little_higher_menu.buf");
+	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", -50, 350, 0.5f, "vertices/square_little_higher_menu.buf");
+
+	//menu buttons
+	Button mitem1 = Button(texture_shader, &windowobj, 135, 551, 0.1f , "vertices/square_wider_menu.buf");
+	Button mitem2 = Button(texture_shader, &windowobj, 135, 505, 0.1f, "vertices/square_wider_menu.buf");
+	Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
+	Text* font = new Text(windowobj, "fonts/Antonio-Light.ttf");
+
+	//textures menu----
+	mitem1.set_texture("textures/itemm.png");
+	mitem2.set_texture("textures/itemm.png");
+	mitem3.set_texture("textures/itemm.png");
 
 
 
-	//texture seetting
+
+
+	//texture seettings
 	rrandom.set_texture("textures/random.png");
 	skback.set_texture("textures/skback.png");
 	pause.set_texture("textures/play.png");
 	skforwar.set_texture("textures/skforwar.png");
 	rloop.set_texture("textures/loop.png");
-	download.set_texture("textures/download.png");
+	//download.set_texture("textures/download.png");
 
 	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("data");
@@ -80,9 +95,9 @@ int main()
 		list.manage_scroll();
 		upper_bar.render();
 		media_bar.render();
-		text.logkey();
-		text.render();
-		text.check_input();
+		//text.logkey();
+		//text.render();
+		//text.check_input();
 		//glfwSwapInterval(0);
 		texture_shader->use();
 		texture_shader->setBool("transparentMode", true);
@@ -93,14 +108,28 @@ int main()
 		rloop.render();
 		//texture_shader->setBool("is_toggled", false);
 		rrandom.render();
-		download.render();
+		//download.render();
 		texture_shader->setBool("transparentMode", false);
 		slider.render();
 		volslider.render();
-		menu.render();
 		vol_img.render();
 
+		//menu rendering
+		menu.render();
+		mitem1.render();
+		mitem2.render();
+		mitem3.render();
+		mitem1.setTextM(font, "Main Menu", 0.6f, 1.0f, 1.0f, 1.0f);
+		mitem2.setTextM(font, "Settings", 0.6f, 1.0f, 1.0f, 1.0f);
+		mitem3.setTextM(font, "Downloads", 0.6f, 1.0f, 1.0f, 1.0f);
+
+
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+			mitem1.is_clicked();
+			mitem2.is_clicked();
+			mitem3.is_clicked();
+
+
 			if (pause.is_clicked()) {
 				audio.pause();
 				if (play_texture) {
@@ -120,7 +149,7 @@ int main()
 			}
 			rloop.is_clicked();
 			rrandom.is_clicked();
-			download.is_clicked();
+			//download.is_clicked();
 			if (slider.accept_input(return_ndc_cursor(windowobj.window))) {
 				audio.sync_Slider(&slider);
 			}

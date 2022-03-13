@@ -11,6 +11,10 @@ void Button::change_position(double x, double y) {
 void Button::setText(Text* font, std::string text, float scale, float R, float G, float B) {
 	font->drawText(text, posx - 40, posy, scale, glm::vec3(R, G, B));
 }
+//set text* custom for menu
+void Button::setTextM(Text* font, std::string text, float scale, float R, float G, float B) {
+	font->drawText(text, posx - 110, posy - 15, scale, glm::vec3(R, G, B));
+}
 //set texture
 void Button::set_texture(std::string PATH) {
 	texture = new TEXTURE(PATH);

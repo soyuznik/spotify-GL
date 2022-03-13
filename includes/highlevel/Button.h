@@ -12,6 +12,13 @@
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 //Button class
+// button constructor
+/* --- takes 6 args , 5 necessary
+@param Shader* _shader --> shader that renders the button
+@param WINDOW* _windowobj --> window on which the button is rendered
+@paramdouble _posx, double _posy, double _scale --> xpos , ypos on screen and scale used with a scaling matrix
+@param  , std::string PATH (optional) set custom Vertex Array Buffer
+*/
 class Button
 {
 public:
@@ -35,6 +42,7 @@ public:
 	void create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
 		double posx, double posy, double scale);
 	//sets button text
+	void setTextM(Text* font, std::string text, float scale, float R, float G, float B);
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	//changes button position based on screen
 	void change_position(double x, double y);

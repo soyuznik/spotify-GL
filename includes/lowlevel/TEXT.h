@@ -20,7 +20,7 @@ struct Character {
 };
 
 
-///Text(WINDOW window, std::string path);
+//@param Text(WINDOW window, std::string path);
 class Text {
 public:
 	unsigned int shaderID; // text shader
