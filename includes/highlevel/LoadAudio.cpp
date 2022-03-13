@@ -13,12 +13,10 @@ LoadAudio::LoadAudio() { soloud->init(); }
 void LoadAudio::___play_sound(std::string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop) {
 	// Declare some variables
 	// Load background sample
-	if (previous == path && wav ) { goto play; }
+	if (previous == path) { goto play; }
 	else previous = path;
-	try {
-		wav->load(path.c_str());       // Load a wave file
-	}
-	catch (...) { return; }
+
+	wav->load(path.c_str());       // Load a wave file
 	wav->setLooping(loop);        // Tell SoLoud to loop the sound
 
 
@@ -27,7 +25,7 @@ void LoadAudio::___play_sound(std::string path, SoLoud::Soloud* soloud, SoLoud::
 play:
 	while (mmplaysound)
 	{
-		
+		if (QUIT_THREAD) { QUIT_THREAD = false; return; }
 		//true_current_time = soloud->getStreamPosition(sound_handle);
 		if (seek_change) {
 			soloud->seek(sound_handle, current_time);
@@ -79,6 +77,7 @@ void LoadAudio::pause() {
 void LoadAudio::Play(string path) {
 	//if (difftime((TIME), start) > 2) {
 	//	start = TIME;
+	    QUIT_THREAD = true;
 		mmplaysound = true; // start thread with playing
 		thread thr = thread(&LoadAudio::___play_sound, this, path, soloud, wav, true);
 		thr.detach(); // detach

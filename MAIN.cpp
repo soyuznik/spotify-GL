@@ -1,4 +1,12 @@
-﻿// higher level class
+﻿/*
+---------------------------------< BEWARE > <<SPAGHETTI CODE>>!!!!!!!!!!!!!!!!!!--------------------
+                              READ AT OWN RISK -------------------------------------------------------
+*/
+
+
+
+
+// higher level class
 #include "highlevel/Button.h"
 #include "highlevel/Panel.h"
 #include "highlevel/ClickEventCanceller.h"
@@ -79,7 +87,7 @@ int main()
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
 	
-
+	bool tmp_1 = true;
 	bool play_texture = false;
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
@@ -131,7 +139,8 @@ int main()
 			mitem3.is_clicked();
 
 
-			if (pause.is_clicked()) {
+			if (pause.is_clicked() && tmp_1) {
+				tmp_1 = false;
 				audio.pause();
 				if (play_texture) {
 					play_texture = false;
@@ -143,9 +152,11 @@ int main()
 				}
 			}
 			if (skback.is_clicked()) {
+				
 				audio.back(5);
 			}
 			if (skforwar.is_clicked()) {
+				
 				audio.skip(5);
 			}
 			rloop.is_clicked();
@@ -160,9 +171,13 @@ int main()
 		}
 		slider.set_pos(audio.time(), audio.song_time());
 		glfwSwapBuffers(windowobj.window);
-
+		//final input proccesing
+		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE) {
+			tmp_1 = true;
+		}
 		// poll for and process events
 		glfwPollEvents();
+		
 	}
 	//destroy glfw object
 	glfwTerminate();

@@ -27,15 +27,15 @@ class Slider;
 //////////////////////////////////////////////////////////////
 
 ///for function thread overflow managing...///////////////////////////////////////////////////////
-
-#include <time.h> 
 using namespace std;
-#define TIME time()
+
 
 
 class LoadAudio {
-	/// for managing overflow
-	time_t start = TIME;
+
+	bool QUIT_THREAD = false;
+	
+	
 	//double crtvolume = 0.0;
 
 	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
