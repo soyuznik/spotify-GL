@@ -43,8 +43,9 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 	...Here we change uniform so when the button is clicked it changes colors for ~ 10 'frames'
 
 	*/
-	if (*frames > 10) { texture_shader->setBool("changeColor", false); this->change_color = false; *frames = 0; }
-	else if (this->change_color) {
+	//if (glfwGetMouseButton(windowobj->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
+	//{ texture_shader->setBool("changeColor", false); this->change_color = false;}
+	if (this->change_color) {
 		/*
 		NOTE: for some reason changing uniform works only from mainloop and only if its directly like this
 		because the uniform should be updated every frame!
@@ -52,9 +53,8 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 
 		*/
 		texture_shader->setBool("changeColor", true);
-		*frames = *frames + 1;
 	}
-
+	this->change_color = false;
 	//rendering object1
 	this->modl = texture_shader->transform(windowobj->window, posx, posy, scale);
 
@@ -71,7 +71,7 @@ void Button::render() {
 // true if clicked , false otherwise
 bool Button::is_clicked() {
 	accept_input(return_ndc_cursor(windowobj->window));
-	if (this->clicked) {
+	if (this->clicked and !(glfwGetMouseButton(windowobj->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)) {
 		this->clicked = false;
 		this->change_color = true;
 		return true;

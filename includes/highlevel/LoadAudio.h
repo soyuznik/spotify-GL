@@ -26,14 +26,16 @@ https://github.com/jarikomppa/soloud
 class Slider;
 //////////////////////////////////////////////////////////////
 
+///for function thread overflow managing...///////////////////////////////////////////////////////
 
+#include <time.h> 
 using namespace std;
+#define TIME time()
 
-/*
-* LoadAudio class
-* used for loading audio and syncing it with a slider
-*/
+
 class LoadAudio {
+	/// for managing overflow
+	time_t start = TIME;
 	//double crtvolume = 0.0;
 
 	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
