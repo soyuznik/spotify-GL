@@ -32,9 +32,9 @@ using namespace std;
 
 
 class LoadAudio {
-
+	bool UPDATE_SOUND = false;
 	bool QUIT_THREAD = false;
-	
+	float vol = 0.0f;
 	
 	//double crtvolume = 0.0;
 
@@ -49,7 +49,7 @@ class LoadAudio {
 	string previous; // so it doesnt load the same audio sample twice
 
 public:
-	void setVolume(double vol);
+	void setVolume(float vol);
 	LoadAudio(); // constructor , no args
 	void Play(string path); // main playing method
 	void ___play_sound(string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop); // plays sound with class variables

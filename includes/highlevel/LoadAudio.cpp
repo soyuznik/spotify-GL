@@ -2,8 +2,9 @@
 #include "LoadAudio.h"
 
 // setVolume method (double volume) argument
-void LoadAudio::setVolume(double vol) {
-	soloud->setVolume(sound_handle, vol);
+void LoadAudio::setVolume(float vol__) {
+	vol = vol__;
+	UPDATE_SOUND = true;
 }
 
 // empty constructor
@@ -13,18 +14,21 @@ LoadAudio::LoadAudio() { soloud->init(); }
 void LoadAudio::___play_sound(std::string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop) {
 	// Declare some variables
 	// Load background sample
+	soloud->stopAll();
 	if (previous == path) { goto play; }
 	else previous = path;
-
-	wav->load(path.c_str());       // Load a wave file
+	
+	wav->load(path.c_str());
 	wav->setLooping(loop);        // Tell SoLoud to loop the sound
 
-
-	sound_handle = soloud->play(*wav); // play <wav> file
+	
+	sound_handle = soloud->play(*wav , vol); // play <wav> file
+	
 	// Wait for voice to finish
 play:
 	while (mmplaysound)
 	{
+		soloud->setVolume(sound_handle, vol);
 		if (QUIT_THREAD) { QUIT_THREAD = false; return; }
 		//true_current_time = soloud->getStreamPosition(sound_handle);
 		if (seek_change) {
@@ -77,6 +81,7 @@ void LoadAudio::pause() {
 void LoadAudio::Play(string path) {
 	//if (difftime((TIME), start) > 2) {
 	//	start = TIME;
+	   
 	    QUIT_THREAD = true;
 		mmplaysound = true; // start thread with playing
 		thread thr = thread(&LoadAudio::___play_sound, this, path, soloud, wav, true);
