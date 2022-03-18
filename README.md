@@ -1,4 +1,4 @@
 # Spotify-GL 
 just another spotify ripoff                
-this project uses SoLoud for playing Audio.                
+this project uses SoLoud for playing Audio , ClipboardXX for clipboard      
 
