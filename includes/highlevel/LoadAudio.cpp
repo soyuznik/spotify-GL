@@ -79,7 +79,7 @@ void LoadAudio::pause() {
 void LoadAudio::Play(string path) {
 	//if (difftime((TIME), start) > 2) {
 	//	start = TIME;
-	    if ((__ctime() - last) < 0.2) return;
+	    if ((__ctime() - last) < 0.5) return;
 	    last = __ctime();
 		mmplaysound = true; // start thread with playing
 		thread thr = thread(&LoadAudio::___play_sound, this, path, soloud, wav, true);

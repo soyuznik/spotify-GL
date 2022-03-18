@@ -59,6 +59,8 @@ int main()
 	Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
 	Text* font = new Text(windowobj, "fonts/Antonio-Light.ttf");
 
+	Panel SettingsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
+	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	//textures menu----
 	mitem1.set_texture("textures/itemm.png");
 	mitem2.set_texture("textures/itemm.png");
@@ -86,21 +88,38 @@ int main()
 	
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
-	
 	bool tmp_1 = true;
 	bool play_texture = false;
+
+
+	bool MainMenuLayer = true;
+	bool SettingsLayer = false;
+	bool DownloadsLayer = false;
+
+
+
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
-		list_backround.render();
-		Button* buttonnr = list.render_and_manage_input();
-		if (buttonnr != NULL) {
-			string path = "data/" + buttonnr->obj_ident;
-			audio.Play(path);
-			pause.set_texture("textures/pause.png");
-			play_texture = false;
+		if (MainMenuLayer) {
+			list_backround.render();
+			Button* buttonnr = list.render_and_manage_input();
+			if (buttonnr != NULL) {
+				string path = "data/" + buttonnr->obj_ident;
+				audio.Play(path);
+				pause.set_texture("textures/pause.png");
+				play_texture = false;
+			}
+			list.manage_scroll();
 		}
-		list.manage_scroll();
+		if (SettingsLayer) {
+			SettingsBackround.render();
+			font->drawText("Settings Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+		}
+		if (DownloadsLayer) {
+			DownloadsBackround.render();
+			font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+		}
 		upper_bar.render();
 		media_bar.render();
 		//text.logkey();
@@ -134,9 +153,22 @@ int main()
 
 
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-			mitem1.is_clicked();
-			mitem2.is_clicked();
-			mitem3.is_clicked();
+			if (mitem1.is_clicked()) {
+				MainMenuLayer = true;
+				SettingsLayer = false;
+				DownloadsLayer = false;
+				
+			}
+			if (mitem2.is_clicked()) {
+				SettingsLayer = true;
+				MainMenuLayer = false;
+				DownloadsLayer = false;
+			}
+			if (mitem3.is_clicked()) {
+				MainMenuLayer = false;
+				SettingsLayer = false;
+				DownloadsLayer = true;
+			}
 
 
 			if (pause.is_clicked() && tmp_1) {
