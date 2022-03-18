@@ -20,6 +20,7 @@ https://github.com/jarikomppa/soloud
 // thread for multithreading
 #include <thread>
 #include <iostream>
+#include <ctime>
 
 // For Slider class recognition....////////////////////////
 #include "highlevel/Slider.h"
@@ -28,8 +29,9 @@ class Slider;
 
 ///for function thread overflow managing...///////////////////////////////////////////////////////
 using namespace std;
-
-
+inline double __ctime() {
+	return time(NULL);
+}
 
 class LoadAudio {
 	bool UPDATE_SOUND = false;
@@ -37,7 +39,7 @@ class LoadAudio {
 	float vol = 0.0f;
 	
 	//double crtvolume = 0.0;
-
+	double last = __ctime();
 	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
 	SoLoud::Wav* wav = new SoLoud::Wav();       // One sample source
 
