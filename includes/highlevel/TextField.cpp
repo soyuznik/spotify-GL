@@ -2,6 +2,7 @@
 #include "TextField.h"
 //utility
 #include "lowlevel/UTILITY.h"
+#include "clipboardxx.hpp"
 //textfield constructor
 /* takes 4 args
 Shader* shader_, ---> shader to render
@@ -10,14 +11,20 @@ double posx_, --> posx and y
 double posy_
 
 */
+
+
 TextField::TextField(Shader* shader_, WINDOW* window_, double posx_, double posy_) {
 	shader = shader_;
 	window = window_;
 	posx = posx_;
 	posy = posy_;
 
-	Panel* panel__ = new Panel(shader, window, "textures/button.jpg", posx + 100, posy, 0.15f);
-	Text* antonio_bold__ = new Text(*window, "fonts/Antonio-Bold.ttf");
+	Panel* panel__ = new Panel(shader, window, "textures/search_bar.png", posx + 100, posy, 0.15f , "vertices/square_textfield.buf");
+
+	///////////////// Custom font creation //////////////////////////
+	// https://www.glyphrstudio.com/online/
+	// https://cloudconvert.com/otf-to-ttf
+	Text* antonio_bold__ = new Text(*window, "fonts/Antonio-BoldCustom.ttf");
 	panel = panel__;
 	antonio_bold = antonio_bold__;
 }
@@ -116,8 +123,15 @@ void TextField::check_input() {
 }
 // rendering the textfield
 void TextField::render() {
+	
 	shader->use();
 	std::string showing_text = *tlog;
+	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS and glfwGetKey(window->window, GLFW_KEY_V) == GLFW_PRESS) {
+		clipboardxx::clipboard clipboardobj;
+		std::string clipboard;
+		clipboardobj >> clipboard;
+		tlog->append(clipboard);
+	}
 	if (showing && was_initiated) {
 		showing_text.append("|");
 	}
@@ -127,5 +141,6 @@ void TextField::render() {
 	panel->render();
 	shader->setBool("changeColor", false);
 
-	antonio_bold->drawText(showing_text, posx - 95, posy, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
+	antonio_bold->drawText(showing_text, posx - 70, posy - 10, 0.65f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
 }
+
