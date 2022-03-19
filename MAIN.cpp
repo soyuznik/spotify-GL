@@ -16,7 +16,7 @@
 #include "highlevel/Slider.h"
 #include "highlevel/VolSlider.h"
 #include "highlevel/LoadAudio.h"
-
+#include "highlevel/Downloader.h"
 
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
@@ -24,27 +24,7 @@ using namespace std;
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
 
-#include <algorithm>
-void download(std::string text) {
-	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl -o ") +
-		std::string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\out.mp4  ") + text).c_str());
-	
-	std::vector v = listdir("data");
-	if (std::find(v.begin(), v.end(), "out.mp4") != v.end()) {
-		/* v contains mp4 file */
-		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mp4 -vn out.mp3 & del out.mp4").c_str());
-	}
-	if (std::find(v.begin(), v.end(), "out.mkv") != v.end()) {
-		/* v contains mkv file */
-		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mkv -vn out.mp3 & del out.mkv").c_str());
-	}
-	else {
-		/* v does not contain any supported format */
-		printf("\n Failed to download video ");
-		printf(text.c_str());
-		printf("\n");
-	}
-}
+
 // the main function , code is executed here
 int main()
 {
@@ -56,7 +36,7 @@ int main()
 
 	//LoadAudio
 	LoadAudio audio = LoadAudio();
-
+	Downloader downloader = Downloader();
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
 	
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
@@ -147,9 +127,7 @@ int main()
 			searchB.render();
 			texture_shader->setBool("transparentMode", false);
 			if (searchB.is_clicked()) {
-				std::thread downloader = std::thread(&download, text.text());
-				downloader.detach();
-				
+				downloader.Download(text.text());
 			}
 			//font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
