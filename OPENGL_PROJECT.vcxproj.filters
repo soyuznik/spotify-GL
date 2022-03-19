@@ -49,6 +49,9 @@
     <Filter Include="Sliders\VolSlider">
       <UniqueIdentifier>{58b9a1a4-99a9-4596-bfee-488c0abc1b6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Downloader">
+      <UniqueIdentifier>{c27f5695-57f8-4e7b-9f9f-ff64af296dec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -180,6 +183,9 @@
     <ClCompile Include="includes\highlevel\VolSlider.cpp">
       <Filter>Sliders\VolSlider</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\Downloader.cpp">
+      <Filter>Downloader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\lowlevel\UTILITY.h" />
@@ -221,6 +227,9 @@
     </ClInclude>
     <ClInclude Include="includes\highlevel\VolSlider.h">
       <Filter>Sliders\VolSlider</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\Downloader.h">
+      <Filter>Downloader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

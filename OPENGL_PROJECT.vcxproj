@@ -187,6 +187,7 @@
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="includes\highlevel\Button.cpp" />
     <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
+    <ClCompile Include="includes\highlevel\Downloader.cpp" />
     <ClCompile Include="includes\highlevel\ListObject.cpp" />
     <ClCompile Include="includes\highlevel\LoadAudio.cpp" />
     <ClCompile Include="includes\highlevel\Panel.cpp" />
@@ -203,6 +204,7 @@
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h" />
     <ClInclude Include="includes\highlevel\ClickEventCanceller.h" />
+    <ClInclude Include="includes\highlevel\Downloader.h" />
     <ClInclude Include="includes\highlevel\ListObject.h" />
     <ClInclude Include="includes\highlevel\LoadAudio.h" />
     <ClInclude Include="includes\highlevel\Panel.h" />

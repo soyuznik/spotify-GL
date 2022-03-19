@@ -22,7 +22,9 @@
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
-
+void download(std::string text) {
+	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl ") + text).c_str());
+}
 // the main function , code is executed here
 int main()
 {
@@ -62,6 +64,8 @@ int main()
 	Panel SettingsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	TextField text(texture_shader, &windowobj, 420, 540);
+	Button searchB = Button(texture_shader, &windowobj, 770, 540, 0.1f , "vertices/square.buf");
+	searchB.set_texture("textures/download.png");
 	//textures menu----
 	mitem1.set_texture("textures/itemm.png");
 	mitem2.set_texture("textures/itemm.png");
@@ -121,9 +125,15 @@ int main()
 			DownloadsBackround.render();
 			texture_shader->setBool("transparentMode", true);
 			text.render();
-			texture_shader->setBool("transparentMode", false);
 			text.check_input();
 			text.logkey();
+			searchB.render();
+			texture_shader->setBool("transparentMode", false);
+			if (searchB.is_clicked()) {
+				std::thread downloader = std::thread(&download, text.text());
+				downloader.detach();
+				
+			}
 			//font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
 		upper_bar.render();

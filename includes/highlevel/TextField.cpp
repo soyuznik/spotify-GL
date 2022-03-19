@@ -34,7 +34,7 @@ std::string TextField::text() {
 	std::string text__ = *tlog;
 	return text__;
 }
-
+bool is_ClipboardActive = false;
 // LOGS keys pressed by user
 void TextField::logkey() {
 	if (!was_initiated) return;
@@ -82,7 +82,18 @@ void TextField::logkey() {
 			{ "delete" , GLFW_KEY_BACKSPACE}, // delete last character
 	}; // keymap
 	// iterate using C++17 facilities
-
+	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS and glfwGetKey(window->window, GLFW_KEY_V) == GLFW_PRESS and !is_ClipboardActive) {
+		is_ClipboardActive = true;
+		clipboardxx::clipboard clipboardobj;
+		std::string clipboard;
+		clipboardobj >> clipboard;
+		tlog->append(clipboard);
+		return;
+	}
+	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE or glfwGetKey(window->window, GLFW_KEY_V) == GLFW_RELEASE and is_ClipboardActive) {
+		is_ClipboardActive = false;
+		
+	}
 	for (const auto& n : k) {
 		auto letter = n.first;
 		auto value = n.second;
@@ -121,16 +132,14 @@ void TextField::check_input() {
 		else was_initiated = false;
 	}
 }
+
 // rendering the textfield
 void TextField::render() {
 	
 	shader->use();
 	std::string showing_text = *tlog;
-	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS and glfwGetKey(window->window, GLFW_KEY_V) == GLFW_PRESS) {
-		clipboardxx::clipboard clipboardobj;
-		std::string clipboard;
-		clipboardobj >> clipboard;
-		tlog->append(clipboard);
+	if (showing_text.size() > 25) {
+		showing_text.erase(0, (showing_text.size() - 25));
 	}
 	if (showing && was_initiated) {
 		showing_text.append("|");
