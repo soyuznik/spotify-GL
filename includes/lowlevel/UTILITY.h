@@ -1,5 +1,24 @@
 #include <filesystem>
 #include <shellapi.h>
+#include <algorithm>
+#include <thread>
+
+//prototypes
+inline double is_in_slider(double value);
+inline void ex_textfile(std::string path);
+inline std::vector<std::string> listdir(std::string path);
+inline float distance(float x1, float y1, float x2, float y2);
+inline float calc_area(float a, float b, float c);
+inline int position(float area, float A, float B, float C);
+inline void calc(float x1, float y1, float x2, float y2
+	, float x3, float y3, float x, float y, int* flag, float* area);
+inline bool isInTriangle(glm::vec4 A, glm::vec4 B, glm::vec4 C, glm::vec4 point);
+inline glm::vec4 return_ndc_cursor(GLFWwindow* window);
+inline void download(std::string text);
+inline void InitDownload(std::string text);
+
+
+
 
 inline double is_in_slider(double value) {
 	if (value < -0.5) {
@@ -111,4 +130,28 @@ inline glm::vec4 return_ndc_cursor(GLFWwindow* window) {
 
 	glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
 	return point;
+}
+inline void download(std::string text) {
+	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl -o ") +
+		std::string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\out.mp4  ") + text).c_str());
+
+	std::vector v = listdir("data");
+	if (std::find(v.begin(), v.end(), "out.mp4") != v.end()) {
+		/* v contains mp4 file */
+		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mp4 -vn out.mp3 & del out.mp4").c_str());
+	}
+	if (std::find(v.begin(), v.end(), "out.mkv") != v.end()) {
+		/* v contains mkv file */
+		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mkv -vn out.mp3 & del out.mkv").c_str());
+	}
+	else {
+		/* v does not contain any supported format */
+		printf("\n Failed to download video ");
+		printf(text.c_str());
+		printf("\n");
+	}
+}
+inline void InitDownload(std::string text) {
+	std::thread downloader = std::thread(&download, text);
+	downloader.detach();
 }

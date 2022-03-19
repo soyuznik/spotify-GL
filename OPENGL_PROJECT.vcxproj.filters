@@ -188,7 +188,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\lowlevel\UTILITY.h" />
     <ClInclude Include="includes\highlevel\Button.h">
       <Filter>Button</Filter>
     </ClInclude>
@@ -231,5 +230,6 @@
     <ClInclude Include="includes\highlevel\Downloader.h">
       <Filter>Downloader</Filter>
     </ClInclude>
+    <ClInclude Include="includes\lowlevel\UTILITY.h" />
   </ItemGroup>
 </Project>

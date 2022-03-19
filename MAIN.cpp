@@ -16,7 +16,7 @@
 #include "highlevel/Slider.h"
 #include "highlevel/VolSlider.h"
 #include "highlevel/LoadAudio.h"
-#include "highlevel/Downloader.h"
+
 
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
@@ -36,7 +36,7 @@ int main()
 
 	//LoadAudio
 	LoadAudio audio = LoadAudio();
-	Downloader downloader = Downloader();
+
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
 	
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
@@ -127,7 +127,8 @@ int main()
 			searchB.render();
 			texture_shader->setBool("transparentMode", false);
 			if (searchB.is_clicked()) {
-				downloader.Download(text.text());
+				InitDownload(text.text());
+				
 			}
 			//font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
