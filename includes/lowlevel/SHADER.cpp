@@ -10,8 +10,8 @@ bool Shader::NORMALIZE_VALUES() {
 	// this will  set normalized true when other method use it;
 	normalize = true;
 	std::cout << " SHADER.cpp::Shader::NORMALIZE_VALUES >> \"normalize\" is ";
-	if (normalize) { std::cout << "true"; }
-	if (!normalize) { std::cout << "false"; }
+	if (normalize) { std::cout << "true\n"; }
+	if (!normalize) { std::cout << "false\n"; }
 
 	return normalize;
 }

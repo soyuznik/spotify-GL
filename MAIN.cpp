@@ -22,8 +22,28 @@
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
+
+
+#include <algorithm>
 void download(std::string text) {
-	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl ") + text).c_str());
+	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl -o ") +
+		std::string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\out.mp4  ") + text).c_str());
+	
+	std::vector v = listdir("data");
+	if (std::find(v.begin(), v.end(), "out.mp4") != v.end()) {
+		/* v contains mp4 file */
+		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mp4 -vn out.mp3 & del out.mp4").c_str());
+	}
+	if (std::find(v.begin(), v.end(), "out.mkv") != v.end()) {
+		/* v contains mkv file */
+		system(std::string("cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data & ffmpeg -i out.mkv -vn out.mp3 & del out.mkv").c_str());
+	}
+	else {
+		/* v does not contain any supported format */
+		printf("\n Failed to download video ");
+		printf(text.c_str());
+		printf("\n");
+	}
 }
 // the main function , code is executed here
 int main()
@@ -70,9 +90,6 @@ int main()
 	mitem1.set_texture("textures/itemm.png");
 	mitem2.set_texture("textures/itemm.png");
 	mitem3.set_texture("textures/itemm.png");
-
-
-
 
 
 	//texture seettings
