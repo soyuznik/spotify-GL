@@ -55,20 +55,13 @@ void LoadAudio::sync_Slider(Slider* slider) {
 }
 
 // back <time> time
-void LoadAudio::back(double time) {
-	seek_change = true;
-	current_time = current_time - time;
-	if (current_time < 0) {
-		current_time = 0;
-	}
+void LoadAudio::back(Slider* slider , double time) {
+///
+	
 }
 // skip <time> time
-void LoadAudio::skip(double time) {
-	seek_change = true;
-	current_time = current_time + time;
-	if (current_time > wav->getLength()) {
-		current_time = 0;
-	}
+void LoadAudio::skip(Slider* slider ,double time) {
+///
 }
 // pause / play
 void LoadAudio::pause() {

@@ -52,6 +52,12 @@
     <Filter Include="Downloader">
       <UniqueIdentifier>{c27f5695-57f8-4e7b-9f9f-ff64af296dec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PlayList">
+      <UniqueIdentifier>{e8e46db9-c5c7-45e1-a8a5-01089c7bd986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Button\Pause">
+      <UniqueIdentifier>{7afe896d-a9eb-4587-b499-3cb4d9759cf1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -186,6 +192,12 @@
     <ClCompile Include="includes\highlevel\Downloader.cpp">
       <Filter>Downloader</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\PlayList.cpp">
+      <Filter>PlayList</Filter>
+    </ClCompile>
+    <ClCompile Include="includes\highlevel\Pause.cpp">
+      <Filter>Button\Pause</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h">
@@ -231,5 +243,11 @@
       <Filter>Downloader</Filter>
     </ClInclude>
     <ClInclude Include="includes\lowlevel\UTILITY.h" />
+    <ClInclude Include="includes\highlevel\PlayList.h">
+      <Filter>PlayList</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\Pause.h">
+      <Filter>Button\Pause</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

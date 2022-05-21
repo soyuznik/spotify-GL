@@ -16,8 +16,8 @@
 #include "highlevel/Slider.h"
 #include "highlevel/VolSlider.h"
 #include "highlevel/LoadAudio.h"
-
-
+#include "highlevel/PlayList.h"
+#include "highlevel/Pause.h"
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
@@ -42,13 +42,18 @@ int main()
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 600, 0.8f);
 	ListObject list = ListObject(texture_shader, &windowobj, 610, 650, 0.2);
+	
+
+
+
+
 	double t = 1.2;
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"textures/gray.png", 600, 400, 0.8f, "vertices/square_extra_high.buf");
 	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 80, 0.05f);
 	Button skback = Button(texture_shader, &windowobj, 355 * t, 80, 0.09f);
-	Button pause = Button(texture_shader, &windowobj, 410 * t, 80, 0.12f);
+	__Pause pause = __Pause(texture_shader, &windowobj, 410 * t, 80, 0.12f);
 	Button skforwar = Button(texture_shader, &windowobj, 465 * t, 80, 0.09f);
 	Button rloop = Button(texture_shader, &windowobj, 515 * t, 80, 0.059f);
 	//Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
@@ -58,7 +63,7 @@ int main()
 	//menu buttons
 	Button mitem1 = Button(texture_shader, &windowobj, 135, 551, 0.1f , "vertices/square_wider_menu.buf");
 	Button mitem2 = Button(texture_shader, &windowobj, 135, 505, 0.1f, "vertices/square_wider_menu.buf");
-	Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
+	//Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
 	Text* font = new Text(windowobj, "fonts/Antonio-Light.ttf");
 
 	Panel SettingsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
@@ -69,13 +74,13 @@ int main()
 	//textures menu----
 	mitem1.set_texture("textures/itemm.png");
 	mitem2.set_texture("textures/itemm.png");
-	mitem3.set_texture("textures/itemm.png");
+	//mitem3.set_texture("textures/itemm.png");
 
 
 	//texture seettings
 	rrandom.set_texture("textures/random.png");
 	skback.set_texture("textures/skback.png");
-	pause.set_texture("textures/play.png");
+	pause.b->set_texture("textures/play.png");
 	skforwar.set_texture("textures/skforwar.png");
 	rloop.set_texture("textures/loop.png");
 	//download.set_texture("textures/download.png");
@@ -87,11 +92,16 @@ int main()
 		butt->obj_ident = dir[i];
 	}
 	VolSlider volslider = VolSlider(texture_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
-	
+	PlayList playlist(&list , &audio , &pause);
+
+
+
+
+
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
 	bool tmp_1 = true;
-	bool play_texture = false;
+
 
 
 	bool MainMenuLayer = true;
@@ -108,9 +118,10 @@ int main()
 			Button* buttonnr = list.render_and_manage_input();
 			if (buttonnr != NULL) {
 				string path = "data/" + buttonnr->obj_ident;
+				playlist.current = path;
 				audio.Play(path);
-				pause.set_texture("textures/pause.png");
-				play_texture = false;
+				pause.b->set_texture("textures/pause.png");
+				pause.play_texture = false;
 			}
 			list.manage_scroll();
 		}
@@ -118,20 +129,20 @@ int main()
 			SettingsBackround.render();
 			font->drawText("Settings Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
-		if (DownloadsLayer) {
-			DownloadsBackround.render();
-			texture_shader->setBool("transparentMode", true);
-			text.render();
-			text.check_input();
-			text.logkey();
-			searchB.render();
-			texture_shader->setBool("transparentMode", false);
-			if (searchB.is_clicked()) {
-				InitDownload(text.text());
+		//if (DownloadsLayer) {
+			//DownloadsBackround.render();
+			//texture_shader->setBool("transparentMode", true);
+			//text.render();
+			//text.check_input();
+			//text.logkey();
+			//searchB.render();
+			//texture_shader->setBool("transparentMode", false);
+			//if (searchB.is_clicked()) {
+			//	InitDownload(text.text());
 				
-			}
+			//}
 			//font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
-		}
+		
 		upper_bar.render();
 		media_bar.render();
 		//text.logkey();
@@ -141,7 +152,7 @@ int main()
 		texture_shader->use();
 		texture_shader->setBool("transparentMode", true);
 
-		pause.render();
+		pause.b->render();
 		skback.render();
 		skforwar.render();
 		//texture_shader->setBool("is_toggled", true);
@@ -158,10 +169,10 @@ int main()
 		menu.render();
 		mitem1.render();
 		mitem2.render();
-		mitem3.render();
+		//mitem3.render();
 		mitem1.setTextM(font, "Main Menu", 0.6f, 1.0f, 1.0f, 1.0f);
 		mitem2.setTextM(font, "Settings", 0.6f, 1.0f, 1.0f, 1.0f);
-		mitem3.setTextM(font, "Downloads", 0.6f, 1.0f, 1.0f, 1.0f);
+		//mitem3.setTextM(font, "Downloads", 0.6f, 1.0f, 1.0f, 1.0f);
 
 
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
@@ -169,39 +180,39 @@ int main()
 				MainMenuLayer = true;
 				SettingsLayer = false;
 				DownloadsLayer = false;
-				
-			}
+
+			};
 			if (mitem2.is_clicked()) {
 				SettingsLayer = true;
 				MainMenuLayer = false;
 				DownloadsLayer = false;
-			}
-			if (mitem3.is_clicked()) {
-				MainMenuLayer = false;
-				SettingsLayer = false;
-				DownloadsLayer = true;
-			}
+			};
+			//if (mitem3.is_clicked()) {
+			//	MainMenuLayer = false;
+			//	SettingsLayer = false;
+			//	DownloadsLayer = true;
+			//}
 
 
-			if (pause.is_clicked() && tmp_1) {
+			if (pause.b->is_clicked() && tmp_1) {
 				tmp_1 = false;
 				audio.pause();
-				if (play_texture) {
-					play_texture = false;
-					pause.set_texture("textures/pause.png");
+				if (pause.play_texture) {
+					pause.play_texture = false;
+					pause.b->set_texture("textures/pause.png");
 				}
-				else if (!play_texture) {
-					play_texture = true;
-					pause.set_texture("textures/play.png");
+				else if (!pause.play_texture) {
+					pause.play_texture = true;
+					pause.b->set_texture("textures/play.png");
 				}
 			}
 			if (skback.is_clicked()) {
 				
-				audio.back(5);
+				audio.back(&slider , 5);
 			}
 			if (skforwar.is_clicked()) {
 				
-				audio.skip(5);
+				audio.skip(&slider , 5);
 			}
 			rloop.is_clicked();
 			rrandom.is_clicked();

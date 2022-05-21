@@ -39,6 +39,7 @@ class LoadAudio {
 	float vol = 0.0f;
 	
 	//double crtvolume = 0.0;
+	double last2 = __ctime();
 	double last = __ctime();
 	SoLoud::Soloud* soloud = new SoLoud::Soloud(); // Engine core
 	SoLoud::Wav* wav = new SoLoud::Wav();       // One sample source
@@ -55,8 +56,8 @@ public:
 	LoadAudio(); // constructor , no args
 	void Play(string path); // main playing method
 	void ___play_sound(string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop); // plays sound with class variables
-	void skip(double time); // skips <time> - time
-	void back(double time); // goes back <time> - time
+	void skip(Slider* slider , double time); // skips <time> - time
+	void back(Slider* slider , double time); // goes back <time> - time
 	void pause(); // pauses
 	void setLooping(bool instance);
 	void sync_Slider(Slider* slider); // Sync with <slider> - slider
