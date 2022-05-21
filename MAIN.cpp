@@ -118,7 +118,7 @@ int main()
 			Button* buttonnr = list.render_and_manage_input();
 			if (buttonnr != NULL) {
 				string path = "data/" + buttonnr->obj_ident;
-				playlist.current = path;
+				playlist.current = buttonnr->obj_ident;
 				audio.Play(path);
 				pause.b->set_texture("textures/pause.png");
 				pause.play_texture = false;
@@ -208,11 +208,11 @@ int main()
 			}
 			if (skback.is_clicked()) {
 				
-				audio.back(&slider , 5);
+				audio.back(&playlist);
 			}
 			if (skforwar.is_clicked()) {
 				
-				audio.skip(&slider , 5);
+				audio.skip(&playlist);
 			}
 			rloop.is_clicked();
 			rrandom.is_clicked();

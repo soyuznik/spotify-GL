@@ -22,9 +22,10 @@ https://github.com/jarikomppa/soloud
 #include <iostream>
 #include <ctime>
 
-// For Slider class recognition....////////////////////////
+// For Slider & PlayList class recognition....////////////////////////
 #include "highlevel/Slider.h"
 class Slider;
+class PlayList;
 //////////////////////////////////////////////////////////////
 
 ///for function thread overflow managing...///////////////////////////////////////////////////////
@@ -56,8 +57,8 @@ public:
 	LoadAudio(); // constructor , no args
 	void Play(string path); // main playing method
 	void ___play_sound(string path, SoLoud::Soloud* soloud, SoLoud::Wav* wav, bool loop); // plays sound with class variables
-	void skip(Slider* slider , double time); // skips <time> - time
-	void back(Slider* slider , double time); // goes back <time> - time
+	void skip(PlayList* list); // skips <time> - time
+	void back(PlayList* list); // goes back <time> - time
 	void pause(); // pauses
 	void setLooping(bool instance);
 	void sync_Slider(Slider* slider); // Sync with <slider> - slider

@@ -1,6 +1,6 @@
 // main header
+#include "PlayList.h"
 #include "LoadAudio.h"
-
 
 
 // setVolume method (double volume) argument
@@ -55,13 +55,14 @@ void LoadAudio::sync_Slider(Slider* slider) {
 }
 
 // back <time> time
-void LoadAudio::back(Slider* slider , double time) {
+void LoadAudio::back(PlayList* list) {
 ///
-	
+	list->play_previous();
 }
 // skip <time> time
-void LoadAudio::skip(Slider* slider ,double time) {
+void LoadAudio::skip(PlayList* list) {
 ///
+	list->play_next();
 }
 // pause / play
 void LoadAudio::pause() {
