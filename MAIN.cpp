@@ -66,7 +66,7 @@ int main()
 	Button mitem1 = Button(texture_shader, &windowobj, 135, 551, 0.1f , "vertices/square_wider_menu.buf");
 	Button mitem2 = Button(texture_shader, &windowobj, 135, 505, 0.1f, "vertices/square_wider_menu.buf");
 	//Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
-	Text* font = new Text(windowobj, "fonts/Antonio-Light.ttf");
+	Text* font = new Text(windowobj, "fonts/OpenSans-Bold.ttf");
 
 	Panel SettingsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
@@ -90,7 +90,7 @@ int main()
 	Slider slider = Slider(slider_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("data");
 	for (int i = 0; i < dir.size(); i++) {
-		Button* butt = list.add_item(dir[i]);
+		ListButton* butt = list.add_item(dir[i]);
 		butt->obj_ident = dir[i];
 	}
 	VolSlider volslider = VolSlider(slider_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
@@ -119,7 +119,7 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
 		if (MainMenuLayer) {
 			list_backround.render();
-			Button* buttonnr = list.render_and_manage_input();
+			ListButton* buttonnr = list.render_and_manage_input();
 			if (buttonnr != NULL) {
 				string path = "data/" + buttonnr->obj_ident;
 				playlist.current = buttonnr->obj_ident;

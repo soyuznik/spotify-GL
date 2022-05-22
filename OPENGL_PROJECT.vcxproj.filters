@@ -61,6 +61,9 @@
     <Filter Include="Sliders\VerticalSlider">
       <UniqueIdentifier>{075e29b0-f5ca-40a1-a407-3d00b95a4fd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Button\ListButton">
+      <UniqueIdentifier>{73dd5b99-3c44-48bd-8378-6adb32cc32e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -210,6 +213,9 @@
     <ClCompile Include="includes\highlevel\VerticalSlider.cpp">
       <Filter>Sliders\VerticalSlider</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\ListButton.cpp">
+      <Filter>Button\ListButton</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h">
@@ -263,6 +269,9 @@
     </ClInclude>
     <ClInclude Include="includes\highlevel\VerticalSlider.h">
       <Filter>Sliders\VerticalSlider</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\ListButton.h">
+      <Filter>Button\ListButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

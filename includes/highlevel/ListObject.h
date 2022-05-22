@@ -12,7 +12,7 @@
 #include "lowlevel/TEXT.h"
 
 // higher level class
-#include "highlevel/Button.h"
+#include "highlevel/ListButton.h"
 #include "highlevel/Panel.h"
 #include "highlevel/ClickEventCanceller.h"
 
@@ -21,7 +21,7 @@
 class ListObject
 {
 public:
-	std::vector<Button*> buttons; //vector with list buttons
+	std::vector<ListButton*> buttons; //vector with list buttons
 	std::vector<ClickEventCanceller*> cancellers; // vector with its cancellers
 	std::vector<std::string> ButtonTexts; // vector with the list buttons text
 
@@ -30,7 +30,7 @@ public:
 	// but all values are the same
 	std::vector<int> yaxis_offset;
 
-	int list_sensitivity = 10; // sensitivity which list operates to
+	int list_sensitivity = 20; // sensitivity which list operates to
 	Shader* texture_shader; // rendering shader
 	WINDOW* window; // window on which is rendered
 	double xpos;
@@ -38,8 +38,8 @@ public:
 	double scale; // spacial positions
 	Text* antonio_bold; // the text wich buttons are rendered
 	ListObject(Shader* texture_shader, WINDOW* window, double xpos, double ypos, double scale);
-	Button* add_item(std::string ItemText);
-	Button* render_and_manage_input();
+	ListButton* add_item(std::string ItemText);
+	ListButton* render_and_manage_input();
 
 	//**DEPRECATED
 	std::vector<glm::vec3> return_clickable_data();

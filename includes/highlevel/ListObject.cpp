@@ -12,7 +12,7 @@ void ListObject::update_scroll_info(double offset) {
 // changed button position based on yaxis_offset vector
 void ListObject::manage_scroll() {
 	for (int io = 0; io < buttons.size(); io++) {
-		Button* dereferenced_button = buttons[io];
+		ListButton* dereferenced_button = buttons[io];
 		dereferenced_button->change_position(dereferenced_button->posx, (dereferenced_button->posy +
 			(list_sensitivity * yaxis_offset[io]))); yaxis_offset[io] = 0;
 	}
@@ -33,7 +33,7 @@ ListObject::ListObject(Shader* texture_shader_, WINDOW* window_, double xpos_, d
 	// special pointer so the list works , can be accesed through GLFWwindow*
 	glfwSetWindowUserPointer(window->window, this);
 
-	antonio_bold = new Text(*window, "fonts/Antonio-Bold.ttf");
+	antonio_bold = new Text(*window, "fonts/OpenSans-Regular.ttf");
 	/// created cancellers based on coords
 	ClickEventCanceller* canceller = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos, scale + 0.01);
 	ClickEventCanceller* canceller1 = new ClickEventCanceller(texture_shader, window, "textures/container.jpg", xpos, ypos - 623, scale + 0.01);
@@ -64,9 +64,9 @@ std::vector<glm::vec3> ListObject::return_blocking_data() {
 }
 
 // Adds a item with custom txt on the list , return pointer to the button
-Button* ListObject::add_item(std::string ItemText) {
-	static int items = 0; items++;
-	Button* button = new Button(texture_shader, window, xpos, (280 + (items * 50)), 0.2, "vertices/square_wider.buf");
+ListButton* ListObject::add_item(std::string ItemText) {
+	static int items = 0; items++;   /////////////////////////// items * offset bettween buttons in list
+	ListButton* button = new ListButton(texture_shader, window, xpos, (280 + (items * 55)), 0.2, "vertices/square_wider_list.buf");
 	ButtonTexts.push_back(ItemText);
 	buttons.push_back(button);
 	yaxis_offset.push_back(0);
@@ -76,9 +76,9 @@ Button* ListObject::add_item(std::string ItemText) {
 
 // renders the List on screen
 // returns null if there is no Button or is inside a canceller
-Button* ListObject::render_and_manage_input() {
+ListButton* ListObject::render_and_manage_input() {
 	bool is_point_inside_blocker = false; //creates a bool for blocking
-	Button* return_value = NULL; // the current return value
+	ListButton* return_value = NULL; // the current return value
 	glm::vec4 point = return_ndc_cursor(window->window); // cursor position
 
 	//checks if the point is inside any canceller
@@ -91,7 +91,7 @@ Button* ListObject::render_and_manage_input() {
 	}
 	//checks if point is inside any button
 	for (int ix = 0; ix < buttons.size(); ix++) {
-		Button* tempbt = buttons[ix];
+		ListButton* tempbt = buttons[ix];
 		tempbt->render();
 		tempbt->setText(antonio_bold, ButtonTexts[ix], 0.4f);
 		if (glfwGetMouseButton(window->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS && !is_point_inside_blocker) {
