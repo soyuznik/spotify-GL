@@ -195,6 +195,7 @@
     <ClCompile Include="includes\highlevel\PlayList.cpp" />
     <ClCompile Include="includes\highlevel\Slider.cpp" />
     <ClCompile Include="includes\highlevel\TextField.cpp" />
+    <ClCompile Include="includes\highlevel\VerticalSlider.cpp" />
     <ClCompile Include="includes\highlevel\VolSlider.cpp" />
     <ClCompile Include="includes\lowlevel\SHADER.cpp" />
     <ClCompile Include="includes\lowlevel\TEXT.cpp" />
@@ -214,6 +215,7 @@
     <ClInclude Include="includes\highlevel\PlayList.h" />
     <ClInclude Include="includes\highlevel\Slider.h" />
     <ClInclude Include="includes\highlevel\TextField.h" />
+    <ClInclude Include="includes\highlevel\VerticalSlider.h" />
     <ClInclude Include="includes\highlevel\VolSlider.h" />
     <ClInclude Include="includes\lowlevel\SHADER.h" />
     <ClInclude Include="includes\lowlevel\TEXT.h" />

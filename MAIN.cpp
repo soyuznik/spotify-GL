@@ -18,12 +18,13 @@
 #include "highlevel/LoadAudio.h"
 #include "highlevel/PlayList.h"
 #include "highlevel/Pause.h"
+#include "highlevel/VerticalSlider.h"
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-
+#define HIDE_VERTICAL_SLIDER 0
 
 // the main function , code is executed here
 int main()
@@ -50,7 +51,7 @@ int main()
 	double t = 1.2;
 
 	Panel list_backround = Panel(texture_shader, &windowobj,
-		"textures/gray.png", 600, 400, 0.8f, "vertices/square_extra_high.buf");
+		"textures/background-gray.png", 600, 400, 0.8f, "vertices/square_extra_high.buf");
 	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 80, 0.05f);
 	Button skback = Button(texture_shader, &windowobj, 355 * t, 80, 0.09f);
 	__Pause pause = __Pause(texture_shader, &windowobj, 410 * t, 80, 0.12f);
@@ -93,8 +94,9 @@ int main()
 	}
 	VolSlider volslider = VolSlider(texture_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
 	PlayList playlist(&list , &audio , &pause);
-
-
+#ifndef HIDE_VERTICAL_SLIDER
+	VerticalSlider scroller = VerticalSlider(texture_shader, &windowobj, "textures/gray.png", 990, 350, 0.1f);
+#endif
 
 
 
@@ -163,6 +165,9 @@ int main()
 		texture_shader->setBool("transparentMode", false);
 		slider.render();
 		volslider.render();
+#ifndef HIDE_VERTICAL_SLIDER
+		scroller.render();
+#endif
 		vol_img.render();
 
 		//menu rendering
@@ -223,6 +228,11 @@ int main()
 			if (volslider.accept_input(return_ndc_cursor(windowobj.window))) {
 				volslider.set_volume(&audio);
 			}
+#ifndef HIDE_VERTICAL_SLIDER
+			if (scroller.accept_input(return_ndc_cursor(windowobj.window))) {
+				std::cout << "Slider activated!\n";
+			}
+#endif
 		}
 		slider.set_pos(audio.time(), audio.song_time());
 		glfwSwapBuffers(windowobj.window);

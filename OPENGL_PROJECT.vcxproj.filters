@@ -58,6 +58,9 @@
     <Filter Include="Button\Pause">
       <UniqueIdentifier>{7afe896d-a9eb-4587-b499-3cb4d9759cf1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sliders\VerticalSlider">
+      <UniqueIdentifier>{075e29b0-f5ca-40a1-a407-3d00b95a4fd6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertices\square.buf">
@@ -198,6 +201,9 @@
     <ClCompile Include="includes\highlevel\Pause.cpp">
       <Filter>Button\Pause</Filter>
     </ClCompile>
+    <ClCompile Include="includes\highlevel\VerticalSlider.cpp">
+      <Filter>Sliders\VerticalSlider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\highlevel\Button.h">
@@ -248,6 +254,9 @@
     </ClInclude>
     <ClInclude Include="includes\highlevel\Pause.h">
       <Filter>Button\Pause</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\highlevel\VerticalSlider.h">
+      <Filter>Sliders\VerticalSlider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

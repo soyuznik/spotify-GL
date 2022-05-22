@@ -35,7 +35,7 @@ public:
 	glm::mat4 notnormal_transform(GLFWwindow* window, float x, float y, float scale);
 	void color(float R, float G, float B, float A);
 	glm::mat4 transform(GLFWwindow* window, float x, float y, float scale);
-
+	glm::mat4 not_normaltransformM(GLFWwindow* window, float x, float y, float scale);
 	GLuint return_ID() { return ID; }
 
 	void use() const;

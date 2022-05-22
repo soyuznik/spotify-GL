@@ -19,7 +19,6 @@ inline void InitDownload(std::string text);
 
 
 
-
 inline double is_in_slider(double value) {
 	if (value < -0.5) {
 		value = -0.5;

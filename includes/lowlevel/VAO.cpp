@@ -13,6 +13,15 @@ std::vector<glm::vec3> VertexArrayObject::return_data(std::vector<std::vector<gl
 // loads vertices from the path sprecified , each ending in a different vector based on flag (v , s , #)
 void VertexArrayObject::load_vertices() {
 	std::ifstream file(PATH);
+	if (file.eof()){
+		std::cout << " FAILURE! >> The file " + PATH + " is empty (EOF)! (file.eof()).VertexArrayObject::load_vertices()\n";
+	}
+	if (file.fail()) {
+		std::cout << " FAILURE! >> Couldnt open file " + PATH + " (file.fail()).VertexArrayObject::load_vertices()\n";
+	}
+	if (file.bad()) {
+		std::cout << " FATAL ERROR! >> Couldnt open file " + PATH + " (file.bad()).VertexArrayObject::load_vertices()\n";
+	}
 	std::string line;
 	while (getline(file, line)) {
 		if (line.substr(0, 2) == "v ") {
