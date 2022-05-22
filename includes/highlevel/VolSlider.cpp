@@ -52,13 +52,16 @@ VolSlider::VolSlider(Shader* _shader, WINDOW* _windowobj, const char* path, doub
 // creates a SLIDER using class variables
 void VolSlider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 	double posx, double posy, double scale) {
+
 	texture_shader->use();
+	texture_shader->setFloat("comparePosX", this->setdotpos);
 	//rendering object1
 	this->model = texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
 	glBindTexture(GL_TEXTURE_2D, ID);// pick texture
 	VAO->use(); // pick vao
 	DRAW(6); // draw 6 vertices
-	texture_shader->transform(windowobj->window, posx, posy, scale);
+	texture_shader->setFloat("comparePosX", -100);
+
 	//dot drawing
 	texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
 	dotTexture.use();

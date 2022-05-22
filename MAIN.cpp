@@ -93,7 +93,7 @@ int main()
 		Button* butt = list.add_item(dir[i]);
 		butt->obj_ident = dir[i];
 	}
-	VolSlider volslider = VolSlider(texture_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
+	VolSlider volslider = VolSlider(slider_shader, &windowobj, "textures/gray.png", 900, 40, 0.1f);
 	PlayList playlist(&list , &audio , &pause);
 #ifndef HIDE_VERTICAL_SLIDER
 	VerticalSlider scroller = VerticalSlider(texture_shader, &windowobj, "textures/gray.png", 990, 350, 0.1f);
@@ -103,6 +103,7 @@ int main()
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	bool normalize = texture_shader->NORMALIZE_VALUES();
+	bool normalize1 = slider_shader->NORMALIZE_VALUES();
 	bool tmp_1 = true;
 
 

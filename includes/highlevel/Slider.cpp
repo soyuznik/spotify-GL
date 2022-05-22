@@ -65,20 +65,20 @@ void Slider::set_pos(double seconds, double song_lenght) {
 void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 	double posx, double posy, double scale) {
 	texture_shader->use();
-
+	texture_shader->setFloat("comparePosX", this->setdotpos);
 	//rendering object1
 	this->model = texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
 	glBindTexture(GL_TEXTURE_2D, ID);// pick texture
 	VAO->use(); // pick vao
 	DRAW(6); // draw 6 vertices
+	texture_shader->setFloat("comparePosX", -100);
 	
 	//dot drawing
-	glm::mat4 model2 = texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
-	glm::vec4 pos = glm::vec4(0.5f, 0.5f, 0.0f, 1.0f) * model2;
-	texture_shader->setFloat("comparePosX", pos.x);
+	texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
 	dotTexture.use();
 	DOT.use();
 	DRAW(6);
+	
 	glm::vec3 white_clr = glm::vec3(1.0f, 1.0f, 1.0f);
 	std::string sngtime = std::to_string(fullsongtime / 60);
 	std::string curtime = std::to_string(crtsongtime / 60);// minute transformation
