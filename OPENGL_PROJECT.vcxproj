@@ -158,6 +158,8 @@
     <None Include="shaders\darken_color_vertex.glsl" />
     <None Include="shaders\discard_white_frag.glsl" />
     <None Include="shaders\discard_white_vertex.glsl" />
+    <None Include="shaders\slider_frag.glsl" />
+    <None Include="shaders\slider_vertex.glsl" />
     <None Include="shaders\texture_frag.glsl" />
     <None Include="shaders\texture_vertex.glsl" />
     <None Include="shaders\text_frag.glsl" />

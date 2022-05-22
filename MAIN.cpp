@@ -33,6 +33,7 @@ int main()
 	WINDOW windowobj(TRANSPARENT_WINDOW_STATIC, 1000, 640);
 	//creating a shader program that uses texture shaders
 	Shader* texture_shader = new Shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+	Shader* slider_shader = new Shader("shaders/slider_vertex.glsl", "shaders/slider_frag.glsl");
 	//Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
 
 	//LoadAudio
@@ -86,7 +87,7 @@ int main()
 	rloop.set_texture("textures/loop.png");
 	//download.set_texture("textures/download.png");
 
-	Slider slider = Slider(texture_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
+	Slider slider = Slider(slider_shader, &windowobj, "textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("data");
 	for (int i = 0; i < dir.size(); i++) {
 		Button* butt = list.add_item(dir[i]);

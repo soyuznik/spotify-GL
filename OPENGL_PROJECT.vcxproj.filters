@@ -126,6 +126,12 @@
     <None Include="vertices\square_textfield.buf">
       <Filter>Vertices Files</Filter>
     </None>
+    <None Include="shaders\slider_frag.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="shaders\slider_vertex.glsl">
+      <Filter>Shader Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\container.jpg">

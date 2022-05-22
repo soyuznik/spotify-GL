@@ -65,14 +65,17 @@ void Slider::set_pos(double seconds, double song_lenght) {
 void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 	double posx, double posy, double scale) {
 	texture_shader->use();
+
 	//rendering object1
 	this->model = texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
 	glBindTexture(GL_TEXTURE_2D, ID);// pick texture
 	VAO->use(); // pick vao
 	DRAW(6); // draw 6 vertices
-	texture_shader->transform(windowobj->window, posx, posy, scale);
+	
 	//dot drawing
-	texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
+	glm::mat4 model2 = texture_shader->notnormal_transform(windowobj->window, this->setdotpos, dposy, 0.03f);
+	glm::vec4 pos = glm::vec4(0.5f, 0.5f, 0.0f, 1.0f) * model2;
+	texture_shader->setFloat("comparePosX", pos.x);
 	dotTexture.use();
 	DOT.use();
 	DRAW(6);

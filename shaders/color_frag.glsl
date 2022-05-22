@@ -2,6 +2,8 @@
 
 out vec4 FragColor;
 uniform vec4 RGBA;
+
+
 void main()
 {
    FragColor = vec4(RGBA);

@@ -15,12 +15,15 @@ void VertexArrayObject::load_vertices() {
 	std::ifstream file(PATH);
 	if (file.eof()){
 		std::cout << " FAILURE! >> The file " + PATH + " is empty (EOF)! (file.eof()).VertexArrayObject::load_vertices()\n";
+		throw(errno);
 	}
 	if (file.fail()) {
 		std::cout << " FAILURE! >> Couldnt open file " + PATH + " (file.fail()).VertexArrayObject::load_vertices()\n";
+		throw(errno);
 	}
 	if (file.bad()) {
 		std::cout << " FATAL ERROR! >> Couldnt open file " + PATH + " (file.bad()).VertexArrayObject::load_vertices()\n";
+		throw(errno);
 	}
 	std::string line;
 	while (getline(file, line)) {
