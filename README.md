@@ -1,4 +1,2 @@
-# Spotify-GL 
-just another spotify ripoff                
-this project uses SoLoud for playing Audio , ClipboardXX for clipboard      
+![Banner](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/banner/Spotify-GL-banner.png))    
 
