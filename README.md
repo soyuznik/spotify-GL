@@ -9,4 +9,6 @@
  Select you preffered configuration & platform and press Local Windows Debugger.
  The only operating system tested is Windows 10.
 ## Contributing
- Any contribution is welcome.
+ Any contribution is welcome. Feel free to open a ISSUE.
+## Screenshots
+![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE.jpg)
