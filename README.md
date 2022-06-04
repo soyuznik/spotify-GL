@@ -3,7 +3,9 @@
 ## Description                                                                               
  A simple *OpenGL* music player similar to Spotify           
  The whole GUI is built entirely in *OpenGL using minimal dependencies*                                          
- Releases are not the latest version & the main branch may not be stable             
+ Releases are not the latest version & the main branch may not be stable    
+## Dependencies
+ FreeType , GLFW , SoLoud. 
 ## Building 
  To build open the .sln file using *Visual Studio (v. 17 2022 was used for this project)*    
  Select you preffered configuration & platform and press Local Windows Debugger.
@@ -11,4 +13,4 @@
 ## Contributing
  Any contribution is welcome. Feel free to open a ISSUE.
 ## Screenshots
-![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE.jpg)
+![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE2.jpg)
