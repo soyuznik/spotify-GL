@@ -1,5 +1,6 @@
 #include "WINDOW.h"
 #include "highlevel/ListObject.h"
+#include "stb_image.h"
 //for slots
 #include <shellapi.h>
 #include "UTILITY.h"
@@ -83,13 +84,16 @@ GLFWwindow* WINDOW::DEFINE_WINDOW(int transparency) {
 									2. make the window current context
 									3. load GLAD !*/
 									// create a windowed mode window and its OpenGL context
-	window = glfwCreateWindow(windowSizeW, windowSizeH, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(windowSizeW, windowSizeH, "Spotify-GL", NULL, NULL);
 	if (!window) {
 		glfwTerminate();
 		std::cout << "FAILED TO LOAD WINDOW";
 		return NULL;
 	}
-
+	GLFWimage images[1];
+	images[0].pixels = stbi_load("Resources/textures/opengl_icon.png", &images[0].width, &images[0].height, 0, 4); //rgba channels 
+	glfwSetWindowIcon(window, 1, images);
+	stbi_image_free(images[0].pixels);
 	// when window is clicked what it shoudl do
 	glfwSetMouseButtonCallback(window, mouse_button_callback);
 	// make the window's context current
