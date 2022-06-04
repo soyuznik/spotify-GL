@@ -92,6 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,8 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -138,8 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -152,81 +152,107 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="shaders\color_frag.glsl" />
-    <None Include="shaders\color_vertex.glsl" />
-    <None Include="shaders\darken_color_frag.glsl" />
-    <None Include="shaders\darken_color_vertex.glsl" />
-    <None Include="shaders\discard_white_frag.glsl" />
-    <None Include="shaders\discard_white_vertex.glsl" />
-    <None Include="shaders\slider_frag.glsl" />
-    <None Include="shaders\slider_vertex.glsl" />
-    <None Include="shaders\texture_frag.glsl" />
-    <None Include="shaders\texture_vertex.glsl" />
-    <None Include="shaders\text_frag.glsl" />
-    <None Include="shaders\text_vertex.glsl" />
-    <None Include="vertices\square.buf" />
-    <None Include="vertices\square_extra_high.buf" />
-    <None Include="vertices\square_extra_wide.buf" />
-    <None Include="vertices\square_extra_wide_lower.buf" />
-    <None Include="vertices\square_higher_wider.buf" />
-    <None Include="vertices\square_little_higher_menu.buf" />
-    <None Include="vertices\square_super_wide.buf" />
-    <None Include="vertices\square_textfield.buf" />
-    <None Include="vertices\square_wider.buf" />
-    <None Include="vertices\square_wider_menu.buf" />
-    <None Include="vertices\triangle.buf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\bricks2.jpg" />
-    <Image Include="textures\brickwall.jpg" />
-    <Image Include="textures\container.jpg" />
-    <Image Include="textures\container2.jpg" />
-    <Image Include="textures\marble.jpg" />
-    <Image Include="textures\metal.png" />
-    <Image Include="textures\pause.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="includes\glad.c" />
-    <ClCompile Include="includes\highlevel\Button.cpp" />
-    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp" />
-    <ClCompile Include="includes\highlevel\Downloader.cpp" />
-    <ClCompile Include="includes\highlevel\ListButton.cpp" />
-    <ClCompile Include="includes\highlevel\ListObject.cpp" />
-    <ClCompile Include="includes\highlevel\LoadAudio.cpp" />
-    <ClCompile Include="includes\highlevel\Panel.cpp" />
-    <ClCompile Include="includes\highlevel\Pause.cpp" />
-    <ClCompile Include="includes\highlevel\PlayList.cpp" />
-    <ClCompile Include="includes\highlevel\Slider.cpp" />
-    <ClCompile Include="includes\highlevel\TextField.cpp" />
-    <ClCompile Include="includes\highlevel\VerticalSlider.cpp" />
-    <ClCompile Include="includes\highlevel\VolSlider.cpp" />
-    <ClCompile Include="includes\lowlevel\SHADER.cpp" />
-    <ClCompile Include="includes\lowlevel\TEXT.cpp" />
-    <ClCompile Include="includes\lowlevel\TEXTURE.cpp" />
-    <ClCompile Include="includes\lowlevel\VAO.cpp" />
-    <ClCompile Include="includes\lowlevel\WINDOW.cpp" />
     <ClCompile Include="MAIN.cpp" />
+    <ClCompile Include="src\highlevel\Button.cpp" />
+    <ClCompile Include="src\highlevel\ClickEventCanceller.cpp" />
+    <ClCompile Include="src\highlevel\Downloader.cpp" />
+    <ClCompile Include="src\highlevel\ListButton.cpp" />
+    <ClCompile Include="src\highlevel\ListObject.cpp" />
+    <ClCompile Include="src\highlevel\LoadAudio.cpp" />
+    <ClCompile Include="src\highlevel\Panel.cpp" />
+    <ClCompile Include="src\highlevel\Pause.cpp" />
+    <ClCompile Include="src\highlevel\PlayList.cpp" />
+    <ClCompile Include="src\highlevel\Slider.cpp" />
+    <ClCompile Include="src\highlevel\TextField.cpp" />
+    <ClCompile Include="src\highlevel\VerticalSlider.cpp" />
+    <ClCompile Include="src\highlevel\VolSlider.cpp" />
+    <ClCompile Include="src\lowlevel\SHADER.cpp" />
+    <ClCompile Include="src\lowlevel\TEXT.cpp" />
+    <ClCompile Include="src\lowlevel\TEXTURE.cpp" />
+    <ClCompile Include="src\lowlevel\VAO.cpp" />
+    <ClCompile Include="src\lowlevel\WINDOW.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\highlevel\Button.h" />
-    <ClInclude Include="includes\highlevel\ClickEventCanceller.h" />
-    <ClInclude Include="includes\highlevel\Downloader.h" />
-    <ClInclude Include="includes\highlevel\ListButton.h" />
-    <ClInclude Include="includes\highlevel\ListObject.h" />
-    <ClInclude Include="includes\highlevel\LoadAudio.h" />
-    <ClInclude Include="includes\highlevel\Panel.h" />
-    <ClInclude Include="includes\highlevel\Pause.h" />
-    <ClInclude Include="includes\highlevel\PlayList.h" />
-    <ClInclude Include="includes\highlevel\Slider.h" />
-    <ClInclude Include="includes\highlevel\TextField.h" />
-    <ClInclude Include="includes\highlevel\VerticalSlider.h" />
-    <ClInclude Include="includes\highlevel\VolSlider.h" />
-    <ClInclude Include="includes\lowlevel\SHADER.h" />
-    <ClInclude Include="includes\lowlevel\TEXT.h" />
-    <ClInclude Include="includes\lowlevel\TEXTURE.h" />
-    <ClInclude Include="includes\lowlevel\UTILITY.h" />
-    <ClInclude Include="includes\lowlevel\VAO.h" />
-    <ClInclude Include="includes\lowlevel\WINDOW.h" />
+    <None Include="Resources\shaders\color_frag.glsl" />
+    <None Include="Resources\shaders\color_vertex.glsl" />
+    <None Include="Resources\shaders\darken_color_frag.glsl" />
+    <None Include="Resources\shaders\darken_color_vertex.glsl" />
+    <None Include="Resources\shaders\discard_white_frag.glsl" />
+    <None Include="Resources\shaders\discard_white_vertex.glsl" />
+    <None Include="Resources\shaders\slider_frag.glsl" />
+    <None Include="Resources\shaders\slider_vertex.glsl" />
+    <None Include="Resources\shaders\texture_frag.glsl" />
+    <None Include="Resources\shaders\texture_vertex.glsl" />
+    <None Include="Resources\shaders\text_frag.glsl" />
+    <None Include="Resources\shaders\text_vertex.glsl" />
+    <None Include="Resources\vertices\square.buf" />
+    <None Include="Resources\vertices\square_extra_high.buf" />
+    <None Include="Resources\vertices\square_extra_wide.buf" />
+    <None Include="Resources\vertices\square_extra_wide_lower.buf" />
+    <None Include="Resources\vertices\square_higher_slider.buf" />
+    <None Include="Resources\vertices\square_higher_wider.buf" />
+    <None Include="Resources\vertices\square_little_higher_menu.buf" />
+    <None Include="Resources\vertices\square_super_wide.buf" />
+    <None Include="Resources\vertices\square_textfield.buf" />
+    <None Include="Resources\vertices\square_wider.buf" />
+    <None Include="Resources\vertices\square_wider_list.buf" />
+    <None Include="Resources\vertices\square_wider_logo.buf" />
+    <None Include="Resources\vertices\square_wider_menu.buf" />
+    <None Include="Resources\vertices\triangle.buf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\textures\background-gray.png" />
+    <Image Include="Resources\textures\background_gray.png" />
+    <Image Include="Resources\textures\black.png" />
+    <Image Include="Resources\textures\blacker_gray.png" />
+    <Image Include="Resources\textures\bricks2.jpg" />
+    <Image Include="Resources\textures\brickwall.jpg" />
+    <Image Include="Resources\textures\button.jpg" />
+    <Image Include="Resources\textures\container.jpg" />
+    <Image Include="Resources\textures\container2.jpg" />
+    <Image Include="Resources\textures\dot.png" />
+    <Image Include="Resources\textures\download.png" />
+    <Image Include="Resources\textures\gray.png" />
+    <Image Include="Resources\textures\icon.png" />
+    <Image Include="Resources\textures\images.png" />
+    <Image Include="Resources\textures\itemm.png" />
+    <Image Include="Resources\textures\listItem.png" />
+    <Image Include="Resources\textures\loop.png" />
+    <Image Include="Resources\textures\marble.jpg" />
+    <Image Include="Resources\textures\menu.jpg" />
+    <Image Include="Resources\textures\metal.png" />
+    <Image Include="Resources\textures\opengl_logo.png" />
+    <Image Include="Resources\textures\pause.png" />
+    <Image Include="Resources\textures\play.png" />
+    <Image Include="Resources\textures\random.png" />
+    <Image Include="Resources\textures\search_bar.png" />
+    <Image Include="Resources\textures\skback.png" />
+    <Image Include="Resources\textures\skforwar.png" />
+    <Image Include="Resources\textures\Spotify-GL-bannerC.png" />
+    <Image Include="Resources\textures\VIOLET.jpg" />
+    <Image Include="Resources\textures\vol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\highlevel\Button.h" />
+    <ClInclude Include="src\highlevel\ClickEventCanceller.h" />
+    <ClInclude Include="src\highlevel\Downloader.h" />
+    <ClInclude Include="src\highlevel\ListButton.h" />
+    <ClInclude Include="src\highlevel\ListObject.h" />
+    <ClInclude Include="src\highlevel\LoadAudio.h" />
+    <ClInclude Include="src\highlevel\Panel.h" />
+    <ClInclude Include="src\highlevel\Pause.h" />
+    <ClInclude Include="src\highlevel\PlayList.h" />
+    <ClInclude Include="src\highlevel\Slider.h" />
+    <ClInclude Include="src\highlevel\TextField.h" />
+    <ClInclude Include="src\highlevel\VerticalSlider.h" />
+    <ClInclude Include="src\highlevel\VolSlider.h" />
+    <ClInclude Include="src\lowlevel\SHADER.h" />
+    <ClInclude Include="src\lowlevel\TEXT.h" />
+    <ClInclude Include="src\lowlevel\TEXTURE.h" />
+    <ClInclude Include="src\lowlevel\UTILITY.h" />
+    <ClInclude Include="src\lowlevel\VAO.h" />
+    <ClInclude Include="src\lowlevel\WINDOW.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

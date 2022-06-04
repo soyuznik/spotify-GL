@@ -1,277 +1,367 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Vertices Files">
-      <UniqueIdentifier>{7fc91b80-9885-4e85-8ffa-30bde93c0f1c}</UniqueIdentifier>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{3583a76e-a96f-47bf-a01d-78a6afb6948c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Texture Files">
-      <UniqueIdentifier>{c2c26360-2f55-474b-b390-a34eb7ae3661}</UniqueIdentifier>
+    <Filter Include="Resources\Vertex Files">
+      <UniqueIdentifier>{df5b0fda-c5fa-473f-a261-53f6ce09943a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Button">
-      <UniqueIdentifier>{6b3ece57-d92d-42d7-bd62-03db443f4a2e}</UniqueIdentifier>
+    <Filter Include="Resources\Texture Files">
+      <UniqueIdentifier>{86dc69a8-a892-4822-a386-6942a9c15d2d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ListObject">
-      <UniqueIdentifier>{0cd93c4c-98d4-452b-8cd4-5394f2a06dd2}</UniqueIdentifier>
+    <Filter Include="Resources\Shader Files">
+      <UniqueIdentifier>{8f29b767-e9c2-4735-aef2-1e8723079a7d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ClickEventCanceller">
-      <UniqueIdentifier>{7436f37c-2192-4dcd-bb44-ed6c17a7ed19}</UniqueIdentifier>
+    <Filter Include="Source">
+      <UniqueIdentifier>{b0b7e481-8585-4832-98fa-b49ff0bc25ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LoadAudio">
-      <UniqueIdentifier>{c7b04e1f-0f42-48dd-93bb-cc93c4bf98ed}</UniqueIdentifier>
+    <Filter Include="Source\highlevel">
+      <UniqueIdentifier>{f035d497-9273-429d-b5e4-60bc14bbe790}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Panel">
-      <UniqueIdentifier>{d2d46218-2c08-47d3-9825-7bcb51037267}</UniqueIdentifier>
+    <Filter Include="Source\lowlevel">
+      <UniqueIdentifier>{1c1fd811-664c-4ce2-a7d4-febe3c7bc8b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TextField">
-      <UniqueIdentifier>{e43a2e01-1737-418b-9683-2b71403c6be6}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Buttons">
+      <UniqueIdentifier>{d3416074-4a41-4dee-9f5b-c5c9ca96b262}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shader">
-      <UniqueIdentifier>{c565420b-04a8-4a6b-87bf-419c7a953945}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Buttons\ListButton">
+      <UniqueIdentifier>{a63e3abb-667a-44f2-a797-a483ec8ad712}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{57f33686-5d69-4601-bfb5-08bec4f43a5b}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\ClickEventCanceller">
+      <UniqueIdentifier>{2c4b668b-2db7-420c-8aa6-23aec4456610}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Text">
-      <UniqueIdentifier>{6a72ca27-b2d3-4dcc-ba94-96b1c4fdc228}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Downloader">
+      <UniqueIdentifier>{c8381cec-e78e-4670-9098-0203df9e9015}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VAO">
-      <UniqueIdentifier>{57da0018-2bf8-4a39-b731-c2fe013d7f0f}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\ListObject">
+      <UniqueIdentifier>{aa7f65eb-d7ea-4fc0-a1ab-fdcfac2be73c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{4dab1b0a-0223-4da4-bb41-8201a1d4a066}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\LoadAudio">
+      <UniqueIdentifier>{1801c637-6da4-457e-8f7b-32a40d2b68ea}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shader Files">
-      <UniqueIdentifier>{52489a05-96e8-499d-ad5c-a20b86c2a288}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Panel">
+      <UniqueIdentifier>{3b497453-4495-4704-b015-5eb4f90f88f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sliders">
-      <UniqueIdentifier>{91dedd3a-cd71-4ae9-8f63-a0373ac86c6d}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Buttons\Pause">
+      <UniqueIdentifier>{732392b2-66cb-4e2b-b315-966c9c9e110e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sliders\VolSlider">
-      <UniqueIdentifier>{58b9a1a4-99a9-4596-bfee-488c0abc1b6f}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\PlayList">
+      <UniqueIdentifier>{8da67d3d-0c08-4b40-9990-f3d3fd52185b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Downloader">
-      <UniqueIdentifier>{c27f5695-57f8-4e7b-9f9f-ff64af296dec}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\TextField">
+      <UniqueIdentifier>{a22ebf05-e86d-471f-afbf-ca77cc61881e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PlayList">
-      <UniqueIdentifier>{e8e46db9-c5c7-45e1-a8a5-01089c7bd986}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Sliders">
+      <UniqueIdentifier>{5952dfeb-06b9-43b5-bdea-8382872910b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Button\Pause">
-      <UniqueIdentifier>{7afe896d-a9eb-4587-b499-3cb4d9759cf1}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Sliders\VerticalSlider">
+      <UniqueIdentifier>{0e9a97c1-2050-4013-a7ed-7b0ce87451ab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sliders\VerticalSlider">
-      <UniqueIdentifier>{075e29b0-f5ca-40a1-a407-3d00b95a4fd6}</UniqueIdentifier>
+    <Filter Include="Source\highlevel\Sliders\VolSlider">
+      <UniqueIdentifier>{ec0ada6a-12f2-4279-b1ce-06f86f5e9854}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Button\ListButton">
-      <UniqueIdentifier>{73dd5b99-3c44-48bd-8378-6adb32cc32e3}</UniqueIdentifier>
+    <Filter Include="Source\lowlevel\SHADER">
+      <UniqueIdentifier>{878bcc88-3163-47d1-aa6e-1c09f25d2b5c}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="vertices\square.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\triangle.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_wider.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_extra_wide.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_higher_wider.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_super_wide.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_extra_high.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_little_higher_menu.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="shaders\color_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\color_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\darken_color_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\darken_color_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\discard_white_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\discard_white_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\text_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\texture_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="vertices\square_extra_wide_lower.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_wider_menu.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="vertices\square_textfield.buf">
-      <Filter>Vertices Files</Filter>
-    </None>
-    <None Include="shaders\slider_frag.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-    <None Include="shaders\slider_vertex.glsl">
-      <Filter>Shader Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\container.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\bricks2.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\brickwall.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\container2.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\marble.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\metal.png">
-      <Filter>Texture Files</Filter>
-    </Image>
-    <Image Include="textures\pause.jpg">
-      <Filter>Texture Files</Filter>
-    </Image>
+    <Filter Include="Source\lowlevel\TEXT">
+      <UniqueIdentifier>{1e97b754-6833-4f7b-9715-81b56ff483cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lowlevel\TEXTURE">
+      <UniqueIdentifier>{8d2a23e1-ae15-449e-ba64-ee3dd5798d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lowlevel\VAO">
+      <UniqueIdentifier>{e71b967e-5431-47b2-97ee-5892330ae253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\lowlevel\WINDOW">
+      <UniqueIdentifier>{c222d393-9095-4845-818e-78e6f640a357}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MAIN.cpp" />
-    <ClCompile Include="includes\highlevel\Button.cpp">
-      <Filter>Button</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\ListObject.cpp">
-      <Filter>ListObject</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\ClickEventCanceller.cpp">
-      <Filter>ClickEventCanceller</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\LoadAudio.cpp">
-      <Filter>LoadAudio</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\WINDOW.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\VAO.cpp">
-      <Filter>VAO</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\TEXT.cpp">
-      <Filter>Text</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\TEXTURE.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\lowlevel\SHADER.cpp">
-      <Filter>Shader</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\TextField.cpp">
-      <Filter>TextField</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\Panel.cpp">
-      <Filter>Panel</Filter>
-    </ClCompile>
-    <ClCompile Include="includes\highlevel\Slider.cpp">
-      <Filter>Sliders</Filter>
-    </ClCompile>
     <ClCompile Include="includes\glad.c" />
-    <ClCompile Include="includes\highlevel\VolSlider.cpp">
-      <Filter>Sliders\VolSlider</Filter>
+    <ClCompile Include="src\highlevel\Button.cpp">
+      <Filter>Source\highlevel\Buttons</Filter>
     </ClCompile>
-    <ClCompile Include="includes\highlevel\Downloader.cpp">
-      <Filter>Downloader</Filter>
+    <ClCompile Include="src\highlevel\ListButton.cpp">
+      <Filter>Source\highlevel\Buttons\ListButton</Filter>
     </ClCompile>
-    <ClCompile Include="includes\highlevel\PlayList.cpp">
-      <Filter>PlayList</Filter>
+    <ClCompile Include="src\highlevel\ClickEventCanceller.cpp">
+      <Filter>Source\highlevel\ClickEventCanceller</Filter>
     </ClCompile>
-    <ClCompile Include="includes\highlevel\Pause.cpp">
-      <Filter>Button\Pause</Filter>
+    <ClCompile Include="src\highlevel\Downloader.cpp">
+      <Filter>Source\highlevel\Downloader</Filter>
     </ClCompile>
-    <ClCompile Include="includes\highlevel\VerticalSlider.cpp">
-      <Filter>Sliders\VerticalSlider</Filter>
+    <ClCompile Include="src\highlevel\ListObject.cpp">
+      <Filter>Source\highlevel\ListObject</Filter>
     </ClCompile>
-    <ClCompile Include="includes\highlevel\ListButton.cpp">
-      <Filter>Button\ListButton</Filter>
+    <ClCompile Include="src\highlevel\LoadAudio.cpp">
+      <Filter>Source\highlevel\LoadAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\Panel.cpp">
+      <Filter>Source\highlevel\Panel</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\Pause.cpp">
+      <Filter>Source\highlevel\Buttons\Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\PlayList.cpp">
+      <Filter>Source\highlevel\PlayList</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\Slider.cpp">
+      <Filter>Source\highlevel\Sliders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\TextField.cpp">
+      <Filter>Source\highlevel\TextField</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\VerticalSlider.cpp">
+      <Filter>Source\highlevel\Sliders\VerticalSlider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\VolSlider.cpp">
+      <Filter>Source\highlevel\Sliders\VolSlider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lowlevel\SHADER.cpp">
+      <Filter>Source\lowlevel\SHADER</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lowlevel\TEXT.cpp">
+      <Filter>Source\lowlevel\TEXT</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lowlevel\TEXTURE.cpp">
+      <Filter>Source\lowlevel\TEXTURE</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lowlevel\VAO.cpp">
+      <Filter>Source\lowlevel\VAO</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lowlevel\WINDOW.cpp">
+      <Filter>Source\lowlevel\WINDOW</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includes\highlevel\Button.h">
-      <Filter>Button</Filter>
+    <None Include="Resources\shaders\color_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\color_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\darken_color_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\darken_color_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\discard_white_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\discard_white_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\slider_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\slider_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\text_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\text_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\texture_frag.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\shaders\texture_vertex.glsl">
+      <Filter>Resources\Shader Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_extra_high.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_extra_wide.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_extra_wide_lower.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_higher_slider.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_higher_wider.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_little_higher_menu.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_super_wide.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_textfield.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_wider.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_wider_list.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_wider_logo.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\square_wider_menu.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+    <None Include="Resources\vertices\triangle.buf">
+      <Filter>Resources\Vertex Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\textures\background_gray.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\background-gray.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\black.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\blacker_gray.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\bricks2.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\brickwall.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\button.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\container.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\container2.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\dot.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\download.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\gray.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\icon.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\images.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\itemm.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\listItem.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\loop.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\marble.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\menu.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\metal.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\opengl_logo.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\pause.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\play.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\random.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\search_bar.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\skback.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\skforwar.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\Spotify-GL-bannerC.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\VIOLET.jpg">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+    <Image Include="Resources\textures\vol.png">
+      <Filter>Resources\Texture Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\highlevel\Button.h">
+      <Filter>Source\highlevel\Buttons</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\ListObject.h">
-      <Filter>ListObject</Filter>
+    <ClInclude Include="src\highlevel\ListButton.h">
+      <Filter>Source\highlevel\Buttons\ListButton</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\ClickEventCanceller.h">
-      <Filter>ClickEventCanceller</Filter>
+    <ClInclude Include="src\highlevel\ClickEventCanceller.h">
+      <Filter>Source\highlevel\ClickEventCanceller</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\LoadAudio.h">
-      <Filter>LoadAudio</Filter>
+    <ClInclude Include="src\highlevel\Downloader.h">
+      <Filter>Source\highlevel\Downloader</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\WINDOW.h">
-      <Filter>Window</Filter>
+    <ClInclude Include="src\highlevel\ListObject.h">
+      <Filter>Source\highlevel\ListObject</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\VAO.h">
-      <Filter>VAO</Filter>
+    <ClInclude Include="src\highlevel\LoadAudio.h">
+      <Filter>Source\highlevel\LoadAudio</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\TEXT.h">
-      <Filter>Text</Filter>
+    <ClInclude Include="src\highlevel\Panel.h">
+      <Filter>Source\highlevel\Panel</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\TEXTURE.h">
-      <Filter>Texture</Filter>
+    <ClInclude Include="src\highlevel\Pause.h">
+      <Filter>Source\highlevel\Buttons\Pause</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\SHADER.h">
-      <Filter>Shader</Filter>
+    <ClInclude Include="src\highlevel\PlayList.h">
+      <Filter>Source\highlevel\PlayList</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\TextField.h">
-      <Filter>TextField</Filter>
+    <ClInclude Include="src\highlevel\Slider.h">
+      <Filter>Source\highlevel\Sliders</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\Panel.h">
-      <Filter>Panel</Filter>
+    <ClInclude Include="src\highlevel\TextField.h">
+      <Filter>Source\highlevel\TextField</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\Slider.h">
-      <Filter>Sliders</Filter>
+    <ClInclude Include="src\highlevel\VerticalSlider.h">
+      <Filter>Source\highlevel\Sliders\VerticalSlider</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\VolSlider.h">
-      <Filter>Sliders\VolSlider</Filter>
+    <ClInclude Include="src\highlevel\VolSlider.h">
+      <Filter>Source\highlevel\Sliders\VolSlider</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\Downloader.h">
-      <Filter>Downloader</Filter>
+    <ClInclude Include="src\lowlevel\SHADER.h">
+      <Filter>Source\lowlevel\SHADER</Filter>
     </ClInclude>
-    <ClInclude Include="includes\lowlevel\UTILITY.h" />
-    <ClInclude Include="includes\highlevel\PlayList.h">
-      <Filter>PlayList</Filter>
+    <ClInclude Include="src\lowlevel\TEXT.h">
+      <Filter>Source\lowlevel\TEXT</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\Pause.h">
-      <Filter>Button\Pause</Filter>
+    <ClInclude Include="src\lowlevel\TEXTURE.h">
+      <Filter>Source\lowlevel\TEXTURE</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\VerticalSlider.h">
-      <Filter>Sliders\VerticalSlider</Filter>
+    <ClInclude Include="src\lowlevel\VAO.h">
+      <Filter>Source\lowlevel\VAO</Filter>
     </ClInclude>
-    <ClInclude Include="includes\highlevel\ListButton.h">
-      <Filter>Button\ListButton</Filter>
+    <ClInclude Include="src\lowlevel\WINDOW.h">
+      <Filter>Source\lowlevel\WINDOW</Filter>
     </ClInclude>
+    <ClInclude Include="src\lowlevel\UTILITY.h" />
   </ItemGroup>
 </Project>
