@@ -31,7 +31,10 @@ public:
 	WINDOW* windowobj;
 	VertexArrayObject* VAO;
 	// loading a texture & font
-	TEXTURE* texture = new TEXTURE("textures/button.jpg");
+	
+	TEXTURE* texture = new TEXTURE("textures/background-gray.png");
+	TEXTURE* icon = new TEXTURE("textures/icon.png");
+	VertexArrayObject* icon_vao = new VertexArrayObject("vertices/square.buf");
 	double posx;
 	double posy;
 	double scale = 0;

@@ -42,7 +42,7 @@ int main()
 	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
 	
 	Panel media_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 0, 0.8f);
-	Panel upper_bar(texture_shader, &windowobj, "textures/blacker_gray.png", 300, 600, 0.8f);
+	Panel upper_bar(texture_shader, &windowobj, "textures/VIOLET.jpg", 300, 600, 0.8f);
 	ListObject list = ListObject(texture_shader, &windowobj, 610, 650, 0.2);
 	
 
@@ -50,7 +50,7 @@ int main()
 
 
 	double t = 1.2;
-
+	//fdsfds
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"textures/background-gray.png", 600, 400, 0.8f, "vertices/square_extra_high.buf");
 	Button rrandom = Button(texture_shader, &windowobj, 305 * t, 80, 0.05f);
@@ -63,14 +63,18 @@ int main()
 	Panel menu = Panel(texture_shader, &windowobj, "textures/menu.jpg", -50, 350, 0.5f, "vertices/square_little_higher_menu.buf");
 
 	//menu buttons
-	Button mitem1 = Button(texture_shader, &windowobj, 135, 551, 0.1f , "vertices/square_wider_menu.buf");
-	Button mitem2 = Button(texture_shader, &windowobj, 135, 505, 0.1f, "vertices/square_wider_menu.buf");
+	Button mitem1 = Button(texture_shader, &windowobj, 135, 551 - 60, 0.1f , "vertices/square_wider_menu.buf");
+	Button mitem2 = Button(texture_shader, &windowobj, 135, 505 - 60, 0.1f, "vertices/square_wider_menu.buf");
 	//Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
 	Text* font = new Text(windowobj, "fonts/OpenSans-Bold.ttf");
 
 	Panel SettingsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "textures/gray.png", 500, 340, 2.0f, "vertices/square.buf");
 	TextField text(texture_shader, &windowobj, 420, 540);
+
+	Panel upperIcon = Panel(texture_shader, &windowobj, "textures/opengl_logo.png", 135, 590, 0.1f, "vertices/square_wider_logo.buf");
+
+
 	Button searchB = Button(texture_shader, &windowobj, 770, 540, 0.1f , "vertices/square.buf");
 	searchB.set_texture("textures/download.png");
 	//textures menu----
@@ -180,8 +184,11 @@ int main()
 		mitem1.setTextM(font, "Main Menu", 0.6f, 1.0f, 1.0f, 1.0f);
 		mitem2.setTextM(font, "Settings", 0.6f, 1.0f, 1.0f, 1.0f);
 		//mitem3.setTextM(font, "Downloads", 0.6f, 1.0f, 1.0f, 1.0f);
-
-
+		
+		texture_shader->setBool("transparentMode", true);
+		upperIcon.render();
+		texture_shader->setBool("transparentMode", false);
+		
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (mitem1.is_clicked()) {
 				MainMenuLayer = true;

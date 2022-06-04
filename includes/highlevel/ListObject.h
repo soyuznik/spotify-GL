@@ -33,6 +33,8 @@ public:
 	int list_sensitivity = 20; // sensitivity which list operates to
 	Shader* texture_shader; // rendering shader
 	WINDOW* window; // window on which is rendered
+
+
 	double xpos;
 	double ypos;
 	double scale; // spacial positions

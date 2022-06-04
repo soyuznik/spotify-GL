@@ -9,7 +9,9 @@ void ListButton::change_position(double x, double y) {
 }
 //set text
 void ListButton::setText(Text* font, std::string text, float scale, float R, float G, float B) {
-	font->drawText(text, posx - 40, posy + 10, scale, glm::vec3(R, G, B));
+	int offset = 200;
+	font->drawText(text, posx - offset, posy + 19, scale + 0.05f, glm::vec3(1.0f, 1.0f, 1.0f));
+	font->drawText(text, posx - offset, posy + 2, scale - 0.1f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
 //set text* custom for menu
 void ListButton::setTextM(Text* font, std::string text, float scale, float R, float G, float B) {
@@ -34,6 +36,8 @@ ListButton::ListButton(Shader* _shader, WINDOW* _windowobj, double _posx, double
 	posy = _posy;
 	scale = _scale;
 	frames = &frames__;
+	
+	
 }
 // renders the button on screen using class variables from constructor
 void ListButton::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
@@ -61,6 +65,15 @@ void ListButton::create_button(Shader* texture_shader, WINDOW* windowobj, Vertex
 	texture->use(); // pick texture
 	VAO->use(); // pick vao
 	DRAW(6); // draw 6 vertices
+
+
+	texture_shader->transform(windowobj->window, posx - 260, posy + 15, scale - 0.1f);
+	icon->use();
+	icon_vao->use();
+	DRAW(6);
+
+	//small_font->drawText("undertext", posx - 40, posy + 10, scale, glm::vec3(0.0f, 0.0f, 0.0f));
+
 	texture_shader->setBool("changeColor", false); // dont change color for the rest of the rendering
 }
 // creates button with class variables
