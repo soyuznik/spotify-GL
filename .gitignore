@@ -1,7 +1,8 @@
 # Prerequisites
 *.d
 #ignore build folders
-build
+x64
+x86
 
 # Compiled Object files
 *.slo
