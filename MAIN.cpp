@@ -19,12 +19,13 @@
 #include "highlevel/PlayList.h"
 #include "highlevel/Pause.h"
 #include "highlevel/VerticalSlider.h"
+#include "highlevel/Checkbox.h"
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
-#define HIDE_VERTICAL_SLIDER 0
+
 
 // the main function , code is executed here
 int main()
@@ -99,15 +100,24 @@ int main()
 	}
 	VolSlider volslider = VolSlider(slider_shader, &windowobj, "Resources/textures/gray.png", 900, 40, 0.1f);
 	PlayList playlist(&list , &audio , &pause);
-#ifndef HIDE_VERTICAL_SLIDER
+
+
+	Checkbox* check = new Checkbox(texture_shader, &windowobj, 300, 300, 0.05f);
+	check->set_active("Resources/textures/checkbox_active.png");
+	check->set_unactive("Resources/textures/checkbox_unactive.png");
+
+
+
+	
 	VerticalSlider scroller = VerticalSlider(texture_shader, &windowobj, "Resources/textures/gray.png", 990, 350, 0.1f);
-#endif
+	
+
 
 
 
 	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
-	bool normalize = texture_shader->NORMALIZE_VALUES();
-	bool normalize1 = slider_shader->NORMALIZE_VALUES();
+	texture_shader->NORMALIZE_VALUES();
+	slider_shader->NORMALIZE_VALUES();
 	bool tmp_1 = true;
 
 
@@ -115,7 +125,7 @@ int main()
 	bool MainMenuLayer = true;
 	bool SettingsLayer = false;
 	bool DownloadsLayer = false;
-
+	bool HIDE_VERTICAL_SLIDER = true;
 
 
 	while (!glfwWindowShouldClose(windowobj.window))
@@ -132,11 +142,25 @@ int main()
 				pause.play_texture = false;
 			}
 			list.manage_scroll();
+			if (!HIDE_VERTICAL_SLIDER) {
+				scroller.render();
+			}
+			if (!HIDE_VERTICAL_SLIDER) {
+				if (scroller.accept_input(return_ndc_cursor(windowobj.window))) {
+					std::cout << "Slider activated!\n";
+				}
+			}
+
 		}
 		if (SettingsLayer) {
 			SettingsBackround.render();
-			font->drawText("Settings Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
+			check->render();
+			check->is_clicked();
+			HIDE_VERTICAL_SLIDER = check->is_active();
+			//font->drawText("Settings Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
+		check->set_activebool(HIDE_VERTICAL_SLIDER);
+		
 		//if (DownloadsLayer) {
 			//DownloadsBackround.render();
 			//texture_shader->setBool("transparentMode", true);
@@ -147,10 +171,10 @@ int main()
 			//texture_shader->setBool("transparentMode", false);
 			//if (searchB.is_clicked()) {
 			//	InitDownload(text.text());
-				
+
 			//}
 			//font->drawText("Downloads Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
-		
+
 		upper_bar.render();
 		media_bar.render();
 		//text.logkey();
@@ -171,9 +195,7 @@ int main()
 		texture_shader->setBool("transparentMode", false);
 		slider.render();
 		volslider.render();
-#ifndef HIDE_VERTICAL_SLIDER
-		scroller.render();
-#endif
+		
 		vol_img.render();
 
 		//menu rendering
@@ -188,6 +210,7 @@ int main()
 		texture_shader->setBool("transparentMode", true);
 		upperIcon.render();
 		texture_shader->setBool("transparentMode", false);
+		
 		
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (mitem1.is_clicked()) {
@@ -237,11 +260,8 @@ int main()
 			if (volslider.accept_input(return_ndc_cursor(windowobj.window))) {
 				volslider.set_volume(&audio);
 			}
-#ifndef HIDE_VERTICAL_SLIDER
-			if (scroller.accept_input(return_ndc_cursor(windowobj.window))) {
-				std::cout << "Slider activated!\n";
-			}
-#endif
+			
+
 		}
 		slider.set_pos(audio.time(), audio.song_time());
 		glfwSwapBuffers(windowobj.window);

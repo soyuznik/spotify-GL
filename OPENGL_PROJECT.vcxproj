@@ -169,6 +169,7 @@
     <ClCompile Include="includes\glad.c" />
     <ClCompile Include="MAIN.cpp" />
     <ClCompile Include="src\highlevel\Button.cpp" />
+    <ClCompile Include="src\highlevel\Checkbox.cpp" />
     <ClCompile Include="src\highlevel\ClickEventCanceller.cpp" />
     <ClCompile Include="src\highlevel\Downloader.cpp" />
     <ClCompile Include="src\highlevel\ListButton.cpp" />
@@ -249,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\highlevel\Button.h" />
+    <ClInclude Include="src\highlevel\Checkbox.h" />
     <ClInclude Include="src\highlevel\ClickEventCanceller.h" />
     <ClInclude Include="src\highlevel\Downloader.h" />
     <ClInclude Include="src\highlevel\ListButton.h" />

@@ -76,6 +76,9 @@
     <Filter Include="Source\lowlevel\WINDOW">
       <UniqueIdentifier>{c222d393-9095-4845-818e-78e6f640a357}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\highlevel\Checkbox">
+      <UniqueIdentifier>{2efec0f8-9531-4737-a84a-88f3410805b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MAIN.cpp" />
@@ -133,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="src\lowlevel\WINDOW.cpp">
       <Filter>Source\lowlevel\WINDOW</Filter>
+    </ClCompile>
+    <ClCompile Include="src\highlevel\Checkbox.cpp">
+      <Filter>Source\highlevel\Checkbox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -363,5 +369,8 @@
       <Filter>Source\lowlevel\WINDOW</Filter>
     </ClInclude>
     <ClInclude Include="src\lowlevel\UTILITY.h" />
+    <ClInclude Include="src\highlevel\Checkbox.h">
+      <Filter>Source\highlevel\Checkbox</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
