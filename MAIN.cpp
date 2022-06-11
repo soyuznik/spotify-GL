@@ -125,12 +125,18 @@ int main()
 	bool MainMenuLayer = true;
 	bool SettingsLayer = false;
 	bool DownloadsLayer = false;
-	bool HIDE_VERTICAL_SLIDER = true;
+	bool HIDE_VERTICAL_SLIDER;
 
 
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
-		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+		//glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+
+
+		HIDE_VERTICAL_SLIDER = check->is_active();
+		check->set_activebool(HIDE_VERTICAL_SLIDER);
+
+
 		if (MainMenuLayer) {
 			list_backround.render();
 			ListButton* buttonnr = list.render_and_manage_input();
@@ -156,10 +162,11 @@ int main()
 			SettingsBackround.render();
 			check->render();
 			check->is_clicked();
-			HIDE_VERTICAL_SLIDER = check->is_active();
+			
 			//font->drawText("Settings Menu not implemented", 350, 500, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f));
 		}
-		check->set_activebool(HIDE_VERTICAL_SLIDER);
+		
+		
 		
 		//if (DownloadsLayer) {
 			//DownloadsBackround.render();
