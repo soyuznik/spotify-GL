@@ -3,6 +3,11 @@
 #include <algorithm>
 #include <thread>
 
+
+
+
+
+
 //prototypes
 inline double is_in_slider(double value);
 inline void ex_textfile(std::string path);
