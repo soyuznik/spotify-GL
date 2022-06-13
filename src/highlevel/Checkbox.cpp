@@ -50,7 +50,7 @@ void Checkbox::set_texture(std::string PATH) {
 void Checkbox::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO, TEXTURE* texture,
 	double posx, double posy, double scale) {
 	if (_t_active == NULL or _t_unactive == NULL) {
-		throw("No active/unactive textures to render!");
+		throw("No active/unactive textures to render! You Probably forgot to set it using check->set_active/unactive!");
 	}
 	if (active) texture = _t_active;
 	if (!active) texture = _t_unactive;

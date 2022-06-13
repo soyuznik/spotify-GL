@@ -21,6 +21,8 @@ using namespace std;
 // the main function , code is executed here
 int main()
 {
+	// Hide Console for the moment
+	HideConsole();
 	// creating a transparent static window with width 1000 and height 640
 	WINDOW windowobj(TRANSPARENT_WINDOW_STATIC, 1000, 640);
 	//creating a shader program that uses texture shaders
@@ -45,6 +47,7 @@ int main()
 
 	//Checkbox
 	Checkbox* check = new Checkbox(texture_shader, &windowobj, 310, 540, 0.05f);
+	Checkbox* check1 = new Checkbox(texture_shader, &windowobj, 310, 500, 0.05f);
 
 	//Panels
 	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 135, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
@@ -83,6 +86,10 @@ int main()
 	rloop.set_texture("Resources/textures/loop.png");
 	check->set_active("Resources/textures/checkbox_active.png");
 	check->set_unactive("Resources/textures/checkbox_unactive.png");
+	check->indent("HIDE_VERTICAL_SLIDER");
+	check1->set_active("Resources/textures/checkbox_active.png");
+	check1->set_unactive("Resources/textures/checkbox_unactive.png");
+	check1->indent("HIDE_CPP_CONSOLE");
 	texture_shader->NORMALIZE_VALUES();
 	slider_shader->NORMALIZE_VALUES();
 
@@ -91,6 +98,7 @@ int main()
 	bool SettingsLayer = false;
 	bool DownloadsLayer = false;
 	bool HIDE_VERTICAL_SLIDER;
+	bool HIDE_CPP_CONSOLE;
 
 	//getting logged settings
 	ifstream reader("Resources/settings.cfg");
@@ -104,6 +112,13 @@ int main()
 			if (stoi(data) == 0) check->set_activebool(false);
 			if (stoi(data) == 1) check->set_activebool(true);
 		}
+		//HIDE_CPP_CONSOLE check1
+		if (line.find(check1->obj_ident) != std::string::npos) {
+			where_two_dots = line.find(":");
+			std::string data = line.substr(where_two_dots + 1, 10);
+			if (stoi(data) == 0) check1->set_activebool(false);
+			if (stoi(data) == 1) check1->set_activebool(true);
+		}
 	}
 	reader.close();
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,10 +126,14 @@ int main()
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+		HIDE_VERTICAL_SLIDER = check->is_active();
+		HIDE_CPP_CONSOLE = check1->is_active();
+		if (HIDE_CPP_CONSOLE) HideConsole();
+		else ShowConsole();
+
 
 		///////////////-- Choosing a Layer ---///////////////////////////////////////////////////////////////////////////////////////
-		HIDE_VERTICAL_SLIDER = check->is_active();
-
+		
 		if (MainMenuLayer) {
 			list_backround.render();
 			ListButton* buttonnr = list.render_and_manage_input();
@@ -133,7 +152,10 @@ int main()
 			SettingsBackround.render();
 			check->render();
 			check->is_clicked();
+			check1->render();
+			check1->is_clicked();
 			font->drawText("Hide vertical scrollbar", 330, 534, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
+			font->drawText("Hide C++ console", 330, 490, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 		}
 		/////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
 
@@ -210,6 +232,7 @@ int main()
 	// SAVE CURRENT STATE
 	ofstream writer("Resources/settings.cfg");
 	writer << check->obj_ident << " : " << (int)check->is_active() << "\n";
+	writer << check1->obj_ident << " : " << (int)check1->is_active() << "\n";
 	writer.close();
 	//destroy glfw object
 	glfwTerminate();

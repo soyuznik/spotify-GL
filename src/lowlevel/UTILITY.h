@@ -23,7 +23,20 @@ inline void download(std::string text);
 inline void InitDownload(std::string text);
 
 
+inline void HideConsole()
+{
+	::ShowWindow(::GetConsoleWindow(), SW_HIDE);
+}
 
+inline void ShowConsole()
+{
+	::ShowWindow(::GetConsoleWindow(), SW_SHOW);
+}
+
+inline bool IsConsoleVisible()
+{
+	return ::IsWindowVisible(::GetConsoleWindow()) != FALSE;
+}
 inline double is_in_slider(double value) {
 	if (value < -0.5) {
 		value = -0.5;
