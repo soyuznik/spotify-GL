@@ -44,7 +44,7 @@ public:
 	double posx;
 	double posy;
 	double scale;
-
+	bool SHOW_DOT = false;
 	// value that changes SLIDER DOT
 	bool setpos_called = false;
 
@@ -74,6 +74,8 @@ public:
 	
 	// accepts input from user
 	bool accept_input(glm::vec4 point);
+	// accepts HOVER input
+	bool accept_hover_input(glm::vec4 point);
 	// create_panel invoker
 	void render();
 

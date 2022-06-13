@@ -207,7 +207,20 @@ int main()
 		texture_shader->setBool("transparentMode", true);
 		upperIcon.render();
 		texture_shader->setBool("transparentMode", false);
+
+
+		// process HOVER EVENTS
+		if (slider.accept_hover_input(return_ndc_cursor(windowobj.window))) {
+			slider.SHOW_DOT = true;
+		}
+		else slider.SHOW_DOT = false;
 		
+		if (volslider.accept_hover_input(return_ndc_cursor(windowobj.window))) {
+			volslider.SHOW_DOT = true;
+		}
+		else volslider.SHOW_DOT = false;
+
+
 		
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			if (mitem1.is_clicked()) {

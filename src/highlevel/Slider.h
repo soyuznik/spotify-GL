@@ -47,7 +47,7 @@ public:
 
 	// value that changes SLIDER DOT
 	bool setpos_called = false;
-	
+	bool SHOW_DOT = false;
 
 	// Dot screen coords
 	double dposx;
@@ -75,6 +75,8 @@ public:
 	void setText(Text* font, std::string text, float scale, float R = 0.0f, float G = 0.0f, float B = 0.0f);
 	// accepts input from user
 	bool accept_input(glm::vec4 point);
+	// accepts HOVER input from user
+	bool accept_hover_input(glm::vec4 point);
 	// create_panel invoker
 	void render();
 
