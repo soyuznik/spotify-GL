@@ -85,6 +85,9 @@ bool Checkbox::is_active() {
 void Checkbox::set_activebool(bool __active) {
 	this->active = __active;
 }
+void Checkbox::indent(std::string ident) {
+	obj_ident = ident;
+}
 // creates button with class variables
 void Checkbox::render() {
 	create_button(shader, windowobj, VAO, texture, posx, posy, scale);

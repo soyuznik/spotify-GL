@@ -82,6 +82,7 @@ int main()
 	PlayList playlist(&list, &audio, &pause);
 
 	// settings
+	check->indent("HIDE_VERTICAL_SLIDER");
 	searchB.set_texture("Resources/textures/download.png");
 	mitem1.set_texture("Resources/textures/itemm.png");
 	mitem2.set_texture("Resources/textures/itemm.png");
@@ -103,10 +104,23 @@ int main()
 	bool DownloadsLayer = false;
 	bool HIDE_VERTICAL_SLIDER;
 
-
+	//getting logged settings
+	ifstream reader("Resources/settings.cfg");
+	std::string line;
+	while (getline(reader, line)) {
+		size_t where_two_dots;
+		// HIDE_VERTICAL_SLIDER check
+		if (line.find(check->obj_ident) != std::string::npos) {
+			where_two_dots = line.find(":");
+			std::string data = line.substr(where_two_dots + 1, 10);
+			if (stoi(data) == 0) check->set_activebool(false);
+			if (stoi(data) == 1) check->set_activebool(true);
+		}
+	}
+	reader.close();
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
-		//glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
+		glClear(GL_COLOR_BUFFER_BIT); // clearing so the moving doesnt make it leave a trace behind
 
 
 		HIDE_VERTICAL_SLIDER = check->is_active();
@@ -256,6 +270,11 @@ int main()
 		glfwPollEvents();
 		
 	}
+
+
+	ofstream writer("Resources/settings.cfg");
+	writer << check->obj_ident << " : " << (int)check->is_active() << "\n";
+	writer.close();
 	//destroy glfw object
 	glfwTerminate();
 	return 0;

@@ -20,6 +20,7 @@ public:
 	TEXTURE* _t_active;
 	bool is_active();
 	void set_activebool(bool __active);
+	void indent(std::string ident);
 	Checkbox(Shader* _shader, WINDOW* _windowobj, double _posx, double _posy, double _scale,  std::string PATH = "Resources/vertices/square.buf");
 	float last = 0;
 	void set_active(std::string active_path);
