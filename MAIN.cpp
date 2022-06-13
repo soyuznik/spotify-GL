@@ -32,38 +32,66 @@ int main()
 {
 	// creating a transparent static window with width 1000 and height 640
 	WINDOW windowobj(TRANSPARENT_WINDOW_STATIC, 1000, 640);
-	//SHADERS
+	//creating a shader program that uses texture shaders
 	Shader* texture_shader = new Shader("Resources/shaders/texture_vertex.glsl", "Resources/shaders/texture_frag.glsl");
 	Shader* slider_shader = new Shader("Resources/shaders/slider_vertex.glsl", "Resources/shaders/slider_frag.glsl");
+	//Shader color_shader("shaders/color_vertex.glsl", "shaders/color_frag.glsl");
+
 	//LoadAudio
 	LoadAudio audio = LoadAudio();
-	//PANELS
+
+	//Shader discard_shader("shaders/texture_vertex.glsl", "shaders/texture_frag.glsl");
+
 	Panel media_bar(texture_shader, &windowobj, "Resources/textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "Resources/textures/VIOLET.jpg", 300, 600, 0.8f);
-	Panel vol_img = Panel(texture_shader, &windowobj, "Resources/textures/vol.png", 810, 40, 0.05f, "Resources/vertices/square.buf");
-	Panel menu = Panel(texture_shader, &windowobj, "Resources/textures/menu.jpg", -50, 350, 0.5f, "Resources/vertices/square_little_higher_menu.buf");
-	Panel SettingsBackround = Panel(texture_shader, &windowobj, "Resources/textures/background-gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
-	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "Resources/textures/gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
+	ListObject list = ListObject(texture_shader, &windowobj, 610, 650, 0.2);
+
+
+
+
+
+	
+	//fdsfds
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"Resources/textures/background-gray.png", 600, 400, 0.8f, "Resources/vertices/square_extra_high.buf");
+	Button rrandom = Button(texture_shader, &windowobj, 366, 80, 0.05f);
+	Button skback = Button(texture_shader, &windowobj, 426, 80, 0.09f);
+	__Pause pause = __Pause(texture_shader, &windowobj, 492, 80, 0.12f);
+	Button skforwar = Button(texture_shader, &windowobj, 558, 80, 0.09f);
+	Button rloop = Button(texture_shader, &windowobj, 618, 80, 0.059f);
+	//Button download = Button(texture_shader, &windowobj, 250, 610, 0.09f);
+	Panel vol_img = Panel(texture_shader, &windowobj, "Resources/textures/vol.png", 810, 40, 0.05f, "Resources/vertices/square.buf");
+	Panel menu = Panel(texture_shader, &windowobj, "Resources/textures/menu.jpg", -50, 350, 0.5f, "Resources/vertices/square_little_higher_menu.buf");
+
+	//menu buttons
+	Button mitem1 = Button(texture_shader, &windowobj, 135, 491, 0.1f, "Resources/vertices/square_wider_menu.buf");
+	Button mitem2 = Button(texture_shader, &windowobj, 135, 444, 0.1f, "Resources/vertices/square_wider_menu.buf");
+	//Button mitem3 = Button(texture_shader, &windowobj, 135, 459, 0.1f, "vertices/square_wider_menu.buf");
+	Text* font = new Text(windowobj, "Resources/fonts/OpenSans-Bold.ttf");
+
+	Panel SettingsBackround = Panel(texture_shader, &windowobj, "Resources/textures/background-gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
+	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "Resources/textures/gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
+	TextField text(texture_shader, &windowobj, 420, 540);
+
 	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 135, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
 
 
-	// BUTTONS
-	Button rrandom = Button(texture_shader, &windowobj, 366, 80, 0.05f);
-	Button skback = Button(texture_shader, &windowobj, 426, 80, 0.09f);
-	Button skforwar = Button(texture_shader, &windowobj, 558, 80, 0.09f);
-	Button rloop = Button(texture_shader, &windowobj, 618, 80, 0.059f);
-
-	Button mitem1 = Button(texture_shader, &windowobj, 135, 491, 0.1f, "Resources/vertices/square_wider_menu.buf");
-	Button mitem2 = Button(texture_shader, &windowobj, 135, 445, 0.1f, "Resources/vertices/square_wider_menu.buf");
 	Button searchB = Button(texture_shader, &windowobj, 770, 540, 0.1f, "Resources/vertices/square.buf");
+	searchB.set_texture("Resources/textures/download.png");
+	//textures menu----
+	mitem1.set_texture("Resources/textures/itemm.png");
+	mitem2.set_texture("Resources/textures/itemm.png");
+	//mitem3.set_texture("textures/itemm.png");
 
-	// Checkbox
-	Checkbox* check = new Checkbox(texture_shader, &windowobj, 310, 540, 0.05f);
-	// LIST
-	ListObject list = ListObject(texture_shader, &windowobj, 610, 650, 0.2);
-	// Sliders
+
+	//texture seettings
+	rrandom.set_texture("Resources/textures/random.png");
+	skback.set_texture("Resources/textures/skback.png");
+	pause.b->set_texture("Resources/textures/play.png");
+	skforwar.set_texture("Resources/textures/skforwar.png");
+	rloop.set_texture("Resources/textures/loop.png");
+	//download.set_texture("textures/download.png");
+
 	Slider slider = Slider(slider_shader, &windowobj, "Resources/textures/gray.png", 490, 40, 0.1f);
 	std::vector dir = listdir("Resources/data");
 	for (int i = 0; i < dir.size(); i++) {
@@ -71,28 +99,23 @@ int main()
 		butt->obj_ident = dir[i];
 	}
 	VolSlider volslider = VolSlider(slider_shader, &windowobj, "Resources/textures/gray.png", 900, 40, 0.1f);
-	VerticalSlider scroller = VerticalSlider(texture_shader, &windowobj, "Resources/textures/gray.png", 990, 350, 0.1f);
-
-	// Text-related
-	Text* font = new Text(windowobj, "Resources/fonts/OpenSans-Bold.ttf");
-	//TextField text(texture_shader, &windowobj, 420, 540);
-	// __PAUSE custom button
-	__Pause pause = __Pause(texture_shader, &windowobj, 492, 80, 0.12f);
-	// playlist
 	PlayList playlist(&list, &audio, &pause);
 
-	// settings
-	check->indent("HIDE_VERTICAL_SLIDER");
-	searchB.set_texture("Resources/textures/download.png");
-	mitem1.set_texture("Resources/textures/itemm.png");
-	mitem2.set_texture("Resources/textures/itemm.png");
-	rrandom.set_texture("Resources/textures/random.png");
-	skback.set_texture("Resources/textures/skback.png");
-	pause.b->set_texture("Resources/textures/play.png");
-	skforwar.set_texture("Resources/textures/skforwar.png");
-	rloop.set_texture("Resources/textures/loop.png");
+
+	Checkbox* check = new Checkbox(texture_shader, &windowobj, 310, 540, 0.05f);
 	check->set_active("Resources/textures/checkbox_active.png");
 	check->set_unactive("Resources/textures/checkbox_unactive.png");
+
+
+
+
+	VerticalSlider scroller = VerticalSlider(texture_shader, &windowobj, "Resources/textures/gray.png", 990, 350, 0.1f);
+
+
+
+
+
+	//<class.NORMALIZE_VALUES()> is used to transform values from 0-255 for colors to values that opengl understand , works for coordinates too (pixels)
 	texture_shader->NORMALIZE_VALUES();
 	slider_shader->NORMALIZE_VALUES();
 	bool tmp_1 = true;
@@ -103,7 +126,6 @@ int main()
 	bool SettingsLayer = false;
 	bool DownloadsLayer = false;
 	bool HIDE_VERTICAL_SLIDER;
-
 	//getting logged settings
 	ifstream reader("Resources/settings.cfg");
 	std::string line;
