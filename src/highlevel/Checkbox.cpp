@@ -97,10 +97,10 @@ bool Checkbox::is_clicked() {
 		Sleep(100);
 		active = !active;
 	}
-	if (this->clicked and !(glfwGetMouseButton(windowobj->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)) {
+	if (this->clicked and (glfwGetMouseButton(windowobj->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)) {
 		//active = !active;
 		this->clicked = false;
-		this->change_color = true;
+		//this->change_color = true;
 		return true;
 	}
 	else return false;
