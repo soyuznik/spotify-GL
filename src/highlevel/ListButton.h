@@ -33,7 +33,7 @@ public:
 	// loading a texture & font
 	
 	TEXTURE* texture = new TEXTURE("Resources/textures/background-gray.png");
-	TEXTURE* icon = new TEXTURE("Resources/textures/icon.png");
+	TEXTURE* icon = new TEXTURE("Resources/textures/song_icon.png");
 	VertexArrayObject* icon_vao = new VertexArrayObject("Resources/vertices/square.buf");
 	double posx;
 	double posy;
