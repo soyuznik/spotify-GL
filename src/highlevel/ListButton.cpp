@@ -2,6 +2,9 @@
 #include "ListButton.h"
 //utility like return_ndc_cursor()
 #include "lowlevel/UTILITY.h"
+#include <sys/stat.h>
+
+#pragma warning(disable : 4996)
 // change position on screen
 void ListButton::change_position(double x, double y) {
 	posx = x;
@@ -9,10 +12,15 @@ void ListButton::change_position(double x, double y) {
 }
 //set text
 void ListButton::setText(Text* font, std::string text, float scale, float R, float G, float B) {
-	int offset = 200;
-	font->drawText(text, posx - offset, posy + 19, scale + 0.05f, glm::vec3(1.0f, 1.0f, 1.0f));
-	font->drawText(text, posx - offset, posy + 2, scale - 0.1f, glm::vec3(1.0f, 1.0f, 1.0f));
+	
+	struct stat fileInfo;
+	stat((std::string("Resources/data/") + text).c_str(), &fileInfo);
+	font->drawText(text, posx - 200, posy + 19, scale + 0.05f, glm::vec3(1.0f, 1.0f, 1.0f));
+	//C:\Users\user\Documents\GitHub\spotify-GL\Resources\data
+	std::string date = std::ctime(&fileInfo.st_ctime);
+	font->drawText(date.substr(0, date.size() - 1) , posx - 200, posy + 2, scale - 0.1f, glm::vec3(1.0f, 1.0f, 1.0f));
 }
+#pragma warning(enable : 4996)
 //set text* custom for menu
 void ListButton::setTextM(Text* font, std::string text, float scale, float R, float G, float B) {
 	font->drawText(text, posx - 110, posy - 15, scale, glm::vec3(R, G, B));

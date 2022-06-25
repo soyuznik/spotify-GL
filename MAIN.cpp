@@ -50,7 +50,7 @@ int main()
 	Checkbox* check1 = new Checkbox(texture_shader, &windowobj, 310, 500, 0.05f);
 
 	//Panels
-	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 135, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
+	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 100, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
 	Panel media_bar(texture_shader, &windowobj, "Resources/textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "Resources/textures/VIOLET.jpg", 300, 600, 0.8f);
 	Panel list_backround = Panel(texture_shader, &windowobj,
