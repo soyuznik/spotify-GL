@@ -51,6 +51,8 @@ int main()
 
 	//Panels
 	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 100, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
+	Panel houseIcon = Panel(texture_shader, &windowobj, "Resources/textures/house.jpg", 38, 488, 0.09f, "Resources/vertices/square.buf");
+	Panel gearIcon = Panel(texture_shader, &windowobj, "Resources/textures/gear.png", 38, 443, 0.1f, "Resources/vertices/square.buf");
 	Panel media_bar(texture_shader, &windowobj, "Resources/textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "Resources/textures/VIOLET.jpg", 300, 600, 0.8f);
 	Panel list_backround = Panel(texture_shader, &windowobj,
@@ -177,11 +179,13 @@ int main()
 		rloop.render();
 		rrandom.render();
 		upperIcon.render();
+		houseIcon.render();
+		gearIcon.render();
 		/* -- Disable transparency -- */texture_shader->setBool("transparentMode", false);
 
 		// RENDERING TEXT
-		mitem1.setTextM(font, "Main Menu", 0.6f, 1.0f, 1.0f, 1.0f);
-		mitem2.setTextM(font, "Settings", 0.6f, 1.0f, 1.0f, 1.0f);
+		mitem1.setTextM(font, "Home", 0.5f, 0.71f, 0.71f, 0.71f);
+		mitem2.setTextM(font, "Settings", 0.5f, 0.71f, 0.71f, 0.71f);
 
 		// process HOVER EVENTS
 		if (slider.accept_hover_input(return_ndc_cursor(windowobj.window))) {

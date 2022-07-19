@@ -148,7 +148,7 @@ inline glm::vec4 return_ndc_cursor(GLFWwindow* window) {
 	glm::vec4 point = glm::vec4(ndc_x, ndc_y, 1.0f, 1.0f);// creating point on screen with normalized coords
 	return point;
 }
-inline void download(std::string text) {
+[[deprecated]] inline void download(std::string text) {
 	system((std::string("c: & cd C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\dependencies & youtube-dl -o ") +
 		std::string("C:\\Users\\user\\Documents\\GitHub\\TRANSPARENT-TRIANGLE\\data\\out.mp4  ") + text).c_str());
 
@@ -168,7 +168,7 @@ inline void download(std::string text) {
 		printf("\n");
 	}
 }
-inline void InitDownload(std::string text) {
-	std::thread downloader = std::thread(&download, text);
-	downloader.detach();
+[[deprecated]] inline void InitDownload(std::string text) {
+	//std::thread downloader = std::thread(&download, text);
+	//downloader.detach();
 }

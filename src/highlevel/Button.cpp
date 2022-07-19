@@ -13,7 +13,7 @@ void Button::setText(Text* font, std::string text, float scale, float R, float G
 }
 //set text* custom for menu
 void Button::setTextM(Text* font, std::string text, float scale, float R, float G, float B) {
-	font->drawText(text, posx - 110, posy - 15, scale, glm::vec3(R, G, B));
+	font->drawText(text, posx - 67, posy - 13, scale, glm::vec3(R, G, B));
 }
 //set texture
 void Button::set_texture(std::string PATH) {
