@@ -43,6 +43,7 @@ int main()
 	Button rloop = Button(texture_shader, &windowobj, 618, 80, 0.059f);
 	Button mitem1 = Button(texture_shader, &windowobj, 135, 491, 0.1f, "Resources/vertices/square_wider_menu.buf");
 	Button mitem2 = Button(texture_shader, &windowobj, 135, 444, 0.1f, "Resources/vertices/square_wider_menu.buf");
+	Button mitem3 = Button(texture_shader, &windowobj, 135, 397, 0.1f, "Resources/vertices/square_wider_menu.buf");
 	Button searchB = Button(texture_shader, &windowobj, 770, 540, 0.1f, "Resources/vertices/square.buf");
 
 	//Checkbox
@@ -53,6 +54,7 @@ int main()
 	Panel upperIcon = Panel(texture_shader, &windowobj, "Resources/textures/opengl_logo.png", 100, 590, 0.1f, "Resources/vertices/square_wider_logo.buf");
 	Panel houseIcon = Panel(texture_shader, &windowobj, "Resources/textures/house.jpg", 38, 488, 0.09f, "Resources/vertices/square.buf");
 	Panel gearIcon = Panel(texture_shader, &windowobj, "Resources/textures/gear.png", 38, 443, 0.1f, "Resources/vertices/square.buf");
+	Panel downIcon = Panel(texture_shader, &windowobj, "Resources/textures/download_ic.png", 38, 395, 0.08f, "Resources/vertices/square.buf");
 	Panel media_bar(texture_shader, &windowobj, "Resources/textures/blacker_gray.png", 300, 0, 0.8f);
 	Panel upper_bar(texture_shader, &windowobj, "Resources/textures/VIOLET.jpg", 300, 600, 0.8f);
 	Panel list_backround = Panel(texture_shader, &windowobj,
@@ -81,6 +83,7 @@ int main()
 	searchB.set_texture("Resources/textures/download.png");
 	mitem1.set_texture("Resources/textures/itemm.png");
 	mitem2.set_texture("Resources/textures/itemm.png");
+	mitem3.set_texture("Resources/textures/itemm.png");
 	rrandom.set_texture("Resources/textures/random.png");
 	skback.set_texture("Resources/textures/skback.png");
 	pause.b->set_texture("Resources/textures/play.png");
@@ -159,6 +162,10 @@ int main()
 			font->drawText("Hide vertical scrollbar", 330, 534, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 			font->drawText("Hide C++ console", 330, 490, 0.5f, glm::vec3(1.0f, 1.0f, 1.0f));
 		}
+		if (DownloadsLayer) {
+			DownloadsBackround.render();
+		}
+
 		/////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
 
 		//RENDERING SOLID OBJECTS
@@ -168,6 +175,7 @@ int main()
 		menu.render();
 		mitem1.render();
 		mitem2.render();
+		mitem3.render();
 		slider.render();
 		volslider.render();
 		vol_img.render();
@@ -181,11 +189,13 @@ int main()
 		upperIcon.render();
 		houseIcon.render();
 		gearIcon.render();
+		downIcon.render();
 		/* -- Disable transparency -- */texture_shader->setBool("transparentMode", false);
 
 		// RENDERING TEXT
 		mitem1.setTextM(font, "Home", 0.5f, 0.71f, 0.71f, 0.71f);
 		mitem2.setTextM(font, "Settings", 0.5f, 0.71f, 0.71f, 0.71f);
+		mitem3.setTextM(font, "Downloads", 0.5f, 0.71f, 0.71f, 0.71f);
 
 		// process HOVER EVENTS
 		if (slider.accept_hover_input(return_ndc_cursor(windowobj.window))) {
@@ -203,6 +213,7 @@ int main()
 			//check if any menu items were clicked!
 			if (mitem1.is_clicked()) { MainMenuLayer = true; SettingsLayer = false; DownloadsLayer = false; };
 			if (mitem2.is_clicked()) { SettingsLayer = true; MainMenuLayer = false; DownloadsLayer = false; };
+			if (mitem3.is_clicked()) { SettingsLayer = false; MainMenuLayer = false; DownloadsLayer = true; };
 
 			// Check if any buttons were clicked
 			if (pause.b->is_clicked() && toggle_release_1) {
