@@ -129,7 +129,7 @@ int main()
 		}
 	}
 	reader.close();
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// -- MAIN LOOP -- //////////////////////////////////////////////
 
 	while (!glfwWindowShouldClose(windowobj.window))
 	{
@@ -140,7 +140,7 @@ int main()
 		else ShowConsole();
 
 
-		///////////////-- Choosing a Layer ---///////////////////////////////////////////////////////////////////////////////////////
+///////////////-- Choosing a Layer ---///////////////////////////////////////////////////////////////////////////////////////
 		
 		if (MainMenuLayer) {
 			list_backround.render();
@@ -170,8 +170,8 @@ int main()
 			etext.render();
 		}
 
-		/////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
+//--------------------------++++++++++++++------------------//////////////////////////////////////////////////////////////////
 		//RENDERING SOLID OBJECTS
 		upper_bar.render();
 		media_bar.render();
@@ -184,7 +184,8 @@ int main()
 		volslider.render();
 		vol_img.render();
 		//RENDERING TRANSPARENT OBJECTS
-		/* -- Enable transparency -- */ texture_shader->setBool("transparentMode", true);
+/* -- Enable transparency -- */ texture_shader->setBool("transparentMode", true); 
+/*------------=======--------*/ //glEnable(GL_BLEND); glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		pause.b->render();
 		skback.render();
 		skforwar.render();
@@ -194,13 +195,15 @@ int main()
 		houseIcon.render();
 		gearIcon.render();
 		downIcon.render();
-		/* -- Disable transparency -- */texture_shader->setBool("transparentMode", false);
+/* -- Disable transparency -- */ texture_shader->setBool("transparentMode", false); 
 
 		// RENDERING TEXT
 		mitem1.setTextM(font, "Home", 0.5f, 0.71f, 0.71f, 0.71f);
 		mitem2.setTextM(font, "Settings", 0.5f, 0.71f, 0.71f, 0.71f);
 		mitem3.setTextM(font, "Downloads", 0.5f, 0.71f, 0.71f, 0.71f);
 
+///////////////////////// PROCESS INPUT EVENTS ///////////////////////////////////////////
+// 		   =-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-==--==-=-=-=--=-==-=-=-=-=-=-  /////////
 		// process HOVER EVENTS
 		if (slider.accept_hover_input(return_ndc_cursor(windowobj.window))) {
 			slider.SHOW_DOT = true;
@@ -251,10 +254,13 @@ int main()
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE) {
 			toggle_release_1 = true;
 		}
+		etext.__POSTEVENT_logkey();
 		// poll for and process events
 		glfwPollEvents();
 	}
-	// SAVE CURRENT STATE
+//////////////// POST RUNNING EVENTS /////////////////-----///////////////////////////////////////////
+//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\/\/\/\/\/\/\/\/\/\/\/\\/\/\/\\//\/\/\\/\/\/\/\/\/\/\//
+
 	ofstream writer("Resources/settings.cfg");
 	writer << check->obj_ident << " : " << (int)check->is_active() << "\n";
 	writer << check1->obj_ident << " : " << (int)check1->is_active() << "\n";

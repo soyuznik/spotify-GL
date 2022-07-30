@@ -24,6 +24,8 @@ https://github.com/jarikomppa/soloud
 
 // For Slider & PlayList class recognition....////////////////////////
 #include "highlevel/Slider.h"
+
+
 class Slider;
 class PlayList;
 //////////////////////////////////////////////////////////////

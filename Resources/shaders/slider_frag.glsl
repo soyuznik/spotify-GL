@@ -6,14 +6,19 @@ in float glPosX;
 // texture sampler
 uniform sampler2D texture1;
 uniform float comparePosX;
-
+uniform bool should_be_green;
 
 
 void main()
 {  
        vec4 color = texture(texture1 , TextureCoords);
        if(comparePosX > glPosX){
-            color = vec4(0.0f , 1.0f , 0.0f , 1.0f);
+            if(should_be_green){
+               color = vec4(0.0f , 1.0f , 0.0f , 1.0f);
+            }
+            else{
+               color = vec4(1.0f , 1.0f , 1.0f , 1.0f);
+            }
        }
        FragColor = color;
 }

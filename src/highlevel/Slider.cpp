@@ -66,6 +66,7 @@ void Slider::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArray
 	double posx, double posy, double scale) {
 	texture_shader->use();
 	texture_shader->setFloat("comparePosX", this->setdotpos);
+	texture_shader->setBool("should_be_green", SHOW_DOT);
 	//rendering object1
 	this->model = texture_shader->transform(windowobj->window, posx, posy, scale); // 200 -xpos , 100 -ypos , 0.2 -scale;
 	glBindTexture(GL_TEXTURE_2D, ID);// pick texture
