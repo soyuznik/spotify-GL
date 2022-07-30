@@ -14,7 +14,8 @@ class TextField
 public:
 	Shader* shader; // shader to render text field box
 	WINDOW* window; // on which window
-
+	unsigned int activeID = TEXTURE("Resources/textures/transparent_searchbar_active.png").ID;
+	unsigned int unactiveID = TEXTURE("Resources/textures/transparent_searchbar.png").ID;
 	// text management Variables
 	std::string save_key = "";
 	int repeats = 0;

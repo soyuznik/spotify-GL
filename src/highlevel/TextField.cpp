@@ -24,7 +24,7 @@ TextField::TextField(Shader* shader_, WINDOW* window_, double posx_, double posy
 	///////////////// Custom font creation //////////////////////////
 	// https://www.glyphrstudio.com/online/
 	// https://cloudconvert.com/otf-to-ttf
-	Text* antonio_bold__ = new Text(*window, "Resources/fonts/Antonio-BoldCustom.ttf");
+	Text* antonio_bold__ = new Text(*window, "Resources/fonts/Arial-Sans.ttf");
 	panel = panel__;
 	antonio_bold = antonio_bold__;
 }
@@ -149,14 +149,18 @@ void TextField::render() {
 	}
 	if (was_initiated) {
 		
-		panel->ID = TEXTURE("Resources/textures/transparent_searchbar_active.png").ID;
+		panel->ID = activeID;
+	}
+	else if (!was_initiated && !showing_text.empty()) {
+
+		panel->ID = activeID;
 	}
 	else {
-		panel->ID = TEXTURE("Resources/textures/transparent_searchbar.png").ID;
+		panel->ID = unactiveID;
 	}
 	panel->render();
 	shader->setBool("changeColor", false);
 
-	antonio_bold->drawText(showing_text, posx - 11, posy - 10, 0.65f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
+	antonio_bold->drawText(showing_text, posx - 11, posy - 10, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
 }
 
