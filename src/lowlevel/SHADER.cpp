@@ -27,7 +27,7 @@ void Shader::color(float R, float G, float B, float A) {
 	}
 	glm::vec4 RGBA = glm::vec4(R, G, B, A);
 	//setting frag shader uniform
-	this->setVec4("RGBA", RGBA);
+	setVec4("RGBA", RGBA);
 };
 //will change the vertex shader uniform "model" that is multiplied with vertices coordinates
 glm::mat4 Shader::transform(GLFWwindow* window, float x, float y, float scale) {
@@ -49,7 +49,7 @@ glm::mat4 Shader::transform(GLFWwindow* window, float x, float y, float scale) {
 	model = glm::scale(model, glm::vec3(scale, scale, scale));
 
 	//uniform settting
-	this->setMat4("model", model);
+	setMat4("model", model);
 	//saving a copy for the model that will be used when proccesing input
 	return model;
 }
@@ -62,7 +62,7 @@ glm::mat4 Shader::notnormal_transform(GLFWwindow* window, float x, float y, floa
 	model = glm::scale(model, glm::vec3(scale, scale, scale));
 
 	//uniform settting
-	this->setMat4("model", model);
+	setMat4("model", model);
 	//saving a copy for the model that will be used when proccesing input
 	return model;
 }

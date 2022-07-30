@@ -33,6 +33,7 @@ public:
 	// Panel constructor
 	Panel(Shader* shader, WINDOW* windowobj, const char* path, double posx,
 		double posy, double scale, std::string PATH = "Resources/vertices/square_extra_wide.buf");
+	~Panel();
 	// creates panel using class variables
 	void create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
 		double posx, double posy, double scale);

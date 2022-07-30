@@ -65,7 +65,7 @@ VertexArrayObject::VertexArrayObject(const char* argPATH) {
 	PATH = argPATH;
 	// set up vertex data (and buffer(s)) and configure vertex attributes
 	// ------------------------------------------------------------------
-	this->load_vertices();
+	load_vertices();
 
 	unsigned int VBO, VAO;
 	glGenVertexArrays(1, &VAO);

@@ -60,7 +60,7 @@ int main()
 	Panel list_backround = Panel(texture_shader, &windowobj,
 		"Resources/textures/background-gray.png", 600, 400, 0.8f, "Resources/vertices/square_extra_high.buf");
 	Panel SettingsBackround = Panel(texture_shader, &windowobj, "Resources/textures/background-gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
-	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "Resources/textures/gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
+	Panel DownloadsBackround = Panel(texture_shader, &windowobj, "Resources/textures/background-gray.png", 500, 340, 2.0f, "Resources/vertices/square.buf");
 	Panel vol_img = Panel(texture_shader, &windowobj, "Resources/textures/vol.png", 810, 40, 0.05f, "Resources/vertices/square.buf");
 	Panel menu = Panel(texture_shader, &windowobj, "Resources/textures/menu.jpg", -50, 350, 0.5f, "Resources/vertices/square_little_higher_menu.buf");
 
@@ -79,6 +79,9 @@ int main()
 
 	//Playlist
 	PlayList playlist(&list, &audio, &pause);
+
+	//TextField
+	TextField etext = TextField(texture_shader, &windowobj, 500, 540);
 
 	searchB.set_texture("Resources/textures/download.png");
 	mitem1.set_texture("Resources/textures/itemm.png");
@@ -164,6 +167,7 @@ int main()
 		}
 		if (DownloadsLayer) {
 			DownloadsBackround.render();
+			etext.render();
 		}
 
 		/////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
@@ -208,6 +212,11 @@ int main()
 		}
 		else volslider.SHOW_DOT = false;
 
+		//procces general events
+		if (DownloadsLayer) {
+			etext.check_input();
+			etext.logkey();
+		}
 		// Process click input (if clicked!)
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
 			//check if any menu items were clicked!
@@ -215,6 +224,7 @@ int main()
 			if (mitem2.is_clicked()) { SettingsLayer = true; MainMenuLayer = false; DownloadsLayer = false; };
 			if (mitem3.is_clicked()) { SettingsLayer = false; MainMenuLayer = false; DownloadsLayer = true; };
 
+			
 			// Check if any buttons were clicked
 			if (pause.b->is_clicked() && toggle_release_1) {
 				toggle_release_1 = false; audio.pause();

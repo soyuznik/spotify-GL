@@ -19,7 +19,7 @@ TextField::TextField(Shader* shader_, WINDOW* window_, double posx_, double posy
 	posx = posx_;
 	posy = posy_;
 
-	Panel* panel__ = new Panel(shader, window, "Resources/textures/search_bar.png", posx + 100, posy, 0.15f , "Resources/vertices/square_textfield.buf");
+	Panel* panel__ = new Panel(shader, window, "Resources/textures/transparent_searchbar.png", posx + 100, posy, 0.15f , "Resources/vertices/square_textfield.buf");
 
 	///////////////// Custom font creation //////////////////////////
 	// https://www.glyphrstudio.com/online/
@@ -138,8 +138,8 @@ void TextField::render() {
 	
 	shader->use();
 	std::string showing_text = *tlog;
-	if (showing_text.size() > 25) {
-		showing_text.erase(0, (showing_text.size() - 25));
+	if (showing_text.size() > 32) {
+		showing_text.erase(0, (showing_text.size() - 32));
 	}
 	if (showing && was_initiated) {
 		showing_text.append("|");
@@ -147,9 +147,16 @@ void TextField::render() {
 	if (was_initiated) {
 		shader->setBool("changeColor", true);
 	}
+	if (was_initiated) {
+		
+		panel->ID = TEXTURE("Resources/textures/transparent_searchbar_active.png").ID;
+	}
+	else {
+		panel->ID = TEXTURE("Resources/textures/transparent_searchbar.png").ID;
+	}
 	panel->render();
 	shader->setBool("changeColor", false);
 
-	antonio_bold->drawText(showing_text, posx - 70, posy - 10, 0.65f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
+	antonio_bold->drawText(showing_text, posx - 11, posy - 10, 0.65f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
 }
 

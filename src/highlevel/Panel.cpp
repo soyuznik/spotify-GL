@@ -3,6 +3,18 @@
 // utility
 #include "lowlevel/UTILITY.h"
 
+
+//remove leak
+Panel::~Panel() {
+	//keep this
+	//delete shader;
+	//keep this
+	//delete windowobj;
+	delete VAO;
+}
+
+
+
 //changes position
 void Panel::change_position(double x, double y) {
 	posx = x;
@@ -24,8 +36,8 @@ Panel::Panel(Shader* _shader, WINDOW* _windowobj, const char* path, double _posx
 	posx = _posx;
 	posy = _posy;
 	scale = _scale;
-	TEXTURE* temp = new TEXTURE(std::string(path));
-	ID = temp->ID;
+	TEXTURE temp = TEXTURE(std::string(path));
+	ID = temp.ID;
 }
 // creates a panel object using class variables
 void Panel::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayObject* VAO,
@@ -40,12 +52,12 @@ void Panel::create_panel(Shader* texture_shader, WINDOW* windowobj, VertexArrayO
 // accepts input --- not usable
 bool Panel::accept_input(glm::vec4 point) {
 	std::vector<glm::vec3> raw = VAO->vec4_vector;
-	glm::vec4 A = this->model * glm::vec4(raw[0], 1.0f);
-	glm::vec4 B = this->model * glm::vec4(raw[1], 1.0f);
-	glm::vec4 C = this->model * glm::vec4(raw[2], 1.0f);
-	glm::vec4 A1 = this->model * glm::vec4(raw[3], 1.0f);
-	glm::vec4 B1 = this->model * glm::vec4(raw[4], 1.0f);
-	glm::vec4 C1 = this->model * glm::vec4(raw[5], 1.0f);
+	glm::vec4 A = model * glm::vec4(raw[0], 1.0f);
+	glm::vec4 B = model * glm::vec4(raw[1], 1.0f);
+	glm::vec4 C = model * glm::vec4(raw[2], 1.0f);
+	glm::vec4 A1 = model * glm::vec4(raw[3], 1.0f);
+	glm::vec4 B1 = model * glm::vec4(raw[4], 1.0f);
+	glm::vec4 C1 = model * glm::vec4(raw[5], 1.0f);
 
 	if (isInTriangle(A, B, C, point) or isInTriangle(A1, B1, C1, point)) {
 		return true;
