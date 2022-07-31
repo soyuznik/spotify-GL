@@ -86,13 +86,14 @@ void TextField::logkey() {
 	if (!was_initiated) return;
 	__TEXTFIELD_DEFINE_KEYMAP
 
-		// iterate using C++17 facilities
-		if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS and glfwGetKey(window->window, GLFW_KEY_V) == GLFW_PRESS and !is_ClipboardActive) {
+	// iterate using C++17 facilities
+	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS and glfwGetKey(window->window, GLFW_KEY_V) == GLFW_PRESS and !is_ClipboardActive) {
 			is_ClipboardActive = true;
 			clipboardxx::clipboard clipboardobj;
 			std::string clipboard;
 			clipboardobj >> clipboard;
 			tlog->append(clipboard);
+			save_key = "v";
 			return;
 		}
 	if (glfwGetKey(window->window, GLFW_KEY_LEFT_CONTROL) == GLFW_RELEASE or glfwGetKey(window->window, GLFW_KEY_V) == GLFW_RELEASE and is_ClipboardActive) {
