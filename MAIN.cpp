@@ -18,6 +18,10 @@ using namespace std;
 //defining a macro for easier drawing and understanding
 #define DRAW(n) glDrawArrays(GL_TRIANGLES, 0, n);
 
+
+
+
+
 // the main function , code is executed here
 int main()
 {
@@ -82,6 +86,7 @@ int main()
 
 	//TextField
 	TextField etext = TextField(texture_shader, &windowobj, 500, 540);
+
 
 	searchB.set_texture("Resources/textures/download.png");
 	mitem1.set_texture("Resources/textures/itemm.png");
@@ -254,7 +259,7 @@ int main()
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE) {
 			toggle_release_1 = true;
 		}
-		etext.__POSTEVENT_logkey();
+		
 		// poll for and process events
 		glfwPollEvents();
 	}

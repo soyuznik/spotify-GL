@@ -107,17 +107,17 @@ void TextField::logkey() {
 		if (glfwGetKey(window->window, value) == GLFW_PRESS) {
             if (letter == save_key and repeats < 30) { repeats++; return; } // if holding cause delay
 			else if (save_key != letter) { save_key = letter; repeats = 0; } // if changed letter = no delay
-			
+
 			if (letter == "delete") {
 				save_key = letter;
-				*tlog = tlog->substr(0, tlog->size() - 1); 
+				*tlog = tlog->substr(0, tlog->size() - 1);
 				logframes = 0;
 				break;//remove last character from log
 			}
 			else {
 				tlog->append(letter); logframes = 0; break; // add character
-
 			}
+			
 		}
 	}
 	}/* <------- EXIT LOG SCOPE ===== */
@@ -133,19 +133,7 @@ void TextField::logkey() {
 		}
 	}
 }
-void TextField::__POSTEVENT_logkey() { // if press and release key , add letter
-	//__TEXTFIELD_DEFINE_KEYMAP
-   // if (glfwGetKey(window->window, k[save_key]) == GLFW_RELEASE && logframes == 0) {
-		//if (save_key == "delete") {
-	//		*tlog = tlog->substr(0, tlog->size() - 1);
-	//		logframes = 1;
-			//remove last character from log
-	//	}
-	//	else {
-	//		tlog->append(save_key); logframes = 0;// add character
-	//	}
-	//}
-}
+
 // checks if user initiated the TEXTFIELD --- *turns gray*
 void TextField::check_input() {
 	glm::vec4 point = return_ndc_cursor(window->window);
@@ -161,9 +149,15 @@ void TextField::render() {
 	
 	shader->use();
 	std::string showing_text = *tlog;
-	if (showing_text.size() > 32) {
-		showing_text.erase(0, (showing_text.size() - 32));
+	int TEXT_WIDTH = 0;
+	for (int i = 0; i < showing_text.size(); i++) {
+		TEXT_WIDTH += antonio_bold->Characters[showing_text[i]].Size.x;
 	}
+	while (TEXT_WIDTH > 700) {
+		TEXT_WIDTH = TEXT_WIDTH - antonio_bold->Characters[showing_text.front()].Size.x;
+		showing_text.erase(showing_text.begin());
+	}
+	
 	if (showing && was_initiated) {
 		showing_text.append("|");
 	}
@@ -184,6 +178,6 @@ void TextField::render() {
 	panel->render();
 	shader->setBool("changeColor", false);
 
-	antonio_bold->drawText(showing_text, posx - 11, posy - 10, 0.5f, glm::vec3(0.0f, 0.0f, 0.0f)); // drawing text
+	antonio_bold->drawText(showing_text, posx - 170, posy - 9, 0.55f, glm::vec3(0.1f, 0.1f, 0.1f)); // drawing text
 }
 

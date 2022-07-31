@@ -41,7 +41,7 @@ public:
 	TextField(Shader* shader, WINDOW* window, double posx, double posy);
 	void render(); // render
 	void logkey(); // log user key press
-	void __POSTEVENT_logkey();
+	
 	void check_input(); // check if user invoked the TEXTFIELD
 	std::string text(); // returns  the text
 	std::string* tlog = new std::string(""); // current displayed text
