@@ -19,6 +19,8 @@ bool Shader::NORMALIZE_VALUES() {
 // will set shaders color
 void Shader::color(float R, float G, float B, float A) {
 	// here it normalizes the RGBA values from 0-255 to 0-1 (OPENGL understandable)
+	/////////////////////////////////////////////////////////////////////
+	// https://beadslang.com/projects/colorchart/colorchart.html
 	if (normalize) {
 		R = R / 255;
 		G = G / 255;
