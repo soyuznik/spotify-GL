@@ -12,6 +12,8 @@
 #include "highlevel/Pause.h"
 #include "highlevel/VerticalSlider.h"
 #include "highlevel/Checkbox.h"
+#include "highlevel/Downloader.h"
+
 
 //using namespace std because we use the C++ Standard Library headers
 using namespace std;
@@ -49,7 +51,8 @@ int main()
 	Button mitem2 = Button(texture_shader, &windowobj, 135, 444, 0.1f, "Resources/vertices/square_wider_menu.buf");
 	Button mitem3 = Button(texture_shader, &windowobj, 135, 397, 0.1f, "Resources/vertices/square_wider_menu.buf");
 	Button searchB = Button(texture_shader, &windowobj, 770, 540, 0.1f, "Resources/vertices/square.buf");
-
+	Button Download = Button(texture_shader, &windowobj, 950, 540, 0.14f, "Resources/vertices/square.buf");
+	
 	//Checkbox
 	Checkbox* check = new Checkbox(texture_shader, &windowobj, 310, 540, 0.05f);
 	Checkbox* check1 = new Checkbox(texture_shader, &windowobj, 310, 500, 0.05f);
@@ -70,6 +73,9 @@ int main()
 
 	// Fonts
 	Text* font = new Text(windowobj, "Resources/fonts/OpenSans-Bold.ttf");
+
+	//Downloader
+	Downloader downloader(font);
 
 	//Sliders
 	Slider slider = Slider(slider_shader, &windowobj, "Resources/textures/gray.png", 490, 40, 0.1f);
@@ -95,6 +101,8 @@ int main()
 	rrandom.set_texture("Resources/textures/random.png");
 	skback.set_texture("Resources/textures/skback.png");
 	pause.b->set_texture("Resources/textures/play.png");
+	Download.set_texture("Resources/textures/downL.png");
+	Download.should_change_color = false;
 	skforwar.set_texture("Resources/textures/skforwar.png");
 	rloop.set_texture("Resources/textures/loop.png");
 	check->set_active("Resources/textures/checkbox_active.png");
@@ -173,6 +181,7 @@ int main()
 		if (DownloadsLayer) {
 			DownloadsBackround.render();
 			etext.render();
+			Download.render();
 		}
 
 /////////////////////////-- Rendering objects --//////////////////////////////////////////////////////////////////////////////
@@ -224,6 +233,10 @@ int main()
 		if (DownloadsLayer) {
 			etext.check_input();
 			etext.logkey();
+			if (Download.is_clicked()) {
+				downloader.Download(etext.text());
+			}
+			downloader.render();
 		}
 		// Process click input (if clicked!)
 		if (glfwGetMouseButton(windowobj.window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {

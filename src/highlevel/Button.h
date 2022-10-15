@@ -25,7 +25,7 @@
 class Button
 {
 public:
-
+	bool should_change_color = true;
 	int frames__ = 0;
 	//saving objects
 	Shader* shader;

@@ -45,7 +45,7 @@ void Button::create_button(Shader* texture_shader, WINDOW* windowobj, VertexArra
 	*/
 	//if (glfwGetMouseButton(windowobj->window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
 	//{ texture_shader->setBool("changeColor", false); this->change_color = false;}
-	if (this->change_color) {
+	if (this->change_color && should_change_color) {
 		/*
 		NOTE: for some reason changing uniform works only from mainloop and only if its directly like this
 		because the uniform should be updated every frame!
