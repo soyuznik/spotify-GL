@@ -11,4 +11,4 @@
 ## Contributing
  Any contribution is welcome. Feel free to open a ISSUE.
 ## Screenshots
-![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE4.jpg)
+![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE4.png)
