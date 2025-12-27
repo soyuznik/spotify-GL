@@ -1,6 +1,6 @@
 
 
-Spotify-GL
+## Spotify-GL
 ![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE4.png)
 
 Most modern desktop applications rely on heavy, high-level abstractions like Electron or Qt. This one relied on just the OpenGL graphics library.
@@ -18,7 +18,7 @@ Non-Blocking Architecture: A thread-safe bridge ensuring that network-heavy Pyth
 The project features a deep integration of the Python C-API. Rather than executing external scripts, Python is embedded directly into the C++ memory space, allowing for:
 
 
-Class Diagram
+## Class Diagram
 
 <img src="Resources/class_diag.png" width="85%" alt="Class Diagram" />
 
@@ -46,7 +46,7 @@ Core Capabilities
 </table>
 
 
-Getting Started
+## Getting Started
 
 Prerequisites
 
@@ -56,7 +56,7 @@ Graphics: OpenGL 4.6 compatible drivers.
 
 Python: 3.10+ Development Headers installed.
 
-Build Instructions
+## Build Instructions
 
 Configure Include Paths:
 Ensure your compiler is pointed to the embedded Python headers located in src/VideoDownloader/python.
@@ -64,9 +64,11 @@ Ensure your compiler is pointed to the embedded Python headers located in src/Vi
 Link Libraries:
 Link against opengl32, glew32, and the python3 dynamic libraries.
 
-Compile:
+## Compile:
 
-g++ -I./src/VideoDownloader/python MAIN.cpp -lGL -lpython3.10 -o spotify-GL
+`g++ -I./src/VideoDownloader/python MAIN.cpp -lGL -lpython3.10 -o spotify-GL`
+or compile using Visual Studio 2022
+
 
 
 
