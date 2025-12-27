@@ -3,19 +3,19 @@
 ## Spotify-GL
 ![Example](https://github.com/Vasika-uso/spotify-GL/blob/main/.github/screenshots/exampleIMAGE4.png)
 
-Most modern desktop applications rely on heavy, high-level abstractions like Electron or Qt. This one relied on just the OpenGL graphics library.
+Most modern desktop applications rely on heavy, high-level abstractions like Electron or Qt. This one relies on just the OpenGL graphics library.
 
 1. Zero-Abstraction UI Core
 
-Instead of utilizing a pre-existing GUI toolkit, I implemented a custom event-driven UI framework directly on top of OpenGL.
-
-Custom Vertex Buffers: Manual management of VAOs and VBOs for interface elements.
-Shader-Based Logic: UI styling and effects handled via GLSL programs to keep the CPU cycle count minimal.
-Non-Blocking Architecture: A thread-safe bridge ensuring that network-heavy Python tasks never interrupt the 60fps rendering loop.
+Instead of utilizing a pre-existing GUI toolkit, I implemented a custom event-driven UI framework directly on top of OpenGL, using my own custom math.
+Custom Vertex Buffers: Manual management of VAOs and VBOs for interface elements.         
+Shader-Based Logic: UI styling and effects handled via GLSL programs to keep the CPU cycle count minimal.          
+Non-Blocking Architecture: A thread-safe bridge ensuring that network-heavy Python tasks never interrupt the 60fps rendering loop.          
+     
 
 2. High-Performance Language Bridging
 
-The project features a deep integration of the Python C-API. Rather than executing external scripts, Python is embedded directly into the C++ memory space, allowing for:
+The project features a deep integration of the Python C-API. Rather than executing external scripts, Python is embedded directly into the C++ memory space.
 
 
 ## Class Diagram
@@ -38,7 +38,6 @@ Core Capabilities
 <h4>Integrated Python Logic</h4>
 <ul>
 <li>Embedded <code>Python.h</code> C-API usage.</li>
-<li>Asynchronous metadata scraping via <code>pytube</code>.</li>
 <li>Automatic environment localization.</li>
 </ul>
 </td>
@@ -53,8 +52,6 @@ Prerequisites
 C++ Compiler: GCC 11+ or Clang 13+.
 
 Graphics: OpenGL 4.6 compatible drivers.
-
-Python: 3.10+ Development Headers installed.
 
 ## Build Instructions
 
